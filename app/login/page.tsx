@@ -3,6 +3,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
+import { useState } from "react";
+import { Eye, EyeOff } from "lucide-react";
 
 interface SignInFormValues {
   email: string;
@@ -30,6 +32,7 @@ const handleSubmit = (values: SignInFormValues) => {
 };
 
 export default function LoginPage() {
+  const [showPassword, setShowPassword] = useState(false);
   return (
     <div className="min-h-screen flex">
       {/* Left Side Image */}
@@ -45,7 +48,7 @@ export default function LoginPage() {
       </div>
 
       {/* Right Side Form */}
-      <div className="w-full md:w-1/3 flex flex-col justify-center items-center p-8">
+      <div className="w-full md:w-1/2 lg:w-1/3 flex flex-col justify-center items-center p-8 overflow-y-auto">
         <div className="w-full max-w-sm space-y-6">
           <div className="text-center">
             <h1 className="text-2xl font-bold mt-6 md:mt-[-90px]">LOGO</h1>
@@ -82,16 +85,28 @@ export default function LoginPage() {
                     />
                   </div>
 
-                  <div>
+                  <div className="relative">
                     <label className="block font-medium text-gray-500">
                       Password
                     </label>
-                    <Field
-                      name="password"
-                      type="password"
-                      placeholder="Your password"
-                      className="mt-1 block w-[94%] px-4 py-3 border border-gray-300 rounded-lg focus:ring focus:ring-blue-200"
-                    />
+                    <div className="relative">
+                      <Field
+                        name="password"
+                        type={showPassword ? "text" : "password"}
+                        placeholder="Your password"
+                        className="mt-1 block w-[94%] px-4 py-3 pr-10 border border-gray-300 rounded-lg focus:ring focus:ring-blue-200"
+                      />
+                      <div
+                        className="absolute inset-y-0 right-8 flex items-center cursor-pointer"
+                        onClick={() => setShowPassword((prev) => !prev)}
+                      >
+                        {showPassword ? (
+                          <EyeOff size={18} />
+                        ) : (
+                          <Eye size={18} />
+                        )}
+                      </div>
+                    </div>
                     <ErrorMessage
                       name="password"
                       component="p"
@@ -119,7 +134,10 @@ export default function LoginPage() {
 
               <p className="text-center mt-14">
                 New on our platform?{" "}
-                <Link href="/signup" className="text-black font-semibold hover:underline">
+                <Link
+                  href="/signup"
+                  className="text-black font-semibold hover:underline"
+                >
                   Register Account
                 </Link>
               </p>
