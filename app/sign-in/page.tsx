@@ -1,10 +1,12 @@
 "use client";
+
 import Image from "next/image";
 import Link from "next/link";
-import { Formik, Form, Field, ErrorMessage } from "formik";
+import { Formik, Form } from "formik";
 import * as Yup from "yup";
 import { useState } from "react";
 import { Eye, EyeOff } from "lucide-react";
+import InputField from "@/components/InputField";
 
 interface SignInFormValues {
   email: string;
@@ -27,12 +29,14 @@ const signInValidationSchema = Yup.object({
     .required("Password is required"),
 });
 
+// Submit Handler
 const handleSubmit = (values: SignInFormValues) => {
   console.log("Form submitted:", values);
 };
 
 export default function LoginPage() {
   const [showPassword, setShowPassword] = useState(false);
+
   return (
     <div className="min-h-screen flex">
       {/* Left Side Image */}
@@ -59,7 +63,7 @@ export default function LoginPage() {
               Login to your account 🔥
             </h2>
 
-            <div className="text-sm text-gray-500 space-y-4">
+            <div className="text-xs sm:text-sm text-gray-500 space-y-4">
               <p>Welcome back! Please enter your details.</p>
 
               <Formik
@@ -68,59 +72,36 @@ export default function LoginPage() {
                 onSubmit={handleSubmit}
               >
                 <Form className="space-y-4">
-                  <div>
-                    <label className="block font-medium text-gray-500 mt-10">
-                      Email
-                    </label>
-                    <Field
-                      name="email"
-                      type="email"
-                      placeholder="Your email"
-                      className="mt-1 block w-[94%] px-4 py-3 border border-gray-300 rounded-lg focus:ring focus:ring-blue-200"
-                    />
-                    <ErrorMessage
-                      name="email"
-                      component="p"
-                      className="text-red-500"
-                    />
-                  </div>
+                  <InputField
+                    name="email"
+                    type="email"
+                    label="Email"
+                    placeholder="Your email"
+                  />
 
                   <div className="relative">
-                    <label className="block font-medium text-gray-500">
-                      Password
-                    </label>
-                    <div className="relative">
-                      <Field
-                        name="password"
-                        type={showPassword ? "text" : "password"}
-                        placeholder="Your password"
-                        className="mt-1 block w-[94%] px-4 py-3 pr-10 border border-gray-300 rounded-lg focus:ring focus:ring-blue-200"
-                      />
-                      <div
-                        className="absolute inset-y-0 right-8 flex items-center cursor-pointer"
-                        onClick={() => setShowPassword((prev) => !prev)}
-                      >
-                        {showPassword ? (
-                          <EyeOff size={18} />
-                        ) : (
-                          <Eye size={18} />
-                        )}
-                      </div>
-                    </div>
-                    <ErrorMessage
+                    <InputField
                       name="password"
-                      component="p"
-                      className="text-red-500"
+                      type={showPassword ? "text" : "password"}
+                      label="Password"
+                      placeholder="Your password"
                     />
+                    <div
+                      className="absolute inset-y-0 right-4 top-6 sm:top-8 flex items-center cursor-pointer"
+                      onClick={() => setShowPassword((prev) => !prev)}
+                    >
+                      {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
+                    </div>
                   </div>
 
                   <button
                     type="submit"
-                    className="w-[94%] text-white py-3 rounded-lg hover:bg-blue-700 transition font-bold"
+                    className="w-full text-white py-3 rounded-lg hover:opacity-90 transition font-bold"
                     style={{ backgroundColor: "#1E3A8A" }}
                   >
                     Sign In
                   </button>
+
                   <div className="text-center mt-4 w-full underline">
                     <Link
                       href="/forgot-password"
