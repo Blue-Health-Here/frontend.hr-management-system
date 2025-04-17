@@ -55,10 +55,10 @@ export default function SignupPage() {
       </div>
 
       {/* Right Side Form */}
-      <div className="w-full md:w-1/3 flex flex-col justify-center items-center p-8">
+      <div className="w-full md:w-1/2 lg:w-1/3 flex flex-col justify-center items-center p-8 overflow-y-auto">
         <div className="w-full max-w-sm space-y-6">
           <div className="text-center">
-            <h1 className="text-2xl font-bold mt-6 md:mt-[-90px]">LOGO</h1>
+            <h1 className="text-2xl font-bold">LOGO</h1>
           </div>
 
           <div>
