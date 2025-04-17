@@ -40,7 +40,6 @@ const handleSubmit = (values: SignUpFormValues) => {
 export default function SignupPage() {
   return (
     <div className="min-h-screen flex">
-      
       {/* Left Side Image */}
       <div className="w-full md:w-1/2 lg:w-2/3 relative hidden md:flex items-center justify-center bg-gray-100">
         <div className="relative w-[800px] h-[600px]">
@@ -101,7 +100,8 @@ export default function SignupPage() {
 
                   <button
                     type="submit"
-                    className="w-full bg-blue-700 text-white py-3 rounded-lg hover:bg-blue-800 transition font-bold"
+                    className="w-full text-white py-3 rounded-lg hover:opacity-90 transition font-bold"
+                    style={{ backgroundColor: "#1E3A8A" }}
                   >
                     Sign Up
                   </button>
