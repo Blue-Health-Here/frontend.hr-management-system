@@ -35,8 +35,8 @@ export default function Sidebar() {
           className="flex items-center gap-3 px-4 py-3 rounded-lg"
           onClick={() => handleNavigation("/staff-portal")}
         >
-          <User size={24} className="text-black" />
-          <span className="text-black font-medium">Staff Portal</span>
+          <User size={20} className="text-gray-500" />
+          <span className="text-gray-500 font-medium">Staff Portal</span>
         </button>
       </div>
     </div>

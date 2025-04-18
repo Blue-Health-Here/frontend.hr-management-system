@@ -6,28 +6,28 @@ export default function Dashboard() {
   const metrics = [
     {
       title: "Total Employees",
-      value: "124",
+      value: "10",
       icon: <Users className="text-blue-600" size={24} />,
       topBgColor: "bg-blue-100",
       description: "Across all departments",
     },
     {
       title: "Active Employees",
-      value: "112",
+      value: "7",
       icon: <Users className="text-green-600" size={24} />,
       topBgColor: "bg-green-100",
       description: "Currently working",
     },
     {
       title: "On Leave",
-      value: "8",
+      value: "2",
       icon: <CalendarX className="text-yellow-600" size={24} />,
       topBgColor: "bg-yellow-100",
       description: "Away from work",
     },
     {
       title: "Upcoming Leaves",
-      value: "4",
+      value: "3",
       icon: <CalendarCheck className="text-red-600" size={24} />,
       topBgColor: "bg-red-100",
       description: "Approved leave requests",
@@ -35,24 +35,60 @@ export default function Dashboard() {
   ];
 
   const currentlyOnLeave = [
-    { name: "Sarah Williams", department: "Design" },
-    { name: "Michael Brown", department: "Sales" }
+    { 
+      name: "Sarah Williams", 
+      jobTitle: "Senior Designer",
+      image: "https://randomuser.me/api/portraits/women/43.jpg" 
+    },
+    { 
+      name: "Michael Brown", 
+      jobTitle: "Sales Representative",
+      image: "https://randomuser.me/api/portraits/men/32.jpg" 
+    }
   ];
 
   const activeEmployees = [
-    { name: "John Doe", department: "Engineering", status: "Working" },
-    { name: "Jane Smith", department: "Marketing", status: "In Office" },
-    { name: "Alex Johnson", department: "HR", status: "Remote" },
-    { name: "Emily Davis", department: "Finance", status: "In Office" },
-    { name: "Robert Wilson", department: "Operations", status: "Remote" },
-    { name: "Lisa Thompson", department: "Sales", status: "In Office" },
-    { name: "David Lee", department: "IT", status: "Remote" }
+    { 
+      name: "John Doe", 
+      jobTitle: "Senior Software Engineer", 
+      image: "https://randomuser.me/api/portraits/men/22.jpg" 
+    },
+    { 
+      name: "Jane Smith", 
+      jobTitle: "Marketing Manager", 
+      image: "https://randomuser.me/api/portraits/women/33.jpg" 
+    },
+    { 
+      name: "Alex Johnson", 
+      jobTitle: "HR Coordinator", 
+      image: "https://randomuser.me/api/portraits/men/45.jpg" 
+    },
+    { 
+      name: "Emily Davis", 
+      jobTitle: "Financial Analyst", 
+      image: "https://randomuser.me/api/portraits/women/28.jpg" 
+    },
+    { 
+      name: "Robert Wilson", 
+      jobTitle: "Operations Specialist", 
+      image: "https://randomuser.me/api/portraits/men/19.jpg" 
+    },
+    { 
+      name: "Lisa Thompson", 
+      jobTitle: "Sales Executive", 
+      image: "https://randomuser.me/api/portraits/women/65.jpg" 
+    },
+    { 
+      name: "David Lee", 
+      jobTitle: "IT Support Engineer", 
+      image: "https://randomuser.me/api/portraits/men/67.jpg" 
+    }
   ];
 
   const hrOverview = {
-    newHires: 3,
-    terminations: 1,
-    promotions: 2
+    departments: 8,
+    shiftsThisWeek: 11,
+    pendingLeaveRequests: 2
   };
 
   const currentWeek = {
@@ -62,16 +98,19 @@ export default function Dashboard() {
 
   return (
     <div className="p-8 bg-gray-100">
-      <h1 className="text-3xl font-bold text-gray-800">Dashboard</h1>
-      <hr className="my-6 border-t border-gray-300" />
+      {/* Sticky Header Section */}
+      <div className="sticky top-0 z-10 bg-gray-100 pt-8 -mt-8 pb-2">
+        <h1 className="text-xl font-semibold text-gray-800">Dashboard</h1>
+        <hr className="my-6 border-t border-gray-300" />
+      </div>
       
       {/* Top Metrics Cards */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
         {metrics.map((metric, index) => (
           <div key={index} className="bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow overflow-hidden">
-            <div className={`${metric.topBgColor} px-6 py-4`}>
+            <div className={`${metric.topBgColor} px-6 py-3`}>
               <div className="flex justify-between items-center">
-                <p className="text-sm font-medium text-gray-600">
+                <p className="text-md font-semibold text-gray-800">
                   {metric.title}
                 </p>
                 <div className="p-2 rounded-full bg-white bg-opacity-80">
@@ -99,9 +138,9 @@ export default function Dashboard() {
             <h2 className="text-lg font-semibold text-gray-800">This Week's Shift</h2>
           </div>
           
-          <div className="grid grid-cols-7 gap-1 mb-1">
+          <div className="grid grid-cols-7 gap-1 mb-3">
             {currentWeek.days.map((day) => (
-              <div key={day} className="text-center text-sm font-medium text-gray-500">
+              <div key={day} className="text-center text-sm font-[550]">
                 {day}
               </div>
             ))}
@@ -109,8 +148,14 @@ export default function Dashboard() {
           
           <div className="grid grid-cols-7 gap-1">
             {currentWeek.dates.map((date) => (
-              <div key={date} className="text-center text-lg font-bold text-gray-800">
-                {date}
+              <div key={date} className="text-center text-md text-gray-800">
+                {date === "18" ? (
+                  <div className="mx-auto w-8 h-8 flex items-center justify-center rounded-full border-sky-400 bg-sky-100">
+                    {date}
+                  </div>
+                ) : (
+                  date
+                )}
               </div>
             ))}
           </div>
@@ -119,17 +164,22 @@ export default function Dashboard() {
         {/* Currently On Leave */}
         <div className="bg-white rounded-lg shadow-sm p-6 lg:col-span-1">
           <div className="flex items-center mb-4">
-            <h2 className="text-lg font-semibold text-gray-800">Currently On Leave ({currentlyOnLeave.length})</h2>
+            <h2 className="text-lg font-semibold text-gray-800">Currently On Leave</h2>
           </div>
           <div className="space-y-3">
             {currentlyOnLeave.map((employee, index) => (
-              <div key={index} className="flex justify-between items-center p-3 hover:bg-gray-50 rounded">
-                <div>
-                  <p className="font-medium text-gray-800">{employee.name}</p>
-                  <p className="text-sm text-gray-500">{employee.department}</p>
+              <div key={index} className="flex items-center p-3 hover:bg-gray-50 rounded gap-3">
+                <img 
+                  src={employee.image} 
+                  alt={employee.name}
+                  className="w-10 h-10 rounded-full object-cover"
+                />
+                <div className="flex-1 min-w-0">
+                  <p className="font-medium text-gray-800 truncate">{employee.name}</p>
+                  <p className="text-sm text-gray-500 truncate">{employee.jobTitle}</p>
                 </div>
-                <span className="text-xs font-medium text-yellow-600">
-                  On Leave
+                <span className="text-xs font-medium text-yellow-800 whitespace-nowrap px-2 py-1 rounded-full bg-yellow-100">
+                  on leave
                 </span>
               </div>
             ))}
@@ -142,20 +192,23 @@ export default function Dashboard() {
         {/* Active Employees - Scrollable */}
         <div className="bg-white rounded-lg shadow-sm p-6 lg:col-span-2">
           <div className="flex items-center mb-4">
-            <h2 className="text-lg font-semibold text-gray-800">Active Employees ({activeEmployees.length})</h2>
+            <h2 className="text-lg font-semibold text-gray-800">Active Employees</h2>
           </div>
-          <div className="max-h-64 overflow-y-auto pr-2">
+          <div className="h-[280px] overflow-y-auto pr-2">
             <div className="space-y-3">
               {activeEmployees.map((employee, index) => (
-                <div key={index} className="flex justify-between items-center p-3 hover:bg-gray-50 rounded">
-                  <div>
-                    <p className="font-medium text-gray-800">{employee.name}</p>
-                    <p className="text-sm text-gray-500">{employee.department}</p>
+                <div key={index} className="flex items-center p-3 hover:bg-gray-50 rounded gap-3">
+                  <img 
+                    src={employee.image} 
+                    alt={employee.name}
+                    className="w-10 h-10 rounded-full object-cover"
+                  />
+                  <div className="flex-1 min-w-0">
+                    <p className="font-medium text-gray-800 truncate">{employee.name}</p>
+                    <p className="text-sm text-gray-500 truncate">{employee.jobTitle}</p>
                   </div>
-                  <span className={`text-xs font-medium ${
-                    employee.status === "Remote" ? "text-purple-600" : "text-green-600"
-                  }`}>
-                    {employee.status}
+                  <span className="text-xs font-medium whitespace-nowrap text-green-800 px-2 py-1 rounded-full bg-green-100">
+                    active
                   </span>
                 </div>
               ))}
@@ -163,23 +216,52 @@ export default function Dashboard() {
           </div>
         </div>
 
-        {/* HR Overview - Fixed Height */}
+        {/* HR Overview  */}
         <div className="bg-white rounded-lg shadow-sm p-6 lg:col-span-1 h-fit">
           <div className="flex items-center mb-4">
             <h2 className="text-lg font-semibold text-gray-800">HR Overview</h2>
           </div>
           <div className="space-y-4">
-            <div className="flex justify-between items-center p-3">
-              <span className="text-sm font-medium text-gray-600">New Hires</span>
-              <span className="text-lg font-bold text-blue-600">{hrOverview.newHires}</span>
+            {/* Departments */}
+            <div>
+              <p className="text-sm font-medium text-gray-600 mb-1">Departments</p>
+              <div className="flex items-center gap-2">
+                <div className="flex-1 bg-gray-200 rounded-full h-1">
+                  <div 
+                    className="bg-blue-600 h-1" 
+                    style={{ width: `${(hrOverview.departments / 10) * 100}%` }}
+                  ></div>
+                </div>
+                <span className="text-sm font-bold text-gray-700">{hrOverview.departments}</span>
+              </div>
             </div>
-            <div className="flex justify-between items-center p-3">
-              <span className="text-sm font-medium text-gray-600">Terminations</span>
-              <span className="text-lg font-bold text-red-600">{hrOverview.terminations}</span>
+            
+            {/* Shifts This Week */}
+            <div>
+              <p className="text-sm font-medium text-gray-600 mb-1">Shifts This Week</p>
+              <div className="flex items-center gap-2">
+                <div className="flex-1 bg-gray-200 rounded-full h-1">
+                  <div 
+                    className="bg-green-600 h-1" 
+                    style={{ width: `${(hrOverview.shiftsThisWeek / 15) * 100}%` }}
+                  ></div>
+                </div>
+                <span className="text-sm font-bold text-gray-700">{hrOverview.shiftsThisWeek}</span>
+              </div>
             </div>
-            <div className="flex justify-between items-center p-3">
-              <span className="text-sm font-medium text-gray-600">Promotions</span>
-              <span className="text-lg font-bold text-green-600">{hrOverview.promotions}</span>
+            
+            {/* Pending Leave Requests */}
+            <div>
+              <p className="text-sm font-medium text-gray-600 mb-1">Pending Leave Requests</p>
+              <div className="flex items-center gap-2">
+                <div className="flex-1 bg-gray-200 rounded-full h-1">
+                  <div 
+                    className="bg-yellow-600 h-1" 
+                    style={{ width: `${(hrOverview.pendingLeaveRequests / 5) * 100}%` }}
+                  ></div>
+                </div>
+                <span className="text-sm font-bold text-gray-700">{hrOverview.pendingLeaveRequests}</span>
+              </div>
             </div>
           </div>
         </div>
