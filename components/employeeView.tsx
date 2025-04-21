@@ -4,7 +4,7 @@ import { useState } from "react";
 import { NavigationProps, Employee } from "./types";
 import { UserPlus } from "lucide-react";
 
-export default function EmployeeView({ navigateTo }: NavigationProps) {
+export default function EmployeeView() {
   const [searchTerm, setSearchTerm] = useState<string>("");
   const [selectedDepartment, setSelectedDepartment] =
     useState<string>("All Departments");
