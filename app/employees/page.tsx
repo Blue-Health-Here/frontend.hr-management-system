@@ -1,10 +1,13 @@
-import React from 'react'
-import EmployeeView from '@/components/employeeView'
+import React from "react";
+import EmployeeView from "@/components/employeeView";
+import MainLayout from "@/components/layouts/MainLayout";
 
 function Page() {
   return (
-    <div> <EmployeeView  /></div>
-  )
+    <MainLayout>
+      <EmployeeView />
+    </MainLayout>
+  );
 }
 
-export default Page
+export default Page;
