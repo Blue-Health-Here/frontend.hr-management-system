@@ -2,8 +2,10 @@
 import { Users, CalendarCheck, CalendarX, Clock } from "lucide-react";
 
 import { NavigationProps } from "./types";
+import { useRouter } from "next/navigation";
 
-export default function DashboardView({ navigateTo }: NavigationProps) {
+export default function DashboardView() {
+  const router = useRouter();
   // Metrics data
   const metrics = [
     {
@@ -12,7 +14,7 @@ export default function DashboardView({ navigateTo }: NavigationProps) {
       icon: <Users className="text-blue-600" size={24} />,
       topBgColor: "bg-blue-100",
       description: "Across all departments",
-      onClick: () => navigateTo("employees")
+      onClick: () => router.push('/employees')
     },
     {
       title: "Active Employees",
