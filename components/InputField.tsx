@@ -24,7 +24,7 @@ const InputField: React.FC<InputFieldProps> = ({
     <div className={className}>
       <label
         htmlFor={name}
-        className="block font-medium text-gray-500 mt-4 text-xs sm:text-base"
+        className="block  text-gray-500 mt-4 text-xs font-medium "
       >
         {label}
       </label>
@@ -39,7 +39,7 @@ const InputField: React.FC<InputFieldProps> = ({
       />
 
       {meta.touched && meta.error && (
-        <p className="text-red-500 text-xs mt-1">{meta.error}</p>
+        <p className="text-red-500 text-sm mt-1">{meta.error}</p>
       )}
     </div>
   );

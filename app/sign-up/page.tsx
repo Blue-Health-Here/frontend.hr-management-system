@@ -62,7 +62,7 @@ export default function SignupPage() {
           <div>
             <h2 className="text-xl font-semibold mt-10">Register Account 😍</h2>
 
-            <div className="text-sm text-gray-500 space-y-4">
+            <div className="text-xs text-gray-500 space-y-4">
               <p>Register your account today.</p>
 
               <Formik
@@ -74,28 +74,28 @@ export default function SignupPage() {
                   <InputField
                     name="fullName"
                     label="Full Name"
-                    placeholder="Your full name"
+                    placeholder="Your Full Name"
                   />
 
                   <InputField
                     name="email"
                     type="email"
                     label="Email"
-                    placeholder="Your email"
+                    placeholder="Your Email"
                   />
 
                   <InputField
                     name="password"
                     type="password"
                     label="Password"
-                    placeholder="Your password"
+                    placeholder="Your Password"
                   />
 
                   <InputField
                     name="confirmPassword"
                     type="password"
                     label="Confirm Password"
-                    placeholder="Confirm password"
+                    placeholder="Confirm Password"
                   />
 
                   <button
