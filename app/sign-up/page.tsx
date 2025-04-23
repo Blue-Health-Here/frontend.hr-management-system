@@ -77,7 +77,7 @@ export default function SignupPage() {
               <div>through seamless HR</div>
               <div>management.</div>
             </h1>
-            
+
 
             <div className="relative w-64 h-64 md:w-72 md:h-72">
               <Image
@@ -132,9 +132,9 @@ export default function SignupPage() {
                 <Image
                   src="https://smarthr.dreamstechnologies.com/react/template/assets/img/logo.svg"
                   alt="SmartHR Logo"
-                  width={150} 
-                  height={40} 
-                  className="h-10" 
+                  width={150}
+                  height={40}
+                  className="h-10"
                 />
               </div>
             </div>

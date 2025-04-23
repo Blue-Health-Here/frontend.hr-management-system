@@ -51,7 +51,7 @@ const InputField: React.FC<InputFieldProps> = ({
       </div>
 
       {meta.touched && meta.error && (
-        <p className="text-red-500 text-xs mt-1">{meta.error}</p>
+        <p className="text-red-500 text-sm mt-1">{meta.error}</p>
       )}
     </div>
   );
