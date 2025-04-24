@@ -1,42 +1,38 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { Users } from "lucide-react";
-import { User } from "lucide-react";
+import { Home } from "lucide-react";
+import Image from "next/image";
 
 export default function Sidebar() {
   const router = useRouter();
 
-  const handleNavigation = (path: string) => {
-    router.push(path);
-  };
-
   return (
-    <div className="w-64 text-white flex flex-col p-6">
-      {/* Workflow Button */}
-      <div className="space-y-4">
-        <button
-          className="flex items-center gap-3 px-4 py-3 rounded-lg"
-          onClick={() => handleNavigation("/dashboard")}
-        >
-          <div className="bg-purple-600 p-2 rounded-md">
-            <Users size={20} className="text-white" />
-          </div>
-          <span className="text-black font-bold">WorkFlow</span>
-        </button>
+    <div className="w-64 text-white flex flex-col p-3 bg-white">
+      {/* SmartHR Logo at the top */}
+      <div className="flex justify-start mb-8 pl-3">
+        <Image
+          src="https://smarthr.dreamstechnologies.com/react/template/assets/img/logo.svg"
+          alt="SmartHR Logo"
+          width={120}
+          height={32}
+          className="h-10"
+        />
       </div>
 
-      {/* Separator line */}
-      <hr className="border-t border-gray-300 mt-[12px] mb-6" />
-
-      {/* Staff Portal Button */}
-      <div className="space-y-4">
+      {/* Main Menu */}
+      <div className="flex flex-col space-y-1">
+        <h3 className="text-[10px] font-semibold text-gray-400 uppercase tracking-wider mb-2 px-2">
+          Main Menu
+        </h3>
+        
+        {/* Dashboard Menu Item */}
         <button
-          className="flex items-center gap-3 px-4 py-3 rounded-lg"
-          onClick={() => handleNavigation("/staff-portal")}
+          onClick={() => router.push('/dashboard')}
+          className="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-gray-100 transition-colors"
         >
-          <User size={20} className="text-gray-500" />
-          <span className="text-gray-500 font-medium">Staff Portal</span>
+          <Home size={13} className="text-gray-600" />
+          <span className="text-gray-700 font-medium">Dashboard</span>
         </button>
       </div>
     </div>
