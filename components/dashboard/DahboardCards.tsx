@@ -70,6 +70,36 @@ const jobApplicants = [
   },
 ];
 
+const activityData = {
+  schedules: [
+    {
+      title: "UI/UX Designer",
+      description: "Interview Candidates - UI/UX Designer",
+      timeRange: "Thu, 15 Feb 2025 01:00 PM - 02:20 PM",
+      candidates: [
+        "https://randomuser.me/api/portraits/women/44.jpg",
+        "https://randomuser.me/api/portraits/men/32.jpg"
+      ]
+    }
+  ],
+  activities: [
+    {
+      userName: "Matt Morgan",
+      action: "Added New Project HRMS Dashboard",
+      time: "05:30",
+      userImage: "https://randomuser.me/api/portraits/men/75.jpg"
+    }
+  ],
+  birthdays: [
+    {
+      name: "iOS Developer",
+      role: "iOS Developer",
+      date: "Today",
+      image: "https://randomuser.me/api/portraits/women/68.jpg"
+    }
+  ]
+};
+
 function DahboardCards() {
   const [todos, setTodos] = useState([
     { id: 1, text: "Add Holidays", completed: false },

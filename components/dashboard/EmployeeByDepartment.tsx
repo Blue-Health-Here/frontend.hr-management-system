@@ -8,8 +8,26 @@ import {
   TrendingUp,
   UserPlus,
 } from "lucide-react";
-
 import { Bar } from "react-chartjs-2";
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  Title,
+  Tooltip,
+  Legend,
+} from "chart.js";
+
+// Register ChartJS components
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  Title,
+  Tooltip,
+  Legend
+);
 
 const metrics = [
   [
@@ -75,12 +93,8 @@ const departmentData = {
       backgroundColor: "rgba(243, 116, 56, 0.8)",
       borderColor: "rgba(243, 116, 56, 1)",
       borderWidth: 1,
-      borderRadius: {
-        topLeft: 10,
-        topRight: 10,
-        bottomLeft: 10,
-        bottomRight: 10,
-      },
+      borderRadius: 10, // This makes both ends rounded
+      borderSkipped: false, // Important for rounding both ends
     },
   ],
 };
@@ -114,7 +128,7 @@ function EmployeeByDepartment() {
       {/* Employee By Department Chart - Now takes 1/3 width */}
       <div className="lg:w-1/3 bg-white p-6 rounded-lg shadow-sm">
         <h2 className="text-lg font-semibold text-gray-800 mb-4">
-          Employee By Department
+          Employees By Department
         </h2>
         <div className="h-80">
           <Bar
@@ -163,7 +177,7 @@ function EmployeeByDepartment() {
               datasets: {
                 bar: {
                   barThickness: 10,
-                  maxBarThickness: 15,
+                  maxBarThickness: 25,
                   categoryPercentage: 0.8,
                   barPercentage: 0.9,
                 },
