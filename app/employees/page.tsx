@@ -4,7 +4,7 @@ import MainLayout from "@/components/layouts/MainLayout";
 
 function Page() {
   return (
-    <MainLayout>
+    <MainLayout >
       <EmployeeView />
     </MainLayout>
   );

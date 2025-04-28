@@ -12,7 +12,7 @@ export default function Sidebar() {
   };
 
   return (
-    <div className="w-64 text-white flex flex-col p-6">
+    <div className="hidden w-64 text-white lg:flex flex-col p-6">
       {/* Workflow Button */}
       <div className="space-y-4">
         <button
