@@ -1,13 +1,11 @@
 // HRDashboard.tsx
-import DashboardView from "@/components/dashboardView";
+import DashboardView from "@/components/dashboard/dashboardView";
 import MainLayout from "@/components/layouts/MainLayout";
 
 export default function HRDashboard() {
   return (
-    
-      <MainLayout>
-        <DashboardView />
-      </MainLayout>
-
+    <MainLayout>
+      <DashboardView />
+    </MainLayout>
   );
 }

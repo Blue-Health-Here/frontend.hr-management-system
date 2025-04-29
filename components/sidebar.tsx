@@ -1,16 +1,14 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { Users } from "lucide-react";
-import { User } from "lucide-react";
+import { Home, Users } from "lucide-react";
+import Image from "next/image";
 
 export default function Sidebar() {
   const router = useRouter();
-
-  const handleNavigation = (path: string) => {
-    router.push(path);
-  };
-
+  const handleNavigation = (route: string) => {
+    router.push(route);
+  }
   return (
     <div className="hidden w-64 text-white lg:flex flex-col p-6">
       {/* Workflow Button */}
@@ -26,17 +24,19 @@ export default function Sidebar() {
         </button>
       </div>
 
-      {/* Separator line */}
-      <hr className="border-t border-gray-300 mt-[12px] mb-6" />
-
-      {/* Staff Portal Button */}
-      <div className="space-y-4">
+      {/* Main Menu */}
+      <div className="flex flex-col space-y-1">
+        <h3 className="text-[10px] font-semibold text-gray-400 uppercase tracking-wider mb-2 px-2">
+          Main Menu
+        </h3>
+        
+        {/* Dashboard Menu Item */}
         <button
-          className="flex items-center gap-3 px-4 py-3 rounded-lg"
-          onClick={() => handleNavigation("/staff-portal")}
+          onClick={() => router.push('/dashboard')}
+          className="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-gray-100 transition-colors"
         >
-          <User size={20} className="text-gray-500" />
-          <span className="text-gray-500 font-medium">Staff Portal</span>
+          <Home size={13} className="text-gray-600" />
+          <span className="text-gray-700 font-medium">Dashboard</span>
         </button>
       </div>
     </div>
