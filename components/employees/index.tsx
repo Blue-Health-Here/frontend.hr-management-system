@@ -1,8 +1,8 @@
 "use client";
 import React, { useState } from "react";
 import Image from "next/image";
-import { employeeData } from "@/data/Employees";
 import { Users, CheckCircle, XCircle, UserPlus, File, ChevronDown, Plus } from "lucide-react";
+import { employeeData } from "@/utils/constants";
 
 const EmployeesView = () => {
   const [employees, setEmployees] = useState(employeeData);
@@ -66,7 +66,7 @@ const EmployeesView = () => {
   const filteredEmployees = handleFilterChange();
 
   return (
-    <div className="container mx-auto px-4 py-8">
+    <div>
       {/* Header with responsive layout */}
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 gap-4">
         <h1 className="text-2xl font-bold">Employee</h1>
