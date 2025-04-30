@@ -15,3 +15,13 @@ export interface Employee {
 export interface NavigationProps {
     navigateTo: (view: 'dashboard' | 'employees') => void;
   }
+
+  export interface AttendanceCardProps {
+    title: string;
+    value: string;
+    percentage: string;
+    iconColor: string;
+    progressWidth: string;
+    trendText: string;
+    iconPath: string;
+  }

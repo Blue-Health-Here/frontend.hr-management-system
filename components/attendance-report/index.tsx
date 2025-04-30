@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import Image from "next/image";
 import { ChevronDown } from "lucide-react";
 import { employeeData } from "@/utils/constants";
+import AttendanceCard from "./attendanceCard";
 
 const AttendanceReportView = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -140,155 +141,54 @@ const AttendanceReportView = () => {
           )}
         </div>
       </div>
-
-      {/* Main content sections */}
       <div className="flex flex-col lg:flex-row gap-3 sm:gap-4 mb-4 sm:mb-6">
-        {/* Left section with 4 cards */}
         <div className="w-full lg:w-1/2 grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
-          {/* Card 1: Total Working Days */}
-          <div className="bg-white p-3 sm:p-4 rounded-lg shadow-sm">
-            <div className="flex items-center mb-2">
-              <svg
-                className="w-6 h-6 sm:w-8 sm:h-8 text-[#f26522] mr-1.5 mt-3"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
-                />
-              </svg>
-              <h3 className="text-xs sm:text-sm font-semibold">
-                Total Working Days
-              </h3>
-            </div>
-            <p className="text-lg sm:text-xl font-bold mb-1 ml-7 sm:ml-8">25</p>
-            <div className="w-full bg-gray-200 rounded-full h-1.5 mb-1">
-              <div
-                className="bg-[#03c95a] h-1.5 rounded-full"
-                style={{ width: "75%" }}
-              ></div>
-            </div>
-            <p className="text-xs">
-              <span className="text-green-500">+20.01%</span>
-              <span className="text-gray-500"> from last month</span>
-            </p>
-          </div>
+          <AttendanceCard
+            title="Total Working Days"
+            value="25"
+            percentage="+20.01%"
+            iconColor="text-[#f26522]"
+            progressWidth="75%"
+            trendText="from last month"
+            iconPath="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+          />
 
-          {/* Card 2: Total Leave Taken */}
-          <div className="bg-white p-3 sm:p-4 rounded-lg shadow-sm">
-            <div className="flex items-center mb-2">
-              <svg
-                className="w-6 h-6 sm:w-8 sm:h-8 text-[#1b84ff] mr-1.5 mt-3"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
-                />
-              </svg>
-              <h3 className="text-xs sm:text-sm font-semibold">
-                Total Leave Taken
-              </h3>
-            </div>
-            <p className="text-lg sm:text-xl font-bold mb-1 ml-7 sm:ml-8">12</p>
-            <div className="w-full bg-gray-200 rounded-full h-1.5 mb-1">
-              <div
-                className="bg-[#03c95a] h-1.5 rounded-full"
-                style={{ width: "40%" }}
-              ></div>
-            </div>
-            <p className="text-xs">
-              <span className="text-green-500">+20.01%</span>
-              <span className="text-gray-500"> from last month</span>
-            </p>
-          </div>
+          <AttendanceCard
+            title="Total Leave Taken"
+            value="12"
+            percentage="+20.01%"
+            iconColor="text-[#1b84ff]"
+            progressWidth="40%"
+            trendText="from last month"
+            iconPath="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+          />
 
-          {/* Card 3: Total Holidays */}
-          <div className="bg-white p-3 sm:p-4 rounded-lg shadow-sm">
-            <div className="flex items-center mb-2">
-              <svg
-                className="w-6 h-6 sm:w-8 sm:h-8 text-[#fd3995] mr-1.5 mt-3"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
-                />
-              </svg>
-              <h3 className="text-xs sm:text-sm font-semibold">
-                Total Holidays
-              </h3>
-            </div>
-            <p className="text-lg sm:text-xl font-bold mb-1 ml-7 sm:ml-8">6</p>
-            <div className="w-full bg-gray-200 rounded-full h-1.5 mb-1">
-              <div
-                className="bg-[#03c95a] h-1.5 rounded-full"
-                style={{ width: "30%" }}
-              ></div>
-            </div>
-            <p className="text-xs">
-              <span className="text-green-500">+20.01%</span>
-              <span className="text-gray-500"> from last month</span>
-            </p>
-          </div>
+          <AttendanceCard
+            title="Total Holidays"
+            value="6"
+            percentage="+20.01%"
+            iconColor="text-[#fd3995]"
+            progressWidth="30%"
+            trendText="from last month"
+            iconPath="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+          />
 
-          {/* Card 4: Total Holidays */}
-          <div className="bg-white p-3 sm:p-4 rounded-lg shadow-sm">
-            <div className="flex items-center mb-2">
-              <svg
-                className="w-6 h-6 sm:w-8 sm:h-8 text-[#ffc107] mr-1.5 mt-3"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
-                />
-              </svg>
-              <h3 className="text-xs sm:text-sm font-semibold">
-                Total Holidays
-              </h3>
-            </div>
-            <p className="text-lg sm:text-xl font-bold mb-1 ml-7 sm:ml-8">6</p>
-            <div className="w-full bg-gray-200 rounded-full h-1.5 mb-1">
-              <div
-                className="bg-[#03c95a] h-1.5 rounded-full"
-                style={{ width: "30%" }}
-              ></div>
-            </div>
-            <p className="text-xs">
-              <span className="text-green-500">+20.01%</span>
-              <span className="text-gray-500"> from last month</span>
-            </p>
-          </div>
+          <AttendanceCard
+            title="Total Holidays"
+            value="6"
+            percentage="+20.01%"
+            iconColor="text-[#ffc107]"
+            progressWidth="30%"
+            trendText="from last month"
+            iconPath="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+          />
         </div>
 
         {/* Right section with attendance graph */}
         <div className="w-full lg:w-1/2 bg-white p-3 sm:p-4 rounded-lg shadow-sm">
           <h3 className="text-xs sm:text-sm font-semibold mb-3">Attendance</h3>
           <div className="h-40 sm:h-48">
-            {/* Graph container */}
             <div className="h-full flex">
-              {/* Y-axis labels - moved to left */}
               <div className="flex flex-col justify-between h-full mr-1 text-2xs sm:text-xs text-gray-500">
                 <span>100</span>
                 <span>80</span>
@@ -297,10 +197,7 @@ const AttendanceReportView = () => {
                 <span>20</span>
                 <span>0</span>
               </div>
-
-              {/* Graph content */}
               <div className="flex-grow flex flex-col">
-                {/* Graph bars area */}
                 <div className="flex-grow flex items-end px-1 sm:px-2">
                   {months.map((month, index) => (
                     <div
@@ -312,12 +209,10 @@ const AttendanceReportView = () => {
                         className="flex items-end w-full"
                         style={{ height: "100%" }}
                       >
-                        {/* Present bar */}
                         <div
                           className="w-full bg-green-500 rounded-t mr-0.5"
                           style={{ height: `${presentData[index]}%` }}
                         ></div>
-                        {/* Absent bar */}
                         <div
                           className="w-full bg-red-500 rounded-b"
                           style={{ height: `${absentData[index]}%` }}
@@ -326,8 +221,6 @@ const AttendanceReportView = () => {
                     </div>
                   ))}
                 </div>
-
-                {/* X-axis labels */}
                 <div className="flex justify-between px-1 sm:px-2 mt-1 text-2xs sm:text-xs text-gray-500">
                   {months.map((month) => (
                     <span key={month} className="w-4 text-center">
@@ -339,7 +232,6 @@ const AttendanceReportView = () => {
             </div>
           </div>
 
-          {/* Graph legend */}
           <div className="flex justify-center mt-2">
             <div className="flex items-center mr-3">
               <div className="w-2 h-2 bg-green-500 rounded-full mr-1"></div>
