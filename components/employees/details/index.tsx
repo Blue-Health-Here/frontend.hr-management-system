@@ -32,21 +32,22 @@ function EmployeeDetailsView() {
   const [activeTab, setActiveTab] = useState<"projects" | "assets">("projects");
 
   return (
-    <div className="w-full px-4 sm:px-0">
+    <div className="w-full">
       {/* Header row */}
-      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-6 mt-6 sm:mt-10 gap-4 sm:gap-0">
-        <h1 className="text-sm ml-0 sm:ml-4">Employee Details</h1>
-        <button className="flex items-center gap-2 px-4 py-2 border border-gray-300 rounded-md bg-[#f26522] text-sm font-medium text-white hover:bg-[#e05c1d] transition-colors w-full sm:w-auto justify-center lg:mr-6">
-          <span className="inline-flex items-center justify-center w-3 h-3 border border-white rounded-full">
-            <Plus size={10} className="text-white" />
-          </span>
-          Bank & Statutory
-        </button>
+      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 gap-4">
+        <h1 className="text-2xl font-bold">Employee Details</h1>
+        <div className="flex flex-col sm:flex-row items-stretch gap-3 w-full sm:w-auto">
+          {/* Add Employee Button */}
+          <button className="flex items-center justify-center text-nowrap xs:justify-start gap-1 px-4 py-2 bg-[#f26522] text-white rounded-md text-sm font-semibold hover:bg-[#e05b1a] transition-colors w-full xs:w-auto">
+            <Plus className="h-3 w-3" />
+            <span>Bank & Statutory</span>
+          </button>
+        </div>
       </div>
 
       <div className="flex flex-col lg:flex-row gap-6">
         {/* Left sections column */}
-        <div className="w-full lg:w-[30%] ml-0 lg:ml-8 space-y-6">
+        <div className="w-full lg:w-[30%] space-y-6">
           {/* Employee details section */}
           <div className="bg-white rounded-lg shadow-sm p-4 sm:p-6">
             {/* Profile header */}
@@ -207,7 +208,7 @@ function EmployeeDetailsView() {
         </div>
 
         {/* Right section - Accordions */}
-        <div className="flex-1 ml-0 lg:ml-6 mr-0 lg:mr-8 space-y-6">
+        <div className="flex-1 space-y-6">
           {/* About Employee Accordion */}
           <div className="bg-white rounded-lg shadow-sm p-4 sm:p-6">
             <div
