@@ -11,12 +11,12 @@ import {
 } from "chart.js";
 import { DashboardHeader } from "./Header";
 import EmployeeByDepartment from "./EmployeeByDepartment";
-import { StatsOverview } from "./StatsOverview";
 import DahboardCards from "./DahboardCards";
 import StatsAndInvoices from "./StatsAndInvoices";
 import ProjectsAndTasks from "./ProjectsAndTasks";
 import ActivityOverviewCard from "./ActivityOverviewCard";
 import { activityData, checkInOutData, invoices, projects } from "@/utils/constants";
+import { StatsOverview } from "./StatsOverview";
 
 // Register ChartJS components
 ChartJS.register(
