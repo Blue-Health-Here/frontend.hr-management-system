@@ -1,9 +1,9 @@
 "use client";
 
 import { usePathname, useRouter } from "next/navigation";
-import { Home, Users } from "lucide-react";
 import { sidebarNav } from "@/utils/constants";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Sidebar() {
   const router = useRouter();
@@ -11,17 +11,17 @@ export default function Sidebar() {
   const isActive = (path: string) => path === pathname;
 
   return (
-    <div className="hidden w-64 text-white lg:flex flex-col p-6">
-      {/* Workflow Button */}
-      <button
-        className="flex items-center gap-3 rounded-lg pb-4 border-b border-gray-100 cursor-pointer"
-        onClick={() => router.push("/dashboard")}
-      >
-        <div className="bg-purple-600 p-2 rounded-md">
-          <Users size={20} className="text-white" />
-        </div>
-        <span className="text-black font-bold">WorkFlow</span>
-      </button>
+    <div className="hidden w-64 text-white lg:flex flex-col p-3 bg-white">
+      {/* SmartHR Logo at the top */}
+      <div className="flex justify-start mb-8 pl-3">
+        <Image
+          src="https://smarthr.dreamstechnologies.com/react/template/assets/img/logo.svg"
+          alt="SmartHR Logo"
+          width={120}
+          height={32}
+          className="h-10"
+        />
+      </div>
 
       {/* Dashboard Menu Item */}
       <ul className="list-style-none pt-6 flex flex-col gap-2 justify-center w-full">
