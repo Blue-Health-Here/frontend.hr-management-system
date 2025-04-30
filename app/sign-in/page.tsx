@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
-import InputField from "@/components/InputField";
+import InputField from "@/components/common/form/InputField";
 import { Mail, Eye, EyeOff } from "lucide-react";
 import { useState } from "react";
 import AuthLayout from "@/components/layouts/AuthLayout";
