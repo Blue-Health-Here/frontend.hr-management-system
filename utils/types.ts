@@ -25,6 +25,16 @@ export interface AttendanceData {
   absent: number;
 }
 
+export interface AttendanceCardProps {
+  title: string;
+  value: string;
+  percentage: string;
+  iconColor: string;
+  progressWidth: string;
+  trendText: string;
+  iconPath: string;
+}
+
 export interface TopPerformer {
   name: string;
   image: string;
