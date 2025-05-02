@@ -9,37 +9,9 @@ import {
   Tooltip,
   Legend,
 } from "chart.js";
+import { StatsOverviewProps } from "@/utils/types";
 
 ChartJS.register(CategoryScale, LinearScale, ArcElement, Tooltip, Legend);
-
-interface Employee {
-  name: string;
-  image: string;
-  time: string;
-  status: string;
-  type: string;
-  jobTitle: string;
-}
-
-interface AttendanceData {
-  present: number;
-  late: number;
-  permission: number;
-  absent: number;
-}
-
-interface TopPerformer {
-  name: string;
-  image: string;
-  jobTitle: string;
-  performance: string;
-}
-
-interface StatsOverviewProps {
-  attendanceData: AttendanceData;
-  checkInOutData: Employee[];
-  topPerformer: TopPerformer;
-}
 
 export function StatsOverview({
   attendanceData,

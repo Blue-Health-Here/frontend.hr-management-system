@@ -2,15 +2,7 @@
 
 import React from "react";
 import { useField } from "formik";
-
-interface InputFieldProps {
-  label: string;
-  name: string;
-  type?: string;
-  placeholder?: string;
-  className?: string;
-  icon?: React.ReactNode;
-}
+import { InputFieldProps } from "@/utils/types";
 
 const InputField: React.FC<InputFieldProps> = ({
   label,
@@ -27,7 +19,7 @@ const InputField: React.FC<InputFieldProps> = ({
       <label
         htmlFor={name}
         className="block font-medium text-gray-500 mt-4 text-[10px] sm:text-[14px] sm:text-base"
-        style={{ color: 'rgb(32, 44, 75)' }} 
+        style={{ color: 'rgb(32, 44, 75)' }}
       >
         {label}
       </label>
@@ -43,9 +35,8 @@ const InputField: React.FC<InputFieldProps> = ({
           id={name}
           name={name}
           type={type}
-          className={`block w-full px-4 py-2 border border-gray-300 rounded-sm focus:ring focus:ring-blue-200 focus:outline-none ${
-            icon ? "pl-10" : ""
-          }`}
+          className={`block w-full px-4 py-2 border border-gray-300 rounded-sm focus:ring focus:ring-blue-200 focus:outline-none ${icon ? "pl-10" : ""
+            }`}
           placeholder={placeholder}
         />
       </div>

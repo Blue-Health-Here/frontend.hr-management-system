@@ -246,7 +246,6 @@ export const sidebarNav = [
     }
 ];
 
-// Check-in/out employee data
 export const checkInOutData = [
     {
         name: "John Smith",
@@ -282,7 +281,6 @@ export const checkInOutData = [
     },
 ];
 
-// Update your activityData with proper type assertions
 export const activityData = {
     schedules: [
         {
@@ -455,5 +453,3 @@ export const invoices = [
         status: "paid",
     },
 ];
-
-

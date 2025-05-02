@@ -1,5 +1,5 @@
 import React, { ReactNode } from "react";
-import Sidebar from "../sidebar";
+import Sidebar from "../common/Sidebar";
 
 interface MainLayoutProps {
   children: ReactNode; // Explicitly type the children prop
@@ -9,7 +9,7 @@ function MainLayout({ children }: MainLayoutProps) {
   return (
     <div className="flex h-screen">
       <Sidebar />
-      <div className="flex-1 overflow-y-auto bg-gray-50 p-8 bg-gray-100">{children}</div>
+      <div className="flex-1 overflow-y-auto p-8 bg-gray-100">{children}</div>
     </div>
   );
 }
