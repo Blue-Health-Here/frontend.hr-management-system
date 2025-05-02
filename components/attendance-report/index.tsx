@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import Image from "next/image";
 import { ChevronDown } from "lucide-react";
 import { employeeData } from "@/utils/constants";
-import AttendanceCard from "./attendanceCard";
+import AttendanceCard from "./AttendanceCard";
 
 const AttendanceReportView = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -59,7 +59,7 @@ const AttendanceReportView = () => {
   const filteredEmployees = handleFilterChange();
 
   return (
-    <div className="p-2 sm:p-4">
+    <div>
       {/* Header section with export button */}
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4 gap-2">
         <h1 className="text-lg sm:text-xl font-bold">Attendance Report</h1>

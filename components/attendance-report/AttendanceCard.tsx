@@ -1,6 +1,6 @@
 "use client";
+import { AttendanceCardProps } from "@/utils/types";
 import React from "react";
-import { AttendanceCardProps } from "../types";
 
 const AttendanceCard: React.FC<AttendanceCardProps> = ({
   title,
