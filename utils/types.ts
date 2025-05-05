@@ -1,3 +1,5 @@
+import { LucideIcon } from 'lucide-react'; 
+
 export interface Employee {
   id?: number;
   name?: string;
@@ -56,3 +58,36 @@ export interface InputFieldProps {
   className?: string;
   icon?: React.ReactNode;
 }
+export interface LeavesCardProps {
+  title: string;
+  value: number | string;
+  icon: LucideIcon; // Type for Lucide icons
+  iconColor: string;
+  bgImage: string;
+}
+
+export interface DateRangeDropdownProps {
+  value: string;
+  onChange: (value: string) => void;
+}
+
+export interface Employees {
+  id: string;
+  name: string;
+  image: string;
+  department: string;
+}
+
+export interface Leave {
+  id: string;
+  employee: string;
+  employeeImage: string;
+  leaveType: string;
+  from: string;
+  to: string;
+  days: number;
+  department: string;
+  isPlanned: boolean;
+  isPending: boolean;
+}
+
