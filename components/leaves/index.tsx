@@ -6,7 +6,8 @@ import { employeeData } from "@/utils/constants";
 import LeavesCard from "./LeavesCard";
 import DateRangeDropdown from "../common/DateRangeDropdown";
 import { Employees, Leave } from "@/utils/types";
-
+import { handleFilterChange } from "@/utils/helper";
+import DataTableListing from "./DataTableListing";
 
 const LeavesView = () => {
   const [employees] = useState<Employees[]>(employeeData);
@@ -31,7 +32,7 @@ const LeavesView = () => {
     days: Math.floor(Math.random() * 10) + 1,
     department: employee.department,
     isPlanned: Math.random() > 0.5,
-    isPending: Math.random() > 0.7, 
+    isPending: Math.random() > 0.7,
   }));
 
   // Stats calculations
@@ -47,86 +48,14 @@ const LeavesView = () => {
   ).length;
   const pendingRequests = leaveData.filter((leave) => leave.isPending).length;
 
-  const recentLeaves = leaveData.filter((leave) => {
-    const sevenDaysAgo = new Date();
-    sevenDaysAgo.setDate(sevenDaysAgo.getDate() - 7);
-    const fromDate = new Date(leave.from);
-    return fromDate >= sevenDaysAgo;
-  }).length;
+  // const recentLeaves = leaveData.filter((leave) => {
+  //   const sevenDaysAgo = new Date();
+  //   sevenDaysAgo.setDate(sevenDaysAgo.getDate() - 7);
+  //   const fromDate = new Date(leave.from);
+  //   return fromDate >= sevenDaysAgo;
+  // }).length;
 
-  const handleFilterChange = (): Leave[] => {
-    let filteredLeaves = [...leaveData];
-
-    // Apply date range filter
-    if (dateRangeFilter === "Today") {
-      const today = new Date().toLocaleDateString();
-      filteredLeaves = filteredLeaves.filter(
-        (leave) => leave.from === today || leave.to === today
-      );
-    } else if (dateRangeFilter === "Yesterday") {
-      const yesterday = new Date();
-      yesterday.setDate(yesterday.getDate() - 1);
-      const yesterdayStr = yesterday.toLocaleDateString();
-      filteredLeaves = filteredLeaves.filter(
-        (leave) => leave.from === yesterdayStr || leave.to === yesterdayStr
-      );
-    } else if (dateRangeFilter === "Last 7 Days") {
-      const sevenDaysAgo = new Date();
-      sevenDaysAgo.setDate(sevenDaysAgo.getDate() - 7);
-      filteredLeaves = filteredLeaves.filter((leave) => {
-        const fromDate = new Date(leave.from);
-        const toDate = new Date(leave.to);
-        return fromDate >= sevenDaysAgo || toDate >= sevenDaysAgo;
-      });
-    } else if (dateRangeFilter === "Last 30 Days") {
-      const thirtyDaysAgo = new Date();
-      thirtyDaysAgo.setDate(thirtyDaysAgo.getDate() - 30);
-      filteredLeaves = filteredLeaves.filter((leave) => {
-        const fromDate = new Date(leave.from);
-        const toDate = new Date(leave.to);
-        return fromDate >= thirtyDaysAgo || toDate >= thirtyDaysAgo;
-      });
-    } else if (dateRangeFilter === "This Month") {
-      const now = new Date();
-      const firstDay = new Date(now.getFullYear(), now.getMonth(), 1);
-      filteredLeaves = filteredLeaves.filter((leave) => {
-        const fromDate = new Date(leave.from);
-        const toDate = new Date(leave.to);
-        return fromDate >= firstDay || toDate >= firstDay;
-      });
-    } else if (dateRangeFilter === "Last Month") {
-      const now = new Date();
-      const firstDayLastMonth = new Date(now.getFullYear(), now.getMonth() - 1, 1);
-      const lastDayLastMonth = new Date(now.getFullYear(), now.getMonth(), 0);
-      filteredLeaves = filteredLeaves.filter((leave) => {
-        const fromDate = new Date(leave.from);
-        const toDate = new Date(leave.to);
-        return (fromDate >= firstDayLastMonth && fromDate <= lastDayLastMonth) ||
-               (toDate >= firstDayLastMonth && toDate <= lastDayLastMonth);
-      });
-    }
-
-    if (leaveTypeFilter !== "All") {
-      filteredLeaves = filteredLeaves.filter(
-        (leave) => leave.leaveType === leaveTypeFilter
-      );
-    }
-
-    if (sortOption === "ascending") {
-      filteredLeaves.sort((a, b) => a.employee.localeCompare(b.employee));
-    } else if (sortOption === "last7days") {
-      const sevenDaysAgo = new Date();
-      sevenDaysAgo.setDate(sevenDaysAgo.getDate() - 7);
-      filteredLeaves = filteredLeaves.filter((leave) => {
-        const fromDate = new Date(leave.from);
-        return fromDate >= sevenDaysAgo;
-      });
-    }
-
-    return filteredLeaves;
-  };
-
-  const filteredLeaves = handleFilterChange();
+  const filteredLeaves = handleFilterChange({ leaveData, dateRangeFilter, leaveTypeFilter, sortOption });
 
   return (
     <div>
@@ -143,9 +72,8 @@ const LeavesView = () => {
                 <span>Export</span>
               </div>
               <ChevronDown
-                className={`h-4 w-4 text-gray-500 transition-transform ${
-                  exportOpen ? "rotate-180" : ""
-                }`}
+                className={`h-4 w-4 text-gray-500 transition-transform ${exportOpen ? "rotate-180" : ""
+                  }`}
               />
             </button>
 
@@ -220,11 +148,11 @@ const LeavesView = () => {
           <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
             <h2 className="text-lg font-semibold">Leave List</h2>
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full md:w-auto">
-              <DateRangeDropdown 
-                value={dateRangeFilter} 
-                onChange={setDateRangeFilter} 
+              <DateRangeDropdown
+                value={dateRangeFilter}
+                onChange={setDateRangeFilter}
               />
-              
+
               <div className="w-full sm:w-40">
                 <select
                   id="leave-type-filter"
@@ -238,7 +166,7 @@ const LeavesView = () => {
                   <option value="Annual Leave">Annual Leave</option>
                 </select>
               </div>
-              
+
               <div className="w-full sm:w-36">
                 <select
                   id="sort"
@@ -256,69 +184,7 @@ const LeavesView = () => {
         </div>
 
         {/* Table */}
-        <div className="overflow-x-auto">
-          <table className="min-w-full divide-y divide-gray-200">
-            <thead>
-              <tr className="bg-gray-200">
-                <th className="py-3 px-6 text-left text-sm font-bold text-gray-900 tracking-wider border-b border-gray-300">
-                  Employee
-                </th>
-                <th className="py-3 px-6 text-left text-sm font-bold text-gray-900 tracking-wider border-b border-gray-300">
-                  Leave Type
-                </th>
-                <th className="py-3 px-6 text-left text-sm font-bold text-gray-900 tracking-wider border-b border-gray-300">
-                  From
-                </th>
-                <th className="py-3 px-6 text-left text-sm font-bold text-gray-900 tracking-wider border-b border-gray-300">
-                  To
-                </th>
-                <th className="py-3 px-6 text-left text-sm font-bold text-gray-900 tracking-wider border-b border-gray-300">
-                  Days
-                </th>
-              </tr>
-            </thead>
-            <tbody className="divide-y divide-gray-200">
-              {filteredLeaves.map((leave) => (
-                <tr key={leave.id} className="hover:bg-gray-50">
-                  <td className="py-4 px-6 whitespace-nowrap">
-                    <div className="flex items-center">
-                      <div className="flex-shrink-0 h-10 w-10">
-                        <Image
-                          src={leave.employeeImage}
-                          alt={leave.employee}
-                          width={40}
-                          height={40}
-                          className="rounded-full"
-                          unoptimized
-                        />
-                      </div>
-                      <div className="ml-4">
-                        <div className="text-sm font-medium text-gray-500">
-                          {leave.employee}
-                        </div>
-                        <div className="text-sm text-gray-500">
-                          {leave.department}
-                        </div>
-                      </div>
-                    </div>
-                  </td>
-                  <td className="py-4 px-6 whitespace-nowrap text-sm text-gray-500">
-                    {leave.leaveType}
-                  </td>
-                  <td className="py-4 px-6 whitespace-nowrap text-sm text-gray-500">
-                    {leave.from}
-                  </td>
-                  <td className="py-4 px-6 whitespace-nowrap text-sm text-gray-500">
-                    {leave.to}
-                  </td>
-                  <td className="py-4 px-6 whitespace-nowrap text-sm text-gray-500">
-                    {leave.days} Days
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
+        <DataTableListing filteredLeaves={filteredLeaves} />
       </div>
     </div>
   );
