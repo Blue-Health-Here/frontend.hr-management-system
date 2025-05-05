@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import { Upload, X, Eye, EyeOff } from "lucide-react"; // Added Eye and EyeOff icons
-import InputField from "../common/form/InputField";
+import InputField from "../../common/form/InputField";
 import * as Yup from "yup";
 import { Formik, Form } from "formik";
 import { departmentOptions, designationOptions } from "@/utils/constants";
@@ -68,7 +68,7 @@ const AddEmployee = () => {
   };
 
   return (
-    <div className="container mx-auto px-4 py-6 max-w-4xl ml-0">
+    <div className="container mx-auto max-w-4xl ml-0">
       <div className="mb-4">
         <h1 className="text-lg font-semibold text-gray-800">
           Add New Employee
