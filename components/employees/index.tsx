@@ -3,8 +3,10 @@ import React, { useState } from "react";
 import Image from "next/image";
 import { Users, CheckCircle, XCircle, UserPlus, File, ChevronDown, Plus } from "lucide-react";
 import { employeeData } from "@/utils/constants";
+import { useRouter } from "next/navigation";
 
 const EmployeesView = () => {
+  const router = useRouter();
   const [employees, setEmployees] = useState(employeeData);
   const [designationFilter, setDesignationFilter] = useState("");
   const [statusFilter, setStatusFilter] = useState("All");
@@ -67,7 +69,6 @@ const EmployeesView = () => {
 
   return (
     <div>
-      {/* Header with responsive layout */}
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 gap-4">
         <h1 className="text-2xl font-bold">Employee</h1>
         <div className="flex flex-col sm:flex-row items-stretch gap-3 w-full sm:w-auto">
@@ -90,7 +91,6 @@ const EmployeesView = () => {
                   <button
                     className="flex w-full items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
                     onClick={() => {
-                      // Add PDF export logic
                       setExportOpen(false);
                     }}
                   >
@@ -99,7 +99,6 @@ const EmployeesView = () => {
                   <button
                     className="flex w-full items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
                     onClick={() => {
-                      // Add Excel export logic
                       setExportOpen(false);
                     }}
                   >
@@ -111,14 +110,14 @@ const EmployeesView = () => {
           </div>
           
           {/* Add Employee Button */}
-          <button className="flex items-center justify-center text-nowrap xs:justify-start gap-1 px-4 py-2 bg-[#f26522] text-white rounded-md text-sm font-semibold hover:bg-[#e05b1a] transition-colors w-full xs:w-auto">
+          <button 
+          onClick={() => router.push('/add-employee')}
+          className="flex items-center justify-center text-nowrap xs:justify-start gap-1 px-4 py-2 bg-[#f26522] text-white rounded-md text-sm font-semibold hover:bg-[#e05b1a] transition-colors w-full xs:w-auto">
             <Plus className="h-3 w-3" />
             <span>Add Employee</span>
           </button>
         </div>
       </div>
-
-      {/* Summary Cards - Responsive grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
         {/* Total Employees */}
         <div className="bg-white p-4 rounded-lg shadow-sm border border-gray-200">
@@ -201,7 +200,6 @@ const EmployeesView = () => {
 
       {/* Employee Table */}
       <div className="overflow-x-auto bg-white rounded-lg shadow-sm border border-gray-200">
-        {/* Filter Row - Responsive adjustments */}
         <div className="bg-white p-4 border border-gray-200">
           <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
             <h2 className="text-lg font-semibold">Plan List</h2>
@@ -256,7 +254,6 @@ const EmployeesView = () => {
           </div>
         </div>
         
-        {/* Table - Scrollable on mobile */}
         <div className="overflow-x-auto">
           <table className="min-w-full divide-y divide-gray-200">
             <thead>
