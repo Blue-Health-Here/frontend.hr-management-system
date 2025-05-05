@@ -453,3 +453,28 @@ export const invoices = [
         status: "paid",
     },
 ];
+
+// Department options
+export const departmentOptions = [
+    'Development',
+    'Design',
+    'Marketing',
+    'HR',
+    'Finance',
+    'Operations',
+    'Sales'
+  ];
+
+  // Designation options
+ export  const designationOptions = [
+    'Developer',
+    'Executive',
+    'Software Engineer',
+    'Product Manager',
+    'UX Designer',
+    'Marketing Specialist',
+    'HR Manager',
+    'Financial Analyst',
+    'Operations Manager',
+    'Sales Executive'
+  ];
