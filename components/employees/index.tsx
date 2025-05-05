@@ -3,8 +3,10 @@ import React, { useState } from "react";
 import Image from "next/image";
 import { Users, CheckCircle, XCircle, UserPlus, File, ChevronDown, Plus } from "lucide-react";
 import { employeeData } from "@/utils/constants";
+import { useRouter } from "next/navigation";
 
 const EmployeesView = () => {
+  const router = useRouter();
   const [employees, setEmployees] = useState(employeeData);
   const [designationFilter, setDesignationFilter] = useState("");
   const [statusFilter, setStatusFilter] = useState("All");
@@ -15,7 +17,7 @@ const EmployeesView = () => {
   const totalEmployees = employees.length;
   const activeEmployees = employees.filter(emp => emp.status === "Active").length;
   const inactiveEmployees = employees.filter(emp => emp.status === "Inactive").length;
-  
+
   const newJoiners = employees.filter(emp => {
     const joinDate = new Date(emp.joiningDate);
     const sevenDaysAgo = new Date();
@@ -67,13 +69,12 @@ const EmployeesView = () => {
 
   return (
     <div>
-      {/* Header with responsive layout */}
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 gap-4">
         <h1 className="text-2xl font-bold">Employee</h1>
         <div className="flex flex-col sm:flex-row items-stretch gap-3 w-full sm:w-auto">
           {/* Export Dropdown */}
           <div className="relative w-full xs:w-auto">
-            <button 
+            <button
               onClick={() => setExportOpen(!exportOpen)}
               className="flex items-center justify-between xs:justify-start gap-2 px-3 py-2 border border-gray-300 rounded-md text-gray-700 hover:bg-gray-50 text-sm font-medium transition-colors w-full xs:w-auto"
             >
@@ -83,14 +84,13 @@ const EmployeesView = () => {
               </div>
               <ChevronDown className={`h-4 w-4 text-gray-500 transition-transform ${exportOpen ? 'rotate-180' : ''}`} />
             </button>
-            
+
             {exportOpen && (
               <div className="absolute right-0 mt-1 w-full xs:w-48 bg-white rounded-md shadow-lg z-10 border border-gray-200">
                 <div className="py-1">
                   <button
                     className="flex w-full items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
                     onClick={() => {
-                      // Add PDF export logic
                       setExportOpen(false);
                     }}
                   >
@@ -99,7 +99,6 @@ const EmployeesView = () => {
                   <button
                     className="flex w-full items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
                     onClick={() => {
-                      // Add Excel export logic
                       setExportOpen(false);
                     }}
                   >
@@ -109,16 +108,16 @@ const EmployeesView = () => {
               </div>
             )}
           </div>
-          
+
           {/* Add Employee Button */}
-          <button className="flex items-center justify-center text-nowrap xs:justify-start gap-1 px-4 py-2 bg-[#f26522] text-white rounded-md text-sm font-semibold hover:bg-[#e05b1a] transition-colors w-full xs:w-auto">
+          <button
+            onClick={() => router.push('/employees/add')}
+            className="flex items-center justify-center text-nowrap xs:justify-start gap-1 px-4 py-2 bg-[#f26522] text-white rounded-md text-sm font-semibold hover:bg-[#e05b1a] transition-colors w-full xs:w-auto">
             <Plus className="h-3 w-3" />
             <span>Add Employee</span>
           </button>
         </div>
       </div>
-
-      {/* Summary Cards - Responsive grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
         {/* Total Employees */}
         <div className="bg-white p-4 rounded-lg shadow-sm border border-gray-200">
@@ -137,7 +136,7 @@ const EmployeesView = () => {
             </div>
           </div>
         </div>
-        
+
         {/* Active Employees */}
         <div className="bg-white p-4 rounded-lg shadow-sm border border-gray-200">
           <div className="flex items-center justify-between">
@@ -157,7 +156,7 @@ const EmployeesView = () => {
             </div>
           </div>
         </div>
-        
+
         {/* Inactive Employees */}
         <div className="bg-white p-4 rounded-lg shadow-sm border border-gray-200">
           <div className="flex items-center justify-between">
@@ -177,7 +176,7 @@ const EmployeesView = () => {
             </div>
           </div>
         </div>
-        
+
         {/* New Joiners */}
         <div className="bg-white p-4 rounded-lg shadow-sm border border-gray-200">
           <div className="flex items-center justify-between">
@@ -201,7 +200,6 @@ const EmployeesView = () => {
 
       {/* Employee Table */}
       <div className="overflow-x-auto bg-white rounded-lg shadow-sm border border-gray-200">
-        {/* Filter Row - Responsive adjustments */}
         <div className="bg-white p-4 border border-gray-200">
           <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
             <h2 className="text-lg font-semibold">Plan List</h2>
@@ -255,8 +253,7 @@ const EmployeesView = () => {
             </div>
           </div>
         </div>
-        
-        {/* Table - Scrollable on mobile */}
+
         <div className="overflow-x-auto">
           <table className="min-w-full divide-y divide-gray-200">
             <thead>
@@ -347,11 +344,10 @@ const EmployeesView = () => {
                   </td>
                   <td className="py-4 px-6 whitespace-nowrap">
                     <span
-                      className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full ${
-                        employee.status === "Active"
+                      className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full ${employee.status === "Active"
                           ? "bg-green-100 text-green-800"
                           : "bg-red-100 text-red-800"
-                      }`}
+                        }`}
                     >
                       {employee.status}
                     </span>
