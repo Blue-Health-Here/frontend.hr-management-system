@@ -62,7 +62,7 @@ const AttendanceReportView = () => {
     <div>
       {/* Header section with export button */}
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4 gap-2">
-        <h1 className="text-lg sm:text-xl font-bold">Attendance Report</h1>
+        <h1 className="text-lg sm:text-2xl font-bold">Attendance Report</h1>
         <div className="relative self-end sm:self-auto">
           <button
             className="bg-white text-gray border border-gray-300 px-3 py-2 rounded flex items-center text-xs sm:text-sm"

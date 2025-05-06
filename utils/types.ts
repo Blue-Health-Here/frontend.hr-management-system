@@ -76,6 +76,7 @@ export interface Employees {
   name: string;
   image: string;
   department: string;
+  designation?: string; 
 }
 
 export interface Leave {
@@ -97,3 +98,18 @@ export interface DropdownProps {
   options: { value: string; label: string }[];
   className?: string;
 }
+
+export interface PerformanceIndicator {
+  id: string;
+  designation: string;
+  department: string;
+  approvedBy: string;
+  createdDate: string;
+  status: "Active" | "Inactive"; 
+}
+
+export interface DataTableProps {
+  filteredLeaves?: Leave[];
+  indicators?: PerformanceIndicator[];
+}
+

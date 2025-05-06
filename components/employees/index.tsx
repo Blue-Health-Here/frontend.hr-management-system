@@ -68,8 +68,8 @@ const EmployeesView = () => {
   const filteredEmployees = handleFilterChange();
 
   return (
-    <div>
-      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 gap-4">
+    <>
+      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4 gap-4">
         <h1 className="text-2xl font-bold">Employee</h1>
         <div className="flex flex-col sm:flex-row items-stretch gap-3 w-full sm:w-auto">
           {/* Export Dropdown */}
@@ -358,7 +358,7 @@ const EmployeesView = () => {
           </table>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
