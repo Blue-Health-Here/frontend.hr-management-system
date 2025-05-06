@@ -91,6 +91,14 @@ export interface Leave {
   isPlanned: boolean;
   isPending: boolean;
 }
+
+export interface DropdownProps {
+  id: string;
+  label: string;
+  options: { value: string; label: string }[];
+  className?: string;
+}
+
 export interface PerformanceIndicator {
   id: string;
   designation: string;
@@ -99,7 +107,9 @@ export interface PerformanceIndicator {
   createdDate: string;
   status: "Active" | "Inactive"; 
 }
+
 export interface DataTableProps {
   filteredLeaves?: Leave[];
   indicators?: PerformanceIndicator[];
 }
+
