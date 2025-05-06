@@ -4,7 +4,7 @@ import { designations, technicalOptions, status } from "@/utils/constants";
 
 const AddPerformanceIndicator: React.FC = () => {
   return (
-    <div className="container mx-auto">
+    <div className="">
       <h1 className="text-2xl font-bold text-gray-800 mb-4">
         Add New Indicator
       </h1>
@@ -122,23 +122,19 @@ const AddPerformanceIndicator: React.FC = () => {
         options={status.map((d) => ({ value: d.id, label: d.name }))}
         className="mb-6 w-full md:w-1/2 lg:w-2/3"
       />
-      <div className="grid grid-cols-8 gap-4 w-full md:w-1/2 lg:w-2/3 mx-auto mt-8">
-        <div className="col-start-4 col-span-1">
-          <button
-            type="button"
-            className="w-full px-6 py-2 border border-gray-300 rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#f26522] transition-colors"
-          >
-            Cancel
-          </button>
-        </div>
-        <div className="col-span-2">
-          <button
-            type="submit"
-            className="w-full px-4 py-2 border border-transparent rounded-md shadow-sm text-white bg-[#f26522] hover:bg-[#e05b1e] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#f26522] transition-colors"
-          >
-            Add Indicator
-          </button>
-        </div>
+      <div className="flex gap-4 items-center justify-center w-max">
+        <button
+          type="button"
+          className="w-full px-6 py-2 border border-gray-300 rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#f26522] transition-colors"
+        >
+          Cancel
+        </button>
+        <button
+          type="submit"
+          className="w-max min-w-max px-4 py-2 border border-transparent rounded-md shadow-sm text-white bg-[#f26522] hover:bg-[#e05b1e] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#f26522] transition-colors"
+        >
+          Add Indicator
+        </button>
       </div>
     </div>
   );
