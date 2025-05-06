@@ -478,3 +478,21 @@ export const departmentOptions = [
     'Operations Manager',
     'Sales Executive'
   ];
+
+  export const designations = [
+    { id: '1', name: 'Web Designer' },
+    { id: '2', name: 'Web Developer' },
+    { id: '3', name: 'IOS Developer' },
+  ];
+
+ export  const technicalOptions = [
+    { value: 'advanced', label: 'Advanced' },
+    { value: 'intermediate', label: 'Intermediate' },
+    { value: 'average', label: 'Average' }
+  ];
+
+  export const status = [
+    { id: '1', name: 'Active' },
+    { id: '2', name: 'Inactive' },
+  ];
+

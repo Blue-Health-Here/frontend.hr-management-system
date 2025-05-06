@@ -91,3 +91,9 @@ export interface Leave {
   isPending: boolean;
 }
 
+export interface DropdownProps {
+  id: string;
+  label: string;
+  options: { value: string; label: string }[];
+  className?: string;
+}
