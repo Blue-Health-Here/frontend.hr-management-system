@@ -119,7 +119,7 @@ export function DashboardHeader({ user }: DashboardHeaderProps) {
   // Main return of DashboardHeader
   return (
     <>
-      <div className="flex justify-between items-center bg-gray-100 pb-2">
+      <div className="flex justify-between items-center bg-gray-100 mb-4">
         <h1 className="text-2xl font-semibold text-gray-800">
           Admin Dashboard
         </h1>
