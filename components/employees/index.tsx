@@ -4,6 +4,7 @@ import Image from "next/image";
 import { Users, CheckCircle, XCircle, UserPlus, File, ChevronDown, Plus } from "lucide-react";
 import { employeeData } from "@/utils/constants";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 const EmployeesView = () => {
   const router = useRouter();
@@ -110,12 +111,12 @@ const EmployeesView = () => {
           </div>
 
           {/* Add Employee Button */}
-          <button
-            onClick={() => router.push('/employees/add')}
+          <Link
+            href="/employees/add"
             className="flex items-center justify-center text-nowrap xs:justify-start gap-1 px-4 py-2 bg-[#f26522] text-white rounded-md text-sm font-semibold hover:bg-[#e05b1a] transition-colors w-full xs:w-auto">
             <Plus className="h-3 w-3" />
             <span>Add Employee</span>
-          </button>
+          </Link>
         </div>
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
