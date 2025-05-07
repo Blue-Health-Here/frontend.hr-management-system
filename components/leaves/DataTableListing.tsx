@@ -1,20 +1,23 @@
-import { Leave, PerformanceIndicator } from "@/utils/types";
+import { Leave, PerformanceIndicator, Holiday } from "@/utils/types";
 import React from "react";
 import { DataTableProps } from "@/utils/types";
 
-type TableData = Leave[] | PerformanceIndicator[];
+type TableData = Leave[] | PerformanceIndicator[] | Holiday[];
 
 const DataTableListing: React.FC<DataTableProps> = ({ 
   filteredLeaves, 
-  indicators 
+  indicators,
+  holidays
 }) => {
-  const data = filteredLeaves || indicators;
+  const data = filteredLeaves || indicators || holidays;
   const isLeavesTable = !!filteredLeaves;
+  const isHolidaysTable = !!holidays;
 
   if (!data || data.length === 0) {
     return (
       <div className="p-4 text-center text-gray-500">
-        {isLeavesTable ? "No leaves found" : "No performance indicators found"}
+        {isLeavesTable ? "No leaves found" : 
+         isHolidaysTable ? "No holidays found" : "No performance indicators found"}
       </div>
     );
   }
@@ -40,6 +43,21 @@ const DataTableListing: React.FC<DataTableProps> = ({
                 </th>
                 <th className="py-3 px-6 text-left text-sm font-bold text-gray-900 tracking-wider border-b border-gray-300">
                   Days
+                </th>
+              </>
+            ) : isHolidaysTable ? (
+              <>
+                <th className="py-3 px-6 text-left text-sm font-bold text-gray-900 tracking-wider border-b border-gray-300">
+                  Title
+                </th>
+                <th className="py-3 px-6 text-left text-sm font-bold text-gray-900 tracking-wider border-b border-gray-300">
+                  Date
+                </th>
+                <th className="py-3 px-6 text-left text-sm font-bold text-gray-900 tracking-wider border-b border-gray-300">
+                  Description
+                </th>
+                <th className="py-3 px-6 text-left text-sm font-bold text-gray-900 tracking-wider border-b border-gray-300">
+                  Status
                 </th>
               </>
             ) : (
@@ -98,6 +116,26 @@ const DataTableListing: React.FC<DataTableProps> = ({
                   </td>
                   <td className="py-4 px-6 whitespace-nowrap text-sm text-gray-500">
                     {(item as Leave).days} Days
+                  </td>
+                </>
+              ) : isHolidaysTable ? (
+                <>
+                  <td className="py-4 px-6 whitespace-nowrap text-sm text-gray-500">
+                    {(item as Holiday).title}
+                  </td>
+                  <td className="py-4 px-6 whitespace-nowrap text-sm text-gray-500">
+                    {(item as Holiday).date}
+                  </td>
+                  <td className="py-4 px-6 whitespace-nowrap text-sm text-gray-500">
+                    {(item as Holiday).description}
+                  </td>
+                  <td className="py-4 px-6 whitespace-nowrap">
+                    <span className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full 
+                      ${(item as Holiday).status === 'Active' 
+                        ? 'bg-green-100 text-green-800' 
+                        : 'bg-red-100 text-red-800'}`}>
+                      {(item as Holiday).status}
+                    </span>
                   </td>
                 </>
               ) : (
