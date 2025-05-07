@@ -109,8 +109,18 @@ export interface PerformanceIndicator {
   status: "Active" | "Inactive"; 
 }
 
-export interface DataTableProps {
+
+export type Holiday = {
+  id: number;
+  title: string;
+  date: string;
+  description: string;
+  status: 'Active' | 'Inactive';
+};
+
+export type DataTableProps = {
   filteredLeaves?: Leave[];
   indicators?: PerformanceIndicator[];
-}
+  holidays?: Holiday[];
+};
 

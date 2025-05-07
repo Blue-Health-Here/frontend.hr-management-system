@@ -1,4 +1,5 @@
 import { Home } from "lucide-react";
+import { Holiday } from "./types";
 
 export const employeeData = [
     {
@@ -522,4 +523,84 @@ export const departmentOptions = [
     { value: "firstHalf", label: "First Half" },
     { value: "secondHalf", label: "Second Half" },
   ];
+
+
+ export const holidaysData: Holiday[] = [
+    {
+        id: 1,
+        title: "New Year's Day",
+        date: "2023-01-01",
+        description: "Celebration of new year",
+        status: "Active",
+      },
+      {
+        id: 2,
+        title: "Martin Luther King Jr. Day",
+        date: "2023-01-16",
+        description: "Honors civil rights leader",
+        status: "Active",
+      },
+      {
+        id: 3,
+        title: "Presidents' Day",
+        date: "2023-02-20",
+        description: "Honors US presidents",
+        status: "Active",
+      },
+      {
+        id: 4,
+        title: "Memorial Day",
+        date: "2023-05-29",
+        description: "Remembers fallen soldiers",
+        status: "Active",
+      },
+      {
+        id: 5,
+        title: "Independence Day",
+        date: "2023-07-04",
+        description: "US National holiday",
+        status: "Active",
+      },
+      {
+        id: 6,
+        title: "Labor Day",
+        date: "2023-09-04",
+        description: "Celebrates workers",
+        status: "Active",
+      },
+      {
+        id: 7,
+        title: "Columbus Day",
+        date: "2023-10-09",
+        description: "Celebrates discovery of America",
+        status: "Active",
+      },
+      {
+        id: 8,
+        title: "Veterans Day",
+        date: "2023-11-11",
+        description: "Honors military veterans",
+        status: "Active",
+      },
+      {
+        id: 9,
+        title: "Thanksgiving",
+        date: "2023-11-23",
+        description: "Thanksgiving holiday",
+        status: "Active",
+      },
+      {
+        id: 10,
+        title: "Christmas Day",
+        date: "2023-12-25",
+        description: "Christmas celebration",
+        status: "Active",
+      }
+    ];
+
+
+
+
+
+  
 
