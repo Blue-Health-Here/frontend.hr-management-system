@@ -1,10 +1,11 @@
 "use client";
 import React, { useState } from "react";
-import { Upload, X, Eye, EyeOff } from "lucide-react"; // Added Eye and EyeOff icons
+import { Eye, EyeOff } from "lucide-react";
 import InputField from "../../common/form/InputField";
 import * as Yup from "yup";
 import { Formik, Form } from "formik";
 import { departmentOptions, designationOptions } from "@/utils/constants";
+import ImageUpload from "@/components/common/form/ImageUpload";
 
 const AddEmployee = () => {
   const [activeTab, setActiveTab] = useState<"basic" | "permissions">("basic");
@@ -48,23 +49,11 @@ const AddEmployee = () => {
     about: "",
   };
 
-  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.files && e.target.files[0]) {
-      const file = e.target.files[0];
-      if (file.size > 4 * 1024 * 1024) {
-        alert("File size should be below 4MB");
-        return;
-      }
-      setSelectedFile(file);
-    }
-  };
-
-  const handleCancelUpload = () => {
-    setSelectedFile(null);
-  };
-
   const handleSubmit = (values: typeof initialValues) => {
-    console.log(values);
+    console.log({
+      ...values,
+      profileImage: selectedFile,
+    });
   };
 
   return (
@@ -108,60 +97,9 @@ const AddEmployee = () => {
         >
           {({ isSubmitting, handleChange, values }) => (
             <Form>
-              <div className="flex flex-col sm:flex-row items-center sm:items-start gap-6 mb-8">
-                <div className="flex flex-col items-center">
-                  <div
-                    className={`w-24 h-24 rounded-full border-2 border-dashed ${
-                      selectedFile ? "border-gray-300" : "border-gray-400"
-                    } flex items-center justify-center overflow-hidden`}
-                  >
-                    {selectedFile ? (
-                      <>
-                        <img
-                          src={URL.createObjectURL(selectedFile)}
-                          alt="Profile preview"
-                          className="w-full h-full object-cover"
-                        />
-                        <button
-                          onClick={handleCancelUpload}
-                          className="absolute top-0 right-0 bg-white rounded-full p-1 shadow-sm transform translate-x-1/4 -translate-y-1/4"
-                        >
-                          <X className="h-3 w-3 text-gray-600" />
-                        </button>
-                      </>
-                    ) : (
-                      <Upload className="h-5 w-5 text-gray-400" />
-                    )}
-                  </div>
-                </div>
-
-                <div className="flex-1 flex flex-col">
-                  <h2 className="text-sm font-medium text-gray-700 mb-1">
-                    Upload Profile Image
-                  </h2>
-                  <p className="text-xs text-gray-500 mb-3">
-                    Image should be below 4mb
-                  </p>
-                  <div className="flex gap-3">
-                    <label className="px-4 py-2 bg-[#f26522] text-white rounded text-xs font-medium hover:bg-[#e05b1a] transition-colors cursor-pointer">
-                      <input
-                        type="file"
-                        className="hidden"
-                        accept="image/*"
-                        onChange={handleFileChange}
-                      />
-                      Upload
-                    </label>
-                    <button
-                      type="button"
-                      onClick={handleCancelUpload}
-                      className="px-4 py-2 bg-gray-200 text-gray-700 rounded text-xs font-medium hover:bg-gray-300 transition-colors"
-                    >
-                      Cancel
-                    </button>
-                  </div>
-                </div>
-              </div>
+              <ImageUpload 
+                onImageChange={(file) => setSelectedFile(file)}
+              />
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <InputField label="First Name" name="firstName" />
@@ -207,7 +145,6 @@ const AddEmployee = () => {
                   </div>
                 </div>
 
-                {/* Confirm Password Field with Toggle */}
                 <div className="flex flex-col">
                   <label
                     htmlFor="confirmPassword"
@@ -306,7 +243,6 @@ const AddEmployee = () => {
                 </div>
               </div>
 
-              {/* Form Actions */}
               <div className="flex justify-end gap-4 mt-8">
                 <button
                   type="button"
@@ -328,7 +264,9 @@ const AddEmployee = () => {
       )}
 
       {activeTab === "permissions" && (
-        <div className="text-sm text-gray-500 py-4"></div>
+        <div className="text-sm text-gray-500 py-4">
+          {/* Permissions content would go here */}
+        </div>
       )}
     </div>
   );
