@@ -8,6 +8,7 @@ import DateRangeDropdown from "../common/DateRangeDropdown";
 import { Employees, Leave } from "@/utils/types";
 import { handleFilterChange } from "@/utils/helper";
 import DataTableListing from "./DataTableListing";
+import Link from "next/link";
 
 const LeavesView = () => {
   const [employees] = useState<Employees[]>(employeeData);
@@ -101,10 +102,10 @@ const LeavesView = () => {
             )}
           </div>
 
-          <button className="flex items-center justify-center text-nowrap xs:justify-start gap-1 px-4 py-2 bg-[#f26522] text-white rounded-md text-sm font-semibold hover:bg-[#e05b1a] transition-colors w-full xs:w-auto">
+          <Link href="/leaves/add" className="flex items-center justify-center text-nowrap xs:justify-start gap-1 px-4 py-2 bg-[#f26522] text-white rounded-md text-sm font-semibold hover:bg-[#e05b1a] transition-colors w-full xs:w-auto">
             <Plus className="h-3 w-3" />
             <span>Add Leave</span>
-          </button>
+          </Link>
         </div>
       </div>
 

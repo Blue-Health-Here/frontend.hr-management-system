@@ -511,3 +511,15 @@ export const departmentOptions = [
     { id: '2', name: 'Inactive' },
   ];
 
+ export const leaveTypes = [
+    { value: "medical", label: "Medical Leave" },
+    { value: "casual", label: "Casual Leave" },
+    { value: "annual", label: "Annual Leave" },
+  ];
+
+  export const leaveDurationOptions = [
+    { value: "fullDay", label: "Full Day" },
+    { value: "firstHalf", label: "First Half" },
+    { value: "secondHalf", label: "Second Half" },
+  ];
+
