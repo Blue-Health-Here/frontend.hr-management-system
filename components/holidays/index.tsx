@@ -6,13 +6,15 @@ import Link from "next/link";
 import { holidaysData } from "@/utils/constants";
 
 const Holidays = () => {
- 
   return (
     <>
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4 gap-4">
         <h1 className="text-2xl font-bold">Holidays</h1>
         <div className="flex flex-col sm:flex-row items-stretch gap-3 w-full sm:w-auto">
-          <Link href="/holidays/add" className="flex items-center justify-center text-nowrap xs:justify-start gap-1 px-4 py-2 bg-[#f26522] text-white rounded-md text-sm font-semibold hover:bg-[#e05b1a] transition-colors w-full xs:w-auto">
+          <Link 
+            href="/holidays/add" 
+            className="flex items-center justify-center text-nowrap xs:justify-start gap-1 px-4 py-2 bg-[#f26522] text-white rounded-md text-sm font-semibold hover:bg-[#e05b1a] transition-colors w-full xs:w-auto"
+          >
             <Plus className="h-3 w-3" />
             <span>Add Holiday</span>
           </Link>

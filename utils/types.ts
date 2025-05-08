@@ -131,3 +131,12 @@ export type DataTableProps = {
   holidays?: Holiday[];
 };
 
+export interface TextAreaFieldProps {
+  name: string;
+  label: string;
+  rows?: number;
+  className?: string;
+  placeholder?: string;
+}
+
+
