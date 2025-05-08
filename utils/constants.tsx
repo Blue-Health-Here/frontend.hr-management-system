@@ -598,6 +598,11 @@ export const departmentOptions = [
       }
     ];
 
+    export const holidayStatusOptions = [
+        { value: 'active', label: 'Active' },
+        { value: 'inactive', label: 'Inactive' },
+      ];
+
 
 
 
