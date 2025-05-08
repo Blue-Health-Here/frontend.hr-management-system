@@ -598,7 +598,23 @@ export const departmentOptions = [
       }
     ];
 
-
+   export  const countryOptions = [
+        { value: "us", label: "United States" },
+        { value: "ca", label: "Canada" },
+        { value: "uk", label: "United Kingdom" },
+      ];
+    
+     export const stateOptions = [
+        { value: "ny", label: "New York" },
+        { value: "ca", label: "California" },
+        { value: "tx", label: "Texas" },
+      ];
+    
+     export const cityOptions = [
+        { value: "nyc", label: "New York City" },
+        { value: "la", label: "Los Angeles" },
+        { value: "ch", label: "Chicago" },
+      ];
 
 
 

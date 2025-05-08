@@ -1,5 +1,5 @@
 import React from "react";
-import Dropdown from "../../common/DropDown";
+import Dropdown from "../../common/form/DropDown";
 import { designations, technicalOptions, status } from "@/utils/constants";
 
 const AddPerformanceIndicator: React.FC = () => {
