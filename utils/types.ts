@@ -51,18 +51,18 @@ export interface StatsOverviewProps {
 }
 
 export interface InputFieldProps {
-  label: string;
+  label?: string; 
   name: string;
   type?: string;
   placeholder?: string;
   className?: string;
   icon?: React.ReactNode;
-  
+  hideLabel?: boolean;
 }
 export interface LeavesCardProps {
   title: string;
   value: number | string;
-  icon: LucideIcon; // Type for Lucide icons
+  icon: LucideIcon; 
   iconColor: string;
   bgImage: string;
 }
@@ -92,12 +92,19 @@ export interface Leave {
   isPlanned: boolean;
   isPending: boolean;
 }
+export interface DropdownOption {
+  value: string;
+  label: string;
+}
 
 export interface DropdownProps {
   id: string;
-  label: string;
-  options: { value: string; label: string }[];
+  name: string;
+  label?: string;
+  options: DropdownOption[];
   className?: string;
+  value?: string;
+  onChange?: (e: React.ChangeEvent<HTMLSelectElement>) => void;
 }
 
 export interface PerformanceIndicator {
