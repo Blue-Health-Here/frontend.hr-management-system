@@ -1,6 +1,6 @@
 import React from "react";
-import Dropdown from "../../common/DropDown";
 import { designations, technicalOptions, status } from "@/utils/constants";
+import Dropdown from "@/components/common/form/DropDown";
 
 const AddPerformanceIndicator: React.FC = () => {
   return (
@@ -10,6 +10,7 @@ const AddPerformanceIndicator: React.FC = () => {
       </h1>
 
       <Dropdown
+        name="designation"
         id="designation"
         label="Designation"
         options={designations.map((d) => ({ value: d.id, label: d.name }))}
@@ -21,24 +22,28 @@ const AddPerformanceIndicator: React.FC = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-5 ">
           <Dropdown
+            name="customerExperience"
             id="customer-experience"
             label="Customer Experience"
             options={technicalOptions}
           />
 
           <Dropdown
+            name="marketing"
             id="marketing"
             label="Marketing"
             options={technicalOptions}
           />
 
           <Dropdown
+            name="management"
             id="management"
             label="Management"
             options={technicalOptions}
           />
 
           <Dropdown
+            name="administration"
             id="administration"
             label="Administration"
             options={technicalOptions}
@@ -46,18 +51,21 @@ const AddPerformanceIndicator: React.FC = () => {
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-5 pt-7 ">
           <Dropdown
+            name="presentationSkills"
             id="presentation-skills"
             label="Presentation Skills"
             options={technicalOptions}
           />
 
           <Dropdown
+            name="qualityOfWork"
             id="quality-of-work"
             label="Quality of Work"
             options={technicalOptions}
           />
 
           <Dropdown
+            name="efficiency"
             id="efficiency"
             label="Efficiency"
             options={technicalOptions}
@@ -72,24 +80,28 @@ const AddPerformanceIndicator: React.FC = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-5 ">
           <Dropdown
+            name="integrity"
             id="integrity"
             label="Integrity"
             options={technicalOptions}
           />
 
           <Dropdown
+            name="professionalism"
             id="professionalism"
             label="Professionalism"
             options={technicalOptions}
           />
 
           <Dropdown
+            name="teamWork"
             id="team-work"
             label="Team Work"
             options={technicalOptions}
           />
 
           <Dropdown
+            name="criticalThinking"
             id="critical-thinking"
             label="Critical Thinking"
             options={technicalOptions}
@@ -97,18 +109,21 @@ const AddPerformanceIndicator: React.FC = () => {
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-5 pt-7 ">
           <Dropdown
+            name="conflictManagement"
             id="conflict-management"
             label="Conflict Management"
             options={technicalOptions}
           />
 
           <Dropdown
+            name="attendance"
             id="attendance"
             label="Attendance"
             options={technicalOptions}
           />
 
           <Dropdown
+            name="abilityToMeetDeadline"
             id="ability-to-meet-deadline"
             label="Ability To Meet Deadline"
             options={technicalOptions}
@@ -117,6 +132,7 @@ const AddPerformanceIndicator: React.FC = () => {
       </div>
 
       <Dropdown
+        name="status"
         id="status"
         label="Status"
         options={status.map((d) => ({ value: d.id, label: d.name }))}

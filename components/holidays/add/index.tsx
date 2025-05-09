@@ -1,10 +1,10 @@
 "use client";
 import React from "react";
 import { Formik, Form } from "formik";
-import Dropdown from "../../common/DropDown";
 import InputField from "@/components/common/form/InputField";
 import TextAreaField from "@/components/common/form/TextArea";
 import { holidayStatusOptions } from "@/utils/constants";
+import Dropdown from "@/components/common/form/DropDown";
 
 const AddHoliday: React.FC = () => {
   return (
@@ -46,6 +46,7 @@ const AddHoliday: React.FC = () => {
             />
 
             <Dropdown
+              name="status"
               id="status"
               label="Status"
               options={holidayStatusOptions}

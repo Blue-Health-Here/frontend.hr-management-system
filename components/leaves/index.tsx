@@ -4,7 +4,7 @@ import Image from "next/image";
 import { Users, UserPlus, File, ChevronDown, Plus } from "lucide-react";
 import { employeeData } from "@/utils/constants";
 import LeavesCard from "./LeavesCard";
-import DateRangeDropdown from "../common/DateRangeDropdown";
+import DateRangeDropdown from "../common/form/DateRangeDropdown";
 import { Employees, Leave } from "@/utils/types";
 import { handleFilterChange } from "@/utils/helper";
 import DataTableListing from "./DataTableListing";

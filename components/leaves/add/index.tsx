@@ -1,12 +1,15 @@
 "use client";
 import React from "react";
 import { Formik, Form } from "formik";
-import Dropdown from "../../common/DropDown";
 import InputField from "@/components/common/form/InputField";
-import { employeeData, leaveTypes, leaveDurationOptions } from "@/utils/constants";
+import {
+  employeeData,
+  leaveTypes,
+  leaveDurationOptions,
+} from "@/utils/constants";
+import Dropdown from "@/components/common/form/DropDown";
 
 const AddLeave: React.FC = () => {
- 
   return (
     <div className="">
       <h1 className="text-2xl font-bold text-gray-800 mb-4">Add Leave</h1>
@@ -30,6 +33,7 @@ const AddLeave: React.FC = () => {
         {() => (
           <Form>
             <Dropdown
+              name="employeeName"
               id="employee-name"
               label="Employee Name"
               options={employeeData.map((d) => ({
@@ -40,6 +44,7 @@ const AddLeave: React.FC = () => {
             />
 
             <Dropdown
+              name="leaveType"
               id="leave-type"
               label="Leave Type"
               options={leaveTypes}
@@ -80,7 +85,6 @@ const AddLeave: React.FC = () => {
                     </option>
                   ))}
                 </select>
-                
               </div>
             </div>
 

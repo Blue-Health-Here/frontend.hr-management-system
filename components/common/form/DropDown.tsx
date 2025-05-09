@@ -1,16 +1,30 @@
 import React from 'react';
-import { DropdownProps } from '@/utils/types';
+import {DropdownProps } from '@/utils/types';
 
-const Dropdown: React.FC<DropdownProps> = ({ id, label, options, className = '' }) => {
+
+const Dropdown: React.FC<DropdownProps> = ({ 
+  id, 
+  name, 
+  label, 
+  options, 
+  className = '', 
+  value, 
+  onChange 
+}) => {
   return (
     <div className={className}>
-      <label htmlFor={id} className="block text-sm font-medium text-gray-700 mb-2">
-        {label}
-      </label>
+      {label && (
+        <label htmlFor={id} className="block text-sm font-medium text-gray-700 mb-2">
+          {label}
+        </label>
+      )}
       <div className="relative">
         <select
           id={id}
+          name={name}
           className="block appearance-none w-full px-4 py-2 pr-8 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-[#f26522] focus:border-[#f26522] focus:ring-2 text-sm"
+          value={value}
+          onChange={onChange}
         >
           <option value="" className='text-sm'>Select</option>
           {options.map((option) => (
