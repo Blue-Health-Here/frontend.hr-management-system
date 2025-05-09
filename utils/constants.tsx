@@ -255,13 +255,7 @@ export const sidebarNav = [
         label: "Holidays",
         href: "/holidays"
     },
-   
-     {
-        icon: <Home size={13} className="text-gray-600" />,
-        label: "Users",
-        href: "/users"
-    },
-     {
+    {
         icon: <Home size={13} className="text-gray-600" />,
         label: "Users",
         href: "/users"
