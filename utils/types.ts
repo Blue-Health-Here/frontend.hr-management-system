@@ -126,7 +126,7 @@ export type Holiday = {
 };
 
 export type DataTableProps = {
-  filteredLeaves?: Leave[];
+  filteredLeaves?: Leave[] | User[];
   indicators?: PerformanceIndicator[];
   holidays?: Holiday[];
   filteredUsers?: User[];

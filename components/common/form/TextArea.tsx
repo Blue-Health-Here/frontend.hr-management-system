@@ -1,7 +1,14 @@
 "use client";
 import React from "react";
 import { useField } from "formik";
-import { TextAreaFieldProps } from "@/utils/types";
+
+interface TextAreaFieldProps {
+  name: string;
+  label: string;
+  rows?: number;
+  className?: string;
+  placeholder?: string;
+}
 
 const TextAreaField: React.FC<TextAreaFieldProps> = ({
   name,
