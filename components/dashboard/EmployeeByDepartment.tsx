@@ -93,44 +93,44 @@ const departmentData = {
       backgroundColor: "rgba(243, 116, 56, 0.8)",
       borderColor: "rgba(243, 116, 56, 1)",
       borderWidth: 1,
-      borderRadius: 10, // This makes both ends rounded
-      borderSkipped: false, // Important for rounding both ends
+      borderRadius: 10,
+      borderSkipped: false,
     },
   ],
 };
 
 function EmployeeByDepartment() {
   return (
-    <div className="flex flex-col lg:flex-row gap-6 mb-8">
+    <div className="flex flex-col lg:flex-row gap-4 lg:gap-6 mb-6 lg:mb-8">
       {/* Metrics Grid - Now takes 2/3 width */}
-      <div className="lg:w-2/3 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="lg:w-2/3 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
         {metrics.flat().map((metric, index) => (
           <div
             key={index}
-            className="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow"
+            className="bg-white p-4 lg:p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow"
           >
             <div className="flex justify-between items-start">
               <div>
-                <p className="text-sm font-medium text-gray-500">
+                <p className="text-xs lg:text-sm font-medium text-gray-500">
                   {metric.title}
                 </p>
-                <p className="text-2xl font-bold text-gray-800 mt-1">
+                <p className="text-xl lg:text-2xl font-bold text-gray-800 mt-1">
                   {metric.value}
                 </p>
                 <p className="text-xs text-gray-500 mt-1">{metric.change}</p>
               </div>
-              <div className="p-2 rounded-md bg-gray-100">{metric.icon}</div>
+              <div className="p-1 lg:p-2 rounded-md bg-gray-100">{metric.icon}</div>
             </div>
           </div>
         ))}
       </div>
 
       {/* Employee By Department Chart - Now takes 1/3 width */}
-      <div className="lg:w-1/3 bg-white p-6 rounded-lg shadow-sm">
-        <h2 className="text-lg font-semibold text-gray-800 mb-4">
+      <div className="lg:w-1/3 bg-white p-4 lg:p-6 rounded-lg shadow-sm mt-4 lg:mt-0">
+        <h2 className="text-base lg:text-lg font-semibold text-gray-800 mb-3 lg:mb-4 whitespace-nowrap">
           Employees By Department
         </h2>
-        <div className="h-80">
+        <div className="h-64 lg:h-80 -mx-2 lg:mx-0">
           <Bar
             data={departmentData}
             options={{
@@ -142,6 +142,7 @@ function EmployeeByDepartment() {
                   beginAtZero: true,
                   title: {
                     display: true,
+                    text: 'Number of Employees',
                     font: {
                       weight: "bold",
                     },
@@ -152,14 +153,16 @@ function EmployeeByDepartment() {
                 },
                 y: {
                   title: {
-                    display: true,
-                    font: {
-                      weight: "bold",
-                    },
+                    display: false,
                   },
                   grid: {
                     display: false,
                   },
+                  ticks: {
+                    font: {
+                      size: 10
+                    }
+                  }
                 },
               },
               plugins: {
@@ -176,12 +179,18 @@ function EmployeeByDepartment() {
               },
               datasets: {
                 bar: {
-                  barThickness: 10,
-                  maxBarThickness: 25,
-                  categoryPercentage: 0.8,
+                  barThickness: 8,
+                  maxBarThickness: 20,
+                  categoryPercentage: 0.9,
                   barPercentage: 0.9,
                 },
               },
+              layout: {
+                padding: {
+                  left: 10,
+                  right: 10
+                }
+              }
             }}
           />
         </div>
