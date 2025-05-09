@@ -20,12 +20,27 @@ function AddUser() {
     confirmPassword: '',
     phone: '',
     role: '',
+    permissions: {
+      employee: { read: false, write: false, create: false, delete: false, import: false, export: false },
+      holidays: { read: false, write: false, create: false, delete: false, import: false, export: false },
+      leaves: { read: false, write: false, create: false, delete: false, import: false, export: false },
+      events: { read: false, write: false, create: false, delete: false, import: false, export: false },
+    }
   };
 
   const handleSubmit = (values: typeof initialValues) => {
     console.log(values);
     // Handle form submission
   };
+
+  const permissionModules = [
+    { id: 'employee', label: 'Employee' },
+    { id: 'holidays', label: 'Holidays' },
+    { id: 'leaves', label: 'Leaves' },
+    { id: 'events', label: 'Events' },
+  ];
+
+  const permissionTypes = ['read', 'write', 'create', 'delete', 'import', 'export'];
 
   return (
     <div className="container mx-auto max-w-4xl ml-0">
@@ -38,7 +53,7 @@ function AddUser() {
         initialValues={initialValues}
         onSubmit={handleSubmit}
       >
-        {({ isSubmitting }) => (
+        {({ isSubmitting, values, setFieldValue }) => (
           <Form>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <InputField 
@@ -87,7 +102,48 @@ function AddUser() {
                 options={roleOptions}
                 value=""
                 onChange={() => {}}
+                className='mt-4'
               />
+            </div>
+
+            <div className="mt-8 mb-6">
+              <div className="overflow-x-auto">
+                <table className="min-w-full border border-gray-200">
+                  <thead>
+                    <tr className="bg-gray-200">
+                      <th className="px-4 py-2 text-left text-sm font-bold text-gray-700 border-b border-gray-200">Module Permissions</th>
+                      <th className="px-4 py-2 text-left text-sm font-bold text-gray-700 border-b border-gray-200">Read</th>
+                      <th className="px-4 py-2 text-left text-sm font-bold text-gray-700 border-b border-gray-200">Write</th>
+                      <th className="px-4 py-2 text-left text-sm font-bold text-gray-700 border-b border-gray-200">Create</th>
+                      <th className="px-4 py-2 text-left text-sm font-bold text-gray-700 border-b border-gray-200">Delete</th>
+                      <th className="px-4 py-2 text-left text-sm font-bold text-gray-700 border-b border-gray-200">Import</th>
+                      <th className="px-4 py-2 text-left text-sm font-bold text-gray-700 border-b border-gray-200">Export</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {permissionModules.map((module) => (
+                      <tr key={module.id} className="hover:bg-gray-50">
+                        <td className="px-4 py-3 text-sm text-gray-700 border-b border-gray-200">{module.label}</td>
+                        {permissionTypes.map((permission) => (
+                          <td key={`${module.id}-${permission}`} className="px-4 py-3 text-sm border-b border-gray-200">
+                            <input
+                              type="checkbox"
+                              checked={values.permissions[module.id as keyof typeof values.permissions][permission as keyof typeof values.permissions.employee]}
+                              onChange={(e) => {
+                                setFieldValue(
+                                  `permissions.${module.id}.${permission}`,
+                                  e.target.checked
+                                );
+                              }}
+                              className="h-4 w-4 text-[#f26522] focus:ring-[#f26522] border-gray-300 rounded"
+                            />
+                          </td>
+                        ))}
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
             </div>
 
             <div className="flex justify-end gap-4 mt-8">
