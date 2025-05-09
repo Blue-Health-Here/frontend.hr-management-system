@@ -8,7 +8,6 @@ import { handleFilterChange } from "@/utils/helper";
 import DataTableListing from "../leaves/DataTableListing";
 import Link from "next/link";
 
-
 const UsersPage = () => {
   const [employees] = useState<Employees[]>(employeeData);
   const [dateRangeFilter, setDateRangeFilter] = useState<string>("04/26/2025 - 05/02/2025");
