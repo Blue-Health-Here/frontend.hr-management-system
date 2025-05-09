@@ -126,17 +126,17 @@ export type Holiday = {
 };
 
 export type DataTableProps = {
-  filteredLeaves?: Leave[];
+  filteredLeaves?: Leave[] | User[];
   indicators?: PerformanceIndicator[];
   holidays?: Holiday[];
+  filteredUsers?: User[];
 };
-
-export interface TextAreaFieldProps {
+export type User = {
+  id: string | number;
   name: string;
-  label: string;
-  rows?: number;
-  className?: string;
-  placeholder?: string;
-}
-
-
+  email: string;
+  createdDate: string;
+  role: "Employee" | "Client";
+  status: "Active" | "Inactive";
+  image: string;
+};

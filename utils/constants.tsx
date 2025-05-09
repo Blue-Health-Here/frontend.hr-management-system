@@ -257,6 +257,11 @@ export const sidebarNav = [
     },
     {
         icon: <Home size={13} className="text-gray-600" />,
+        label: "Users",
+        href: "/users"
+    },
+    {
+        icon: <Home size={13} className="text-gray-600" />,
         label: "Settings",
         href: "/settings"
     }

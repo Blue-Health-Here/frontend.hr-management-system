@@ -1,5 +1,5 @@
 
-import AddProfile from "@/components/add-profile";
+import AddProfile from "@/components/profile";
 import MainLayout from "@/components/layouts/MainLayout";
 
 export default function HRDashboard() {

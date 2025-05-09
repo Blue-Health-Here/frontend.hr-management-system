@@ -1,23 +1,24 @@
 import { Leave, PerformanceIndicator, Holiday } from "@/utils/types";
 import React from "react";
-import { DataTableProps } from "@/utils/types";
-
-type TableData = Leave[] | PerformanceIndicator[] | Holiday[];
+import { User,DataTableProps } from "@/utils/types";
 
 const DataTableListing: React.FC<DataTableProps> = ({ 
   filteredLeaves, 
   indicators,
-  holidays
+  holidays,
+  filteredUsers
 }) => {
-  const data = filteredLeaves || indicators || holidays;
+  const data = filteredLeaves || indicators || holidays || filteredUsers;
   const isLeavesTable = !!filteredLeaves;
   const isHolidaysTable = !!holidays;
+  const isUsersTable = !!filteredUsers;
 
   if (!data || data.length === 0) {
     return (
       <div className="p-4 text-center text-gray-500">
         {isLeavesTable ? "No leaves found" : 
-         isHolidaysTable ? "No holidays found" : "No performance indicators found"}
+         isHolidaysTable ? "No holidays found" : 
+         isUsersTable ? "No users found" : "No performance indicators found"}
       </div>
     );
   }
@@ -55,6 +56,24 @@ const DataTableListing: React.FC<DataTableProps> = ({
                 </th>
                 <th className="py-3 px-6 text-left text-sm font-bold text-gray-900 tracking-wider border-b border-gray-300">
                   Description
+                </th>
+                <th className="py-3 px-6 text-left text-sm font-bold text-gray-900 tracking-wider border-b border-gray-300">
+                  Status
+                </th>
+              </>
+            ) : isUsersTable ? (
+              <>
+                <th className="py-3 px-6 text-left text-sm font-bold text-gray-900 tracking-wider border-b border-gray-300">
+                  Name
+                </th>
+                <th className="py-3 px-6 text-left text-sm font-bold text-gray-900 tracking-wider border-b border-gray-300">
+                  Email
+                </th>
+                <th className="py-3 px-6 text-left text-sm font-bold text-gray-900 tracking-wider border-b border-gray-300">
+                  Created Date
+                </th>
+                <th className="py-3 px-6 text-left text-sm font-bold text-gray-900 tracking-wider border-b border-gray-300">
+                  Role
                 </th>
                 <th className="py-3 px-6 text-left text-sm font-bold text-gray-900 tracking-wider border-b border-gray-300">
                   Status
@@ -135,6 +154,42 @@ const DataTableListing: React.FC<DataTableProps> = ({
                         ? 'bg-green-100 text-green-800' 
                         : 'bg-red-100 text-red-800'}`}>
                       {(item as Holiday).status}
+                    </span>
+                  </td>
+                </>
+              ) : isUsersTable ? (
+                <>
+                  <td className="py-4 px-6 whitespace-nowrap">
+                    <div className="flex items-center">
+                      <div className="flex-shrink-0 h-10 w-10">
+                        <img
+                          src={(item as User).image}
+                          alt={(item as User).name}
+                          className="rounded-full h-10 w-10"
+                        />
+                      </div>
+                      <div className="ml-4">
+                        <div className="text-sm font-medium text-gray-500">
+                          {(item as User).name}
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                  <td className="py-4 px-6 whitespace-nowrap text-sm text-gray-500">
+                    {(item as User).email}
+                  </td>
+                  <td className="py-4 px-6 whitespace-nowrap text-sm text-gray-500">
+                    {(item as User).createdDate}
+                  </td>
+                  <td className="py-4 px-6 whitespace-nowrap text-sm text-gray-500">
+                    {(item as User).role}
+                  </td>
+                  <td className="py-4 px-6 whitespace-nowrap">
+                    <span className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full 
+                      ${(item as User).status === 'Active' 
+                        ? 'bg-green-100 text-green-800' 
+                        : 'bg-red-100 text-red-800'}`}>
+                      {(item as User).status}
                     </span>
                   </td>
                 </>
