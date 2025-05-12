@@ -103,7 +103,7 @@ function EmployeeByDepartment() {
   return (
     <div className="flex flex-col lg:flex-row gap-4 lg:gap-6 mb-6 lg:mb-8">
       {/* Metrics Grid - Now takes 2/3 width */}
-      <div className="lg:w-2/3 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
+      <div className="lg:w-2/3 grid grid-cols-1  sm:grid-cols-4 gap-4 lg:gap-6">
         {metrics.flat().map((metric, index) => (
           <div
             key={index}

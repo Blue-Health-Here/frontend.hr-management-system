@@ -9,6 +9,7 @@ import { Employees, Leave } from "@/utils/types";
 import { handleFilterChange } from "@/utils/helper";
 import DataTableListing from "./DataTableListing";
 import Link from "next/link";
+import ExportButton from "../common/ExportButton";
 
 const LeavesView = () => {
   const [employees] = useState<Employees[]>(employeeData);
@@ -63,44 +64,7 @@ const LeavesView = () => {
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4 gap-4">
         <h1 className="text-2xl font-bold">Leaves</h1>
         <div className="flex flex-col sm:flex-row items-stretch gap-3 w-full sm:w-auto">
-          <div className="relative w-full xs:w-auto">
-            <button
-              onClick={() => setExportOpen(!exportOpen)}
-              className="flex items-center justify-between xs:justify-start gap-2 px-3 py-2 border border-gray-300 rounded-md text-gray-700 hover:bg-gray-50 text-sm font-medium transition-colors w-full xs:w-auto"
-            >
-              <div className="flex items-center gap-2">
-                <File className="h-4 w-4" />
-                <span>Export</span>
-              </div>
-              <ChevronDown
-                className={`h-4 w-4 text-gray-500 transition-transform ${exportOpen ? "rotate-180" : ""
-                  }`}
-              />
-            </button>
-
-            {exportOpen && (
-              <div className="absolute right-0 mt-1 w-full xs:w-48 bg-white rounded-md shadow-lg z-10 border border-gray-200">
-                <div className="py-1">
-                  <button
-                    className="flex w-full items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                    onClick={() => {
-                      setExportOpen(false);
-                    }}
-                  >
-                    Export as PDF
-                  </button>
-                  <button
-                    className="flex w-full items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                    onClick={() => {
-                      setExportOpen(false);
-                    }}
-                  >
-                    Export as Excel
-                  </button>
-                </div>
-              </div>
-            )}
-          </div>
+          <ExportButton/>
 
           <Link href="/leaves/add" className="flex items-center justify-center text-nowrap xs:justify-start gap-1 px-4 py-2 bg-[#f26522] text-white rounded-md text-sm font-semibold hover:bg-[#e05b1a] transition-colors w-full xs:w-auto">
             <Plus className="h-3 w-3" />

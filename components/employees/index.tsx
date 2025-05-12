@@ -5,6 +5,7 @@ import { Users, CheckCircle, XCircle, UserPlus, File, ChevronDown, Plus } from "
 import { employeeData } from "@/utils/constants";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import ExportButton from "../common/ExportButton";
 
 const EmployeesView = () => {
   const router = useRouter();
@@ -73,44 +74,7 @@ const EmployeesView = () => {
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4 gap-4">
         <h1 className="text-2xl font-bold">Employee</h1>
         <div className="flex flex-col sm:flex-row items-stretch gap-3 w-full sm:w-auto">
-          {/* Export Dropdown */}
-          <div className="relative w-full xs:w-auto">
-            <button
-              onClick={() => setExportOpen(!exportOpen)}
-              className="flex items-center justify-between xs:justify-start gap-2 px-3 py-2 border border-gray-300 rounded-md text-gray-700 hover:bg-gray-50 text-sm font-medium transition-colors w-full xs:w-auto"
-            >
-              <div className="flex items-center gap-2">
-                <File className="h-4 w-4" />
-                <span>Export</span>
-              </div>
-              <ChevronDown className={`h-4 w-4 text-gray-500 transition-transform ${exportOpen ? 'rotate-180' : ''}`} />
-            </button>
-
-            {exportOpen && (
-              <div className="absolute right-0 mt-1 w-full xs:w-48 bg-white rounded-md shadow-lg z-10 border border-gray-200">
-                <div className="py-1">
-                  <button
-                    className="flex w-full items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                    onClick={() => {
-                      setExportOpen(false);
-                    }}
-                  >
-                    Export as PDF
-                  </button>
-                  <button
-                    className="flex w-full items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                    onClick={() => {
-                      setExportOpen(false);
-                    }}
-                  >
-                    Export as Excel
-                  </button>
-                </div>
-              </div>
-            )}
-          </div>
-
-          {/* Add Employee Button */}
+          <ExportButton/>
           <Link
             href="/employees/add"
             className="flex items-center justify-center text-nowrap xs:justify-start gap-1 px-4 py-2 bg-[#f26522] text-white rounded-md text-sm font-semibold hover:bg-[#e05b1a] transition-colors w-full xs:w-auto">
@@ -120,7 +84,6 @@ const EmployeesView = () => {
         </div>
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
-        {/* Total Employees */}
         <div className="bg-white p-4 rounded-lg shadow-sm border border-gray-200">
           <div className="flex items-center justify-between">
             <div className="flex items-center">
@@ -138,7 +101,6 @@ const EmployeesView = () => {
           </div>
         </div>
 
-        {/* Active Employees */}
         <div className="bg-white p-4 rounded-lg shadow-sm border border-gray-200">
           <div className="flex items-center justify-between">
             <div className="flex items-center">
@@ -158,7 +120,6 @@ const EmployeesView = () => {
           </div>
         </div>
 
-        {/* Inactive Employees */}
         <div className="bg-white p-4 rounded-lg shadow-sm border border-gray-200">
           <div className="flex items-center justify-between">
             <div className="flex items-center">
@@ -178,7 +139,6 @@ const EmployeesView = () => {
           </div>
         </div>
 
-        {/* New Joiners */}
         <div className="bg-white p-4 rounded-lg shadow-sm border border-gray-200">
           <div className="flex items-center justify-between">
             <div className="flex items-center">
@@ -199,7 +159,6 @@ const EmployeesView = () => {
         </div>
       </div>
 
-      {/* Employee Table */}
       <div className="overflow-x-auto bg-white rounded-lg shadow-sm border border-gray-200">
         <div className="bg-white p-4 border border-gray-200">
           <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">

@@ -119,7 +119,7 @@ function DahboardCards() {
   };
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6">
+    <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 gap-4 lg:gap-6">
       {/* Job Applicants Section */}
       <div className="bg-white p-4 lg:p-6 rounded-lg shadow-sm">
         <h2 className="text-lg font-semibold text-gray-800 mb-4">
@@ -208,7 +208,7 @@ function DahboardCards() {
       </div>
 
       {/* Todo List Section */}
-      <div className="bg-white p-4 lg:p-6 rounded-lg shadow-sm md:col-span-2 lg:col-span-1">
+      <div className="bg-white p-4 lg:p-6 rounded-lg shadow-sm md:col-span-1 lg:col-span-1">
         <h2 className="text-lg font-semibold text-gray-800 mb-4">Todo</h2>
 
         <div className="space-y-2">

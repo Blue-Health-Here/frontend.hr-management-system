@@ -140,3 +140,11 @@ export type User = {
   status: "Active" | "Inactive";
   image: string;
 };
+export interface DashboardHeaderProps {
+  user: {
+    image: string;
+    name: string;
+    pendingApprovals: number;
+    leaveRequests: number;
+  };
+}
