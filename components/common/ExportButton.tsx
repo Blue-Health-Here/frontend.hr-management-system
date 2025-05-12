@@ -6,10 +6,10 @@ import { Fragment } from "react";
 
 function ExportButton() {
   return (
-    <div className="flex items-center gap-2 md:gap-3">
+    <div className="flex items-center gap-2 md:gap-3 ">
           <Menu as="div" className="relative inline-block text-left">
             <div>
-              <Menu.Button className="inline-flex items-center gap-1 rounded-md border border-gray-300 bg-white px-4 md:px-5 py-1.5 md:py-2 text-xs md:text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none">
+              <Menu.Button className="inline-flex items-center gap-1 rounded-md border border-gray-300 bg-white px-4 md:px-5 py-2 text-xs md:text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none">
                 <Download className="h-3.5 md:h-4 w-3.5 md:w-4" />
                 <span className="sm:inline">Export</span>
               </Menu.Button>

@@ -4,9 +4,10 @@ import Image from "next/image";
 import { ChevronDown } from "lucide-react";
 import { employeeData } from "@/utils/constants";
 import AttendanceCard from "./AttendanceCard";
+import ExportButton from "../common/ExportButton";
+import DateRangeDropdown from "../common/form/DateRangeDropdown";
 
 const AttendanceReportView = () => {
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [employees, setEmployees] = useState(employeeData);
   const [dateRangeFilter, setDateRangeFilter] = useState(
     "04/24/2025 - 04/30/2025"
@@ -63,84 +64,12 @@ const AttendanceReportView = () => {
       {/* Header section with export button */}
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4 gap-2">
         <h1 className="text-lg sm:text-2xl font-bold">Attendance Report</h1>
-        <div className="relative self-end sm:self-auto">
-          <button
-            className="bg-white text-gray border border-gray-300 px-3 py-2 rounded flex items-center text-xs sm:text-sm"
-            onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-          >
-            <svg
-              className="w-3 h-3 mr-1.5"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"
-              />
-            </svg>
-            Export
-            <svg
-              className="w-3 h-3 ml-1.5"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M19 9l-7 7-7-7"
-              />
-            </svg>
-          </button>
-
-          {isDropdownOpen && (
-            <div className="absolute right-0 mt-1 w-40 bg-white rounded-md shadow-lg z-10">
-              <div className="py-1">
-                <button className="flex items-center w-full text-left px-3 py-1.5 text-xs text-gray-700 hover:bg-gray-100">
-                  <svg
-                    className="w-3 h-3 mr-1.5"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"
-                    />
-                  </svg>
-                  Export as PDF
-                </button>
-                <button className="flex items-center w-full text-left px-3 py-1.5 text-xs text-gray-700 hover:bg-gray-100">
-                  <svg
-                    className="w-3 h-3 mr-1.5"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
-                    />
-                  </svg>
-                  Export as Excel
-                </button>
-              </div>
-            </div>
-          )}
+        <div className="self-start sm:self-auto">
+          <ExportButton />
         </div>
       </div>
+
+      {/* Stats and Graph Section */}
       <div className="flex flex-col lg:flex-row gap-3 sm:gap-4 mb-4 sm:mb-6">
         <div className="w-full lg:w-1/2 grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
           <AttendanceCard
@@ -184,7 +113,7 @@ const AttendanceReportView = () => {
           />
         </div>
 
-        {/* Right section with attendance graph */}
+        {/* Attendance Graph Section */}
         <div className="w-full lg:w-1/2 bg-white p-3 sm:p-4 rounded-lg shadow-sm">
           <h3 className="text-xs sm:text-sm font-semibold mb-3">Attendance</h3>
           <div className="h-40 sm:h-48">
@@ -245,6 +174,7 @@ const AttendanceReportView = () => {
         </div>
       </div>
 
+      {/* Employee Table Section */}
       <div className="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden">
         {/* Filter Row */}
         <div className="bg-white p-3 sm:p-4 border border-gray-200">
@@ -252,38 +182,21 @@ const AttendanceReportView = () => {
             <h2 className="text-base sm:text-lg font-semibold">
               Employee Attendance
             </h2>
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 sm:gap-3 w-full md:w-auto">
-              <div className="w-full sm:w-40 md:w-48">
-                <div className="relative">
-                  <select
-                    id="date-range-filter"
-                    value={dateRangeFilter}
-                    onChange={(e) => setDateRangeFilter(e.target.value)}
-                    className="block appearance-none w-full pl-3 pr-6 py-2 text-xs sm:text-sm border border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 rounded-md truncate"
-                  >
-                    <option value="04/24/2025 - 04/30/2025">
-                      04/24/2025 - 04/30/2025
-                    </option>
-                    <option value="Today">Today</option>
-                    <option value="Yesterday">Yesterday</option>
-                    <option value="Last 7 Days">Last 7 Days</option>
-                    <option value="Last 30 Days">Last 30 Days</option>
-                    <option value="This month">This month</option>
-                    <option value="Last Month">Last Month</option>
-                    <option value="Custom Range">Custom Range</option>
-                  </select>
-                  <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-                    <ChevronDown className="h-3 w-3 sm:h-4 sm:w-4" />
-                  </div>
-                </div>
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-auto">
+              <div className="w-full sm:w-48 md:w-56">
+                <DateRangeDropdown 
+                  value={dateRangeFilter}
+                  onChange={setDateRangeFilter}
+                />
               </div>
-              <div className="w-full sm:w-28 md:w-32">
+              
+              <div className="w-auto sm:w-32 md:w-36">
                 <div className="relative">
                   <select
                     id="status-filter"
                     value={statusFilter}
                     onChange={(e) => setStatusFilter(e.target.value)}
-                    className="block appearance-none w-full pl-3 pr-6 py-2 text-xs sm:text-sm border border-gray-300 focus:outline-none rounded-md"
+                    className="block appearance-none w-full pl-3 pr-8 py-2 text-xs sm:text-sm border border-gray-300 focus:outline-none rounded-md"
                   >
                     <option value="All">All Status</option>
                     <option value="Present">Present</option>
@@ -295,13 +208,14 @@ const AttendanceReportView = () => {
                   </div>
                 </div>
               </div>
-              <div className="w-full sm:w-32 md:w-36">
+              
+              <div className="w-full sm:w-36 md:w-40">
                 <div className="relative">
                   <select
                     id="sort"
                     value={sortOption}
                     onChange={(e) => setSortOption(e.target.value)}
-                    className="block appearance-none w-full pl-3 pr-6 py-2 text-xs sm:text-sm border border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 rounded-md"
+                    className="block appearance-none w-full pl-3 pr-8 py-2 text-xs sm:text-sm border border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 rounded-md"
                   >
                     <option value="">Sort By</option>
                     <option value="last7days">Last 7 days</option>

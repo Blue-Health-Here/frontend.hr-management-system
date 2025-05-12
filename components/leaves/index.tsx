@@ -50,23 +50,16 @@ const LeavesView = () => {
   ).length;
   const pendingRequests = leaveData.filter((leave) => leave.isPending).length;
 
-  // const recentLeaves = leaveData.filter((leave) => {
-  //   const sevenDaysAgo = new Date();
-  //   sevenDaysAgo.setDate(sevenDaysAgo.getDate() - 7);
-  //   const fromDate = new Date(leave.from);
-  //   return fromDate >= sevenDaysAgo;
-  // }).length;
-
   const filteredLeaves = handleFilterChange({ leaveData, dateRangeFilter, leaveTypeFilter, sortOption });
 
   return (
     <div>
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4 gap-4">
         <h1 className="text-2xl font-bold">Leaves</h1>
-        <div className="flex flex-col sm:flex-row items-stretch gap-3 w-full sm:w-auto">
+        <div className="flex flex-row items-stretch gap-3 w-full sm:w-auto">
           <ExportButton/>
 
-          <Link href="/leaves/add" className="flex items-center justify-center text-nowrap xs:justify-start gap-1 px-4 py-2 bg-[#f26522] text-white rounded-md text-sm font-semibold hover:bg-[#e05b1a] transition-colors w-full xs:w-auto">
+          <Link href="/leaves/add" className="flex items-center justify-center text-nowrap xs:justify-start gap-1 px-4 py-2 bg-[#f26522] text-white rounded-md text-sm font-semibold hover:bg-[#e05b1a] transition-colors w-auto ">
             <Plus className="h-3 w-3" />
             <span>Add Leave</span>
           </Link>
@@ -112,37 +105,38 @@ const LeavesView = () => {
         <div className="bg-white p-4 border border-gray-200">
           <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
             <h2 className="text-lg font-semibold">Leave List</h2>
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full md:w-auto">
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-auto">
               <DateRangeDropdown
                 value={dateRangeFilter}
                 onChange={setDateRangeFilter}
               />
 
-              <div className="w-full sm:w-40">
+              <div className="relative w-full sm:w-40">
                 <select
                   id="leave-type-filter"
                   value={leaveTypeFilter}
                   onChange={(e) => setLeaveTypeFilter(e.target.value)}
-                  className="block w-full pl-3 pr-10 py-2 text-base border border-gray-300 focus:outline-none sm:text-sm rounded-md"
+                  className="block w-full pl-3 pr-6 py-2 border border-gray-300 focus:outline-none text-sm rounded-md appearance-none bg-white "
                 >
                   <option value="All">Leave Type</option>
                   <option value="Medical Leave">Medical Leave</option>
                   <option value="Casual Leave">Casual Leave</option>
                   <option value="Annual Leave">Annual Leave</option>
                 </select>
+                <ChevronDown className="absolute right-2 top-2.5 h-4 w-4 text-gray-400 pointer-events-none" />
               </div>
 
-              <div className="w-full sm:w-36">
+              <div className="relative w-full sm:w-36">
                 <select
                   id="sort"
                   value={sortOption}
                   onChange={(e) => setSortOption(e.target.value)}
-                  className="block w-full pl-3 pr-10 py-2 text-base border border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md"
+                  className="block w-full pl-3 pr-8 py-2 border border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 text-sm rounded-md appearance-none bg-white"
                 >
-                  <option value="">Sort By</option>
-                  <option value="last7days">Last 7 days</option>
+                  <option value="">Sort By : Last 7 Days</option>
                   <option value="ascending">Employee Name (A-Z)</option>
                 </select>
+                <ChevronDown className="absolute right-2 top-2.5 h-4 w-4 text-gray-400 pointer-events-none" />
               </div>
             </div>
           </div>
