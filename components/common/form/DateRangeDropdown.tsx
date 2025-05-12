@@ -30,7 +30,7 @@ const DateRangeDropdown: React.FC<DateRangeDropdownProps> = ({ value, onChange }
         id="date-range-filter"
         value={value}
         onChange={handleDropdownChange}
-        className="block w-full pl-3 pr-3 py-2 text-base border border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md"
+        className="block w-full pl-2 pr-3 py-2  border border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 text-sm rounded-md"
       >
         <option value="04/26/2025 - 05/02/2025">04/26/2025 - 05/02/2025</option>
         <option value="Today">Today</option>
