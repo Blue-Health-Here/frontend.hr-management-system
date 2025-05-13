@@ -32,26 +32,30 @@ const AddLeave: React.FC = () => {
       >
         {() => (
           <Form>
-            <Dropdown
-              name="employeeName"
-              id="employee-name"
-              label="Employee Name"
-              options={employeeData.map((d) => ({
-                value: d.id,
-                label: d.name,
-              }))}
-              className="mb-6 w-full md:w-1/2 lg:w-2/3"
-            />
+            <div className="w-full lg:w-2/3">
+              <Dropdown
+                name="employeeName"
+                id="employee-name"
+                label="Employee Name"
+                options={employeeData.map((d) => ({
+                  value: d.id,
+                  label: d.name,
+                }))}
+                className="mb-6"
+              />
+            </div>
 
-            <Dropdown
-              name="leaveType"
-              id="leave-type"
-              label="Leave Type"
-              options={leaveTypes}
-              className="mb-2 w-full md:w-1/2 lg:w-2/3"
-            />
+            <div className="w-full lg:w-2/3">
+              <Dropdown
+                name="leaveType"
+                id="leave-type"
+                label="Leave Type"
+                options={leaveTypes}
+                className="mb-2"
+              />
+            </div>
 
-            <div className="flex flex-col sm:flex-row gap-4 w-full md:w-1/2 lg:w-2/3">
+            <div className="flex flex-col sm:flex-row gap-4 w-full lg:w-2/3">
               <InputField
                 name="fromDate"
                 label="From"
@@ -66,7 +70,7 @@ const AddLeave: React.FC = () => {
               />
             </div>
 
-            <div className="flex flex-col sm:flex-row gap-4 w-full md:w-1/2 lg:w-2/3 mt-6">
+            <div className="flex flex-col sm:flex-row gap-4 w-full lg:w-2/3 mt-6">
               <div className="flex-1">
                 <input
                   name="leaveDate"
@@ -77,7 +81,7 @@ const AddLeave: React.FC = () => {
               <div className="flex-1">
                 <select
                   name="leaveDuration"
-                  className="block w-full px-4 py-2 border border-gray-300 rounded-sm focus:ring focus:ring-blue-200 focus:outline-none "
+                  className="block w-full px-4 py-2 border border-gray-300 rounded-sm focus:ring focus:ring-blue-200 focus:outline-none"
                 >
                   {leaveDurationOptions.map((option) => (
                     <option key={option.value} value={option.value}>
@@ -88,7 +92,7 @@ const AddLeave: React.FC = () => {
               </div>
             </div>
 
-            <div className="flex flex-col sm:flex-row gap-4 w-full md:w-1/2 lg:w-2/3 mt-2">
+            <div className="flex flex-col sm:flex-row gap-4 w-full lg:w-2/3 mt-2">
               <InputField
                 name="noOfDays"
                 label="No of Days"
@@ -103,10 +107,10 @@ const AddLeave: React.FC = () => {
               />
             </div>
 
-            <div className="w-full md:w-1/2 lg:w-2/3 mt-4">
+            <div className="w-full lg:w-2/3 mt-4">
               <label
                 htmlFor="reason"
-                className="block text-sm font-medium text-gray-700 mb-1 "
+                className="block text-sm font-medium text-gray-700 mb-1"
               >
                 Reason
               </label>
@@ -118,10 +122,10 @@ const AddLeave: React.FC = () => {
               />
             </div>
 
-            <div className="flex gap-4 items-center justify-end w-full md:w-1/2 lg:w-2/3 mt-6">
+            <div className="flex gap-4 items-center justify-end w-full lg:w-2/3 mt-6">
               <button
                 type="button"
-                className="px-6 py-2  rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#f26522] transition-colors"
+                className="px-6 py-2 rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#f26522] transition-colors"
               >
                 Cancel
               </button>
