@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
-import { Roboto } from "next/font/google"; // Changed import
+import { Roboto } from "next/font/google"; 
 import "./globals.css";
 
 const roboto = Roboto({
   subsets: ['latin'],
-  variable: '--font-roboto', // Same pattern, just renamed
+  variable: '--font-roboto', 
   display: 'swap',
-  weight: ['400', '500', '700'], // Added weights (required for Roboto)
+  weight: ['400', '500', '700'], 
 });
 
 export const metadata: Metadata = {
@@ -21,7 +21,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={roboto.className}> {/* Identical structure */}
+      <body className={roboto.className}> 
         {children}
       </body>
     </html>

@@ -131,6 +131,7 @@ export type DataTableProps = {
   holidays?: Holiday[];
   filteredUsers?: User[];
 };
+
 export type User = {
   id: string | number;
   name: string;
@@ -140,3 +141,12 @@ export type User = {
   status: "Active" | "Inactive";
   image: string;
 };
+
+export interface DashboardHeaderProps {
+  user: {
+    image: string;
+    name: string;
+    pendingApprovals: number;
+    leaveRequests: number;
+  };
+}

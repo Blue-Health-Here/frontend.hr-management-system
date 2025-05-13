@@ -1,10 +1,20 @@
 "use client";
 import React, { useState } from "react";
 import Image from "next/image";
-import { Users, CheckCircle, XCircle, UserPlus, File, ChevronDown, Plus } from "lucide-react";
+import {
+  Users,
+  CheckCircle,
+  XCircle,
+  UserPlus,
+  File,
+  ChevronDown,
+  Plus,
+} from "lucide-react";
 import { employeeData } from "@/utils/constants";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import ExportButton from "../common/ExportButton";
+import DateRangeDropdown from "../common/form/DateRangeDropdown";
 
 const EmployeesView = () => {
   const router = useRouter();
@@ -13,13 +23,18 @@ const EmployeesView = () => {
   const [statusFilter, setStatusFilter] = useState("All");
   const [sortOption, setSortOption] = useState("");
   const [exportOpen, setExportOpen] = useState(false);
+  const [dateRange, setDateRange] = useState("04/26/2025 - 05/02/2025");
 
   // Calculate summary numbers
   const totalEmployees = employees.length;
-  const activeEmployees = employees.filter(emp => emp.status === "Active").length;
-  const inactiveEmployees = employees.filter(emp => emp.status === "Inactive").length;
+  const activeEmployees = employees.filter(
+    (emp) => emp.status === "Active"
+  ).length;
+  const inactiveEmployees = employees.filter(
+    (emp) => emp.status === "Inactive"
+  ).length;
 
-  const newJoiners = employees.filter(emp => {
+  const newJoiners = employees.filter((emp) => {
     const joinDate = new Date(emp.joiningDate);
     const sevenDaysAgo = new Date();
     sevenDaysAgo.setDate(sevenDaysAgo.getDate() - 7);
@@ -72,55 +87,18 @@ const EmployeesView = () => {
     <>
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4 gap-4">
         <h1 className="text-2xl font-bold">Employee</h1>
-        <div className="flex flex-col sm:flex-row items-stretch gap-3 w-full sm:w-auto">
-          {/* Export Dropdown */}
-          <div className="relative w-full xs:w-auto">
-            <button
-              onClick={() => setExportOpen(!exportOpen)}
-              className="flex items-center justify-between xs:justify-start gap-2 px-3 py-2 border border-gray-300 rounded-md text-gray-700 hover:bg-gray-50 text-sm font-medium transition-colors w-full xs:w-auto"
-            >
-              <div className="flex items-center gap-2">
-                <File className="h-4 w-4" />
-                <span>Export</span>
-              </div>
-              <ChevronDown className={`h-4 w-4 text-gray-500 transition-transform ${exportOpen ? 'rotate-180' : ''}`} />
-            </button>
-
-            {exportOpen && (
-              <div className="absolute right-0 mt-1 w-full xs:w-48 bg-white rounded-md shadow-lg z-10 border border-gray-200">
-                <div className="py-1">
-                  <button
-                    className="flex w-full items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                    onClick={() => {
-                      setExportOpen(false);
-                    }}
-                  >
-                    Export as PDF
-                  </button>
-                  <button
-                    className="flex w-full items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                    onClick={() => {
-                      setExportOpen(false);
-                    }}
-                  >
-                    Export as Excel
-                  </button>
-                </div>
-              </div>
-            )}
-          </div>
-
-          {/* Add Employee Button */}
+        <div className="flex flex-col sm:flex-row items-stretch gap-3 w-auto">
+          <ExportButton />
           <Link
             href="/employees/add"
-            className="flex items-center justify-center text-nowrap xs:justify-start gap-1 px-4 py-2 bg-[#f26522] text-white rounded-md text-sm font-semibold hover:bg-[#e05b1a] transition-colors w-full xs:w-auto">
+            className="flex items-center justify-center text-nowrap xs:justify-start gap-1 px-4 py-2 bg-[#f26522] text-white rounded-md text-sm font-semibold hover:bg-[#e05b1a] transition-colors w-auto"
+          >
             <Plus className="h-3 w-3" />
             <span>Add Employee</span>
           </Link>
         </div>
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
-        {/* Total Employees */}
         <div className="bg-white p-4 rounded-lg shadow-sm border border-gray-200">
           <div className="flex items-center justify-between">
             <div className="flex items-center">
@@ -128,7 +106,9 @@ const EmployeesView = () => {
                 <Users className="h-4 w-4" />
               </div>
               <div>
-                <p className="text-xs font-medium text-gray-500">Total Employee</p>
+                <p className="text-xs font-medium text-gray-500">
+                  Total Employee
+                </p>
                 <p className="text-2xl font-semibold">{totalEmployees}</p>
               </div>
             </div>
@@ -138,7 +118,6 @@ const EmployeesView = () => {
           </div>
         </div>
 
-        {/* Active Employees */}
         <div className="bg-white p-4 rounded-lg shadow-sm border border-gray-200">
           <div className="flex items-center justify-between">
             <div className="flex items-center">
@@ -152,13 +131,15 @@ const EmployeesView = () => {
             </div>
             <div className="bg-green-100 px-3 py-1 rounded-full">
               <p className="text-sm font-medium text-green-700">
-                {totalEmployees > 0 ? Math.round((activeEmployees / totalEmployees) * 100) : 0}%
+                {totalEmployees > 0
+                  ? Math.round((activeEmployees / totalEmployees) * 100)
+                  : 0}
+                %
               </p>
             </div>
           </div>
         </div>
 
-        {/* Inactive Employees */}
         <div className="bg-white p-4 rounded-lg shadow-sm border border-gray-200">
           <div className="flex items-center justify-between">
             <div className="flex items-center">
@@ -172,13 +153,15 @@ const EmployeesView = () => {
             </div>
             <div className="bg-red-100 px-3 py-1 rounded-full">
               <p className="text-sm font-medium text-red-700">
-                {totalEmployees > 0 ? Math.round((inactiveEmployees / totalEmployees) * 100) : 0}%
+                {totalEmployees > 0
+                  ? Math.round((inactiveEmployees / totalEmployees) * 100)
+                  : 0}
+                %
               </p>
             </div>
           </div>
         </div>
 
-        {/* New Joiners */}
         <div className="bg-white p-4 rounded-lg shadow-sm border border-gray-200">
           <div className="flex items-center justify-between">
             <div className="flex items-center">
@@ -192,25 +175,28 @@ const EmployeesView = () => {
             </div>
             <div className="bg-blue-100 px-3 py-1 rounded-full">
               <p className="text-sm font-medium text-blue-700">
-                {totalEmployees > 0 ? Math.round((newJoiners / totalEmployees) * 100) : 0}%
+                {totalEmployees > 0
+                  ? Math.round((newJoiners / totalEmployees) * 100)
+                  : 0}
+                %
               </p>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Employee Table */}
       <div className="overflow-x-auto bg-white rounded-lg shadow-sm border border-gray-200">
         <div className="bg-white p-4 border border-gray-200">
           <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
             <h2 className="text-lg font-semibold">Plan List</h2>
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full md:w-auto">
-              <div className="w-full sm:w-40">
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2">
+              <DateRangeDropdown value={dateRange} onChange={setDateRange} />
+              <div className="w-36">
                 <select
                   id="designation-filter"
                   value={designationFilter}
                   onChange={(e) => setDesignationFilter(e.target.value)}
-                  className="block w-full pl-3 pr-3 py-2 text-base border border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md"
+                  className="block w-full pl-3 py-1.5 sm:py-2 border border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 text-sm rounded-md appearance-none bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLWNoZXZyb24tZG93biI+PHBhdGggZD0ibTYgOSA2IDYgNi02Ii8+PC9zdmc+')] bg-no-repeat bg-[position:right_0.5rem_center] bg-[size:1rem]"
                 >
                   <option value="">Designations</option>
                   <option value="Developer">Developer</option>
@@ -227,27 +213,26 @@ const EmployeesView = () => {
                   <option value="Sales Executive">Sales Executive</option>
                 </select>
               </div>
-              <div className="w-full sm:w-32">
+              <div className="w-32">
                 <select
                   id="status-filter"
                   value={statusFilter}
                   onChange={(e) => setStatusFilter(e.target.value)}
-                  className="block w-full pl-3 pr-10 py-2 text-base border border-gray-300 focus:outline-none sm:text-sm rounded-md"
+                  className="block w-full pl-3 pr-8 py-1.5 sm:py-2 border border-gray-300 focus:outline-none text-sm rounded-md appearance-none bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLWNoZXZyb24tZG93biI+PHBhdGggZD0ibTYgOSA2IDYgNi02Ii8+PC9zdmc+')] bg-no-repeat bg-[position:right_0.5rem_center] bg-[size:1rem]"
                 >
-                  <option value="All">All Status</option>
+                  <option value="All">Select Status</option>
                   <option value="Active">Active</option>
                   <option value="Inactive">Inactive</option>
                 </select>
               </div>
-              <div className="w-full sm:w-36">
+              <div className="w-42">
                 <select
                   id="sort"
                   value={sortOption}
                   onChange={(e) => setSortOption(e.target.value)}
-                  className="block w-full pl-3 pr-10 py-2 text-base border border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md"
+                  className="block w-full pl-3 pr-8 py-1.5 sm:py-2 border border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 text-sm rounded-md appearance-none bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLWNoZXZyb24tZG93biI+PHBhdGggZD0ibTYgOSA2IDYgNi02Ii8+PC9zdmc+')] bg-no-repeat bg-[position:right_0.5rem_center] bg-[size:1rem]"
                 >
-                  <option value="">Sort By</option>
-                  <option value="last7days">Last 7 days</option>
+                  <option value="">Sort By: Last 7 days</option>
                   <option value="ascending">Ascending</option>
                 </select>
               </div>
@@ -322,18 +307,22 @@ const EmployeesView = () => {
                       onChange={(e) =>
                         handleDesignationChange(employee.id, e.target.value)
                       }
-                      className="block w-full pl-3 pr-10 py-2 text-base border border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md"
+                      className="block w-auto pl-3 pr-8 py-2 border border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 text-sm rounded-md appearance-none bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLWNoZXZyb24tZG93biI+PHBhdGggZD0ibTYgOSA2IDYgNi02Ii8+PC9zdmc+')] bg-no-repeat bg-[position:right_0.5rem_center] bg-[size:1rem]"
                     >
                       <option value="Developer">Developer</option>
                       <option value="Executive">Executive</option>
-                      <option value="Software Engineer">Software Engineer</option>
+                      <option value="Software Engineer">
+                        Software Engineer
+                      </option>
                       <option value="Product Manager">Product Manager</option>
                       <option value="UX Designer">UX Designer</option>
                       <option value="Marketing Specialist">
                         Marketing Specialist
                       </option>
                       <option value="HR Manager">HR Manager</option>
-                      <option value="Financial Analyst">Financial Analyst</option>
+                      <option value="Financial Analyst">
+                        Financial Analyst
+                      </option>
                       <option value="Operations Manager">
                         Operations Manager
                       </option>
@@ -345,10 +334,11 @@ const EmployeesView = () => {
                   </td>
                   <td className="py-4 px-6 whitespace-nowrap">
                     <span
-                      className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full ${employee.status === "Active"
+                      className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full ${
+                        employee.status === "Active"
                           ? "bg-green-100 text-green-800"
                           : "bg-red-100 text-red-800"
-                        }`}
+                      }`}
                     >
                       {employee.status}
                     </span>

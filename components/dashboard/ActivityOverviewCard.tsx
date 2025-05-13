@@ -38,22 +38,22 @@ export default function ActivityOverviewCard({
   birthdays,
 }: ActivityOverviewProps) {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
+    <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6 mt-6">
       {/* Schedules Section */}
-      <div className="bg-white p-6 rounded-lg shadow-sm">
+      <div className="bg-white p-4 sm:p-6 rounded-lg shadow-sm">
         <h2 className="text-lg font-semibold text-gray-800 mb-4">Schedules</h2>
-        <div className="space-y-4">
+        <div className="space-y-3 sm:space-y-4">
           {schedules.map((schedule, index) => (
             <div 
               key={index} 
-              className="p-4 rounded-lg shadow-[0_2px_4px_rgba(0,0,0,0.05)] border border-gray-100"
+              className="p-3 sm:p-4 rounded-lg shadow-[0_2px_4px_rgba(0,0,0,0.05)] border border-gray-100"
             >
               <div className="flex justify-between items-start">
                 <div>
                   <h3 className="text-sm font-medium text-gray-700">{schedule.title}</h3>
                   <p className="text-xs text-gray-500">{schedule.description}</p>
                   <p className="text-xs text-gray-500 mt-1">{schedule.timeRange}</p>
-                  <div className="border-t border-gray-100 my-2"></div> {/* Added separator line */}
+                  <div className="border-t border-gray-100 my-2"></div>
                 </div>
                 {schedule.meetingType && (
                   <span className={`text-xs px-2 py-1 rounded-full ${
@@ -74,12 +74,12 @@ export default function ActivityOverviewCard({
                       src={candidate}
                       width={32}
                       height={32}
-                      className="w-8 h-8 rounded-full border-2 border-white"
+                      className="w-6 h-6 sm:w-8 sm:h-8 rounded-full border-2 border-white"
                       alt="Candidate"
                     />
                   ))}
                 </div>
-                <button className="ml-auto px-2 py-1 bg-[#f26522] text-white text-[10px] rounded transition-colors">
+                <button className="ml-auto px-2 py-1 bg-[#f26522] text-white text-[10px] sm:text-xs rounded transition-colors">
                   Join Meeting
                 </button>
               </div>
@@ -89,16 +89,16 @@ export default function ActivityOverviewCard({
       </div>
 
       {/* Recent Activities Section */}
-      <div className="bg-white p-6 rounded-lg shadow-sm">
+      <div className="bg-white p-4 sm:p-6 rounded-lg shadow-sm">
         <h2 className="text-lg font-semibold text-gray-800 mb-4">Recent Activities</h2>
-        <div className="space-y-4">
+        <div className="space-y-3 sm:space-y-4">
           {activities.map((activity, index) => (
             <div key={index} className="flex items-start pb-2">
               <Image
                 src={activity.userImage}
                 width={40}
                 height={40}
-                className="w-10 h-10 rounded-full mr-3"
+                className="w-8 h-8 sm:w-10 sm:h-10 rounded-full mr-3"
                 alt="User"
               />
               <div className="flex-1">
@@ -124,13 +124,13 @@ export default function ActivityOverviewCard({
       </div>
 
       {/* Birthdays Section */}
-      <div className="bg-white p-6 rounded-lg shadow-sm">
+      <div className="bg-white p-4 sm:p-6 rounded-lg shadow-sm">
         <h2 className="text-lg font-semibold text-gray-800 mb-4">Birthdays</h2>
-        <div className="space-y-4">
+        <div className="space-y-3 sm:space-y-4">
           {birthdays.map((birthday, index) => (
             <div 
               key={index} 
-              className="p-4 rounded-lg shadow-[0_2px_4px_rgba(0,0,0,0.05)] border border-gray-100"
+              className="p-3 sm:p-4 rounded-lg shadow-[0_2px_4px_rgba(0,0,0,0.05)] border border-gray-100"
             >
               <div className="flex items-center">
                 <div className="relative">
@@ -138,10 +138,10 @@ export default function ActivityOverviewCard({
                     src={birthday.image}
                     width={48}
                     height={48}
-                    className="w-12 h-12 rounded-full mr-3"
+                    className="w-10 h-10 sm:w-12 sm:h-12 rounded-full mr-3"
                     alt="Birthday person"
                   />
-                  <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
+                  <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full w-4 h-4 sm:w-5 sm:h-5 flex items-center justify-center">
                     🎂
                   </span>
                 </div>

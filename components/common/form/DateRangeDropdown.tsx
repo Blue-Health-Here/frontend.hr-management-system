@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
+import { ChevronDown } from "lucide-react";
 import { DateRangeDropdownProps } from "@/utils/types";
-
 
 const DateRangeDropdown: React.FC<DateRangeDropdownProps> = ({ value, onChange }) => {
   const [showCustomRangePicker, setShowCustomRangePicker] = useState(false);
@@ -30,7 +30,7 @@ const DateRangeDropdown: React.FC<DateRangeDropdownProps> = ({ value, onChange }
         id="date-range-filter"
         value={value}
         onChange={handleDropdownChange}
-        className="block w-full pl-3 pr-3 py-2 text-base border border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md"
+        className="block w-full pl-3 pr-8 py-2 border border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 text-sm rounded-md appearance-none bg-white"
       >
         <option value="04/26/2025 - 05/02/2025">04/26/2025 - 05/02/2025</option>
         <option value="Today">Today</option>
@@ -41,6 +41,7 @@ const DateRangeDropdown: React.FC<DateRangeDropdownProps> = ({ value, onChange }
         <option value="Last Month">Last Month</option>
         <option value="Custom Range">Custom Range</option>
       </select>
+      <ChevronDown className="absolute right-2 top-2.5 h-4 w-4 text-gray-400 pointer-events-none" />
 
       {showCustomRangePicker && (
         <div className="absolute z-10 mt-1 p-4 bg-white border border-gray-300 rounded-md shadow-lg w-full sm:w-96">

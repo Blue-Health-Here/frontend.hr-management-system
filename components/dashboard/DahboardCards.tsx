@@ -119,9 +119,9 @@ function DahboardCards() {
   };
 
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+    <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 gap-4 lg:gap-6">
       {/* Job Applicants Section */}
-      <div className="bg-white p-6 rounded-lg shadow-sm">
+      <div className="bg-white p-4 lg:p-6 rounded-lg shadow-sm">
         <h2 className="text-lg font-semibold text-gray-800 mb-4">
           Job Applicants
         </h2>
@@ -133,15 +133,15 @@ function DahboardCards() {
                 <img
                   src={applicant.image}
                   alt="Applicant"
-                  className="w-12 h-12 rounded-full object-cover"
+                  className="w-10 h-10 lg:w-12 lg:h-12 rounded-full object-cover"
                 />
-                <div className="flex flex-col w-full">
-                  <div className="flex items-center justify-between w-full">
-                    <p className="font-medium text-gray-800">
+                <div className="flex-1 min-w-0">
+                  <div className="flex items-center justify-between gap-2">
+                    <p className="font-medium text-gray-800 text-sm lg:text-base truncate">
                       {applicant.name}
                     </p>
                     <span
-                      className={`text-xs font-medium text-white px-3 py-1 rounded-md ${
+                      className={`text-xs font-medium text-white px-2 py-1 lg:px-3 lg:py-1 rounded-md flex-shrink-0 ${
                         applicant.jobTitle.includes("Developer")
                           ? "bg-blue-500"
                           : applicant.jobTitle.includes("Designer")
@@ -154,7 +154,7 @@ function DahboardCards() {
                       {applicant.jobTitle}
                     </span>
                   </div>
-                  <div className="text-xs text-gray-500">
+                  <div className="text-xs text-gray-500 truncate">
                     Exp: {applicant.experience} • {applicant.location}
                   </div>
                 </div>
@@ -165,7 +165,7 @@ function DahboardCards() {
       </div>
 
       {/* Employees Section */}
-      <div className="bg-white p-6 rounded-lg shadow-sm">
+      <div className="bg-white p-4 lg:p-6 rounded-lg shadow-sm">
         <h2 className="text-lg font-semibold text-gray-800 mb-4">Employees</h2>
 
         <div className="space-y-2">
@@ -176,11 +176,13 @@ function DahboardCards() {
                   <img
                     src={employee.image}
                     alt="Employee"
-                    className="w-10 h-10 rounded-full object-cover"
+                    className="w-8 h-8 lg:w-10 lg:h-10 rounded-full object-cover"
                   />
                   <div>
-                    <p className="font-medium text-gray-800">{employee.name}</p>
-                    <p className="text-sm text-gray-600">{employee.jobTitle}</p>
+                    <p className="font-medium text-gray-800 text-sm lg:text-base">
+                      {employee.name}
+                    </p>
+                    <p className="text-xs lg:text-sm text-gray-600">{employee.jobTitle}</p>
                   </div>
                 </div>
                 <span
@@ -206,7 +208,7 @@ function DahboardCards() {
       </div>
 
       {/* Todo List Section */}
-      <div className="bg-white p-6 rounded-lg shadow-sm">
+      <div className="bg-white p-4 lg:p-6 rounded-lg shadow-sm md:col-span-1 lg:col-span-1">
         <h2 className="text-lg font-semibold text-gray-800 mb-4">Todo</h2>
 
         <div className="space-y-2">
@@ -252,7 +254,7 @@ function DahboardCards() {
 
               {/* Smaller text */}
               <span
-                className={`text-sm ${
+                className={`text-xs lg:text-sm ${
                   todo.completed
                     ? "line-through text-gray-400"
                     : "text-gray-700"
