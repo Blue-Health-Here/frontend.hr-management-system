@@ -3,22 +3,12 @@ import React, { useState } from "react";
 import Image from "next/image";
 import { Users as File, ChevronDown, Plus } from "lucide-react";
 import { employeeData } from "@/utils/constants";
-import { Employees } from "@/utils/types";
+import DateRangeDropdown from "../common/form/DateRangeDropdown";
+import { Employees, User } from "@/utils/types";
 import { handleFilterChange } from "@/utils/helper";
 import DataTableListing from "../leaves/DataTableListing";
 import Link from "next/link";
-import DateRangeDropdown from "../common/form/DateRangeDropdown";
 import ExportButton from "../common/ExportButton";
-
-type User = {
-  id: string | number;
-  name: string;
-  email: string;
-  createdDate: string;
-  role: "Employee" | "Client";
-  status: "Active" | "Inactive";
-  image: string;
-};
 
 const UsersPage = () => {
   const [employees] = useState<Employees[]>(employeeData);
