@@ -9,7 +9,7 @@ function MainLayout({ children }: MainLayoutProps) {
   return (
     <div className="flex h-screen">
       <Sidebar />
-      <div className="flex-1 overflow-y-auto sm:p-8 p-4 bg-gray-100">{children}</div>
+      <div className="flex-1 overflow-y-auto p-6 md:p-8 bg-gray-100">{children}</div>
     </div>
   );
 }

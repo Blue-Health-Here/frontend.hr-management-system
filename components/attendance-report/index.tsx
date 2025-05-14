@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import Image from "next/image";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, Plus } from "lucide-react";
 import { employeeData } from "@/utils/constants";
 import AttendanceCard from "./AttendanceCard";
 import ExportButton from "../common/ExportButton";
@@ -103,7 +103,7 @@ const AttendanceReportView = () => {
           />
 
           <AttendanceCard
-            title="Total Holidays"
+            title="Upcoming Holidays"
             value="6"
             percentage="+20.01%"
             iconColor="text-[#ffc107]"
@@ -208,8 +208,7 @@ const AttendanceReportView = () => {
                   </div>
                 </div>
               </div>
-              
-              <div className="w-full sm:w-36 md:w-40">
+                 <div className="w-full sm:w-36 md:w-40">
                 <div className="relative">
                   <select
                     id="sort"
@@ -226,6 +225,14 @@ const AttendanceReportView = () => {
                   </div>
                 </div>
               </div>
+                      <button
+            className={`inline-flex items-center gap-2 rounded-md bg-[#f26522] hover:bg-green-700 px-3 md:px-4 py-1.5 md:py-2 text-xs md:text-sm font-medium text-white shadow-sm focus:outline-none whitespace-nowrap`}
+          >
+            <span className="inline-flex items-center justify-center w-3 h-3 border border-white rounded-sm">
+              <Plus className="h-2 w-2 text-white" />
+            </span>
+            Today
+          </button> 
             </div>
           </div>
         </div>

@@ -41,7 +41,7 @@ export default function DashboardView() {
         }}
       />
       <EmployeeByDepartment />
-      <StatsOverview
+      {/* <StatsOverview
         attendanceData={{
           present: 59,
           late: 21,
@@ -67,7 +67,7 @@ export default function DashboardView() {
         schedules={activityData.schedules}
         activities={activityData.activities}
         birthdays={activityData.birthdays}
-      />
+      /> */}
     </div>
   );
 }

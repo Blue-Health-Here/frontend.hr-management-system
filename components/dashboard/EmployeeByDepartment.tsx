@@ -32,54 +32,31 @@ ChartJS.register(
 const metrics = [
   [
     {
-      title: "Attendance",
+      title: " Employee database",
       value: "95%",
       icon: <UserCheck className="text-blue-600" size={24} />,
-      change: "+2% from last week",
     },
     {
-      title: "Total Projects",
+      title: "Leave management",
       value: "24",
       icon: <Briefcase className="text-green-600" size={24} />,
-      change: "5 ongoing",
     },
     {
-      title: "Total Clients",
+      title: "Attendance tracking",
       value: "48",
       icon: <Clients className="text-purple-600" size={24} />,
-      change: "+3 this month",
     },
     {
-      title: "Total Tasks",
+      title: " Performance reviews",
       value: "127",
       icon: <CheckSquare className="text-orange-600" size={24} />,
-      change: "32 completed",
     },
   ],
   [
     {
-      title: "Earnings",
+      title: "Payroll management",
       value: "$24,500",
       icon: <DollarSign className="text-indigo-600" size={24} />,
-      change: "+12% from last month",
-    },
-    {
-      title: "Profit This Week",
-      value: "$3,200",
-      icon: <TrendingUp className="text-teal-600" size={24} />,
-      change: "+$450 from last week",
-    },
-    {
-      title: "Job Applicants",
-      value: "14",
-      icon: <UserPlus className="text-pink-600" size={24} />,
-      change: "3 interviews scheduled",
-    },
-    {
-      title: "New Hire",
-      value: "2",
-      icon: <UserPlus className="text-amber-600" size={24} />,
-      change: "1 this week",
     },
   ],
 ];
@@ -101,9 +78,9 @@ const departmentData = {
 
 function EmployeeByDepartment() {
   return (
-    <div className="flex flex-col lg:flex-row gap-4 lg:gap-6 mb-6 lg:mb-8">
+    <div className="flex flex-col lg:flex-row gap-3 md:gap-4 lg:gap-6">
       {/* Metrics Grid - Now takes 2/3 width */}
-      <div className="lg:w-2/3 grid grid-cols-1  sm:grid-cols-4 gap-4 lg:gap-6">
+      <div className="lg:w-2/3 grid grid-cols-1  sm:grid-cols-2 gap-3 md:gap-4 lg:gap-6">
         {metrics.flat().map((metric, index) => (
           <div
             key={index}
@@ -117,7 +94,6 @@ function EmployeeByDepartment() {
                 <p className="text-xl lg:text-2xl font-bold text-gray-800 mt-1">
                   {metric.value}
                 </p>
-                <p className="text-xs text-gray-500 mt-1">{metric.change}</p>
               </div>
               <div className="p-1 lg:p-2 rounded-md bg-gray-100">{metric.icon}</div>
             </div>
@@ -126,7 +102,7 @@ function EmployeeByDepartment() {
       </div>
 
       {/* Employee By Department Chart - Now takes 1/3 width */}
-      <div className="lg:w-1/3 bg-white p-4 lg:p-6 rounded-lg shadow-sm mt-4 lg:mt-0">
+      <div className="lg:w-1/2 bg-white p-4 lg:p-6 rounded-lg shadow-sm ">
         <h2 className="text-base lg:text-lg font-semibold text-gray-800 mb-3 lg:mb-4 whitespace-nowrap">
           Employees By Department
         </h2>
