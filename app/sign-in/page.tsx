@@ -8,6 +8,7 @@ import InputField from "@/components/common/form/InputField";
 import { Mail, Eye, EyeOff } from "lucide-react";
 import { useState } from "react";
 import AuthLayout from "@/components/layouts/AuthLayout";
+import { signInValidationSchema } from "@/utils/validationSchema";
 
 interface SignInFormValues {
   email: string;
@@ -21,14 +22,7 @@ const signInInitialVals: SignInFormValues = {
   rememberMe: false,
 };
 
-const signInValidationSchema = Yup.object({
-  email: Yup.string()
-    .email("Invalid email address")
-    .required("Email is required"),
-  password: Yup.string()
-    .min(6, "Password must be at least 6 characters")
-    .required("Password is required"),
-});
+
 
 const handleSubmit = (values: SignInFormValues) => {
   console.log("Form submitted:", values);

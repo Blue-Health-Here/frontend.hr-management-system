@@ -7,43 +7,12 @@ import { Formik, Form } from "formik";
 import * as Yup from "yup";
 import { countryOptions, stateOptions, cityOptions } from "@/utils/constants";
 import { Eye, EyeOff } from "lucide-react";
+import { profileValidationSchema } from "@/utils/validationSchema";
 
 const AddProfile = () => {
   const [showCurrentPassword, setShowCurrentPassword] = useState(false);
   const [showNewPassword, setShowNewPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
-
-  const validationSchema = Yup.object().shape({
-    firstName: Yup.string().required("First name is required"),
-    lastName: Yup.string().required("Last name is required"),
-    email: Yup.string()
-      .email("Invalid email address")
-      .required("Email is required"),
-    phone: Yup.string().required("Phone number is required"),
-    address: Yup.string().required("Address is required"),
-    country: Yup.string().required("Country is required"),
-    state: Yup.string().required("State is required"),
-    city: Yup.string().required("City is required"),
-    postalCode: Yup.string().required("Postal code is required"),
-    currentPassword: Yup.string().when({
-      is: (val: string) => !!val,
-      then: (schema) => schema.required("Current password is required"),
-    }),
-    newPassword: Yup.string().when("currentPassword", {
-      is: (val: string) => !!val,
-      then: (schema) =>
-        schema
-          .required("New password is required")
-          .min(8, "Password must be at least 8 characters"),
-    }),
-    confirmPassword: Yup.string().when("newPassword", {
-      is: (val: string) => !!val,
-      then: (schema) =>
-        schema
-          .required("Confirm password is required")
-          .oneOf([Yup.ref("newPassword")], "Passwords must match"),
-    }),
-  });
 
   const initialValues = {
     firstName: "",
@@ -81,7 +50,7 @@ const AddProfile = () => {
 
         <Formik
           initialValues={initialValues}
-          validationSchema={validationSchema}
+          validationSchema={profileValidationSchema}
           onSubmit={handleSubmit}
         >
           {({ isSubmitting, values, setFieldValue }) => (

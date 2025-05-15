@@ -7,6 +7,7 @@ import * as Yup from "yup";
 import InputField from "@/components/common/form/InputField";
 import { Mail } from "lucide-react";
 import AuthLayout from "@/components/layouts/AuthLayout";
+import { ForgotPasswordValidationSchema } from "@/utils/validationSchema";
 
 interface ForgotPasswordFormValues {
   email: string;
@@ -15,12 +16,6 @@ interface ForgotPasswordFormValues {
 const ForgotPasswordInitialVals: ForgotPasswordFormValues = {
   email: "",
 };
-
-const ForgotPasswordValidationSchema = Yup.object({
-  email: Yup.string()
-    .email("Invalid email address")
-    .required("Email is required"),
-});
 
 const handleSubmit = (values: ForgotPasswordFormValues) => {
   console.log("Form submitted:", values);
