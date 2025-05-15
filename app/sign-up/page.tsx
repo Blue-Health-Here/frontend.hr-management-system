@@ -8,6 +8,7 @@ import InputField from "@/components/common/form/InputField";
 import { User, Mail, Eye, EyeOff } from "lucide-react";
 import { useState } from "react";
 import AuthLayout from "@/components/layouts/AuthLayout";
+import { signUpValidationSchema } from "@/utils/validationSchema";
 
 interface SignUpFormValues {
   fullName: string;
@@ -24,22 +25,6 @@ const signUpInitialVals: SignUpFormValues = {
   confirmPassword: "",
   agreeTerms: false,
 };
-
-const signUpValidationSchema = Yup.object({
-  fullName: Yup.string().required("Full Name is required"),
-  email: Yup.string()
-    .email("Invalid email address")
-    .required("Email is required"),
-  password: Yup.string()
-    .min(6, "Password must be at least 6 characters")
-    .required("Password is required"),
-  confirmPassword: Yup.string()
-    .oneOf([Yup.ref("password")], "Passwords must match")
-    .required("Confirm Password is required"),
-  agreeTerms: Yup.boolean()
-    .oneOf([true], "You must accept the terms and conditions")
-    .required("You must accept the terms and conditions"),
-});
 
 const handleSubmit = (values: SignUpFormValues) => {
   console.log("Form submitted:", values);

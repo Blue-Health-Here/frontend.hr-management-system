@@ -23,7 +23,7 @@ const TextAreaField: React.FC<TextAreaFieldProps> = ({
     <div className={`${className}`}>
       <label
         htmlFor={name}
-        className="block text-sm font-medium text-gray-700 mb-1"
+        className="block text-sm font-medium text-gray-700"
       >
         {label}
       </label>
@@ -32,7 +32,7 @@ const TextAreaField: React.FC<TextAreaFieldProps> = ({
         {...field}
         rows={rows}
         placeholder={placeholder}
-        className={`block w-full px-4 py-2 border ${
+        className={`block w-full px-4 py-2 border mt-1 ${
           meta.touched && meta.error ? "border-red-500" : "border-gray-300"
         } rounded-sm focus:ring focus:ring-blue-200 focus:outline-none`}
       />
