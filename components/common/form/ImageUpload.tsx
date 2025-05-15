@@ -33,7 +33,7 @@ const ImageUpload: React.FC<ImageUploadProps> = ({
   };
 
   return (
-    <div className="flex flex-col sm:flex-row items-center sm:items-start gap-6 mb-8">
+    <div className="flex flex-col sm:flex-row items-center sm:items-start gap-6">
       <div className="flex flex-col items-center">
         <div
           className={`w-24 h-24 rounded-full border-2 border-dashed ${

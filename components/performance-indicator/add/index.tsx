@@ -5,9 +5,10 @@ import Dropdown from "@/components/common/form/DropDown";
 const AddPerformanceIndicator: React.FC = () => {
   return (
     <div className="rounded-lg p-6 bg-white shadow-md space-y-6">
-      <h1 className="text-2xl font-bold text-gray-800">
-        Add New Indicator
-      </h1>
+      <div>
+        <h1 className="text-2xl  font-semibold text-gray-800">Add New Indicator</h1>
+        <div className="border-b border-gray-200 w-full my-3"></div>
+      </div>
 
       <Dropdown
         name="designation"
@@ -17,7 +18,10 @@ const AddPerformanceIndicator: React.FC = () => {
       />
 
       <div>
-        <h2 className="text-xl font-semibold text-gray-800 mb-4">Technical</h2>
+        <div>
+          <h2 className="text-xl font-semibold text-gray-800 mb-4">Technical</h2>
+          <div className="border-b border-gray-200 w-full my-3"></div>
+        </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
           <Dropdown
             name="customerExperience"
@@ -56,9 +60,12 @@ const AddPerformanceIndicator: React.FC = () => {
       </div>
 
       <div>
-        <h2 className="text-xl font-semibold text-gray-800 mb-4">
-          Organizational
-        </h2>
+        <div>
+          <h2 className="text-xl font-semibold text-gray-800 mb-4">
+            Organizational
+          </h2>
+          <div className="border-b border-gray-200 w-full my-3"></div>
+        </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
           <Dropdown
