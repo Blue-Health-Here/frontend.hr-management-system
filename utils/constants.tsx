@@ -1,6 +1,14 @@
-import { Home } from "lucide-react";
 import { Holiday } from "./types";
-
+import {
+  FaTachometerAlt,
+  FaUsers,
+  FaCalendarAlt,
+  FaUserCheck,
+  FaChartLine,
+  FaUmbrellaBeach,
+  FaUserCog,
+  FaCog
+} from "react-icons/fa";
 export const employeeData = [
     {
         id: "EMP001",
@@ -225,46 +233,46 @@ export const employeeData = [
 ];
 
 export const sidebarNav = [
-    {
-        icon: <Home size={13} className="text-gray-600" />,
-        label: "Dashboard",
-        href: "/dashboard"
-    },
-    {
-        icon: <Home size={13} className="text-gray-600" />,
-        label: "Employees",
-        href: "/employees"
-    },
-    {
-        icon: <Home size={13} className="text-gray-600" />,
-        label: "Leaves",
-        href: "/leaves"
-    },
-    {
-        icon: <Home size={13} className="text-gray-600" />,
-        label: "Attendance",
-        href: "/attendance-report"
-    },
-    {
-        icon: <Home size={13} className="text-gray-600" />,
-        label: "Performance",
-        href: "/performance-indicator"
-    },
-    {
-        icon: <Home size={13} className="text-gray-600" />,
-        label: "Holidays",
-        href: "/holidays"
-    },
-    {
-        icon: <Home size={13} className="text-gray-600" />,
-        label: "Users",
-        href: "/users"
-    },
-    {
-        icon: <Home size={13} className="text-gray-600" />,
-        label: "Settings",
-        href: "/settings"
-    }
+  {
+    icon: <FaTachometerAlt size={18} className="text-gray-600" />,
+    label: "Dashboard",
+    href: "/dashboard"
+  },
+  {
+    icon: <FaUsers size={18} className="text-gray-600" />,
+    label: "Employees",
+    href: "/employees"
+  },
+  {
+    icon: <FaCalendarAlt size={18} className="text-gray-600" />,
+    label: "Leaves",
+    href: "/leaves"
+  },
+  {
+    icon: <FaUserCheck size={18} className="text-gray-600" />,
+    label: "Attendance",
+    href: "/attendance-report"
+  },
+  {
+    icon: <FaChartLine size={18} className="text-gray-600" />,
+    label: "Performance",
+    href: "/performance-indicator"
+  },
+  {
+    icon: <FaUmbrellaBeach size={18} className="text-gray-600" />,
+    label: "Holidays",
+    href: "/holidays"
+  },
+  {
+    icon: <FaUserCog size={18} className="text-gray-600" />,
+    label: "Users",
+    href: "/users"
+  },
+  {
+    icon: <FaCog size={18} className="text-gray-600" />,
+    label: "Settings",
+    href: "/settings"
+  }
 ];
 
 export const checkInOutData = [
