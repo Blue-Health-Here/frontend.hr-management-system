@@ -22,17 +22,19 @@ export default function Sidebar() {
           className="h-10"
         />
       </div>
-
       {/* Dashboard Menu Item */}
       <ul className="list-style-none pt-6 flex flex-col gap-2 justify-center w-full">
-        {sidebarNav.map((item: any, index: number) => (
-          <li key={index}>
-            <Link href={item.href} className={`flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-gray-100 transition-colors ${isActive(item.href) ? "bg-gray-100" : ""}`}>
-              {item.icon}
-              <span className="text-gray-700 font-medium">{item.label}</span>
-            </Link>
-          </li>
-        ))}
+        {sidebarNav.map((item: any, index: number) => {
+          const Icon = item.icon;
+          return (
+            <li key={index}>
+              <Link href={item.href} className={`flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-[#28C76F] hover:text-white font-medium text-gray-600 transition-colors ${isActive(item.href) ? "bg-[#28C76F] text-white" : ""}`}>
+                <Icon className="w-5 h-5" />
+                <span className={``}>{item.label}</span>
+              </Link>
+            </li>
+          )
+        })}
       </ul>
     </div>
   );

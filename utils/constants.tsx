@@ -234,42 +234,42 @@ export const employeeData = [
 
 export const sidebarNav = [
   {
-    icon: <FaTachometerAlt size={18} className="text-gray-600" />,
+    icon: FaTachometerAlt,
     label: "Dashboard",
     href: "/dashboard"
   },
   {
-    icon: <FaUsers size={18} className="text-gray-600" />,
+    icon: FaUsers,
     label: "Employees",
     href: "/employees"
   },
   {
-    icon: <FaCalendarAlt size={18} className="text-gray-600" />,
+    icon: FaCalendarAlt,
     label: "Leaves",
     href: "/leaves"
   },
   {
-    icon: <FaUserCheck size={18} className="text-gray-600" />,
+    icon: FaUserCheck,
     label: "Attendance",
     href: "/attendance-report"
   },
   {
-    icon: <FaChartLine size={18} className="text-gray-600" />,
+    icon: FaChartLine,
     label: "Performance",
     href: "/performance-indicator"
   },
   {
-    icon: <FaUmbrellaBeach size={18} className="text-gray-600" />,
+    icon: FaUmbrellaBeach,
     label: "Holidays",
     href: "/holidays"
   },
   {
-    icon: <FaUserCog size={18} className="text-gray-600" />,
+    icon: FaUserCog,
     label: "Users",
     href: "/users"
   },
   {
-    icon: <FaCog size={18} className="text-gray-600" />,
+    icon: FaCog,
     label: "Settings",
     href: "/settings"
   }
