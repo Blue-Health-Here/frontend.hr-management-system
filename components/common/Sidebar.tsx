@@ -72,7 +72,7 @@ export default function Sidebar() {
     <div className="hidden w-64 lg:flex flex-col p-6 bg-white z-10">
       {/* Logo at the top */}
       <div className="flex justify-center pb-5">
-        <h1 className="text-green-600 text-xl font-bold">SmartHR</h1>
+        <h1 className="text-green-600 text-2xl font-bold">SmartHR</h1>
       </div>
 
       {/* Sidebar navigation */}
