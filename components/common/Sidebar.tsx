@@ -71,78 +71,73 @@ export default function Sidebar() {
   return (
     <div className="hidden w-64 lg:flex flex-col p-6 bg-white z-10">
       {/* Logo at the top */}
-      <div className="flex justify-start pb-5">
-        <div className="flex items-center gap-2">
-          <div className="text-green-600 text-xl font-bold">
-            <span className="text-green-600">SmartHR</span>
-          </div>
-        </div>
+      <div className="flex justify-center pb-5">
+        <h1 className="text-green-600 text-xl font-bold">SmartHR</h1>
       </div>
 
       {/* Sidebar navigation */}
-      <div className="flex flex-col flex-grow">
-        <nav className="flex-1 px-2 py-8">
-          {enhancedSidebarNav.map((item, index) => {
-            if (item.isHeader) {
-              return (
-                <div key={index} className="text-xs font-medium text-gray-500 uppercase tracking-wider my-8 px-3">
-                  {item.label}
+      <nav className="flex flex-col gap-2 flex-1 py-8">
+        {enhancedSidebarNav.map((item, index) => {
+          // if (item.isHeader) {
+          //   return (
+          //     <div key={index} className="text-xs font-medium text-gray-500 uppercase tracking-wider my-8 px-3">
+          //       {item.label}
+          //     </div>
+          //   );
+          // }
+
+          const isItemActive = item.href && isActive(item.href);
+          const isAnySubItemActive = item.hasDropdown && item.subItems?.some(subItem => isActive(subItem.href));
+
+          return (
+            <div key={index}>
+              <Link 
+                href={item.href}
+                className={`flex items-center justify-between px-3 py-2 cursor-pointer rounded-md ${
+                  isItemActive || isAnySubItemActive ? "bg-green-600 text-white" : "hover:bg-green-50 text-gray-700"
+                }`}
+                // onClick={() => handleMenuItemClick(item)}
+              >
+                <div className="flex items-center gap-3">
+                  <span className={isItemActive || isAnySubItemActive ? "text-white" : "text-gray-600"}>
+                    {item.icon && <item.icon size={18} />}
+                  </span>
+                  <span className={`text-sm md:text-base font-medium ${isItemActive || isAnySubItemActive ? "text-white" : "text-gray-700"}`}>
+                    {item.label}
+                  </span>
                 </div>
-              );
-            }
-
-            const isItemActive = item.href && isActive(item.href);
-            const isAnySubItemActive = item.hasDropdown && item.subItems?.some(subItem => isActive(subItem.href));
-
-            return (
-              <div key={index}>
-                <div 
-                  className={`flex items-center justify-between px-3 py-2 my-1 cursor-pointer rounded-md ${
-                    isItemActive || isAnySubItemActive ? "bg-green-600 text-white" : "hover:bg-green-50 text-gray-700"
-                  }`}
-                  onClick={() => handleMenuItemClick(item)}
-                >
-                  <div className="flex items-center gap-3">
-                    <span className={isItemActive || isAnySubItemActive ? "text-white" : "text-gray-600"}>
-                      {item.icon && <item.icon size={18} />}
-                    </span>
-                    <span className={`text-sm md:text-base font-medium ${isItemActive || isAnySubItemActive ? "text-white" : "text-gray-700"}`}>
-                      {item.label}
-                    </span>
-                  </div>
-                  {item.hasDropdown && (
-                    <span 
-                      className={isItemActive || isAnySubItemActive ? "text-white" : "text-gray-500"}
-                      onClick={(e) => handleDropdownToggle(e, item.label)}
-                    >
-                      {openDropdowns[item.label] ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
-                    </span>
-                  )}
-                </div>
-
-                {/* Dropdown items */}
-                {item.hasDropdown && openDropdowns[item.label] && (
-                  <div className="ml-8 pl-2 border-l border-gray-200">
-                    {item.subItems?.map((subItem, subIndex) => (
-                      <Link 
-                        key={subIndex} 
-                        href={subItem.href}
-                        className={`flex items-center py-2 pl-2 text-sm rounded-md ${
-                          isActive(subItem.href) 
-                            ? "text-green-600 font-medium" 
-                            : "text-gray-600 hover:text-green-600"
-                        }`}
-                      >
-                        <span>{subItem.label}</span>
-                      </Link>
-                    ))}
-                  </div>
+                {item.hasDropdown && (
+                  <span 
+                    className={isItemActive || isAnySubItemActive ? "text-white" : "text-gray-500"}
+                    onClick={(e) => handleDropdownToggle(e, item.label)}
+                  >
+                    {openDropdowns[item.label] ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
+                  </span>
                 )}
-              </div>
-            );
-          })}
-        </nav>
-      </div>
+              </Link>
+
+              {/* Dropdown items */}
+              {item.hasDropdown && openDropdowns[item.label] && (
+                <div className="ml-8 pl-2 border-l border-gray-200">
+                  {item.subItems?.map((subItem, subIndex) => (
+                    <Link 
+                      key={subIndex} 
+                      href={subItem.href}
+                      className={`flex items-center py-2 pl-2 text-sm rounded-md ${
+                        isActive(subItem.href) 
+                          ? "text-green-600 font-medium" 
+                          : "text-gray-600 hover:text-green-600"
+                      }`}
+                    >
+                      <span>{subItem.label}</span>
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
+          );
+        })}
+      </nav>
     </div>
   );
 }	

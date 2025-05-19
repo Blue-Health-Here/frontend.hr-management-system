@@ -282,10 +282,10 @@ export const enhancedSidebarNav = [
         href: "/dashboard",
         hasDropdown: false
     },
-    {
-        label: "Management",
-        isHeader: true
-    },
+    // {
+    //     label: "Management",
+    //     isHeader: false
+    // },
     {
         icon: FaUsers,
         label: "Employees",
@@ -309,10 +309,10 @@ export const enhancedSidebarNav = [
         href: "/attendance-report",
         hasDropdown: false,
     },
-    {
-        label: "HR Functions",
-        isHeader: true
-    },
+    // {
+    //     label: "HR Functions",
+    //     isHeader: true
+    // },
     {
         icon: FaChartLine,
         label: "Performance",
@@ -332,10 +332,10 @@ export const enhancedSidebarNav = [
             { label: "Add Holiday", href: "/holidays/add" },
         ]
     },
-    {
-        label: "Administration",
-        isHeader: true
-    },
+    // {
+    //     label: "Administration",
+    //     isHeader: true
+    // },
     {
         icon: FaUserCog,
         label: "Users",
