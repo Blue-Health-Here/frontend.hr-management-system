@@ -48,7 +48,7 @@ export function StatsOverview({
           </div>
           <div className="bg-green-50 p-3 lg:p-4 rounded-lg">
             <p className="text-xs lg:text-sm text-gray-600">WFH</p>
-            <p className="text-lg lg:text-xl font-bold text-green-600">5%</p>
+            <p className="text-lg lg:text-xl font-bold text-primary-green">5%</p>
           </div>
         </div>
 
@@ -65,7 +65,7 @@ export function StatsOverview({
             <div>
               <p className="font-semibold text-gray-800">{topPerformer.name}</p>
               <p className="text-xs lg:text-sm text-gray-600">{topPerformer.jobTitle}</p>
-              <p className="text-xs lg:text-sm font-medium text-green-600">
+              <p className="text-xs lg:text-sm font-medium text-primary-green">
                 Performance: {topPerformer.performance}
               </p>
             </div>
@@ -216,7 +216,7 @@ export function StatsOverview({
                 <span
                   className={`text-xs lg:text-sm font-medium ${
                     employee.type === "success"
-                      ? "text-green-600"
+                      ? "text-primary-green"
                       : employee.type === "error"
                       ? "text-red-600"
                       : "text-blue-600"

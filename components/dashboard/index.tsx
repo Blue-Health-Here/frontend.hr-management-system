@@ -32,14 +32,14 @@ ChartJS.register(
 export default function DashboardView() {
   return (
     <div className="">
-      <DashboardHeader
+      {/* <DashboardHeader
         user={{
           name: "Adrian",
           image: "https://randomuser.me/api/portraits/men/32.jpg",
           pendingApprovals: 21,
           leaveRequests: 14,
         }}
-      />
+      /> */}
       <EmployeeByDepartment />
       {/* <StatsOverview
         attendanceData={{

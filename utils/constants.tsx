@@ -9,6 +9,12 @@ import {
   FaUserCog,
   FaCog
 } from "react-icons/fa";
+import {
+  Briefcase,
+  CheckSquare,
+  DollarSign,
+} from "lucide-react";
+import { RiPresentationFill, RiTeamLine } from "react-icons/ri";
 export const employeeData = [
     {
         id: "EMP001",
@@ -631,4 +637,32 @@ export const cityOptions = [
 export const holidayStatusOptions = [
     { value: 'active', label: 'Active' },
     { value: 'inactive', label: 'Inactive' },
+];
+
+export const metrics = [
+  {
+    title: "Employee database",
+    value: "95%",
+    icon: <RiTeamLine className=" text-green-500" size={24} />,
+  },
+  {
+    title: "Leave management",
+    value: "24",
+    icon: <Briefcase className="text-orange-400" size={24} />,
+  },
+  {
+    title: "Attendance tracking",
+    value: "48",
+    icon: <RiPresentationFill className="text-blue-600" size={24} />,
+  },
+  {
+    title: "Performance reviews",
+    value: "127",
+    icon: <CheckSquare className="text-purple-500" size={24} />,
+  },
+  {
+    title: "Payroll management",
+    value: "$24,500",
+    icon: <DollarSign className="text-yellow-400" size={24} />,
+  },
 ];

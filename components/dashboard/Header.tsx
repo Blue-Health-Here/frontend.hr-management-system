@@ -21,7 +21,7 @@ export function DashboardHeader({ user }: DashboardHeaderProps) {
         </div>
       </div>
 
-      <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 md:gap-0 mb-6 md:mb-8 bg-white rounded-lg shadow-sm p-4 md:p-6 w-full">
+      <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 md:gap-0 bg-white rounded-lg shadow-sm p-4 md:p-6 w-full">
         <div className="flex items-center gap-3 md:gap-4 w-full">
           <img
             src={user.image}

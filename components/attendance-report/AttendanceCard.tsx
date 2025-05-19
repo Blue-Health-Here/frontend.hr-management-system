@@ -38,7 +38,7 @@ const AttendanceCard: React.FC<AttendanceCardProps> = ({
         ></div>
       </div>
       <p className="text-xs">
-        <span className="text-green-500">{percentage}</span>
+        <span className="text-secondary-green">{percentage}</span>
         <span className="text-gray-500"> {trendText}</span>
       </p>
     </div>

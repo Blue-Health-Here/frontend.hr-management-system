@@ -3,6 +3,7 @@ import Image from "next/image";
 import { IoSearch } from "react-icons/io5";
 import { IoNotificationsOutline } from "react-icons/io5";
 const Topbar = () => {
+    
     return (
         <div className="flex justify-between items-center p-4 sm:pl-8 sm:p-3 bg-white fixed top-0 sm:left-0 lg:left-64 right-0 z-10">
             <div className="relative w-[390px] sm:max-w-md hidden sm:block">

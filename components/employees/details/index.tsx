@@ -490,7 +490,7 @@ function EmployeeDetailsView() {
                   <div className="border border-gray-200 rounded-lg p-4">
                     <div className="flex items-start">
                       <div className="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center mr-3">
-                        <span className="text-green-600 text-xs font-bold">
+                        <span className="text-primary-green text-xs font-bold">
                           ED
                         </span>
                       </div>

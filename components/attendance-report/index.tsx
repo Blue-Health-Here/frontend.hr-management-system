@@ -139,7 +139,7 @@ const AttendanceReportView = () => {
                         style={{ height: "100%" }}
                       >
                         <div
-                          className="w-full bg-green-500 rounded-t mr-0.5"
+                          className="w-full bg-secondary-green rounded-t mr-0.5"
                           style={{ height: `${presentData[index]}%` }}
                         ></div>
                         <div
@@ -163,7 +163,7 @@ const AttendanceReportView = () => {
 
           <div className="flex justify-center mt-2">
             <div className="flex items-center mr-3">
-              <div className="w-2 h-2 bg-green-500 rounded-full mr-1"></div>
+              <div className="w-2 h-2 bg-secondary-green rounded-full mr-1"></div>
               <span className="text-2xs sm:text-xs">Present</span>
             </div>
             <div className="flex items-center">
