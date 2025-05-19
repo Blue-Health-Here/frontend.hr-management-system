@@ -50,6 +50,7 @@ function EmployeeByDepartment() {
             percentage={metric.percent}
             percentageColor={metric.percentColor}
             textColor={metric.textColor}
+            iconBgColor={metric.iconBgColor}
           />
         ))}
       </div>

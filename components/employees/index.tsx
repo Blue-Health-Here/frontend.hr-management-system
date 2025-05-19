@@ -10,12 +10,13 @@ import {
   ChevronDown,
   Plus,
 } from "lucide-react";
-import { employeeData } from "@/utils/constants";
+import { employeeData, employeeStats, metrics } from "@/utils/constants";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import ExportButton from "../common/ExportButton";
 import DateRangeDropdown from "../common/form/DateRangeDropdown";
 import Button from "../common/Button";
+import MetricCard from "../common/MetricCard";
 
 const EmployeesView = () => {
   const router = useRouter();
@@ -85,8 +86,8 @@ const EmployeesView = () => {
   const filteredEmployees = handleFilterChange();
 
   return (
-    <>
-      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4 gap-4">
+    <div className="space-y-6">
+      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
         <h1 className="text-2xl font-bold">Employee</h1>
         <div className="flex flex-col sm:flex-row items-stretch gap-3 w-auto">
           <ExportButton />
@@ -97,7 +98,7 @@ const EmployeesView = () => {
           </Link>
         </div>
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+      {/* <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
         <div className="bg-white p-4 rounded-lg shadow-sm border border-gray-200">
           <div className="flex items-center justify-between">
             <div className="flex items-center">
@@ -182,8 +183,22 @@ const EmployeesView = () => {
             </div>
           </div>
         </div>
+      </div> */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+        {employeeStats.map((stats, index) => (
+          <MetricCard
+            key={`stats-${index}`}
+            title={stats.title}
+            value={stats.value}
+            icon={stats.icon}
+            iconBgColor={stats.iconBgColor}
+            percentage={stats.percentage}
+             percentageColor={stats.percentColor}
+            textColor={stats.textColor}
+            isShowCradFooter={false}
+          />
+        ))}
       </div>
-
       <div className="overflow-x-auto bg-white rounded-lg shadow-sm border border-gray-200">
         <div className="bg-white p-4 border border-gray-200">
           <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
@@ -334,8 +349,8 @@ const EmployeesView = () => {
                   <td className="py-4 px-6 whitespace-nowrap">
                     <span
                       className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full ${employee.status === "Active"
-                          ? "bg-green-100 text-green-800"
-                          : "bg-red-100 text-red-800"
+                        ? "bg-green-100 text-green-800"
+                        : "bg-red-100 text-red-800"
                         }`}
                     >
                       {employee.status}
@@ -347,7 +362,7 @@ const EmployeesView = () => {
           </table>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
