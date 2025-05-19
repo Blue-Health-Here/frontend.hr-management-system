@@ -101,11 +101,12 @@ const AddLeave: React.FC = () => {
             <div className="flex flex-col gap-4 justify-center md:flex-row md:justify-end">
               <button
                 type="button"
-                className="px-6 py-2 rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#f26522] transition-colors"
+                  className="px-6 py-2 border border-gray-300 rounded-sm text-gray-700 hover:bg-gray-50"
               >
                 Cancel
               </button>
               <Button
+                  className="md:max-w-36"
                 label="Add Leave"
               >              
               </Button>

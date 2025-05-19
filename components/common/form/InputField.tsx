@@ -26,7 +26,7 @@ const InputField: React.FC<InputFieldProps> = ({
 
       <div className="relative mt-1">
         {icon && (
-          <div className="absolute inset-y-0 right-0 p-3 flex items-center pointer-events-none">
+          <div className="absolute inset-y-0 left-0 p-3 flex items-center pointer-events-none">
             {icon}
           </div>
         )}
@@ -42,7 +42,7 @@ const InputField: React.FC<InputFieldProps> = ({
       </div>
 
       {meta.touched && meta.error && (
-        <p className="text-red-500 text-sm mt-1">{meta.error}</p>
+        <p className="text-red-500 text-xs mt-1">{meta.error}</p>
       )}
     </div>
   );

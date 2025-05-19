@@ -59,7 +59,9 @@ const AddHoliday: React.FC = () => {
               >
                 Cancel
               </button>
-              <Button label="Add Holiday"></Button>
+              <Button label="Add Holiday"
+                className="md:max-w-36"
+              ></Button>
             </div>
           </Form>
         )}

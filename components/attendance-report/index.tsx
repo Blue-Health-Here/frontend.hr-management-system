@@ -228,6 +228,7 @@ const AttendanceReportView = () => {
               </div>
               <Button
                 label="Today"
+                className="md:max-w-36"
                 icon={Plus}
               >
               </Button>

@@ -132,7 +132,11 @@ const AddPerformanceIndicator: React.FC = () => {
         >
           Cancel
         </button>
-        <Button label="Add Indicator"></Button>
+        <Button
+          label="Add Indicator"
+          className="md:max-w-36"
+        ></Button>
+
       </div>
     </div>
   );
