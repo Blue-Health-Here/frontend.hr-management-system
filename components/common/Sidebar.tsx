@@ -11,7 +11,7 @@ export default function Sidebar() {
   const isActive = (path: string) => path === pathname;
 
   return (
-    <div className="hidden w-64 text-white lg:flex flex-col p-3 bg-white">
+    <div className="hidden w-64 text-white lg:flex flex-col p-6 bg-white z-10">
       {/* SmartHR Logo at the top */}
       <div className="flex justify-start mb-8 pl-3">
         <Image
