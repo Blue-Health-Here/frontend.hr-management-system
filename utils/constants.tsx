@@ -1,13 +1,13 @@
 import { Holiday } from "./types";
+import { LuLayoutDashboard } from "react-icons/lu";
 import {
-  FaTachometerAlt,
-  FaUsers,
-  FaCalendarAlt,
-  FaUserCheck,
-  FaChartLine,
-  FaUmbrellaBeach,
-  FaUserCog,
-  FaCog
+    FaUsers,
+    FaCalendarAlt,
+    FaUserCheck,
+    FaChartLine,
+    FaUmbrellaBeach,
+    FaUserCog,
+    FaCog
 } from "react-icons/fa";
 import {
   Briefcase,
@@ -239,46 +239,129 @@ export const employeeData = [
 ];
 
 export const sidebarNav = [
-  {
-    icon: <FaTachometerAlt size={18} className="text-gray-600" />,
-    label: "Dashboard",
-    href: "/dashboard"
-  },
-  {
-    icon: <FaUsers size={18} className="text-gray-600" />,
-    label: "Employees",
-    href: "/employees"
-  },
-  {
-    icon: <FaCalendarAlt size={18} className="text-gray-600" />,
-    label: "Leaves",
-    href: "/leaves"
-  },
-  {
-    icon: <FaUserCheck size={18} className="text-gray-600" />,
-    label: "Attendance",
-    href: "/attendance-report"
-  },
-  {
-    icon: <FaChartLine size={18} className="text-gray-600" />,
-    label: "Performance",
-    href: "/performance-indicator"
-  },
-  {
-    icon: <FaUmbrellaBeach size={18} className="text-gray-600" />,
-    label: "Holidays",
-    href: "/holidays"
-  },
-  {
-    icon: <FaUserCog size={18} className="text-gray-600" />,
-    label: "Users",
-    href: "/users"
-  },
-  {
-    icon: <FaCog size={18} className="text-gray-600" />,
-    label: "Settings",
-    href: "/settings"
-  }
+    {
+        icon: LuLayoutDashboard,
+        label: "Dashboard",
+        href: "/dashboard"
+    },
+    {
+        icon: FaUsers,
+        label: "Employees",
+        href: "/employees"
+    },
+    {
+        icon: FaCalendarAlt,
+        label: "Leaves",
+        href: "/leaves"
+    },
+    {
+        icon: FaUserCheck,
+        label: "Attendance",
+        href: "/attendance-report"
+    },
+    {
+        icon: FaChartLine,
+        label: "Performance",
+        href: "/performance-indicator"
+    },
+    {
+        icon: FaUmbrellaBeach,
+        label: "Holidays",
+        href: "/holidays"
+    },
+    {
+        icon: FaUserCog,
+        label: "Users",
+        href: "/users"
+    },
+    {
+        icon: FaCog,
+        label: "Settings",
+        href: "/settings"
+    }
+];
+
+export const enhancedSidebarNav = [
+    {
+        icon: LuLayoutDashboard,
+        label: "Dashboard",
+        href: "/dashboard",
+        hasDropdown: false
+    },
+    // {
+    //     label: "Management",
+    //     isHeader: false
+    // },
+    {
+        icon: FaUsers,
+        label: "Employees",
+        href: "/employees",
+        hasDropdown: true,
+        subItems: [
+            { label: "Add Employees", href: "/employees/add" },]
+    },
+    {
+        icon: FaCalendarAlt,
+        label: "Leaves",
+        href: "/leaves",
+        hasDropdown: true,
+        subItems: [
+            { label: "Leave Types", href: "/leaves/add" }
+        ]
+    },
+    {
+        icon: FaUserCheck,
+        label: "Attendance",
+        href: "/attendance-report",
+        hasDropdown: false,
+    },
+    // {
+    //     label: "HR Functions",
+    //     isHeader: true
+    // },
+    {
+        icon: FaChartLine,
+        label: "Performance",
+        href: "/performance-indicator",
+        hasDropdown: true,
+        subItems: [
+            { label: "Add Indicator", href: "/performance-indicator/add" },
+            { label: "Goals", href: "/performance-indicator/goals" }
+        ]
+    },
+    {
+        icon: FaUmbrellaBeach,
+        label: "Holidays",
+        href: "/holidays",
+        hasDropdown: true,
+        subItems: [
+            { label: "Add Holiday", href: "/holidays/add" },
+        ]
+    },
+    // {
+    //     label: "Administration",
+    //     isHeader: true
+    // },
+    {
+        icon: FaUserCog,
+        label: "Users",
+        href: "/users",
+        hasDropdown: true,
+        subItems: [
+            { label: "Add New User", href: "/users/add" },
+        ]
+    },
+    {
+        icon: FaCog,
+        label: "Settings",
+        href: "/settings",
+        hasDropdown: true,
+        subItems: [
+            { label: "Company Settings", href: "/settings/company" },
+            { label: "Localization", href: "/settings/localization" },
+            { label: "Theme Settings", href: "/settings/theme" }
+        ]
+    }
 ];
 
 export const checkInOutData = [
