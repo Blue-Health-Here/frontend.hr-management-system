@@ -19,6 +19,9 @@
   }
 }
 
-
-
-
+.neo-up {
+  @apply shadow-[3px_3px_7px_#d4d4d4,-3px_-3px_5px_#f3f4f6];
+}
+.neo-down {
+  @apply shadow-[inset_3px_3px_5px_#d4d4d4,inset_-3px_-3px_7px_#f3f4f6];
+}
