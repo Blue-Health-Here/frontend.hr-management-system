@@ -3,6 +3,7 @@ import React from 'react';
 import { Formik, Form } from 'formik';
 import InputField from '@/components/common/form/InputField';
 import Dropdown from '@/components/common/form/DropDown';
+import Button from '@/components/common/Button';
 
 function AddUser() {
   const roleOptions = [
@@ -152,13 +153,7 @@ function AddUser() {
               >
                 Cancel
               </button>
-              <button
-                type="submit"
-                className="px-6 py-2 bg-[#f26522] text-white rounded-sm hover:bg-[#e05b1a]"
-                disabled={isSubmitting}
-              >
-                {isSubmitting ? "Saving..." : "Save"}
-              </button>
+              <Button label={isSubmitting ? "Saving..." : "Save"}></Button>
             </div>
           </Form>
         )}

@@ -15,6 +15,7 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 import ExportButton from "../common/ExportButton";
 import DateRangeDropdown from "../common/form/DateRangeDropdown";
+import Button from "../common/Button";
 
 const EmployeesView = () => {
   const router = useRouter();
@@ -91,10 +92,8 @@ const EmployeesView = () => {
           <ExportButton />
           <Link
             href="/employees/add"
-            className="flex items-center justify-center text-nowrap xs:justify-start gap-1 px-4 py-2 bg-[#f26522] text-white rounded-md text-sm font-semibold hover:bg-[#e05b1a] transition-colors w-auto"
           >
-            <Plus className="h-3 w-3" />
-            <span>Add Employee</span>
+            <Button label="Add Employee" icon={Plus}></Button>
           </Link>
         </div>
       </div>
@@ -334,11 +333,10 @@ const EmployeesView = () => {
                   </td>
                   <td className="py-4 px-6 whitespace-nowrap">
                     <span
-                      className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full ${
-                        employee.status === "Active"
+                      className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full ${employee.status === "Active"
                           ? "bg-green-100 text-green-800"
                           : "bg-red-100 text-red-800"
-                      }`}
+                        }`}
                     >
                       {employee.status}
                     </span>

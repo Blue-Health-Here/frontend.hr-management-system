@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import { Upload, X } from "lucide-react";
+import Button from "../Button";
 
 interface ImageUploadProps {
   label?: string;
@@ -64,19 +65,19 @@ const ImageUpload: React.FC<ImageUploadProps> = ({
         <h2 className="text-sm font-medium text-gray-700 mb-1">{label}</h2>
         <p className="text-xs text-gray-500 mb-3">{description}</p>
         <div className="flex gap-3">
-          <label className="px-4 py-2 bg-[#f26522] text-white rounded text-xs font-medium hover:bg-[#e05b1a] transition-colors cursor-pointer">
+          <label>
+            <Button label="Upload" />
             <input
               type="file"
               className="hidden"
               accept="image/*"
               onChange={handleFileChange}
             />
-            Upload
           </label>
           <button
             type="button"
             onClick={handleCancelUpload}
-            className="px-4 py-2 bg-gray-200 text-gray-700 rounded text-xs font-medium hover:bg-gray-300 transition-colors"
+            className="px-4 py-2 bg-gray-200 text-gray-700 rounded text-xs md:text-sm font-medium hover:bg-gray-300 transition-colors"
           >
             Cancel
           </button>

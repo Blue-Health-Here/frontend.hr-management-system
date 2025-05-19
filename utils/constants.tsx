@@ -13,8 +13,10 @@ import {
   Briefcase,
   CheckSquare,
   DollarSign,
+  Percent,
 } from "lucide-react";
 import { RiPresentationFill, RiTeamLine } from "react-icons/ri";
+import { text } from "stream/consumers";
 export const employeeData = [
     {
         id: "EMP001",
@@ -727,25 +729,42 @@ export const metrics = [
     title: "Employee database",
     value: "95%",
     icon: <RiTeamLine className=" text-green-500" size={24} />,
+    percent: "95",
+    percentColor: "bg-green-100",
+    textColor: "text-green-500"
   },
   {
     title: "Leave management",
     value: "24",
     icon: <Briefcase className="text-orange-400" size={24} />,
+    percent: "24",
+    percentColor: "bg-orange-200",
+    textColor: "text-orange-400"
+
   },
   {
     title: "Attendance tracking",
     value: "48",
     icon: <RiPresentationFill className="text-blue-600" size={24} />,
+    percent: "48",
+     percentColor: "bg-blue-100",
+    textColor: "text-blue-500"
   },
   {
     title: "Performance reviews",
     value: "127",
     icon: <CheckSquare className="text-purple-500" size={24} />,
+    percent: "1.27",
+      percentColor: "bg-pink-100",
+    textColor: "text-pink-500"
+
   },
   {
     title: "Payroll management",
     value: "$24,500",
     icon: <DollarSign className="text-yellow-400" size={24} />,
+    percent: "24.5",
+    percentColor: "bg-yellow-100",
+    textColor: "text-yellow-500"
   },
 ];
