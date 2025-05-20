@@ -5,6 +5,7 @@ import InputField from "@/components/common/form/InputField";
 import TextAreaField from "@/components/common/form/TextArea";
 import { holidayStatusOptions } from "@/utils/constants";
 import Dropdown from "@/components/common/form/DropDown";
+import Button from "@/components/common/Button";
 
 const AddHoliday: React.FC = () => {
   return (
@@ -58,12 +59,7 @@ const AddHoliday: React.FC = () => {
               >
                 Cancel
               </button>
-              <button
-                type="submit"
-                className="px-4 py-2 border border-transparent rounded-md shadow-sm text-white bg-[#f26522] hover:bg-[#e05b1e] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#f26522] transition-colors"
-              >
-                Add Holiday
-              </button>
+              <Button label="Add Holiday"></Button>
             </div>
           </Form>
         )}

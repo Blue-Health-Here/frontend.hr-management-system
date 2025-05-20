@@ -5,6 +5,7 @@ import { employeeData } from "@/utils/constants";
 import { Employees, PerformanceIndicator } from "@/utils/types";
 import DataTableListing from "../leaves/DataTableListing";
 import Link from "next/link";
+import Button from "../common/Button";
 
 const PerformanceIndicatorPage = () => {
   const [employees] = useState<Employees[]>(employeeData);
@@ -39,11 +40,9 @@ const PerformanceIndicatorPage = () => {
         <h1 className="text-2xl font-bold">Performance Indicator</h1>
         <div className="flex flex-col sm:flex-row items-stretch gap-3 w-auto">
           <Link
-            href="/performance-indicator/add"
-            className="flex items-center justify-center xs:justify-start gap-1 px-4 py-2 bg-[#f26522] text-white rounded-md text-sm font-semibold hover:bg-[#e05b1a] transition-colors w-auto"
-          >
-            <Plus className="h-3 w-3" />
-            <span>Add Indicator</span>
+            className="cursor-pointer"
+            href="/performance-indicator/add">
+            <Button label="Add Indicator" icon={Plus}></Button>
           </Link>
         </div>
       </div>

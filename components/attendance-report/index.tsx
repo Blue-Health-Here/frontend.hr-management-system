@@ -6,6 +6,7 @@ import { employeeData } from "@/utils/constants";
 import AttendanceCard from "./AttendanceCard";
 import ExportButton from "../common/ExportButton";
 import DateRangeDropdown from "../common/form/DateRangeDropdown";
+import Button from "../common/Button";
 
 const AttendanceReportView = () => {
   const [employees, setEmployees] = useState(employeeData);
@@ -139,7 +140,7 @@ const AttendanceReportView = () => {
                         style={{ height: "100%" }}
                       >
                         <div
-                          className="w-full bg-green-500 rounded-t mr-0.5"
+                          className="w-full bg-secondary-green rounded-t mr-0.5"
                           style={{ height: `${presentData[index]}%` }}
                         ></div>
                         <div
@@ -163,7 +164,7 @@ const AttendanceReportView = () => {
 
           <div className="flex justify-center mt-2">
             <div className="flex items-center mr-3">
-              <div className="w-2 h-2 bg-green-500 rounded-full mr-1"></div>
+              <div className="w-2 h-2 bg-secondary-green rounded-full mr-1"></div>
               <span className="text-2xs sm:text-xs">Present</span>
             </div>
             <div className="flex items-center">
@@ -184,12 +185,12 @@ const AttendanceReportView = () => {
             </h2>
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-auto">
               <div className="w-full sm:w-48 md:w-56">
-                <DateRangeDropdown 
+                <DateRangeDropdown
                   value={dateRangeFilter}
                   onChange={setDateRangeFilter}
                 />
               </div>
-              
+
               <div className="w-auto sm:w-32 md:w-36">
                 <div className="relative">
                   <select
@@ -208,7 +209,7 @@ const AttendanceReportView = () => {
                   </div>
                 </div>
               </div>
-                 <div className="w-full sm:w-36 md:w-40">
+              <div className="w-full sm:w-36 md:w-40">
                 <div className="relative">
                   <select
                     id="sort"
@@ -225,14 +226,11 @@ const AttendanceReportView = () => {
                   </div>
                 </div>
               </div>
-                      <button
-            className={`inline-flex items-center gap-2 rounded-md bg-[#f26522] hover:bg-green-700 px-3 md:px-4 py-1.5 md:py-2 text-xs md:text-sm font-medium text-white shadow-sm focus:outline-none whitespace-nowrap`}
-          >
-            <span className="inline-flex items-center justify-center w-3 h-3 border border-white rounded-sm">
-              <Plus className="h-2 w-2 text-white" />
-            </span>
-            Today
-          </button> 
+              <Button
+                label="Today"
+                icon={Plus}
+              >
+              </Button>
             </div>
           </div>
         </div>
@@ -304,11 +302,10 @@ const AttendanceReportView = () => {
                   </td>
                   <td className="py-3 px-3 sm:py-4 sm:px-6 whitespace-nowrap">
                     <span
-                      className={`px-2 inline-flex text-2xs sm:text-xs leading-5 font-semibold rounded-full ${
-                        employee.status === "Active"
+                      className={`px-2 inline-flex text-2xs sm:text-xs leading-5 font-semibold rounded-full ${employee.status === "Active"
                           ? "bg-green-100 text-green-800"
                           : "bg-red-100 text-red-800"
-                      }`}
+                        }`}
                     >
                       {employee.status === "Active" ? "Present" : "Absent"}
                     </span>

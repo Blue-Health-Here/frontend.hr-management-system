@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Button from "../common/Button";
 
 type ScheduleItem = {
   title: string;
@@ -79,9 +80,10 @@ export default function ActivityOverviewCard({
                     />
                   ))}
                 </div>
-                <button className="ml-auto px-2 py-1 bg-[#f26522] text-white text-[10px] sm:text-xs rounded transition-colors">
+                {/* <button className="ml-auto px-2 py-1 bg-[#f26522] text-white text-[10px] sm:text-xs rounded transition-colors">
                   Join Meeting
-                </button>
+                </button> */}
+                <Button label="Join Meeting"></Button>
               </div>
             </div>
           ))}

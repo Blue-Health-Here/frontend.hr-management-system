@@ -9,6 +9,7 @@ import {
 } from "@/utils/constants";
 import Dropdown from "@/components/common/form/DropDown";
 import TextAreaField from "@/components/common/form/TextArea";
+import Button from "@/components/common/Button";
 
 const AddLeave: React.FC = () => {
   return (
@@ -104,12 +105,10 @@ const AddLeave: React.FC = () => {
               >
                 Cancel
               </button>
-              <button
-                type="submit"
-                className="px-4 py-2 border border-transparent rounded-md shadow-sm text-white bg-[#f26522] hover:bg-[#e05b1e] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#f26522] transition-colors"
-              >
-                Add Leave
-              </button>
+              <Button
+                label="Add Leave"
+              >              
+              </Button>
             </div>
           </Form>
         )}

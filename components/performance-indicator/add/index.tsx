@@ -1,6 +1,7 @@
 import React from "react";
 import { designations, technicalOptions, status } from "@/utils/constants";
 import Dropdown from "@/components/common/form/DropDown";
+import Button from "@/components/common/Button";
 
 const AddPerformanceIndicator: React.FC = () => {
   return (
@@ -131,12 +132,7 @@ const AddPerformanceIndicator: React.FC = () => {
         >
           Cancel
         </button>
-        <button
-          type="submit"
-          className="cursor-pointer px-4 py-2 border border-transparent rounded-md shadow-sm text-white bg-[#f26522] hover:bg-[#e05b1e] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#f26522] transition-colors"
-        >
-          Add Indicator
-        </button>
+        <Button label="Add Indicator"></Button>
       </div>
     </div>
   );

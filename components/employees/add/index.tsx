@@ -9,6 +9,7 @@ import { employeeValidationSchema } from "@/utils/validationSchema";
 import Dropdown from "@/components/common/form/DropDown";
 import { MdDone } from "react-icons/md";
 import { RxCross2 } from "react-icons/rx";
+import Button from "@/components/common/Button";
 
 const AddEmployee = () => {
   const [activeTab, setActiveTab] = useState<"basic" | "permissions">("basic");
@@ -235,13 +236,10 @@ const AddEmployee = () => {
                 >
                   Cancel
                 </button>
-                <button
-                  type="submit"
-                  className="px-6 py-2 bg-[#f26522] text-white rounded-sm hover:bg-[#e05b1a]"
-                  disabled={isSubmitting}
-                >
-                  {isSubmitting ? "Saving..." : "Save"}
-                </button>
+                <Button
+                  label={isSubmitting ? "Saving..." : "Save"}
+                >               
+                </Button>
               </div>
             </Form>
           )}

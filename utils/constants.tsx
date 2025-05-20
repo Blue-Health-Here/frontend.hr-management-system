@@ -9,6 +9,18 @@ import {
     FaUserCog,
     FaCog
 } from "react-icons/fa";
+import {
+    Briefcase,
+    CheckCircle,
+    CheckSquare,
+    DollarSign,
+    Percent,
+    UserPlus,
+    Users,
+    XCircle,
+} from "lucide-react";
+import { RiPresentationFill, RiTeamLine } from "react-icons/ri";
+import { text } from "stream/consumers";
 export const employeeData = [
     {
         id: "EMP001",
@@ -714,4 +726,92 @@ export const cityOptions = [
 export const holidayStatusOptions = [
     { value: 'active', label: 'Active' },
     { value: 'inactive', label: 'Inactive' },
+];
+
+export const metrics = [
+    {
+        title: "Employee database",
+        value: "95%",
+        icon: <RiTeamLine className=" text-green-500" size={24} />,
+        percent: "95",
+        percentColor: "bg-green-100",
+        textColor: "text-green-500",
+        iconBgColor: "bg-green-50"
+    },
+    {
+        title: "Leave management",
+        value: "24",
+        icon: <Briefcase className="text-orange-400" size={24} />,
+        percent: "24",
+        percentColor: "bg-orange-200",
+        textColor: "text-orange-400",
+        iconBgColor: "bg-orange-50"
+    },
+    {
+        title: "Attendance tracking",
+        value: "48",
+        icon: <RiPresentationFill className="text-blue-600" size={24} />,
+        percent: "48",
+        percentColor: "bg-blue-100",
+        textColor: "text-blue-500",
+        iconBgColor: "bg-blue-50"
+    },
+    {
+        title: "Performance reviews",
+        value: "127",
+        icon: <CheckSquare className="text-purple-500" size={24} />,
+        percent: "1.27",
+        percentColor: "bg-pink-100",
+        textColor: "text-pink-500",
+        iconBgColor: "bg-pink-50"
+
+    },
+    {
+        title: "Payroll management",
+        value: "$24,500",
+        icon: <DollarSign className="text-yellow-400" size={24} />,
+        percent: "24.5",
+        percentColor: "bg-yellow-100",
+        textColor: "text-yellow-500",
+        iconBgColor: "bg-yellow-50"
+    },
+];
+
+export const employeeStats = [
+    {
+        title: "Total Employee",
+        value: 20,
+        percentage: "100",
+        icon: <Users className="h-4 w-4 text-white" />,
+        percentColor: "bg-fuchsia-100",
+        textColor: "text-fuchsia-700",
+        iconBgColor: "bg-black"
+    },
+    {
+        title: "Active",
+        value: 19,
+        percentage: "95",
+        icon: <CheckCircle className="h-4 w-4 text-white" />,
+        iconBgColor: "bg-green-500",
+        percentColor: "bg-green-100",
+        textColor: "text-green-500",
+    },
+    {
+        title: "Inactive",
+        value: 1,
+        percentage: "5",
+        icon: <XCircle className="h-4 w-4 text-white" />,
+        iconBgColor: "bg-red-500",
+        percentColor: "bg-red-100",
+        textColor: "text-red-700",
+    },
+    {
+        title: "New Joiners",
+        value: 0,
+        percentage: "0",
+        icon: <UserPlus className="h-4 w-4 text-white" />,
+        iconBgColor: "bg-blue-400",
+        percentColor: "bg-blue-100",
+        textColor: "text-blue-500",
+    }
 ];

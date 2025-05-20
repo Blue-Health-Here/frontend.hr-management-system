@@ -6,7 +6,7 @@ function AuthLayoutContent() {
     <div
       className="w-full md:w-2/5 lg:w-2/5 relative hidden md:flex flex-col items-center justify-center min-h-screen"
       style={{
-        background: "linear-gradient(to bottom, #fd7e14, #58151c)",
+        background: "linear-gradient(to bottom, #22c55e, #15803d)",
         fontFamily: "'Roboto', sans-serif",
       }}
     >

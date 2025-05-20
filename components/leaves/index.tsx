@@ -10,6 +10,7 @@ import { handleFilterChange } from "@/utils/helper";
 import DataTableListing from "./DataTableListing";
 import Link from "next/link";
 import ExportButton from "../common/ExportButton";
+import Button from "../common/Button";
 
 const LeavesView = () => {
   const [employees] = useState<Employees[]>(employeeData);
@@ -57,11 +58,14 @@ const LeavesView = () => {
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4 gap-4">
         <h1 className="text-2xl font-bold">Leaves</h1>
         <div className="flex flex-row items-stretch gap-3 w-full sm:w-auto">
-          <ExportButton/>
+          <ExportButton />
 
-          <Link href="/leaves/add" className="flex items-center justify-center text-nowrap xs:justify-start gap-1 px-4 py-2 bg-[#f26522] text-white rounded-md text-sm font-semibold hover:bg-[#e05b1a] transition-colors w-auto ">
-            <Plus className="h-3 w-3" />
-            <span>Add Leave</span>
+          <Link href="/leaves/add">
+            <Button
+              label="Add Leave"
+              icon={Plus}
+            >
+            </Button>
           </Link>
         </div>
       </div>

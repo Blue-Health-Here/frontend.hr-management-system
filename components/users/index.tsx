@@ -9,6 +9,7 @@ import { handleFilterChange } from "@/utils/helper";
 import DataTableListing from "../leaves/DataTableListing";
 import Link from "next/link";
 import ExportButton from "../common/ExportButton";
+import Button from "../common/Button";
 
 const UsersPage = () => {
   const [employees] = useState<Employees[]>(employeeData);
@@ -36,12 +37,12 @@ const UsersPage = () => {
   const employeeUsers = userData.filter((user) => user.role === "Employee").length;
   const clientUsers = totalEmployees - employeeUsers;
 
-  const filteredUsers = handleFilterChange({ 
-    userData, 
-    dateRangeFilter, 
-    roleFilter, 
-    statusFilter, 
-    sortOption 
+  const filteredUsers = handleFilterChange({
+    userData,
+    dateRangeFilter,
+    roleFilter,
+    statusFilter,
+    sortOption
   });
 
   return (
@@ -50,10 +51,9 @@ const UsersPage = () => {
         <h1 className="text-2xl font-bold">Users</h1>
         <div className="flex flex-row items-stretch gap-3 w-auto">
           <ExportButton /> {/* Use the new component here */}
-          
-          <Link href="/users/add" className="flex items-center justify-center text-nowrap xs:justify-start gap-1 px-4 py-2 bg-[#f26522] text-white rounded-md text-sm font-semibold hover:bg-[#e05b1a] transition-colors w-full xs:w-auto">
-            <Plus className="h-3 w-3" />
-            <span>Add New User</span>
+
+          <Link href="/users/add" className="cursor-pointer">
+            <Button label="Add New User" icon={Plus}></Button>
           </Link>
         </div>
       </div>
