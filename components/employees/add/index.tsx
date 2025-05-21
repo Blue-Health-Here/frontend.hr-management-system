@@ -237,8 +237,9 @@ const AddEmployee = () => {
                   Cancel
                 </button>
                 <Button
+                  className="md:max-w-36"
                   label={isSubmitting ? "Saving..." : "Save"}
-                >               
+                >
                 </Button>
               </div>
             </Form>

@@ -153,7 +153,7 @@ function AddUser() {
               >
                 Cancel
               </button>
-              <Button label={isSubmitting ? "Saving..." : "Save"}></Button>
+              <Button className='md:max-w-36' label={isSubmitting ? "Saving..." : "Save"}></Button>
             </div>
           </Form>
         )}
