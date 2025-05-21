@@ -33,7 +33,7 @@ export default function SigninPage() {
   const [showPassword, setShowPassword] = useState(false);
   return (
     <div className="flex min-h-screen w-full">
-      <div className="hidden md:block w-2/3 bg-gray-100 items-center justify-center">
+      <div className="hidden md:block w-1/2 bg-gray-100 items-center justify-center">
         <div className="flex justify-center items-center h-full w-full max-w-md mx-auto">
           <div className="px-6">
             <div className="mb-8 text-center">
@@ -56,7 +56,7 @@ export default function SigninPage() {
           </div>
         </div>
       </div>
-      <div className="w-full md:w-1/3 flex flex-col justify-between py-10 px-6 md:px-8 bg-primary-white">
+      <div className="w-full md:w-1/2 flex flex-col justify-between py-10 px-6 md:px-8 bg-primary-white">
         <div className="self-start mb-8">
           <h1 className="text-green-600 text-3xl font-bold">SmartHR</h1>
         </div>
