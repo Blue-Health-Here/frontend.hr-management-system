@@ -8,6 +8,7 @@ import InputField from "@/components/common/form/InputField";
 import { Mail } from "lucide-react";
 import AuthLayout from "@/components/layouts/AuthLayout";
 import { ForgotPasswordValidationSchema } from "@/utils/validationSchema";
+import Button from "@/components/common/Button";
 
 interface ForgotPasswordFormValues {
   email: string;
@@ -24,72 +25,56 @@ const handleSubmit = (values: ForgotPasswordFormValues) => {
 export default function ForgotPasswordPage() {
   return (
     <AuthLayout>
-      <div className="w-full md:w-3/5 lg:w-3/5 flex flex-col justify-center items-center p-8 overflow-y-auto bg-[#f3ebe1] relative min-h-screen">
-        <div className="w-full max-w-[480px] space-y-6">
-          <div className="text-center">
-            <div className="flex justify-center mb-6">
-              <Image
-                src="https://smarthr.dreamstechnologies.com/react/template/assets/img/logo.svg"
-                alt="SmartHR Logo"
-                width={150}
-                height={40}
-                className="h-10"
-              />
+      <div className="w-full h-screen flex flex-col justify-between py-6 px-6 md:px-8 bg-primary-white overflow-hidden">
+        <div className="self-start mb-4">
+          <h1 className="text-green-600 text-3xl font-bold">SmartHR</h1>
+        </div>
+
+        <div className="flex flex-col items-center w-full max-w-md mx-auto flex-1 justify-center">
+          <div className="mb-6 text-center flex flex-col items-center">
+            <div className="relative w-24 h-24 flex items-center justify-center mb-3">
+              <div className="absolute w-16 h-10 bg-green-700 transform -rotate-45 translate-x-2 translate-y-4 z-0" />
+              <div className="absolute w-16 h-10 bg-green-500 transform -rotate-45 z-10" />
             </div>
-          </div>
-
-          <div>
-            <h2 className="text-2xl font-semibold mt-10 text-center text-[#202c4b]">
+            <h1 className="text-xl md:text-2xl font-semibold text-primary-black mb-1">
               Forgot Password?
-            </h2>
+            </h1>
+            <p className="text-secondary-black text-sm md:text-base">
+              If you forgot your password, we'll email you instructions to reset your password.
+            </p>
+          </div>
+          
+          <div className="w-full">
+            <Formik
+              initialValues={ForgotPasswordInitialVals}
+              validationSchema={ForgotPasswordValidationSchema}
+              onSubmit={handleSubmit}
+            >
+              <Form className="space-y-3 w-full">
+                <InputField
+                  name="email"
+                  type="email"
+                  label="Email Address"
+                  icon={<Mail className="h-4 w-4 text-black" />}
+                />
 
-            <div className="text-sm text-gray-500 space-y-4">
-              <p className="text-center pt-1">
-                If you forgot your password, well, then we'll email you instructions to reset your password.
-              </p>
+                <Button label="Submit" className="mt-2" />
 
-              <Formik
-                initialValues={ForgotPasswordInitialVals}
-                validationSchema={ForgotPasswordValidationSchema}
-                onSubmit={handleSubmit}
-              >
-                <Form className="space-y-4">
-                  <InputField
-                    name="email"
-                    type="email"
-                    label="Email Address"
-                    icon={<Mail className="h-4 w-4 text-black" />}
-                  />
-
-                  <button
-                    type="submit"
-                    className="w-full text-white py-3 rounded-md hover:opacity-90 transition font-bold"
-                    style={{ backgroundColor: "rgb(243, 116, 56)" }}
-                  >
-                    Submit
-                  </button>
-                </Form>
-              </Formik>
-
-              <div className="space-y-6">
-                <p className="text-center">
+                <div className="text-center text-xs sm:text-sm text-gray-500 pt-2">
                   Return to{" "}
                   <Link
                     href="/sign-in"
-                    className="text-[rgb(243,116,56)] hover:underline"
+                    className="text-[#e70d0d] hover:underline"
                   >
                     Sign In
                   </Link>
-                </p>
-              </div>
-            </div>
+                </div>
+              </Form>
+            </Formik>
           </div>
         </div>
 
-        {/* Copyright text positioned at the very bottom */}
-        <div className="absolute bottom-8 left-0 right-0 text-center text-sm">
-          <p className="text-[#111827]">Copyright © 2025 - Smarthr</p>
-        </div>
+        <div className="h-6"></div>
       </div>
     </AuthLayout>
   );
