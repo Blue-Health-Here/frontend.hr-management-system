@@ -355,6 +355,7 @@ export const enhancedSidebarNav = [
         hasDropdown: true,
         subItems: [
             { label: "Add New User", href: "/users/add" },
+            { label: "Roles", href: "/users/roles" },
         ]
     },
     {
@@ -766,7 +767,7 @@ export const metrics = [
         iconBgColor: "bg-pink-50"
 
     }
-   
+
 ];
 
 export const employeeStats = [
@@ -806,4 +807,32 @@ export const employeeStats = [
         percentColor: "bg-blue-100",
         textColor: "text-blue-500",
     }
+];
+
+export const leaveApplications = [
+    {
+        id: "1",
+        name: "Madeline Brooks",
+        type: "Vacation Leave",
+        recentApprovals: [
+            { name: "Amelia Taylor", date: "Apr 24" },
+            { name: "Daniel Green", date: "Apr 22" }
+        ]
+    },
+    {
+        id: "2",
+        name: "John Smith",
+        type: "Sick Leave (Apr 25-Apr 28)",
+        recentApprovals: [
+            { name: "Sarah Johnson", date: "Apr 20" },
+            { name: "Michael Brown", date: "Apr 18" }
+        ]
+    }
+];
+
+export const rolesData = [
+    { id: 1, name: "Admin", created_at: "12/09/2025", status: "Active" },
+    { id: 2, name: "HR Manager", created_at: "12/09/2025", status: "In-Active" },
+    { id: 3, name: "Team Lead", created_at: "12/09/2025", status: "Active" },
+    { id: 4, name: "Employee", created_at: "12/09/2025", status: "Active" },
 ];

@@ -4,7 +4,7 @@ import { Plus } from "lucide-react";
 import DataTableListing from "../leaves/DataTableListing";
 import Link from "next/link";
 import { holidaysData } from "@/utils/constants";
-import Button from "../common/Button";
+import Button from "../../common/Button";
 
 const Holidays = () => {
   return (
@@ -20,11 +20,9 @@ const Holidays = () => {
           </Link>
         </div>
       </div>
-      <div className="overflow-x-auto bg-white rounded-lg shadow-sm border border-gray-200">
-        <div className="bg-white p-4 border border-gray-200">
-          <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
-            <h2 className="text-lg font-semibold">Holidays List</h2>
-          </div>
+      <div className="overflow-x-auto bg-white rounded-2xl border border-gray-200 p-4 flex flex-col gap-4">
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+          <h2 className="text-lg font-semibold">Holidays List</h2>
         </div>
         <DataTableListing holidays={holidaysData} />
       </div>

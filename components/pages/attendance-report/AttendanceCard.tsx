@@ -12,7 +12,7 @@ const AttendanceCard: React.FC<AttendanceCardProps> = ({
   iconPath,
 }) => {
   return (
-    <div className="bg-white p-3 sm:p-4 rounded-lg shadow-sm">
+    <div className="bg-white p-3 sm:p-4 rounded-2xl">
       <div className="flex items-center mb-2">
         <svg
           className={`w-6 h-6 sm:w-8 sm:h-8 ${iconColor} mr-1.5 mt-3`}

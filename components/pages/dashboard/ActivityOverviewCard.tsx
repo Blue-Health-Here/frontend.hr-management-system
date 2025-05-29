@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import Button from "../common/Button";
+import Button from "../../common/Button";
 
 type ScheduleItem = {
   title: string;

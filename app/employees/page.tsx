@@ -1,5 +1,5 @@
 import React from "react";
-import EmployeeView from "@/components/employees";
+import EmployeeView from "@/components/pages/employees";
 import MainLayout from "@/components/layouts/MainLayout";
 
 function Page() {

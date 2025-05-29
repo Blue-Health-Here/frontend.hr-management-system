@@ -12,7 +12,7 @@ function MainLayout({ children }: MainLayoutProps) {
       <Sidebar />
       <div className="flex flex-col flex-1">
         <Topbar />
-        <div className="flex-1 overflow-y-auto p-6 md:p-8 mt-20 bg-gray-100 rounded-tl-4xl neo-down">{children}</div>
+        <div className="flex-1 overflow-y-auto p-6 md:p-8 mt-20 bg-gray-100 rounded-tl-4xl neo-down ml-64">{children}</div>
       </div>
     </div>
   );

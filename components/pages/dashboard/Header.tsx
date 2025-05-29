@@ -3,7 +3,7 @@ import { Download, Calendar, FileText, Sheet, Plus } from "lucide-react";
 import { Menu, Transition } from "@headlessui/react";
 import { Fragment } from "react";
 import { DashboardHeaderProps } from "@/utils/types";
-import ExportButton from "../common/ExportButton";
+import ExportButton from "../../common/ExportButton";
 
 export function DashboardHeader({ user }: DashboardHeaderProps) {
   return (

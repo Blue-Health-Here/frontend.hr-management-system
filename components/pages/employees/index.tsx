@@ -13,10 +13,10 @@ import {
 import { employeeData, employeeStats, metrics } from "@/utils/constants";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-import ExportButton from "../common/ExportButton";
-import DateRangeDropdown from "../common/form/DateRangeDropdown";
-import Button from "../common/Button";
-import MetricCard from "../common/MetricCard";
+import ExportButton from "../../common/ExportButton";
+import DateRangeDropdown from "../../common/form/DateRangeDropdown";
+import Button from "../../common/Button";
+import MetricCard from "../../common/MetricCard";
 
 const EmployeesView = () => {
   const router = useRouter();
