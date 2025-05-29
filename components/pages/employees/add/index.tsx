@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import { Eye, EyeOff } from "lucide-react";
-import InputField from "../../common/form/InputField";
+import InputField from "../../../common/form/InputField";
 import { Formik, Form } from "formik";
 import { departmentOptions, designationOptions } from "@/utils/constants";
 import ImageUpload from "@/components/common/form/ImageUpload";

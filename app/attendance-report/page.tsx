@@ -1,5 +1,5 @@
 import React from "react";
-import AttendanceReportView from "@/components/attendance-report";
+import AttendanceReportView from "@/components/pages/attendance-report";
 import MainLayout from "@/components/layouts/MainLayout";
 
 function Page() {

@@ -4,9 +4,9 @@ import Image from "next/image";
 import { ChevronDown, Plus } from "lucide-react";
 import { employeeData } from "@/utils/constants";
 import AttendanceCard from "./AttendanceCard";
-import ExportButton from "../common/ExportButton";
-import DateRangeDropdown from "../common/form/DateRangeDropdown";
-import Button from "../common/Button";
+import ExportButton from "../../common/ExportButton";
+import DateRangeDropdown from "../../common/form/DateRangeDropdown";
+import Button from "../../common/Button";
 
 const AttendanceReportView = () => {
   const [employees, setEmployees] = useState(employeeData);
@@ -115,7 +115,7 @@ const AttendanceReportView = () => {
         </div>
 
         {/* Attendance Graph Section */}
-        <div className="w-full lg:w-1/2 bg-white p-3 sm:p-4 rounded-lg shadow-sm">
+        <div className="w-full lg:w-1/2 bg-white p-3 sm:p-4 rounded-2xl">
           <h3 className="text-xs sm:text-sm font-semibold mb-3">Attendance</h3>
           <div className="h-40 sm:h-48">
             <div className="h-full flex">
@@ -176,63 +176,61 @@ const AttendanceReportView = () => {
       </div>
 
       {/* Employee Table Section */}
-      <div className="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden">
+      <div className="bg-white rounded-2xl border border-gray-200 overflow-hidden p-4 flex flex-col gap-4">
         {/* Filter Row */}
-        <div className="bg-white p-3 sm:p-4 border border-gray-200">
-          <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-3 sm:gap-4">
-            <h2 className="text-base sm:text-lg font-semibold">
-              Employee Attendance
-            </h2>
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-auto">
-              <div className="w-full sm:w-48 md:w-56">
-                <DateRangeDropdown
-                  value={dateRangeFilter}
-                  onChange={setDateRangeFilter}
-                />
-              </div>
-
-              <div className="w-auto sm:w-32 md:w-36">
-                <div className="relative">
-                  <select
-                    id="status-filter"
-                    value={statusFilter}
-                    onChange={(e) => setStatusFilter(e.target.value)}
-                    className="block appearance-none w-full pl-3 pr-8 py-2 text-xs sm:text-sm border border-gray-300 focus:outline-none rounded-md"
-                  >
-                    <option value="All">All Status</option>
-                    <option value="Present">Present</option>
-                    <option value="Absent">Absent</option>
-                    <option value="Late">Late</option>
-                  </select>
-                  <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-                    <ChevronDown className="h-3 w-3 sm:h-4 sm:w-4" />
-                  </div>
-                </div>
-              </div>
-              <div className="w-full sm:w-36 md:w-40">
-                <div className="relative">
-                  <select
-                    id="sort"
-                    value={sortOption}
-                    onChange={(e) => setSortOption(e.target.value)}
-                    className="block appearance-none w-full pl-3 pr-8 py-2 text-xs sm:text-sm border border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 rounded-md"
-                  >
-                    <option value="">Sort By</option>
-                    <option value="last7days">Last 7 days</option>
-                    <option value="ascending">Ascending</option>
-                  </select>
-                  <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-                    <ChevronDown className="h-3 w-3 sm:h-4 sm:w-4" />
-                  </div>
-                </div>
-              </div>
-              <Button
-                label="Today"
-                className="md:max-w-36"
-                icon={Plus}
-              >
-              </Button>
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-3 sm:gap-4">
+          <h2 className="text-base sm:text-lg font-semibold">
+            Employee Attendance
+          </h2>
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-auto">
+            <div className="w-full sm:w-48 md:w-56">
+              <DateRangeDropdown
+                value={dateRangeFilter}
+                onChange={setDateRangeFilter}
+              />
             </div>
+
+            <div className="w-auto sm:w-32 md:w-36">
+              <div className="relative">
+                <select
+                  id="status-filter"
+                  value={statusFilter}
+                  onChange={(e) => setStatusFilter(e.target.value)}
+                  className="block appearance-none w-full pl-3 pr-8 py-2 text-xs sm:text-sm border border-gray-300 focus:outline-none rounded-md"
+                >
+                  <option value="All">All Status</option>
+                  <option value="Present">Present</option>
+                  <option value="Absent">Absent</option>
+                  <option value="Late">Late</option>
+                </select>
+                <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                  <ChevronDown className="h-3 w-3 sm:h-4 sm:w-4" />
+                </div>
+              </div>
+            </div>
+            <div className="w-full sm:w-36 md:w-40">
+              <div className="relative">
+                <select
+                  id="sort"
+                  value={sortOption}
+                  onChange={(e) => setSortOption(e.target.value)}
+                  className="block appearance-none w-full pl-3 pr-8 py-2 text-xs sm:text-sm border border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 rounded-md"
+                >
+                  <option value="">Sort By</option>
+                  <option value="last7days">Last 7 days</option>
+                  <option value="ascending">Ascending</option>
+                </select>
+                <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                  <ChevronDown className="h-3 w-3 sm:h-4 sm:w-4" />
+                </div>
+              </div>
+            </div>
+            <Button
+              label="Today"
+              className="md:max-w-36"
+              icon={Plus}
+            >
+            </Button>
           </div>
         </div>
 

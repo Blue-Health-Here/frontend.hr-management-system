@@ -3,7 +3,7 @@ import { GoArrowUp } from 'react-icons/go'
 
 const MetricCard = ({ title, value, icon, percentage, percentageColor, textColor, iconBgColor, isShowCradFooter = true }: any) => {
   return (
-    <div className="bg-white rounded-2xl shadow-sm w-full overflow-hidden">
+    <div className="bg-white rounded-2xl w-full overflow-hidden border border-gray-200">
       <div className={`${isShowCradFooter ? 'p-4 md:px-5 md:py-6' : 'p-6'} `}>
         <div className="flex items-center gap-2 mb-5">
           <div className={`${iconBgColor} ${isShowCradFooter ? 'p-1.5' : 'p-3'} rounded-full`}>

@@ -9,10 +9,9 @@ import {
   Tooltip,
   Legend,
 } from "chart.js";
-import MetricCard from "../common/MetricCard";
+import MetricCard from "../../common/MetricCard";
 import { metrics } from "@/utils/constants";
 
-// Register ChartJS components
 ChartJS.register(
   CategoryScale,
   LinearScale,
@@ -21,7 +20,6 @@ ChartJS.register(
   Tooltip,
   Legend
 );
-
 
 const departmentData = {
   labels: ["UI/UX", "Development", "Management", "HR", "Testing", "Marketing"],
@@ -39,27 +37,32 @@ const departmentData = {
 
 function EmployeeByDepartment() {
   return (
-    <div className="space-y-6">
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
-        {metrics.map((metric, index) => (
-          <MetricCard
-            key={`metric-${index}`}
-            title={metric.title}
-            value={metric.value}
-            icon={metric.icon}
-            percentage={metric.percent}
-            percentageColor={metric.percentColor}
-            textColor={metric.textColor}
-            iconBgColor={metric.iconBgColor}
-          />
-        ))}
+    <div className="flex flex-col lg:flex-row gap-6">
+      <div className="lg:w-2/3 bg-white p-4 lg:p-6 rounded-2xl">
+        <h2 className="text-base lg:text-lg font-semibold text-gray-800 mb-4">
+          Team Overview
+        </h2>
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+          {metrics.map((metric, index) => (
+            <MetricCard
+              key={`metric-${index}`}
+              title={metric.title}
+              value={metric.value}
+              icon={metric.icon}
+              percentage={metric.percent}
+              percentageColor={metric.percentColor}
+              textColor={metric.textColor}
+              iconBgColor={metric.iconBgColor}
+            />
+          ))}
+        </div>
       </div>
 
-      <div className="w-full bg-white p-4 lg:p-6 rounded-2xl shadow-md">
+      <div className="lg:w-1/3 bg-white p-4 lg:p-6 rounded-2xl">
         <h2 className="text-base lg:text-lg font-semibold text-gray-800 mb-4">
           Employees By Department
         </h2>
-        <div className="h-64 lg:h-80 -mx-2 lg:mx-0">
+        <div className="h-64 lg:h-[350px] -mx-2 lg:mx-0">
           <Bar
             data={departmentData}
             options={{

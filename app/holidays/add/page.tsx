@@ -1,5 +1,5 @@
 import React from "react";
-import AddHoliday from "@/components/holidays/add";
+import AddHoliday from "@/components/pages/holidays/add";
 import MainLayout from "@/components/layouts/MainLayout";
 
 function Page() {

@@ -1,8 +1,8 @@
 "use client";
 import React, { useState } from "react";
-import ImageUpload from "../common/form/ImageUpload";
-import InputField from "../common/form/InputField";
-import Dropdown from "../common/form/DropDown";
+import ImageUpload from "../../common/form/ImageUpload";
+import InputField from "../../common/form/InputField";
+import Dropdown from "../../common/form/DropDown";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
 import { countryOptions, stateOptions, cityOptions } from "@/utils/constants";

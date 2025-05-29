@@ -355,6 +355,7 @@ export const enhancedSidebarNav = [
         hasDropdown: true,
         subItems: [
             { label: "Add New User", href: "/users/add" },
+            { label: "Roles", href: "/users/roles" },
         ]
     },
     {
@@ -730,8 +731,8 @@ export const holidayStatusOptions = [
 
 export const metrics = [
     {
-        title: "Employee database",
-        value: "95%",
+        title: "Total Active Employees",
+        value: "120",
         icon: <RiTeamLine className=" text-green-500" size={24} />,
         percent: "95",
         percentColor: "bg-green-100",
@@ -739,8 +740,8 @@ export const metrics = [
         iconBgColor: "bg-green-50"
     },
     {
-        title: "Leave management",
-        value: "24",
+        title: "Employees on Leave Today",
+        value: "5",
         icon: <Briefcase className="text-orange-400" size={24} />,
         percent: "24",
         percentColor: "bg-orange-200",
@@ -748,8 +749,8 @@ export const metrics = [
         iconBgColor: "bg-orange-50"
     },
     {
-        title: "Attendance tracking",
-        value: "48",
+        title: "Employees Not Clectriral Yet",
+        value: "12",
         icon: <RiPresentationFill className="text-blue-600" size={24} />,
         percent: "48",
         percentColor: "bg-blue-100",
@@ -757,24 +758,16 @@ export const metrics = [
         iconBgColor: "bg-blue-50"
     },
     {
-        title: "Performance reviews",
-        value: "127",
+        title: "Employees With Late Check In Today",
+        value: "3",
         icon: <CheckSquare className="text-purple-500" size={24} />,
         percent: "1.27",
         percentColor: "bg-pink-100",
         textColor: "text-pink-500",
         iconBgColor: "bg-pink-50"
 
-    },
-    {
-        title: "Payroll management",
-        value: "$24,500",
-        icon: <DollarSign className="text-yellow-400" size={24} />,
-        percent: "24.5",
-        percentColor: "bg-yellow-100",
-        textColor: "text-yellow-500",
-        iconBgColor: "bg-yellow-50"
-    },
+    }
+
 ];
 
 export const employeeStats = [
@@ -814,4 +807,32 @@ export const employeeStats = [
         percentColor: "bg-blue-100",
         textColor: "text-blue-500",
     }
+];
+
+export const leaveApplications = [
+    {
+        id: "1",
+        name: "Madeline Brooks",
+        type: "Vacation Leave",
+        recentApprovals: [
+            { name: "Amelia Taylor", date: "Apr 24" },
+            { name: "Daniel Green", date: "Apr 22" }
+        ]
+    },
+    {
+        id: "2",
+        name: "John Smith",
+        type: "Sick Leave (Apr 25-Apr 28)",
+        recentApprovals: [
+            { name: "Sarah Johnson", date: "Apr 20" },
+            { name: "Michael Brown", date: "Apr 18" }
+        ]
+    }
+];
+
+export const rolesData = [
+    { id: 1, name: "Admin", created_at: "12/09/2025", status: "Active" },
+    { id: 2, name: "HR Manager", created_at: "12/09/2025", status: "In-Active" },
+    { id: 3, name: "Team Lead", created_at: "12/09/2025", status: "Active" },
+    { id: 4, name: "Employee", created_at: "12/09/2025", status: "Active" },
 ];
