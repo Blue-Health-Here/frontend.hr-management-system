@@ -3,9 +3,13 @@ import Link from "next/link";
 
 export default function NotFoundPage() {
   return (
-    <div className="min-h-screen flex flex-col bg-[#f3ebe1]">
-      <main className="flex-grow flex flex-col-reverse lg:flex-row items-center justify-between px-4 sm:px-6 md:px-8 py-8 sm:py-10 md:py-12 gap-8 md:gap-10 lg:gap-12 max-w-6xl mx-auto w-full">
-        <div className="w-full lg:w-1/2 flex flex-col items-center lg:items-start text-center lg:text-left lg:pr-8 xl:pr-16 lg:transform lg:-translate-x-28">
+      <main className="min-h-screen p-6 flex items-center justify-center flex-col gap-4 align-middle w-full">
+        <img src="/404-image.jpg" alt="404 image" className="max-w-[500px]" />
+        
+        <h1 className="text-2xl uppercase text-center sm:text-2.5xl md:text-5xl lg:text-7xl font-bold text-gray-800 mb-4">
+          Page not found
+        </h1>
+        {/* <div className="w-full lg:w-1/2 flex flex-col items-center lg:items-start text-center lg:text-left lg:pr-8 xl:pr-16 lg:transform lg:-translate-x-28">
           <div className="mb-5 sm:mb-6 md:mb-8">
             <Link href="/">
               <Image
@@ -58,8 +62,7 @@ export default function NotFoundPage() {
               className="w-full h-auto"
             />
           </div>
-        </div>
+        </div> */}
       </main>
-    </div>
   );
 }

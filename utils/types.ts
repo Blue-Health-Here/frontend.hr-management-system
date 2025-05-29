@@ -150,3 +150,22 @@ export interface DashboardHeaderProps {
     leaveRequests: number;
   };
 }
+
+export interface SignInFormValues {
+  email: string;
+  password: string;
+  rememberMe: boolean;
+}
+
+export interface SignUpFormValues {
+  fullName: string;
+  email: string;
+  password: string;
+  confirmPassword: string;
+  agreeTerms: boolean;
+}
+
+export interface ForgotPasswordFormValues {
+  email: string;
+}
+
