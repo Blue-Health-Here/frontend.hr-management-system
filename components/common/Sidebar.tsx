@@ -122,7 +122,7 @@ export default function Sidebar() {
                   {item.subItems?.map((subItem, subIndex) => (
                     <Link 
                       key={subIndex} 
-                      href={subItem.href}
+                      href={item.href + subItem.href}
                       className={`flex items-center py-2 pl-2 text-sm rounded-md ${
                         isActive(subItem.href) 
                           ? "text-green-600 font-medium" 
