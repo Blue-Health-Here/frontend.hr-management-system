@@ -18,9 +18,16 @@ import {
     UserPlus,
     Users,
     XCircle,
+    Calendar, 
+    Clock, 
+    Grid3x3, 
+    Volume2
 } from "lucide-react";
-import { RiPresentationFill, RiTeamLine } from "react-icons/ri";
+
+import { RiPlayCircleLine, RiPresentationFill, RiTeamLine } from "react-icons/ri";
 import { text } from "stream/consumers";
+import { AiOutlineSchedule } from "react-icons/ai";
+import { MdAppRegistration } from "react-icons/md";
 export const employeeData = [
     {
         id: "EMP001",
@@ -287,7 +294,7 @@ export const sidebarNav = [
     }
 ];
 
-export const enhancedSidebarNav = [
+export const adminSidebarItems = [
     {
         icon: LuLayoutDashboard,
         label: "Dashboard",
@@ -366,6 +373,21 @@ export const enhancedSidebarNav = [
         ]
     }
 ];
+
+export const employeeSidebarItems = [
+        {
+        icon: LuLayoutDashboard,
+        label: "Dashboard",
+        href: "/employee/dashboard",
+        hasDropdown: false
+    },
+    {
+        icon: FaUserCheck,
+        label: "Attendance",
+        href: "",
+        hasDropdown: false,
+    },
+]
 
 export const checkInOutData = [
     {
@@ -831,4 +853,63 @@ export const rolesData = [
     { id: 2, name: "HR Manager", created_at: "12/09/2025", status: "In-Active" },
     { id: 3, name: "Team Lead", created_at: "12/09/2025", status: "Active" },
     { id: 4, name: "Employee", created_at: "12/09/2025", status: "Active" },
+];
+
+export const employeeLeavesStats = [
+    {
+        title: "Leave Balance",
+        icon: <AiOutlineSchedule className="text-blue-600 w-6 h-6"  />,
+        iconBgColor: "bg-blue-50",
+        variant: "compact",
+        subtitles: [
+            { label: 'Casual', value: '5' },
+            { label: 'Sick', value: '8' },
+        ]
+    },
+    {
+        title: "Leaves Taken",
+        icon: <RiPlayCircleLine className="text-blue-600 w-6 h-6" />,
+        iconBgColor: "bg-blue-50",
+        variant: "compact",
+        subtitles: [
+            { label: 'This Month', value: 2 }
+        ]
+    },
+    {
+        title: "Upcoming Approved",
+        icon: <MdAppRegistration className="text-blue-600 w-6 h-6" />,
+        iconBgColor: "bg-blue-50",
+        variant: "compact",
+        subtitles: [
+            { label: 'Leaves', value: 1 }
+        ]
+    }
+
+];
+
+export const attendanceData = {
+    totalWorkingDays: 20,
+    daysPresent: 18,
+    daysAbsent: 2,
+    daysLate: 1,
+    clockInTime: "9:05 AM"
+};
+
+export const alertsData = [
+    {
+        icon: <Calendar className="w-6 h-6 text-blue-600" />,
+        text: "Leave approval status"
+    },
+    {
+        icon: <Clock className="w-6 h-6 text-blue-600" />,
+        text: "Reminder to check in"
+    },
+    {
+        icon: <Grid3x3 className="w-6 h-6 text-blue-600" />,
+        text: "Payslip available"
+    },
+    {
+        icon: <Volume2 className="w-6 h-6 text-blue-600" />,
+        text: "General announcement"
+    }
 ];
