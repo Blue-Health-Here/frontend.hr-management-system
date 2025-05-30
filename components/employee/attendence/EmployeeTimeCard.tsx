@@ -1,12 +1,54 @@
+"use client"
 import Button from '@/components/common/Button';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 const EmployeeTimeCard: React.FC = () => {
+
+    const [isPunchedIn, setIsPunchedIn] = useState(false);
+    const [punchInTime, setPunchInTime] = useState<Date | null>(new Date())
+    const [punchOutTime, setPunchOutTime] = useState<Date | null>(null)
+    const [elapsedTime, setElapsedTime] = useState<string>('00:00:00');
+    const [timerInterval, setTimerInterval] = useState<NodeJS.Timeout | null>(null);
+
+    useEffect(() => {
+        if (isPunchedIn && punchInTime) {
+            const interval = setInterval(() => {
+                const now = new Date();
+                const diff = new Date(now.getTime() - punchInTime.getTime());
+                const hours = String(diff.getUTCHours()).padStart(2, '0');
+                const minutes = String(diff.getUTCMinutes()).padStart(2, '0');
+                const seconds = String(diff.getUTCSeconds()).padStart(2, '0');
+                setElapsedTime(`${hours}:${minutes}:${seconds}`);
+            }, 1000);
+            setTimerInterval(interval);
+
+            return () => clearInterval(interval);
+        } else {
+            if (timerInterval) clearInterval(timerInterval);
+        }
+    }, [isPunchedIn, punchInTime]);
+
+    const handleClick = () => {
+        if (isPunchedIn) {
+            setIsPunchedIn(false)
+            setPunchOutTime(new Date())
+        }
+        else {
+            setIsPunchedIn(true)
+            setPunchInTime(new Date())
+            setPunchOutTime(null)
+        }
+    }
+
+    const formatTime = (date: Date) => {
+        return date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+    };
+
     return (
         <div className="bg-white p-4 lg:p-6 rounded-2xl  w-md flex flex-col justify-center items-center">
             <div className="text-center mb-6">
                 <h2 className="text-gray-400 text-sm font-medium mb-1">Good Morning, Merry</h2>
-                <p className=" text-gray-700 text-lg font-medium">08:35 AM, 11 Mar 2025</p>
+                <p className=" text-gray-700 text-lg font-medium">{new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}, {new Date().toLocaleDateString()}</p>
             </div>
 
             <div className="flex justify-center mb-6">
@@ -19,16 +61,17 @@ const EmployeeTimeCard: React.FC = () => {
                 </div>
             </div>
 
-            <div className="bg-orange-500 text-white text-center py-2 w-36 rounded-md mb-4">
-                <span className="font-medium text-xs">Production : 3.45 hrs</span>
+            <div className="bg-orange-500 text-white text-center py-2 w-40 rounded-md mb-4">
+                <span className="font-medium text-xs">Production : {elapsedTime} hrs</span>
             </div>
 
             <div className="flex items-center justify-center mb-4 text-gray-600">
-                <div className="w-2 h-2 bg-red-500 rounded-full mr-2"></div>
-                <span className="text-sm">Punch In at 10.00 AM</span>
+                <div className={`w-2 h-2 rounded-full mr-2 ${isPunchedIn ? 'bg-red-500' : 'bg-green-500'}`}></div>
+                <span className="text-sm">{isPunchedIn
+                        ? `Punched In at ${punchInTime ? formatTime(punchInTime) : ''}`
+                        : `Punched Out at ${punchOutTime ? formatTime(punchOutTime) : ''}`}</span>
             </div>
-
-            <Button label='Punch Out' />
+            <Button label={isPunchedIn ? 'Punch Out' : 'Punch In'} className={`${isPunchedIn ? 'bg-red-500' : 'bg-green-500'}`} onClick={handleClick} />
         </div>
     );
 };
