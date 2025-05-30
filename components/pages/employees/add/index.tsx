@@ -50,7 +50,7 @@ const AddEmployee = () => {
   };
 
   return (
-    <div className="rounded-lg p-6 bg-white shadow-md space-y-6">
+    <div className="rounded-2xl p-6 bg-white space-y-6">
       <div>
         <h1 className="text-2xl font-semibold text-gray-800">
           Add New Employee

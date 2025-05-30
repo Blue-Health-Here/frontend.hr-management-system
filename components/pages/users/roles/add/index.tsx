@@ -7,7 +7,7 @@ import Button from "@/components/common/Button";
 
 const AddRole: React.FC = () => {
     return (
-        <div className="rounded-2xl p-6 bg-white shadow-md space-y-6">
+        <div className="rounded-2xl p-6 bg-white space-y-6">
             <div>
                 <h1 className="text-2xl  font-semibold text-gray-800">Add Role</h1>
                 <div className="border-b border-gray-200 w-full my-3"></div>

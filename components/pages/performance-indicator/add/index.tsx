@@ -5,7 +5,7 @@ import Button from "@/components/common/Button";
 
 const AddPerformanceIndicator: React.FC = () => {
   return (
-    <div className="rounded-lg p-6 bg-white shadow-md space-y-6">
+    <div className="rounded-2xl p-6 bg-white space-y-6">
       <div>
         <h1 className="text-2xl  font-semibold text-gray-800">Add New Indicator</h1>
         <div className="border-b border-gray-200 w-full my-3"></div>
@@ -61,12 +61,10 @@ const AddPerformanceIndicator: React.FC = () => {
       </div>
 
       <div>
-        <div>
-          <h2 className="text-xl font-semibold text-gray-800 mb-4">
-            Organizational
-          </h2>
-          <div className="border-b border-gray-200 w-full my-3"></div>
-        </div>
+        <h2 className="text-xl font-semibold text-gray-800 mb-4">
+          Organizational
+        </h2>
+        <div className="border-b border-gray-200 w-full my-3"></div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
           <Dropdown
@@ -125,6 +123,7 @@ const AddPerformanceIndicator: React.FC = () => {
         label="Status"
         options={status.map((d) => ({ value: d.id, label: d.name }))}
       />
+
       <div className="flex flex-col justify-center md:flex-row md:justify-end gap-4">
         <button
           type="button"
@@ -136,7 +135,6 @@ const AddPerformanceIndicator: React.FC = () => {
           label="Add Indicator"
           className="md:max-w-36"
         ></Button>
-
       </div>
     </div>
   );

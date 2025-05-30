@@ -1,33 +1,18 @@
 import { Holiday } from "./types";
 import { LuLayoutDashboard } from "react-icons/lu";
 import {
-    FaUsers,
-    FaCalendarAlt,
-    FaUserCheck,
-    FaChartLine,
-    FaUmbrellaBeach,
-    FaUserCog,
-    FaCog
+    FaUsers, FaCalendarAlt, FaUserCheck, FaChartLine,
+    FaUmbrellaBeach, FaUserCog, FaCog
 } from "react-icons/fa";
 import {
-    Briefcase,
-    CheckCircle,
-    CheckSquare,
-    DollarSign,
-    Percent,
-    UserPlus,
-    Users,
-    XCircle,
-    Calendar, 
-    Clock, 
-    Grid3x3, 
-    Volume2
+    Briefcase, CheckCircle, CheckSquare,
+    UserPlus, Users, XCircle, Calendar, Clock, 
+    Grid3x3, Volume2
 } from "lucide-react";
-
 import { RiPlayCircleLine, RiPresentationFill, RiTeamLine } from "react-icons/ri";
-import { text } from "stream/consumers";
 import { AiOutlineSchedule } from "react-icons/ai";
 import { MdAppRegistration } from "react-icons/md";
+
 export const employeeData = [
     {
         id: "EMP001",
@@ -314,9 +299,6 @@ export const adminSidebarItems = [
         label: "Leaves",
         href: "/admin/leaves",
         hasDropdown: false,
-        // subItems: [
-        //     { label: "Leave Types", href: "/add" }
-        // ]
     },
     {
         icon: FaUserCheck,
@@ -324,10 +306,6 @@ export const adminSidebarItems = [
         href: "/admin/attendance-report",
         hasDropdown: false,
     },
-    // {
-    //     label: "HR Functions",
-    //     isHeader: true
-    // },
     {
         icon: FaChartLine,
         label: "Performance",
@@ -335,7 +313,6 @@ export const adminSidebarItems = [
         hasDropdown: true,
         subItems: [
             { label: "Add Indicator", href: "/add" },
-            { label: "Goals", href: "/goals" }
         ]
     },
     {
@@ -347,10 +324,6 @@ export const adminSidebarItems = [
             { label: "Add Holiday", href: "/add" },
         ]
     },
-    // {
-    //     label: "Administration",
-    //     isHeader: true
-    // },
     {
         icon: FaUserCog,
         label: "Users",
@@ -597,7 +570,6 @@ export const invoices = [
     },
 ];
 
-// Department options
 export const departmentOptions = [
     'Development',
     'Design',
@@ -608,7 +580,6 @@ export const departmentOptions = [
     'Sales'
 ];
 
-// Designation options
 export const designationOptions = [
     'Developer',
     'Executive',
@@ -650,7 +621,6 @@ export const leaveDurationOptions = [
     { value: "firstHalf", label: "First Half" },
     { value: "secondHalf", label: "Second Half" },
 ];
-
 
 export const holidaysData: Holiday[] = [
     {
@@ -742,6 +712,7 @@ export const cityOptions = [
     { value: "la", label: "Los Angeles" },
     { value: "ch", label: "Chicago" },
 ];
+
 export const holidayStatusOptions = [
     { value: 'active', label: 'Active' },
     { value: 'inactive', label: 'Inactive' },

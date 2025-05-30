@@ -41,13 +41,13 @@ const PerformanceIndicatorPage = () => {
         <div className="flex flex-col sm:flex-row items-stretch gap-3 w-auto">
           <Link
             className="cursor-pointer"
-            href="/performance-indicator/add">
+            href="/admin/performance-indicator/add">
             <Button label="Add Indicator" icon={Plus}></Button>
           </Link>
         </div>
       </div>
 
-      <div className="overflow-x-auto bg-white rounded-2xl border border-gray-200 p-4 flex flex-col gap-4">
+      <div className="overflow-x-auto bg-white rounded-2xl p-4 flex flex-col gap-4">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
           <h2 className="text-lg font-semibold">
             Performance Indicator List
