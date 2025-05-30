@@ -34,7 +34,7 @@ const MetricCard = ({
   const isCompact = variant === 'compact';
 
   return (
-    <div className="bg-white rounded-2xl w-full overflow-hidden">
+    <div className="bg-white rounded-2xl w-full border border-gray-100 overflow-hidden">
       <div className={`${isCompact ? 'p-4' : isShowCradFooter ? 'p-4 md:px-5 md:py-6' : 'p-6'}`}>
         <div className="flex items-center gap-3 mb-3">
           <div className={`${iconBgColor} ${isCompact ? 'p-2' : 'p-3'} rounded-xl`}>
