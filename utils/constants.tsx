@@ -298,34 +298,30 @@ export const adminSidebarItems = [
     {
         icon: LuLayoutDashboard,
         label: "Dashboard",
-        href: "/dashboard",
+        href: "/admin/dashboard",
         hasDropdown: false
     },
-    // {
-    //     label: "Management",
-    //     isHeader: false
-    // },
     {
         icon: FaUsers,
         label: "Employees",
-        href: "/employees",
+        href: "/admin/employees",
         hasDropdown: true,
         subItems: [
-            { label: "Add Employees", href: "/employees/add" },]
+            { label: "Add Employees", href: "/add" },]
     },
     {
         icon: FaCalendarAlt,
         label: "Leaves",
-        href: "/leaves",
-        hasDropdown: true,
-        subItems: [
-            { label: "Leave Types", href: "/leaves/add" }
-        ]
+        href: "/admin/leaves",
+        hasDropdown: false,
+        // subItems: [
+        //     { label: "Leave Types", href: "/add" }
+        // ]
     },
     {
         icon: FaUserCheck,
         label: "Attendance",
-        href: "/attendance-report",
+        href: "/admin/attendance-report",
         hasDropdown: false,
     },
     // {
@@ -335,20 +331,20 @@ export const adminSidebarItems = [
     {
         icon: FaChartLine,
         label: "Performance",
-        href: "/performance-indicator",
+        href: "/admin/performance-indicator",
         hasDropdown: true,
         subItems: [
-            { label: "Add Indicator", href: "/performance-indicator/add" },
-            { label: "Goals", href: "/performance-indicator/goals" }
+            { label: "Add Indicator", href: "/add" },
+            { label: "Goals", href: "/goals" }
         ]
     },
     {
         icon: FaUmbrellaBeach,
         label: "Holidays",
-        href: "/holidays",
+        href: "/admin/holidays",
         hasDropdown: true,
         subItems: [
-            { label: "Add Holiday", href: "/holidays/add" },
+            { label: "Add Holiday", href: "/add" },
         ]
     },
     // {
@@ -358,22 +354,22 @@ export const adminSidebarItems = [
     {
         icon: FaUserCog,
         label: "Users",
-        href: "/users",
+        href: "/admin/users",
         hasDropdown: true,
         subItems: [
-            { label: "Add New User", href: "/users/add" },
-            { label: "Roles", href: "/users/roles" },
+            { label: "Add New User", href: "/add" },
+            { label: "Roles", href: "/roles" },
         ]
     },
     {
         icon: FaCog,
         label: "Settings",
-        href: "/settings",
+        href: "/admin/settings",
         hasDropdown: true,
         subItems: [
-            { label: "Company Settings", href: "/settings/company" },
-            { label: "Localization", href: "/settings/localization" },
-            { label: "Theme Settings", href: "/settings/theme" }
+            { label: "Company Settings", href: "/company" },
+            { label: "Localization", href: "/localization" },
+            { label: "Theme Settings", href: "/theme" }
         ]
     }
 ];

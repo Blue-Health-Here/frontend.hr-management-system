@@ -139,9 +139,9 @@ export default function Sidebar({ isEmployee }: SidebarProps) {
               {item.hasDropdown && openDropdowns[item.label] && (
                 <div className="ml-8 pl-2 border-l border-gray-200">
                   {item.subItems?.map((subItem, subIndex) => (
-                    <Link
-                      key={subIndex}
-                      href={subItem.href}
+                    <Link 
+                      key={subIndex} 
+                      href={item.href + subItem.href}
                       className={`flex items-center py-2 pl-2 text-sm rounded-md ${
                         isActive(subItem.href)
                           ? "text-green-600 font-medium"
