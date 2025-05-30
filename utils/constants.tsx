@@ -865,7 +865,7 @@ export const employeeLeavesStats = [
         ]
     },
     {
-        title: "Leaves Take",
+        title: "Leaves Taken",
         icon: <RiPlayCircleLine className="text-blue-600 w-6 h-6" />,
         iconBgColor: "bg-blue-50",
         variant: "compact",

@@ -170,3 +170,23 @@ export interface ForgotPasswordFormValues {
   email: string;
 }
 
+export interface Attendance {
+  totalWorkingDays: number;
+  daysPresent: number;
+  daysAbsent: number;
+  daysLate: number;
+  clockInTime: string;
+}
+
+export interface AlertItem {
+  icon: React.ReactNode;
+  text: string;
+}
+
+export interface EmployeeDashboardCardProps {
+  title: string;
+  type: 'attendance' | 'payslip' | 'alerts';
+  attendanceData?: Attendance;
+  alerts?: AlertItem[];
+}
+
