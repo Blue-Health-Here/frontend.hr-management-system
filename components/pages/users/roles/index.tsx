@@ -54,13 +54,13 @@ const RolesPage = () => {
                 <div className="flex flex-row items-stretch gap-3 w-auto">
                     <ExportButton /> {/* Use the new component here */}
 
-                    <Link href="/users/roles/add" className="cursor-pointer">
+                    <Link href="/admin/users/roles/add" className="cursor-pointer">
                         <Button label="Add New Role" icon={Plus}></Button>
                     </Link>
                 </div>
             </div>
 
-            <div className="overflow-x-auto bg-white rounded-2xl border border-gray-200 flex flex-col gap-4 p-4">
+            <div className="overflow-x-auto bg-white rounded-2xl flex flex-col gap-4 p-4">
                 <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
                     <h2 className="text-lg font-semibold">Roles List</h2>
                     <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full md:w-auto">
@@ -116,10 +116,10 @@ const RolesPage = () => {
                                 </td>
                                 <td className="py-4 px-6 whitespace-nowrap text-sm text-gray-500">
                                     <p className="flex items-center gap-2">
-                                        <Link href={`/users/permissions?role=${item.name.toLowerCase()}`}>
+                                        <Link href={`/admin/users/permissions?role=${item.name.toLowerCase()}`}>
                                             <GoShieldLock className="w-5 h-5" />
                                         </Link>
-                                        <Link href="/users/roles/add">
+                                        <Link href="/admin/users/roles/add">
                                             <BiEdit className="w-5 h-5" />
                                         </Link>
                                         <MdDelete className="w-5 h-5 cursor-pointer" />
