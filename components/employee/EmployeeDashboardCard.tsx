@@ -1,27 +1,9 @@
 import React from 'react';
-import { ChevronRight} from 'lucide-react';
+import { ChevronRight } from 'lucide-react';
 import { IoCaretDownCircle } from 'react-icons/io5';
 import { RiBillLine } from 'react-icons/ri';
-
-interface AttendanceData {
-    totalWorkingDays: number;
-    daysPresent: number;
-    daysAbsent: number;
-    daysLate: number;
-    clockInTime: string;
-}
-
-interface AlertItem {
-    icon: React.ReactNode;
-    text: string;
-}
-
-interface EmployeeDashboardCardProps {
-    title: string;
-    type: 'attendance' | 'payslip' | 'alerts';
-    attendanceData?: AttendanceData;
-    alerts?: AlertItem[];
-}
+import { EmployeeDashboardCardProps } from '@/utils/types';
+import { FaClock } from 'react-icons/fa';
 
 const EmployeeDashboardCard: React.FC<EmployeeDashboardCardProps> = ({
     title,
@@ -37,27 +19,27 @@ const EmployeeDashboardCard: React.FC<EmployeeDashboardCardProps> = ({
                 </h2>
 
                 <div className="mb-8">
-                    <h3 className="text-gray-700 mb-4 ">
+                    <h3 className="text-gray-700 font-semibold mb-4 ">
                         Summary for current month
                     </h3>
 
                     <div className="space-y-3 text-sm">
-                        <div className="flex justify-between items-center">
+                        <div className="flex justify-between items-center gap-2 border border-gray-200 p-2 rounded-xl">
                             <span className="text-gray-700">Total Working Days</span>
                             <span className="text-gray-900 font-medium">{attendanceData?.totalWorkingDays}</span>
                         </div>
 
-                        <div className="flex justify-between items-center">
+                        <div className="flex justify-between items-center gap-2 border border-gray-200 p-2 rounded-xl">
                             <span className="text-gray-700">Days Present</span>
                             <span className="text-gray-900 font-medium">{attendanceData?.daysPresent}</span>
                         </div>
 
-                        <div className="flex justify-between items-center">
+                        <div className="flex justify-between items-center gap-2 border border-gray-200 p-2 rounded-xl">
                             <span className="text-gray-700">Days Absent</span>
                             <span className="text-gray-900 font-medium">{attendanceData?.daysAbsent}</span>
                         </div>
 
-                        <div className="flex justify-between items-center">
+                        <div className="flex justify-between items-center gap-2 border border-gray-200 p-2 rounded-xl">
                             <span className="text-gray-700">Days Late</span>
                             <span className="text-gray-900 font-medium">{attendanceData?.daysLate}</span>
                         </div>
@@ -65,13 +47,13 @@ const EmployeeDashboardCard: React.FC<EmployeeDashboardCardProps> = ({
                 </div>
 
                 <div>
-                    <h3 className="text-gray-700 mb-4 font-medium text-sm">Today</h3>
+                    <h3 className="text-gray-700 mb-4 font-bold text-xl">Today</h3>
 
                     <div className="flex gap-3 text-sm">
-                            <IoCaretDownCircle className="w-8 h-8 text-blue-600" />
+                        <FaClock className="w-6 h-6 text-slate-500" />
                         <div>
                             <div className="text-gray-900 font-medium">Clock In</div>
-                            <div className="text-gray-700">{attendanceData?.clockInTime}</div>
+                            <div className="text-blue-600 text-2xl font-bold">{attendanceData?.clockInTime}</div>
                         </div>
                     </div>
                 </div>

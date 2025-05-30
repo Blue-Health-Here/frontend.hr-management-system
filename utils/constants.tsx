@@ -862,12 +862,12 @@ export const employeeLeavesStats = [
         iconBgColor: "bg-blue-50",
         variant: "compact",
         subtitles: [
-            { label: 'Casual', value: '5 g' },
-            { label: 'Sick', value: '8 g' },
+            { label: 'Casual', value: '5' },
+            { label: 'Sick', value: '8' },
         ]
     },
     {
-        title: "Leaves Take",
+        title: "Leaves Taken",
         icon: <RiPlayCircleLine className="text-blue-600 w-6 h-6" />,
         iconBgColor: "bg-blue-50",
         variant: "compact",
