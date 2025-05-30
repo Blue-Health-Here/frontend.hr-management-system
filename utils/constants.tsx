@@ -13,14 +13,12 @@ import {
     Briefcase,
     CheckCircle,
     CheckSquare,
-    DollarSign,
-    Percent,
     UserPlus,
     Users,
     XCircle,
-    Calendar, 
-    Clock, 
-    Grid3x3, 
+    Calendar,
+    Clock,
+    Grid3x3,
     Volume2
 } from "lucide-react";
 
@@ -375,7 +373,7 @@ export const adminSidebarItems = [
 ];
 
 export const employeeSidebarItems = [
-        {
+    {
         icon: LuLayoutDashboard,
         label: "Dashboard",
         href: "/employee/dashboard",
@@ -384,7 +382,7 @@ export const employeeSidebarItems = [
     {
         icon: FaUserCheck,
         label: "Attendance",
-        href: "",
+        href: "/employee/attendance",
         hasDropdown: false,
     },
 ]
@@ -764,7 +762,7 @@ export const metrics = [
         percent: "24",
         percentColor: "bg-orange-200",
         textColor: "text-orange-400",
-        iconBgColor: "bg-orange-50"
+        iconBgColor: "bg-orange-50",
     },
     {
         title: "Employees Not Clectriral Yet",
@@ -858,12 +856,12 @@ export const rolesData = [
 export const employeeLeavesStats = [
     {
         title: "Leave Balance",
-        icon: <AiOutlineSchedule className="text-blue-600 w-6 h-6"  />,
+        icon: <AiOutlineSchedule className="text-blue-600 w-6 h-6" />,
         iconBgColor: "bg-blue-50",
         variant: "compact",
         subtitles: [
-            { label: 'Casual', value: '5 g' },
-            { label: 'Sick', value: '8 g' },
+            { label: 'Casual', value: 5 },
+            { label: 'Sick', value: 8 },
         ]
     },
     {
@@ -912,4 +910,64 @@ export const alertsData = [
         icon: <Volume2 className="w-6 h-6 text-blue-600" />,
         text: "General announcement"
     }
+];
+
+export const timeTrackingData = [
+    {
+        value: 8.36,
+        target: 9,
+        change: '+5%',
+        changeDescription: 'This Week',
+        changeType: 'increase',
+        iconColor: 'bg-orange-400',
+        icon: <RiPlayCircleLine className="text-white w-6 h-6" />,
+    },
+    {
+        value: 10,
+        target: 40,
+        change: '+7%',
+        changeDescription: 'Last Week',
+        changeType: 'increase',
+        iconColor: 'bg-black',
+        icon: <RiPlayCircleLine className="text-white w-6 h-6" />,
+
+    },
+    {
+        value: 75,
+        target: 98,
+        change: '-8%',
+        changeDescription: 'Last Month',
+        changeType: 'decrease',
+        iconColor: 'bg-blue-400',
+        icon: <RiPlayCircleLine className="text-white w-6 h-6" />,
+
+    },
+    {
+        value: 16,
+        target: 28,
+        change: '-6%',
+        changeDescription: 'Last Month',
+        changeType: 'decrease',
+        iconColor: 'bg-pink-400',
+        icon: <RiPlayCircleLine className="text-white w-6 h-6" />,
+
+    }
+];
+
+export const employeAttendanceData = [
+    { date: '14 Jan 2024', checkIn: '09:00 AM', status: 'Present', checkOut: '06:45 PM', break: '30 Min', late: '32 Min', overtime: '20 Min', hours: '8.55 Hrs', hoursType: 'success' },
+    { date: '21 Jan 2024', checkIn: '09:00 AM', status: 'Present', checkOut: '06:12 PM', break: '20 Min', late: '45 Min', overtime: '-', hours: '7.54 Hrs', hoursType: 'danger' },
+    { date: '20 Feb 2024', checkIn: '09:00 AM', status: 'Present', checkOut: '06:13 PM', break: '50 Min', late: '-', overtime: '33 Min', hours: '8.45 Hrs', hoursType: 'success' },
+    { date: '15 Mar 2024', checkIn: '09:00 AM', status: 'Absent', checkOut: '06:23 PM', break: '41 Min', late: '-', overtime: '50 Min', hours: '8.35 Hrs', hoursType: 'success' },
+    { date: '12 Apr 2024', checkIn: '09:00 AM', status: 'Present', checkOut: '06:43 PM', break: '23 Min', late: '-', overtime: '10 Min', hours: '8.22 Hrs', hoursType: 'success' },
+    { date: '20 May 2024', checkIn: '09:00 AM', status: 'Present', checkOut: '07:15 PM', break: '03 Min', late: '-', overtime: '-', hours: '8.32 Hrs', hoursType: 'success' },
+    { date: '06 Jul 2024', checkIn: '09:00 AM', status: 'Present', checkOut: '07:13 PM', break: '32 Min', late: '-', overtime: '-', hours: '9.15 Hrs', hoursType: 'info' },
+    { date: '02 Sep 2024', checkIn: '09:00 AM', status: 'Present', checkOut: '09:17 PM', break: '14 Min', late: '12 Min', overtime: '-', hours: '8.35 Hrs', hoursType: 'success' },
+    { date: '10 Dec 2024', checkIn: '09:00 AM', status: 'Present', checkOut: '09:23 PM', break: '10 Min', late: '-', overtime: '45 Min', hours: '9.25 Hrs', hoursType: 'info' },
+    { date: '15 Nov 2024', checkIn: '09:00 AM', status: 'Present', checkOut: '08:15 PM', break: '12 Min', late: '-', overtime: '-', hours: '8.35 Hrs', hoursType: 'success' }
+];
+
+export const statusOptions = [
+    'Punch in',
+    'Punch Out',
 ];
