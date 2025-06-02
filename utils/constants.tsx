@@ -1139,15 +1139,15 @@ export const employeSalaryColumns = [
         header: 'Designation',
         accessor: 'designation',
         render: (_: any, row: any) => (
-           <Dropdown
+            <Dropdown
                 name="sort"
                 id="sort"
                 placeholder='Designation'
                 options={designation.map((d) => ({
-                  value: d,
-                  label: d,
+                    value: d,
+                    label: d,
                 }))}
-              />
+            />
         ),
     },
     {
@@ -1277,3 +1277,89 @@ export const employeSalaryData = [
     }
 ]
 
+
+export const payslipEarningColumns = [
+    {
+        header: 'Earnings',
+        accessor: 'earning'
+    },
+    {
+        header: '',
+        accessor: 'salary',
+        render: (row: any) => (
+            <span className={`font-bold text-black`}>
+                {row}
+            </span>
+        )
+    },
+]
+
+export const payslipEarningData = [
+    {
+        earning: "Basic Salary",
+        salary: "$3000"
+    },
+    {
+        earning: "House Rent Allowance (H.R.A.)",
+        salary: "$1000"
+    },
+    {
+        earning: "Conveyance",
+        salary: "$200"
+    },
+    {
+        earning: "Other Allowance",
+        salary: "$100"
+    },
+    {
+        earning: "Total Earnings",
+        salary: "$200"
+    },
+    {
+        earning: "Total Earnings",
+        salary: "$4300"
+    },
+];
+
+export const payslipDeductionsColumns = [
+    {
+        header: 'Deductions',
+        accessor: 'deductions'
+    },
+    {
+        header: '',
+        accessor: 'salary',
+        render: (row: any) => (
+            <span className={`font-bold text-black`}>
+                {row}
+            </span>
+        )
+    },
+]
+
+export const payslipDeductionsData = [
+    {
+        deductions: "Tax Deducted at Source (T.D.S.)",
+        salary: "$3000"
+    },
+    {
+        deductions: "Provident Fund",
+        salary: "$200"
+    },
+    {
+        deductions: "ESI",
+        salary: "$300"
+    },
+    {
+        deductions: "Other Allowance",
+        salary: "$150"
+    },
+    {
+        deductions: "Loan",
+        salary: "$50"
+    },
+    {
+        deductions: "Total Earnings",
+        salary: "$700"
+    },
+];
