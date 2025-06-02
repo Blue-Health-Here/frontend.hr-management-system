@@ -6,7 +6,7 @@ import {
 } from "react-icons/fa";
 import {
     Briefcase, CheckCircle, CheckSquare,
-    UserPlus, Users, XCircle, Calendar, Clock, 
+    UserPlus, Users, XCircle, Calendar, Clock,
     Grid3x3, Volume2
 } from "lucide-react";
 import { RiPlayCircleLine, RiPresentationFill, RiTeamLine } from "react-icons/ri";
@@ -975,7 +975,7 @@ export const timeTrackingData = [
     }
 ];
 
-export const employeAttendanceData = [
+export const employeeAttendanceData = [
     { date: '14 Jan 2024', checkIn: '09:00 AM', status: 'Present', checkOut: '06:45 PM', break: '30 Min', late: '32 Min', overtime: '20 Min', hours: '8.55 Hrs', hoursType: 'success' },
     { date: '21 Jan 2024', checkIn: '09:00 AM', status: 'Present', checkOut: '06:12 PM', break: '20 Min', late: '45 Min', overtime: '-', hours: '7.54 Hrs', hoursType: 'danger' },
     { date: '20 Feb 2024', checkIn: '09:00 AM', status: 'Present', checkOut: '06:13 PM', break: '50 Min', late: '-', overtime: '33 Min', hours: '8.45 Hrs', hoursType: 'success' },
@@ -991,4 +991,49 @@ export const employeAttendanceData = [
 export const statusOptions = [
     'Punch in',
     'Punch Out',
+];
+
+const getStatusColor = (status: string) => {
+    const statusColors: Record<string, string> = {
+        Present: 'bg-green-100 text-green-800',
+        Absent: 'bg-red-100 text-red-800',
+    };
+    return statusColors[status] || 'bg-gray-100 text-gray-800';
+};
+
+const getHoursColor = (type: 'success' | 'danger' | 'info' | string) => ({
+    success: 'bg-green-500',
+    danger: 'bg-red-500',
+    info: 'bg-blue-500',
+}[type as 'success' | 'danger' | 'info'] || 'bg-gray-500');
+
+export const employeeAttendanceColumns = [
+    { header: 'Date', accessor: 'date' },
+    { header: 'Check In', accessor: 'checkIn' },
+    {
+        header: 'Status',
+        accessor: 'status',
+        render: (value: string) => (
+            <span className={`px-2 py-1 text-xs font-semibold rounded-full ${getStatusColor(value)}`}>
+                {value}
+            </span>
+        ),
+    },
+    { header: 'Check Out', accessor: 'checkOut' },
+    { header: 'Break', accessor: 'break' },
+    { header: 'Late', accessor: 'late' },
+    { header: 'Overtime', accessor: 'overtime' },
+    {
+        header: 'Production Hours',
+        accessor: 'hours',
+        render: (_: any, row: any) => (
+            <span
+                className={`px-3 py-1 text-xs font-semibold text-white rounded ${getHoursColor(
+                    row.hoursType
+                )}`}
+            >
+                {row.hours}
+            </span>
+        ),
+    },
 ];
