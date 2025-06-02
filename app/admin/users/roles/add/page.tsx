@@ -1,6 +1,6 @@
 import React from "react";
 import MainLayout from "@/components/layouts/MainLayout";
-import AddRole from "@/components/pages/users/roles/add";
+import AddRole from "@/components/admin/users/roles/add";
 
 function Page() {
     return (

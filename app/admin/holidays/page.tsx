@@ -1,6 +1,6 @@
 import React from "react";
-import Holidays from "@/components/pages/holidays";
 import MainLayout from "@/components/layouts/MainLayout";
+import Holidays from "@/components/admin/holidays";
 
 function Page() {
   return (

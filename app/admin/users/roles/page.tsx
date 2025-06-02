@@ -1,11 +1,11 @@
 import React from "react";
-import Roles from "@/components/pages/users/roles";
 import MainLayout from "@/components/layouts/MainLayout";
+import RolesPage from "@/components/admin/users/roles";
 
 function Page() {
   return (
     <MainLayout>
-      <Roles />
+      <RolesPage />
     </MainLayout>
   );
 }

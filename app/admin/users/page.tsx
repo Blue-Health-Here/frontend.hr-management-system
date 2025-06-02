@@ -1,11 +1,11 @@
 import React from "react";
-import Users from "@/components/pages/users";
 import MainLayout from "@/components/layouts/MainLayout";
+import UsersPage from "@/components/admin/users";
 
 function Page() {
   return (
     <MainLayout>
-      <Users />
+      <UsersPage />
     </MainLayout>
   );
 }

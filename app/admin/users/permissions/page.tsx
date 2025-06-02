@@ -1,11 +1,11 @@
 import React from "react";
-import Permissions from "@/components/pages/users/permissions";
 import MainLayout from "@/components/layouts/MainLayout";
+import PermissionsPage from "@/components/admin/users/permissions";
 
 function Page() {
     return (
         <MainLayout>
-            <Permissions />
+            <PermissionsPage />
         </MainLayout>
     );
 }

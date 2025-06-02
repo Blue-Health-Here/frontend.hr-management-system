@@ -1,11 +1,11 @@
 import React from "react";
-import EmployeeView from "@/components/pages/employees";
 import MainLayout from "@/components/layouts/MainLayout";
+import EmployeesView from "@/components/admin/employees";
 
 function Page() {
   return (
     <MainLayout>
-      <EmployeeView />
+      <EmployeesView />
     </MainLayout>
   );
 }
