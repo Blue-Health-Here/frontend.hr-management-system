@@ -17,7 +17,6 @@ const LeavesView = () => {
   const [dateRangeFilter, setDateRangeFilter] = useState<string>("04/26/2025 - 05/02/2025");
   const [leaveTypeFilter, setLeaveTypeFilter] = useState<string>("All");
   const [sortOption, setSortOption] = useState<string>("");
-  const [exportOpen, setExportOpen] = useState<boolean>(false);
 
   const leaveData: Leave[] = employees.map((employee) => ({
     id: employee.id,
