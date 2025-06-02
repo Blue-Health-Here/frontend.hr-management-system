@@ -26,7 +26,7 @@ const GenericTable = ({
 
     return (
         <div className="bg-white p-4 lg:p-6 rounded-2xl">
-            <div className="p-6 border-b border-gray-200">
+            <div className="border-b border-gray-200">
                 <div className="flex justify-between items-center mb-4">
                     <h2 className="text-xl font-semibold text-gray-900">{title}</h2>
                     <div className="flex gap-x-4">
@@ -45,7 +45,6 @@ const GenericTable = ({
                         />
                     </div>
                 </div>
-
             </div>
 
             <div className="overflow-x-auto">
