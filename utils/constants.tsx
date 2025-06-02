@@ -12,6 +12,8 @@ import {
 import { RiPlayCircleLine, RiPresentationFill, RiTeamLine } from "react-icons/ri";
 import { AiOutlineSchedule } from "react-icons/ai";
 import { MdAppRegistration } from "react-icons/md";
+import { FiEdit } from "react-icons/fi";
+import { IoTrashOutline } from "react-icons/io5";
 
 export const employeeData = [
     {
@@ -324,7 +326,7 @@ export const adminSidebarItems = [
             { label: "Add Holiday", href: "/add" },
         ]
     },
-        {
+    {
         icon: FaUserCog,
         label: "Payroll",
         href: "/admin/payroll",
@@ -1039,7 +1041,7 @@ export const employeeAttendanceColumns = [
         accessor: 'hours',
         render: (_: any, row: any) => (
             <span
-                className={`px-3 py-1 text-xs font-semibold text-white rounded ${getHoursColor(
+                className={`px-3 py-1 text-xs font-semibold text-white rounded-full ${getHoursColor(
                     row.hoursType
                 )}`}
             >
@@ -1047,4 +1049,63 @@ export const employeeAttendanceColumns = [
             </span>
         ),
     },
+];
+
+export const payrollItemsData = [
+    {
+        id: 1,
+        name: 'Gratuity',
+        category: 'Monthly Remuneration',
+        amount: '$20',
+    },
+    {
+        id: 2,
+        name: 'Arrears of Salary',
+        category: 'Additional Remuneration',
+        amount: '$8',
+    },
+    {
+        id: 3,
+        name: 'Leave Balance Amount',
+        category: 'Monthly Remuneration',
+        amount: '$5',
+    },
+];
+
+export const payrollItemsColumns = [
+    // {
+    //     header: (
+    //         <input type="checkbox" onChange={(e) => handleSelectAll(e.target.checked)} />
+    //     ),
+    //     accessor: 'select',
+    //     render: (row: any, isSelected: boolean, toggleRow: (id: number) => void) =>
+    //         <input
+    //             type="checkbox"
+    //             checked={isSelected}
+    //             onChange={() => toggleRow(row.id)}
+    //         />
+    // },
+    { header: 'Name', accessor: 'name' },
+    { header: 'Category', accessor: 'category' },
+    { header: 'Default / Unit Amount', accessor: 'amount' },
+    {
+        header: '',
+        accessor: 'actions',
+        render: (_: any, row: any) => (
+            <div className="flex gap-4">
+                <button className="cursor-pointer">
+                    <FiEdit size={16} />
+                </button>
+                <button className="cursor-pointer">
+                    <IoTrashOutline size={16} />
+                </button>
+            </div>
+        ),
+    },
+];
+
+export const sortingOrder = [
+    'Recently Added',
+    'Ascending',
+    'Desending',
 ];
