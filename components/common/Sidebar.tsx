@@ -7,13 +7,13 @@ import { ChevronDown, ChevronUp } from "lucide-react";
 import { adminSidebarItems, employeeSidebarItems } from "@/utils/constants";
 
 interface SidebarProps {
-  isEmployee: boolean; 
+  isEmployee: boolean;
 }
 
 type SidebarItem = {
   icon: React.ElementType;
   label: string;
-  href: string;
+  href?: string;
   hasDropdown: boolean;
   subItems?: { label: string; href: string }[];
 };
@@ -49,7 +49,7 @@ export default function Sidebar({ isEmployee }: SidebarProps) {
         }
       }
     });
-  }, [pathname, sidebarItems]); 
+  }, [pathname, sidebarItems]);
 
   const isActive = (path: string) => path === pathname;
 
@@ -93,26 +93,17 @@ export default function Sidebar({ isEmployee }: SidebarProps) {
       {/* Sidebar navigation */}
       <nav className="flex flex-col gap-2 flex-1 py-8">
         {sidebarItems.map((item, index) => {
-             // if (item.isHeader) {
-          //   return (
-          //     <div key={index} className="text-xs font-medium text-gray-500 uppercase tracking-wider my-8 px-3">
-          //       {item.label}
-          //     </div>
-          //   );
-          // }
-                   
           const isItemActive = item.href && isActive(item.href);
           const isAnySubItemActive = item.hasDropdown && item.subItems?.some(subItem => isActive(subItem.href));
-          
+
           return (
             <div key={index}>
               <Link
-                href={item.href}
-                className={`flex items-center justify-between px-3 py-2 cursor-pointer rounded-md ${
-                  isItemActive || isAnySubItemActive 
-                    ? "bg-green-600 text-white" 
+                href={item?.href ?? "#"}
+                className={`flex items-center justify-between px-3 py-2 cursor-pointer rounded-md ${isItemActive || isAnySubItemActive
+                    ? "bg-green-600 text-white"
                     : "hover:bg-green-50 text-gray-700"
-                }`}
+                  }`}
                 onClick={() => handleMenuItemClick(item)}
               >
                 <div className="flex items-center gap-3">
@@ -121,7 +112,7 @@ export default function Sidebar({ isEmployee }: SidebarProps) {
                   </span>
                   <span className={`text-sm md:text-base font-medium ${
                     isItemActive || isAnySubItemActive ? "text-white" : "text-gray-700"
-                  }`}>
+                    }`}>
                     {item.label}
                   </span>
                 </div>
@@ -139,14 +130,14 @@ export default function Sidebar({ isEmployee }: SidebarProps) {
               {item.hasDropdown && openDropdowns[item.label] && (
                 <div className="ml-8 pl-2 border-l border-gray-200">
                   {item.subItems?.map((subItem, subIndex) => (
-                    <Link 
-                      key={subIndex} 
+                    <Link
+                      key={subIndex}
                       href={item.href + subItem.href}
                       className={`flex items-center py-2 pl-2 text-sm rounded-md ${
                         isActive(subItem.href)
                           ? "text-green-600 font-medium"
                           : "text-gray-600 hover:text-green-600"
-                      }`}
+                        }`}
                     >
                       <span>{subItem.label}</span>
                     </Link>

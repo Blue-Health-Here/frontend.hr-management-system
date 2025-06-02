@@ -324,6 +324,17 @@ export const adminSidebarItems = [
             { label: "Add Holiday", href: "/add" },
         ]
     },
+        {
+        icon: FaUserCog,
+        label: "Payroll",
+        href: "/admin/payroll",
+        hasDropdown: true,
+        subItems: [
+            { label: "Employee Salary", href: "/employee-salary" },
+            { label: "Payslip", href: "/payslip" },
+
+        ]
+    },
     {
         icon: FaUserCog,
         label: "Users",
