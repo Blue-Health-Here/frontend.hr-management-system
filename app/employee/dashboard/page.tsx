@@ -1,6 +1,6 @@
 import React from 'react'
 import EmployeeLayout from '@/components/layouts/EmployeeLayout';
-import EmployeeDashboard from '@/components/employee/dashboard/EmployeeDashboard';
+import EmployeeDashboard from '@/components/employee/dashboard';
 
 const Dashboard = () => {
   return (

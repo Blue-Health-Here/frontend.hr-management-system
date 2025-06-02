@@ -1,7 +1,7 @@
 import React from 'react'
 import { timeTrackingData } from '@/utils/constants'
 import EmployeeTimeCard from './EmployeeTimeCard'
-import WorkingHoursTimeline from './WorkingHoursTimeline'
+// import WorkingHoursTimeline from './WorkingHoursTimeline'
 import GenericTable from '../../common/GenericTable'
 import MetricCard from '@/components/common/MetricCard'
 
@@ -21,12 +21,11 @@ const EmployeeAttendance = () => {
                 iconBgColor={item.iconColor} />
             ))}
           </div>
-          <WorkingHoursTimeline />
+          {/* <WorkingHoursTimeline /> */}
         </div>
       </div>
       <GenericTable />
     </div>
-
   )
 }
 

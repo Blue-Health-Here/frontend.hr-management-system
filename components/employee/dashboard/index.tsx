@@ -2,7 +2,7 @@ import React from 'react'
 import { alertsData, attendanceData, employeeLeavesStats } from '@/utils/constants'
 import MetricCard from '@/components/common/MetricCard'
 import Button from '@/components/common/Button'
-import EmployeeDashboardCard from './EmployeeDashboardCard'
+import EmployeeDashboardCard from './Card'
 
 
 const EmployeeDashboard = () => {
