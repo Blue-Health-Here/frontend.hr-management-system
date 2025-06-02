@@ -14,6 +14,7 @@ import { AiOutlineSchedule } from "react-icons/ai";
 import { MdAppRegistration } from "react-icons/md";
 import { FiEdit } from "react-icons/fi";
 import { IoTrashOutline } from "react-icons/io5";
+import Dropdown from "@/components/common/form/DropDown";
 
 export const employeeData = [
     {
@@ -1109,3 +1110,170 @@ export const sortingOrder = [
     'Ascending',
     'Desending',
 ];
+
+export const designation = [
+    'Finance',
+    'Developer',
+    'Executive',
+    'Manager',
+];
+
+export const employeSalaryColumns = [
+    {
+        header: 'Emp ID',
+        accessor: 'id'
+    },
+    {
+        header: 'Name',
+        accessor: 'name'
+    },
+    {
+        header: 'Email',
+        accessor: 'email'
+    },
+    {
+        header: 'Phone',
+        accessor: 'phone'
+    },
+    {
+        header: 'Designation',
+        accessor: 'designation',
+        render: (_: any, row: any) => (
+           <Dropdown
+                name="sort"
+                id="sort"
+                placeholder='Designation'
+                options={designation.map((d) => ({
+                  value: d,
+                  label: d,
+                }))}
+              />
+        ),
+    },
+    {
+        header: 'Joining Date',
+        accessor: 'joiningDate'
+    },
+    {
+        header: 'Salary',
+        accessor: 'salary'
+    },
+    {
+        header: 'Payslip',
+        accessor: 'payslip',
+        render: () => (
+            <span className={`px-3 py-2 text-xs font-semibold text-white bg-black rounded-full`}>
+                Generate Slip
+            </span>
+        )
+    },
+    {
+        header: '',
+        accessor: 'actions',
+        render: (_: any, row: any) => (
+            <div className="flex gap-4">
+                <button className="cursor-pointer">
+                    <FiEdit size={16} />
+                </button>
+                <button className="cursor-pointer">
+                    <IoTrashOutline size={16} />
+                </button>
+            </div>
+        ),
+    }
+];
+
+
+export const employeSalaryData = [
+    {
+        "id": "Emp-001",
+        "name": "Anthony Lewis",
+        "designation": "Finance",
+        "email": "anthony@example.com",
+        "phone": "(123) 4567 890",
+        "joiningDate": "12 Sep 2024",
+        "salary": "$40000"
+    },
+    {
+        "id": "Emp-002",
+        "name": "Brian Villalobos",
+        "designation": "Developer",
+        "email": "brian@example.com",
+        "phone": "(179) 7382 829",
+        "joiningDate": "24 Oct 2024",
+        "salary": "$35000"
+    },
+    {
+        "id": "Emp-003",
+        "name": "Harvey Smith",
+        "designation": "Executive",
+        "email": "harvey@example.com",
+        "phone": "(184) 2719 738",
+        "joiningDate": "18 Feb 2024",
+        "salary": "$20000"
+    },
+    {
+        "id": "Emp-004",
+        "name": "Stephan Peralt",
+        "designation": "Executive Officer",
+        "email": "peral@example.com",
+        "phone": "(193) 7839 748",
+        "joiningDate": "17 Oct 2024",
+        "salary": "$22000"
+    },
+    {
+        "id": "Emp-005",
+        "name": "Doglas Martini",
+        "designation": "Manager",
+        "email": "martniwr@example.com",
+        "phone": "(183) 9302 890",
+        "joiningDate": "20 Jul 2024",
+        "salary": "$25000"
+    },
+    {
+        "id": "Emp-006",
+        "name": "Linda Ray",
+        "designation": "Finance",
+        "email": "ray456@example.com",
+        "phone": "(120) 3728 039",
+        "joiningDate": "10 Apr 2024",
+        "salary": "$30000"
+    },
+    {
+        "id": "Emp-007",
+        "name": "Elliot Murray",
+        "designation": "Developer",
+        "email": "murray@example.com",
+        "phone": "(102) 8480 832",
+        "joiningDate": "29 Aug 2024",
+        "salary": "$35000"
+    },
+    {
+        "id": "Emp-008",
+        "name": "Rebecca Smith",
+        "designation": "Executive",
+        "email": "smith@example.com",
+        "phone": "(162) 8920 713",
+        "joiningDate": "22 Feb 2024",
+        "salary": "$45000"
+    },
+    {
+        "id": "Emp-009",
+        "name": "Connie Waters",
+        "designation": "Developer",
+        "email": "connie@example.com",
+        "phone": "(189) 0920 723",
+        "joiningDate": "03 Nov 2024",
+        "salary": "$50000"
+    },
+    {
+        "id": "Emp-010",
+        "name": "Lori Broaddus",
+        "designation": "Finance",
+        "email": "broaddus@example.com",
+        "phone": "(168) 8392 823",
+        "joiningDate": "17 Dec 2024",
+        "salary": "$25000"
+    }
+]
+
