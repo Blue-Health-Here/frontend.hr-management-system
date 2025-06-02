@@ -105,6 +105,7 @@ export interface DropdownProps {
   className?: string;
   value?: string;
   onChange?: (e: React.ChangeEvent<HTMLSelectElement>) => void;
+  placeholder?: string;
 }
 
 export interface PerformanceIndicator {

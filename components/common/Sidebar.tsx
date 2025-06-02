@@ -86,7 +86,7 @@ export default function Sidebar({ isEmployee }: SidebarProps) {
       {/* Logo at the top */}
       <div className="flex justify-center pb-5">
         <h1 className="text-green-600 text-2xl font-bold">
-          SmartHR {isEmployee ? '- E' : '- A'}
+          SmartHR 
         </h1>
       </div>
 

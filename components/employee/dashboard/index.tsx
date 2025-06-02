@@ -1,8 +1,9 @@
 import React from 'react'
-import MetricCard from '../common/MetricCard'
 import { alertsData, attendanceData, employeeLeavesStats } from '@/utils/constants'
-import Button from '../common/Button';
-import EmployeeDashboardCard from './EmployeeDashboardCard';
+import MetricCard from '@/components/common/MetricCard'
+import Button from '@/components/common/Button'
+import EmployeeDashboardCard from './Card'
+
 
 const EmployeeDashboard = () => {
   return (
