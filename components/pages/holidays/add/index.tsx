@@ -9,7 +9,7 @@ import Button from "@/components/common/Button";
 
 const AddHoliday: React.FC = () => {
   return (
-    <div className="rounded-lg p-6 bg-white shadow-md space-y-6">
+    <div className="rounded-2xl p-6 bg-white space-y-6">
       <div>
         <h1 className="text-2xl font-bold text-gray-800">Add Holiday</h1>
         <div className="border-b border-gray-200 w-full my-3"></div>

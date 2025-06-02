@@ -52,14 +52,14 @@ const UsersPage = () => {
         <div className="flex flex-row items-stretch gap-3 w-auto">
           <ExportButton /> {/* Use the new component here */}
 
-          <Link href="/users/add" className="cursor-pointer">
+          <Link href="/admin/users/add" className="cursor-pointer">
             <Button label="Add New User" icon={Plus}></Button>
           </Link>
         </div>
       </div>
 
       {/* Users Table */}
-      <div className="overflow-x-auto bg-white rounded-2xl border border-gray-200 p-4 flex flex-col gap-4">
+      <div className="overflow-x-auto bg-white rounded-2xl p-4 flex flex-col gap-4">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
           <h2 className="text-lg font-semibold">User List</h2>
           <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full md:w-auto">

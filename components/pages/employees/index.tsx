@@ -92,98 +92,12 @@ const EmployeesView = () => {
         <div className="flex flex-col sm:flex-row items-stretch gap-3 w-auto">
           <ExportButton />
           <Link
-            href="/employees/add"
+            href="/admin/employees/add"
           >
             <Button label="Add Employee" icon={Plus}></Button>
           </Link>
         </div>
       </div>
-      {/* <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
-        <div className="bg-white p-4 rounded-lg shadow-sm border border-gray-200">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center">
-              <div className="p-3 rounded-full bg-[#212529] text-white mr-4">
-                <Users className="h-4 w-4" />
-              </div>
-              <div>
-                <p className="text-xs font-medium text-gray-500">
-                  Total Employee
-                </p>
-                <p className="text-2xl font-semibold">{totalEmployees}</p>
-              </div>
-            </div>
-            <div className="bg-[#f0def3] px-3 py-1 rounded-full">
-              <p className="text-sm font-medium text-[#ab47bc]">100%</p>
-            </div>
-          </div>
-        </div>
-
-        <div className="bg-white p-4 rounded-lg shadow-sm border border-gray-200">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center">
-              <div className="p-3 rounded-full bg-[#03c95a] text-white mr-4">
-                <CheckCircle className="h-4 w-4" />
-              </div>
-              <div>
-                <p className="text-xs font-medium text-gray-500">Active</p>
-                <p className="text-2xl font-semibold">{activeEmployees}</p>
-              </div>
-            </div>
-            <div className="bg-green-100 px-3 py-1 rounded-full">
-              <p className="text-sm font-medium text-green-700">
-                {totalEmployees > 0
-                  ? Math.round((activeEmployees / totalEmployees) * 100)
-                  : 0}
-                %
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <div className="bg-white p-4 rounded-lg shadow-sm border border-gray-200">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center">
-              <div className="p-3 rounded-full bg-[#e70d0d] text-white mr-4">
-                <XCircle className="h-4 w-4" />
-              </div>
-              <div>
-                <p className="text-xs font-medium text-gray-500">Inactive</p>
-                <p className="text-2xl font-semibold">{inactiveEmployees}</p>
-              </div>
-            </div>
-            <div className="bg-red-100 px-3 py-1 rounded-full">
-              <p className="text-sm font-medium text-red-700">
-                {totalEmployees > 0
-                  ? Math.round((inactiveEmployees / totalEmployees) * 100)
-                  : 0}
-                %
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <div className="bg-white p-4 rounded-lg shadow-sm border border-gray-200">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center">
-              <div className="p-3 rounded-full bg-[#1b84ff] text-white mr-4">
-                <UserPlus className="h-4 w-4" />
-              </div>
-              <div>
-                <p className="text-xs font-medium text-gray-500">New Joiners</p>
-                <p className="text-2xl font-semibold">{newJoiners}</p>
-              </div>
-            </div>
-            <div className="bg-blue-100 px-3 py-1 rounded-full">
-              <p className="text-sm font-medium text-blue-700">
-                {totalEmployees > 0
-                  ? Math.round((newJoiners / totalEmployees) * 100)
-                  : 0}
-                %
-              </p>
-            </div>
-          </div>
-        </div>
-      </div> */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
         {employeeStats.map((stats, index) => (
           <MetricCard
@@ -199,57 +113,55 @@ const EmployeesView = () => {
           />
         ))}
       </div>
-      <div className="overflow-x-auto bg-white rounded-lg shadow-sm border border-gray-200">
-        <div className="bg-white p-4 border border-gray-200">
-          <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
-            <h2 className="text-lg font-semibold">Plan List</h2>
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2">
-              <DateRangeDropdown value={dateRange} onChange={setDateRange} />
-              <div className="w-36">
-                <select
-                  id="designation-filter"
-                  value={designationFilter}
-                  onChange={(e) => setDesignationFilter(e.target.value)}
-                  className="block w-full pl-3 py-1.5 sm:py-2 border border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 text-sm rounded-md appearance-none bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLWNoZXZyb24tZG93biI+PHBhdGggZD0ibTYgOSA2IDYgNi02Ii8+PC9zdmc+')] bg-no-repeat bg-[position:right_0.5rem_center] bg-[size:1rem]"
-                >
-                  <option value="">Designations</option>
-                  <option value="Developer">Developer</option>
-                  <option value="Executive">Executive</option>
-                  <option value="Software Engineer">Software Engineer</option>
-                  <option value="Product Manager">Product Manager</option>
-                  <option value="UX Designer">UX Designer</option>
-                  <option value="Marketing Specialist">
-                    Marketing Specialist
-                  </option>
-                  <option value="HR Manager">HR Manager</option>
-                  <option value="Financial Analyst">Financial Analyst</option>
-                  <option value="Operations Manager">Operations Manager</option>
-                  <option value="Sales Executive">Sales Executive</option>
-                </select>
-              </div>
-              <div className="w-32">
-                <select
-                  id="status-filter"
-                  value={statusFilter}
-                  onChange={(e) => setStatusFilter(e.target.value)}
-                  className="block w-full pl-3 pr-8 py-1.5 sm:py-2 border border-gray-300 focus:outline-none text-sm rounded-md appearance-none bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLWNoZXZyb24tZG93biI+PHBhdGggZD0ibTYgOSA2IDYgNi02Ii8+PC9zdmc+')] bg-no-repeat bg-[position:right_0.5rem_center] bg-[size:1rem]"
-                >
-                  <option value="All">Select Status</option>
-                  <option value="Active">Active</option>
-                  <option value="Inactive">Inactive</option>
-                </select>
-              </div>
-              <div className="w-42">
-                <select
-                  id="sort"
-                  value={sortOption}
-                  onChange={(e) => setSortOption(e.target.value)}
-                  className="block w-full pl-3 pr-8 py-1.5 sm:py-2 border border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 text-sm rounded-md appearance-none bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLWNoZXZyb24tZG93biI+PHBhdGggZD0ibTYgOSA2IDYgNi02Ii8+PC9zdmc+')] bg-no-repeat bg-[position:right_0.5rem_center] bg-[size:1rem]"
-                >
-                  <option value="">Sort By: Last 7 days</option>
-                  <option value="ascending">Ascending</option>
-                </select>
-              </div>
+      <div className="overflow-x-auto bg-white rounded-2xl">
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 bg-white p-4">
+          <h2 className="text-lg font-semibold">Plan List</h2>
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2">
+            <DateRangeDropdown value={dateRange} onChange={setDateRange} />
+            <div className="w-36">
+              <select
+                id="designation-filter"
+                value={designationFilter}
+                onChange={(e) => setDesignationFilter(e.target.value)}
+                className="block w-full pl-3 py-1.5 sm:py-2 border border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 text-sm rounded-md appearance-none bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLWNoZXZyb24tZG93biI+PHBhdGggZD0ibTYgOSA2IDYgNi02Ii8+PC9zdmc+')] bg-no-repeat bg-[position:right_0.5rem_center] bg-[size:1rem]"
+              >
+                <option value="">Designations</option>
+                <option value="Developer">Developer</option>
+                <option value="Executive">Executive</option>
+                <option value="Software Engineer">Software Engineer</option>
+                <option value="Product Manager">Product Manager</option>
+                <option value="UX Designer">UX Designer</option>
+                <option value="Marketing Specialist">
+                  Marketing Specialist
+                </option>
+                <option value="HR Manager">HR Manager</option>
+                <option value="Financial Analyst">Financial Analyst</option>
+                <option value="Operations Manager">Operations Manager</option>
+                <option value="Sales Executive">Sales Executive</option>
+              </select>
+            </div>
+            <div className="w-32">
+              <select
+                id="status-filter"
+                value={statusFilter}
+                onChange={(e) => setStatusFilter(e.target.value)}
+                className="block w-full pl-3 pr-8 py-1.5 sm:py-2 border border-gray-300 focus:outline-none text-sm rounded-md appearance-none bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLWNoZXZyb24tZG93biI+PHBhdGggZD0ibTYgOSA2IDYgNi02Ii8+PC9zdmc+')] bg-no-repeat bg-[position:right_0.5rem_center] bg-[size:1rem]"
+              >
+                <option value="All">Select Status</option>
+                <option value="Active">Active</option>
+                <option value="Inactive">Inactive</option>
+              </select>
+            </div>
+            <div className="w-42">
+              <select
+                id="sort"
+                value={sortOption}
+                onChange={(e) => setSortOption(e.target.value)}
+                className="block w-full pl-3 pr-8 py-1.5 sm:py-2 border border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 text-sm rounded-md appearance-none bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLWNoZXZyb24tZG93biI+PHBhdGggZD0ibTYgOSA2IDYgNi02Ii8+PC9zdmc+')] bg-no-repeat bg-[position:right_0.5rem_center] bg-[size:1rem]"
+              >
+                <option value="">Sort By: Last 7 days</option>
+                <option value="ascending">Ascending</option>
+              </select>
             </div>
           </div>
         </div>

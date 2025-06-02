@@ -104,43 +104,41 @@ const LeavesView = () => {
       </div>
 
       {/* Leave Table */}
-      <div className="overflow-x-auto bg-white rounded-lg shadow-sm border border-gray-200">
-        <div className="bg-white p-4 border border-gray-200">
-          <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
-            <h2 className="text-lg font-semibold">Leave List</h2>
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-auto">
-              <DateRangeDropdown
-                value={dateRangeFilter}
-                onChange={setDateRangeFilter}
-              />
+      <div className="overflow-x-auto bg-white rounded-2xl">
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 bg-white p-4">
+          <h2 className="text-lg font-semibold">Leave List</h2>
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-auto">
+            <DateRangeDropdown
+              value={dateRangeFilter}
+              onChange={setDateRangeFilter}
+            />
 
-              <div className="relative w-full sm:w-40">
-                <select
-                  id="leave-type-filter"
-                  value={leaveTypeFilter}
-                  onChange={(e) => setLeaveTypeFilter(e.target.value)}
-                  className="block w-full pl-3 pr-6 py-2 border border-gray-300 focus:outline-none text-sm rounded-md appearance-none bg-white "
-                >
-                  <option value="All">Leave Type</option>
-                  <option value="Medical Leave">Medical Leave</option>
-                  <option value="Casual Leave">Casual Leave</option>
-                  <option value="Annual Leave">Annual Leave</option>
-                </select>
-                <ChevronDown className="absolute right-2 top-2.5 h-4 w-4 text-gray-400 pointer-events-none" />
-              </div>
+            <div className="relative w-full sm:w-40">
+              <select
+                id="leave-type-filter"
+                value={leaveTypeFilter}
+                onChange={(e) => setLeaveTypeFilter(e.target.value)}
+                className="block w-full pl-3 pr-6 py-2 border border-gray-300 focus:outline-none text-sm rounded-md appearance-none bg-white "
+              >
+                <option value="All">Leave Type</option>
+                <option value="Medical Leave">Medical Leave</option>
+                <option value="Casual Leave">Casual Leave</option>
+                <option value="Annual Leave">Annual Leave</option>
+              </select>
+              <ChevronDown className="absolute right-2 top-2.5 h-4 w-4 text-gray-400 pointer-events-none" />
+            </div>
 
-              <div className="relative w-full sm:w-36">
-                <select
-                  id="sort"
-                  value={sortOption}
-                  onChange={(e) => setSortOption(e.target.value)}
-                  className="block w-full pl-3 pr-8 py-2 border border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 text-sm rounded-md appearance-none bg-white"
-                >
-                  <option value="">Sort By : Last 7 Days</option>
-                  <option value="ascending">Employee Name (A-Z)</option>
-                </select>
-                <ChevronDown className="absolute right-2 top-2.5 h-4 w-4 text-gray-400 pointer-events-none" />
-              </div>
+            <div className="relative w-full sm:w-36">
+              <select
+                id="sort"
+                value={sortOption}
+                onChange={(e) => setSortOption(e.target.value)}
+                className="block w-full pl-3 pr-8 py-2 border border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 text-sm rounded-md appearance-none bg-white"
+              >
+                <option value="">Sort By : Last 7 Days</option>
+                <option value="ascending">Employee Name (A-Z)</option>
+              </select>
+              <ChevronDown className="absolute right-2 top-2.5 h-4 w-4 text-gray-400 pointer-events-none" />
             </div>
           </div>
         </div>

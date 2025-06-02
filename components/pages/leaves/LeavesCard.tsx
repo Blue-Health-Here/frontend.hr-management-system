@@ -9,7 +9,7 @@ const Card: React.FC<LeavesCardProps> = ({
   bgImage 
 }) => {
   return (
-    <div className="bg-white rounded-lg shadow-sm border border-gray-200 relative overflow-hidden h-24">
+    <div className="bg-white rounded-2xl relative overflow-hidden h-24">
       <div className="absolute left-0 top-0 bottom-0 w-2/5">
         <img
           src={bgImage}

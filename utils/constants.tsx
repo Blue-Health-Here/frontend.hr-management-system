@@ -1,31 +1,18 @@
 import { Holiday } from "./types";
 import { LuLayoutDashboard } from "react-icons/lu";
 import {
-    FaUsers,
-    FaCalendarAlt,
-    FaUserCheck,
-    FaChartLine,
-    FaUmbrellaBeach,
-    FaUserCog,
-    FaCog
+    FaUsers, FaCalendarAlt, FaUserCheck, FaChartLine,
+    FaUmbrellaBeach, FaUserCog, FaCog
 } from "react-icons/fa";
 import {
-    Briefcase,
-    CheckCircle,
-    CheckSquare,
-    UserPlus,
-    Users,
-    XCircle,
-    Calendar,
-    Clock,
-    Grid3x3,
-    Volume2
+    Briefcase, CheckCircle, CheckSquare,
+    UserPlus, Users, XCircle, Calendar, Clock, 
+    Grid3x3, Volume2
 } from "lucide-react";
-
 import { RiPlayCircleLine, RiPresentationFill, RiTeamLine } from "react-icons/ri";
-import { text } from "stream/consumers";
 import { AiOutlineSchedule } from "react-icons/ai";
 import { MdAppRegistration } from "react-icons/md";
+
 export const employeeData = [
     {
         id: "EMP001",
@@ -312,9 +299,6 @@ export const adminSidebarItems = [
         label: "Leaves",
         href: "/admin/leaves",
         hasDropdown: false,
-        // subItems: [
-        //     { label: "Leave Types", href: "/add" }
-        // ]
     },
     {
         icon: FaUserCheck,
@@ -322,10 +306,6 @@ export const adminSidebarItems = [
         href: "/admin/attendance-report",
         hasDropdown: false,
     },
-    // {
-    //     label: "HR Functions",
-    //     isHeader: true
-    // },
     {
         icon: FaChartLine,
         label: "Performance",
@@ -333,7 +313,6 @@ export const adminSidebarItems = [
         hasDropdown: true,
         subItems: [
             { label: "Add Indicator", href: "/add" },
-            { label: "Goals", href: "/goals" }
         ]
     },
     {
@@ -345,10 +324,6 @@ export const adminSidebarItems = [
             { label: "Add Holiday", href: "/add" },
         ]
     },
-    // {
-    //     label: "Administration",
-    //     isHeader: true
-    // },
     {
         icon: FaUserCog,
         label: "Users",
@@ -595,7 +570,6 @@ export const invoices = [
     },
 ];
 
-// Department options
 export const departmentOptions = [
     'Development',
     'Design',
@@ -606,7 +580,6 @@ export const departmentOptions = [
     'Sales'
 ];
 
-// Designation options
 export const designationOptions = [
     'Developer',
     'Executive',
@@ -648,7 +621,6 @@ export const leaveDurationOptions = [
     { value: "firstHalf", label: "First Half" },
     { value: "secondHalf", label: "Second Half" },
 ];
-
 
 export const holidaysData: Holiday[] = [
     {
@@ -740,6 +712,7 @@ export const cityOptions = [
     { value: "la", label: "Los Angeles" },
     { value: "ch", label: "Chicago" },
 ];
+
 export const holidayStatusOptions = [
     { value: 'active', label: 'Active' },
     { value: 'inactive', label: 'Inactive' },
@@ -818,6 +791,54 @@ export const employeeStats = [
         title: "New Joiners",
         value: 0,
         percentage: "0",
+        icon: <UserPlus className="h-4 w-4 text-white" />,
+        iconBgColor: "bg-blue-400",
+        percentColor: "bg-blue-100",
+        textColor: "text-blue-500",
+    }
+];
+
+export const adminAttendanceStats = [
+    {
+        title: "Present",
+        value: 210,
+        percentage: "1",
+        icon: <Users className="h-4 w-4 text-white" />,
+        percentColor: "bg-fuchsia-100",
+        textColor: "text-fuchsia-700",
+        iconBgColor: "bg-black"
+    },
+    {
+        title: "Late Login",
+        value: 19,
+        percentage: "-1",
+        icon: <Users className="h-4 w-4 text-white" />,
+        iconBgColor: "bg-green-500",
+        percentColor: "bg-green-100",
+        textColor: "text-green-500",
+    },
+    {
+        title: "Un-informed",
+        value: 10,
+        percentage: "-12",
+        icon: <XCircle className="h-4 w-4 text-white" />,
+        iconBgColor: "bg-red-500",
+        percentColor: "bg-red-100",
+        textColor: "text-red-700",
+    },
+    {
+        title: "Permission",
+        value: 3,
+        percentage: "1",
+        icon: <UserPlus className="h-4 w-4 text-white" />,
+        iconBgColor: "bg-blue-400",
+        percentColor: "bg-blue-100",
+        textColor: "text-blue-500",
+    },
+    {
+        title: "Absent",
+        value: 10,
+        percentage: "-19",
         icon: <UserPlus className="h-4 w-4 text-white" />,
         iconBgColor: "bg-blue-400",
         percentColor: "bg-blue-100",
