@@ -1,12 +1,14 @@
 "use client";
 
 import React from 'react';
+import { JSX } from 'react/jsx-dev-runtime';
 
 type Column = {
-  header: string;
+  header: string | JSX.Element; // <- allow JSX
   accessor: string;
-  render?: (value: any, row: any) => React.ReactNode;
+  render?: (row: any, isSelected?: boolean, toggleRow?: (id: number) => void) => JSX.Element;
 };
+
 
 type DataTableProps = {
   columns: Column[];

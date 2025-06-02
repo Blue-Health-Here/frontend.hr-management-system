@@ -1,11 +1,11 @@
 import React from "react";
-import PerformanceIndicator from "@/components/pages/performance-indicator";
 import MainLayout from "@/components/layouts/MainLayout";
+import PerformanceIndicatorPage from "@/components/admin/performance-indicator";
 
 function Page() {
   return (
     <MainLayout>
-      <PerformanceIndicator />
+      <PerformanceIndicatorPage />
     </MainLayout>
   );
 }

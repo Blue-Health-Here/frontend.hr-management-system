@@ -12,6 +12,9 @@ import {
 import { RiPlayCircleLine, RiPresentationFill, RiTeamLine } from "react-icons/ri";
 import { AiOutlineSchedule } from "react-icons/ai";
 import { MdAppRegistration } from "react-icons/md";
+import { FiEdit } from "react-icons/fi";
+import { IoTrashOutline } from "react-icons/io5";
+import Dropdown from "@/components/common/form/DropDown";
 
 export const employeeData = [
     {
@@ -322,6 +325,17 @@ export const adminSidebarItems = [
         hasDropdown: true,
         subItems: [
             { label: "Add Holiday", href: "/add" },
+        ]
+    },
+    {
+        icon: FaUserCog,
+        label: "Payroll",
+        href: "/admin/payroll",
+        hasDropdown: true,
+        subItems: [
+            { label: "Employee Salary", href: "/employee-salary" },
+            { label: "Payslip", href: "/payslip" },
+
         ]
     },
     {
@@ -1028,12 +1042,324 @@ export const employeeAttendanceColumns = [
         accessor: 'hours',
         render: (_: any, row: any) => (
             <span
-                className={`px-3 py-1 text-xs font-semibold text-white rounded ${getHoursColor(
+                className={`px-3 py-1 text-xs font-semibold text-white rounded-full ${getHoursColor(
                     row.hoursType
                 )}`}
             >
                 {row.hours}
             </span>
         ),
+    },
+];
+
+export const payrollItemsData = [
+    {
+        id: 1,
+        name: 'Gratuity',
+        category: 'Monthly Remuneration',
+        amount: '$20',
+    },
+    {
+        id: 2,
+        name: 'Arrears of Salary',
+        category: 'Additional Remuneration',
+        amount: '$8',
+    },
+    {
+        id: 3,
+        name: 'Leave Balance Amount',
+        category: 'Monthly Remuneration',
+        amount: '$5',
+    },
+];
+
+export const payrollItemsColumns = [
+    // {
+    //     header: (
+    //         <input type="checkbox" onChange={(e) => handleSelectAll(e.target.checked)} />
+    //     ),
+    //     accessor: 'select',
+    //     render: (row: any, isSelected: boolean, toggleRow: (id: number) => void) =>
+    //         <input
+    //             type="checkbox"
+    //             checked={isSelected}
+    //             onChange={() => toggleRow(row.id)}
+    //         />
+    // },
+    { header: 'Name', accessor: 'name' },
+    { header: 'Category', accessor: 'category' },
+    { header: 'Default / Unit Amount', accessor: 'amount' },
+    {
+        header: '',
+        accessor: 'actions',
+        render: (_: any, row: any) => (
+            <div className="flex gap-4">
+                <button className="cursor-pointer">
+                    <FiEdit size={16} />
+                </button>
+                <button className="cursor-pointer">
+                    <IoTrashOutline size={16} />
+                </button>
+            </div>
+        ),
+    },
+];
+
+export const sortingOrder = [
+    'Recently Added',
+    'Ascending',
+    'Desending',
+];
+
+export const designation = [
+    'Finance',
+    'Developer',
+    'Executive',
+    'Manager',
+];
+
+export const employeSalaryColumns = [
+    {
+        header: 'Emp ID',
+        accessor: 'id'
+    },
+    {
+        header: 'Name',
+        accessor: 'name'
+    },
+    {
+        header: 'Email',
+        accessor: 'email'
+    },
+    {
+        header: 'Phone',
+        accessor: 'phone'
+    },
+    {
+        header: 'Designation',
+        accessor: 'designation',
+        render: (_: any, row: any) => (
+            <Dropdown
+                name="sort"
+                id="sort"
+                placeholder='Designation'
+                options={designation.map((d) => ({
+                    value: d,
+                    label: d,
+                }))}
+            />
+        ),
+    },
+    {
+        header: 'Joining Date',
+        accessor: 'joiningDate'
+    },
+    {
+        header: 'Salary',
+        accessor: 'salary'
+    },
+    {
+        header: 'Payslip',
+        accessor: 'payslip',
+        render: () => (
+            <span className={`px-3 py-2 text-xs font-semibold text-white bg-black rounded-full`}>
+                Generate Slip
+            </span>
+        )
+    },
+    {
+        header: '',
+        accessor: 'actions',
+        render: (_: any, row: any) => (
+            <div className="flex gap-4">
+                <button className="cursor-pointer">
+                    <FiEdit size={16} />
+                </button>
+                <button className="cursor-pointer">
+                    <IoTrashOutline size={16} />
+                </button>
+            </div>
+        ),
+    }
+];
+
+
+export const employeSalaryData = [
+    {
+        "id": "Emp-001",
+        "name": "Anthony Lewis",
+        "designation": "Finance",
+        "email": "anthony@example.com",
+        "phone": "(123) 4567 890",
+        "joiningDate": "12 Sep 2024",
+        "salary": "$40000"
+    },
+    {
+        "id": "Emp-002",
+        "name": "Brian Villalobos",
+        "designation": "Developer",
+        "email": "brian@example.com",
+        "phone": "(179) 7382 829",
+        "joiningDate": "24 Oct 2024",
+        "salary": "$35000"
+    },
+    {
+        "id": "Emp-003",
+        "name": "Harvey Smith",
+        "designation": "Executive",
+        "email": "harvey@example.com",
+        "phone": "(184) 2719 738",
+        "joiningDate": "18 Feb 2024",
+        "salary": "$20000"
+    },
+    {
+        "id": "Emp-004",
+        "name": "Stephan Peralt",
+        "designation": "Executive Officer",
+        "email": "peral@example.com",
+        "phone": "(193) 7839 748",
+        "joiningDate": "17 Oct 2024",
+        "salary": "$22000"
+    },
+    {
+        "id": "Emp-005",
+        "name": "Doglas Martini",
+        "designation": "Manager",
+        "email": "martniwr@example.com",
+        "phone": "(183) 9302 890",
+        "joiningDate": "20 Jul 2024",
+        "salary": "$25000"
+    },
+    {
+        "id": "Emp-006",
+        "name": "Linda Ray",
+        "designation": "Finance",
+        "email": "ray456@example.com",
+        "phone": "(120) 3728 039",
+        "joiningDate": "10 Apr 2024",
+        "salary": "$30000"
+    },
+    {
+        "id": "Emp-007",
+        "name": "Elliot Murray",
+        "designation": "Developer",
+        "email": "murray@example.com",
+        "phone": "(102) 8480 832",
+        "joiningDate": "29 Aug 2024",
+        "salary": "$35000"
+    },
+    {
+        "id": "Emp-008",
+        "name": "Rebecca Smith",
+        "designation": "Executive",
+        "email": "smith@example.com",
+        "phone": "(162) 8920 713",
+        "joiningDate": "22 Feb 2024",
+        "salary": "$45000"
+    },
+    {
+        "id": "Emp-009",
+        "name": "Connie Waters",
+        "designation": "Developer",
+        "email": "connie@example.com",
+        "phone": "(189) 0920 723",
+        "joiningDate": "03 Nov 2024",
+        "salary": "$50000"
+    },
+    {
+        "id": "Emp-010",
+        "name": "Lori Broaddus",
+        "designation": "Finance",
+        "email": "broaddus@example.com",
+        "phone": "(168) 8392 823",
+        "joiningDate": "17 Dec 2024",
+        "salary": "$25000"
+    }
+]
+
+
+export const payslipEarningColumns = [
+    {
+        header: 'Earnings',
+        accessor: 'earning'
+    },
+    {
+        header: '',
+        accessor: 'salary',
+        render: (row: any) => (
+            <span className={`font-bold text-black`}>
+                {row}
+            </span>
+        )
+    },
+]
+
+export const payslipEarningData = [
+    {
+        earning: "Basic Salary",
+        salary: "$3000"
+    },
+    {
+        earning: "House Rent Allowance (H.R.A.)",
+        salary: "$1000"
+    },
+    {
+        earning: "Conveyance",
+        salary: "$200"
+    },
+    {
+        earning: "Other Allowance",
+        salary: "$100"
+    },
+    {
+        earning: "Total Earnings",
+        salary: "$200"
+    },
+    {
+        earning: "Total Earnings",
+        salary: "$4300"
+    },
+];
+
+export const payslipDeductionsColumns = [
+    {
+        header: 'Deductions',
+        accessor: 'deductions'
+    },
+    {
+        header: '',
+        accessor: 'salary',
+        render: (row: any) => (
+            <span className={`font-bold text-black`}>
+                {row}
+            </span>
+        )
+    },
+]
+
+export const payslipDeductionsData = [
+    {
+        deductions: "Tax Deducted at Source (T.D.S.)",
+        salary: "$3000"
+    },
+    {
+        deductions: "Provident Fund",
+        salary: "$200"
+    },
+    {
+        deductions: "ESI",
+        salary: "$300"
+    },
+    {
+        deductions: "Other Allowance",
+        salary: "$150"
+    },
+    {
+        deductions: "Loan",
+        salary: "$50"
+    },
+    {
+        deductions: "Total Earnings",
+        salary: "$700"
     },
 ];

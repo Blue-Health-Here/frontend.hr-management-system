@@ -1,6 +1,6 @@
 import React from "react";
-import AttendanceReportView from "@/components/pages/attendance-report";
 import MainLayout from "@/components/layouts/MainLayout";
+import AttendanceReportView from "@/components/admin/attendance-report";
 
 function Page() {
   return (

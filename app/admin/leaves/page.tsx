@@ -1,6 +1,6 @@
 import React from "react";
-import LeavesView from "@/components/pages/leaves";
 import MainLayout from "@/components/layouts/MainLayout";
+import LeavesView from "@/components/admin/leaves";
 
 function Page() {
   return (

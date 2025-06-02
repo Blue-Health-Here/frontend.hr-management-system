@@ -1,6 +1,6 @@
 import React from "react";
-import AddUser from "@/components/pages/users/add";
 import MainLayout from "@/components/layouts/MainLayout";
+import AddUser from "@/components/admin/users/add";
 
 function Page() {
   return (

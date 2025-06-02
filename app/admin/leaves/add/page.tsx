@@ -1,6 +1,6 @@
 import React from "react";
-import AddLeave from "@/components/pages/leaves/add";
 import MainLayout from "@/components/layouts/MainLayout";
+import AddLeave from "@/components/admin/leaves/add";
 
 function Page() {
   return (
