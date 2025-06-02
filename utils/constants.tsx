@@ -292,10 +292,12 @@ export const adminSidebarItems = [
     {
         icon: FaUsers,
         label: "Employees",
-        href: "/admin/employees",
+        href: "/admin/employees", 
         hasDropdown: true,
         subItems: [
-            { label: "Add Employees", href: "/add" },]
+            { label: "Employees List", href: "" }, // /admin/employees (empty href = parent route)
+            { label: "Add Employees", href: "/add" },
+        ]
     },
     {
         icon: FaCalendarAlt,
@@ -315,7 +317,8 @@ export const adminSidebarItems = [
         href: "/admin/performance-indicator",
         hasDropdown: true,
         subItems: [
-            { label: "Add Indicator", href: "/add" },
+            { label: "Performance Indicators", href: "" }, 
+            { label: "Add Indicator", href: "/add" }, 
         ]
     },
     {
@@ -324,6 +327,7 @@ export const adminSidebarItems = [
         href: "/admin/holidays",
         hasDropdown: true,
         subItems: [
+            { label: "All Holidays", href: "" },
             { label: "Add Holiday", href: "/add" },
         ]
     },
@@ -333,9 +337,9 @@ export const adminSidebarItems = [
         href: "/admin/payroll",
         hasDropdown: true,
         subItems: [
-            { label: "Employee Salary", href: "/employee-salary" },
-            { label: "Payslip", href: "/payslip" },
-
+            { label: "Payroll Items", href: "" }, 
+            { label: "Employee Salary", href: "/employee-salary" }, 
+            { label: "Payslip", href: "/payslip" }, 
         ]
     },
     {
@@ -344,8 +348,9 @@ export const adminSidebarItems = [
         href: "/admin/users",
         hasDropdown: true,
         subItems: [
-            { label: "Add New User", href: "/add" },
-            { label: "Roles", href: "/roles" },
+            { label: "All Users", href: "" }, 
+            { label: "Add New User", href: "/add" }, 
+            { label: "Roles", href: "/roles" }, 
         ]
     },
     {
@@ -354,9 +359,10 @@ export const adminSidebarItems = [
         href: "/admin/settings",
         hasDropdown: true,
         subItems: [
-            { label: "Company Settings", href: "/company" },
-            { label: "Localization", href: "/localization" },
-            { label: "Theme Settings", href: "/theme" }
+            { label: "General", href: "" }, 
+            { label: "Company Settings", href: "/company" }, 
+            { label: "Localization", href: "/localization" }, 
+            { label: "Theme Settings", href: "/theme" } 
         ]
     }
 ];
