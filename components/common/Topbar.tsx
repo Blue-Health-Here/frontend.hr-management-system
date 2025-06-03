@@ -1,13 +1,25 @@
+"use client"
+import { setIsSidebarOpen } from "@/store/features/global/globalSlice";
 import { ChevronDown, Mail } from "lucide-react";
 import Image from "next/image";
 import { IoSearch } from "react-icons/io5";
 import { IoNotificationsOutline } from "react-icons/io5";
+import { MdViewSidebar } from "react-icons/md";
+import { useDispatch} from "react-redux";
 
 const Topbar = () => {
+    const dispatch = useDispatch()
+
+    const handleSidebarClick = () => {
+        dispatch(setIsSidebarOpen(true))
+    }
 
     return (
-        <div className="p-4 sm:pl-8 sm:p-3 bg-green-100 fixed top-0 right-0 z-10 w-full lg:w-[calc(100%-256px)]">
-            <div className="lg:flex justify-between items-center">
+        <div className="p-4 sm:pl-8 sm:p-3 bg-white fixed top-0 right-0 z-50 w-full lg:w-[calc(100%-256px)]">
+            <div className="flex justify-between items-center">
+                <div className="lg:hidden block cursor-pointer" onClick={handleSidebarClick}>
+                    <MdViewSidebar size={24} className="text-green-600" />
+                </div>
                 <div className="relative w-[390px] sm:max-w-md hidden lg:block">
                     <input type="text" placeholder="Search..." className="w-full md:w-80 bg-gray-50 pl-9 p-2 placeholder:text-gray-400 rounded-lg focus:outline-none neo-down border-none" />
                     <span className="absolute left-3 top-2.5 text-gray-400 cursor-pointer">
