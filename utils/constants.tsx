@@ -361,7 +361,7 @@ export const adminSidebarItems = [
         href: "/admin/shift-management",
         hasDropdown: true,
         subItems: [
-            { label: "Define Shift Timings", href: "" },
+            { label: "Shift Timings", href: "" },
             { label: "Assign Shifts", href: "/assign-shifts" },
             // { label: "Rotate Shifts", href: "/rotate-shifts" },
         ]
