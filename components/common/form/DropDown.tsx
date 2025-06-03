@@ -23,7 +23,7 @@ const Dropdown: React.FC<DropdownProps> = ({
         <select
           id={id}
           name={name}
-          className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#f26522] focus:border-transparent text-sm appearance-none bg-[right_0.5rem_center] bg-[length:1rem_1rem] bg-no-repeat pr-8"
+          className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-600 focus:border-transparent text-sm appearance-none bg-[right_0.5rem_center] bg-[length:1rem_1rem] bg-no-repeat pr-8"
           value={value}
           onChange={onChange}
         >
