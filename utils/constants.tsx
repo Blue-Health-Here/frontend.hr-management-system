@@ -851,33 +851,6 @@ export const adminAttendanceStats = [
         iconBgColor: "bg-black"
     },
     {
-        title: "Late Login",
-        value: 19,
-        percentage: "-1",
-        icon: <Users className="h-4 w-4 text-white" />,
-        iconBgColor: "bg-green-500",
-        percentColor: "bg-green-100",
-        textColor: "text-green-500",
-    },
-    {
-        title: "Un-informed",
-        value: 10,
-        percentage: "-12",
-        icon: <XCircle className="h-4 w-4 text-white" />,
-        iconBgColor: "bg-red-500",
-        percentColor: "bg-red-100",
-        textColor: "text-red-700",
-    },
-    {
-        title: "Permission",
-        value: 3,
-        percentage: "1",
-        icon: <UserPlus className="h-4 w-4 text-white" />,
-        iconBgColor: "bg-blue-400",
-        percentColor: "bg-blue-100",
-        textColor: "text-blue-500",
-    },
-    {
         title: "Absent",
         value: 10,
         percentage: "-19",
@@ -1502,8 +1475,6 @@ export const rotateShiftData = [
   }
 ]
 
-
-
 export const employeesCardData = [
     {
         title: "Total Working Days",
@@ -1563,7 +1534,10 @@ export const employeesAttendanceData = [
         percentColor: "bg-orange-200",
         textColor: "text-orange-400",
         iconBgColor: "bg-orange-50",
-    }
-    
+    }   
+];
 
+export const sorting = [
+    'Ascending',
+    'Desending',
 ];
