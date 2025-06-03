@@ -29,10 +29,8 @@ const AddEmployee = () => {
     password: "",
     confirmPassword: "",
     phoneNumber: "",
-    company: "",
     department: "",
     designation: "",
-    about: "",
   };
 
   const handleSubmit = (values: typeof initialValues) => {
@@ -68,7 +66,7 @@ const AddEmployee = () => {
               <ImageUpload
                 onImageChange={(file) => setSelectedFile(file)}
               />
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 <InputField label="First Name" name="firstName" />
                 <InputField label="Last Name" name="lastName" />
 
@@ -149,7 +147,6 @@ const AddEmployee = () => {
                   name="phoneNumber"
                   type="tel"
                 />
-                <InputField label="Company" name="company" />
                 <div>
                   <Dropdown
                     name="department"
@@ -223,9 +220,6 @@ const AddEmployee = () => {
                       </button>
                     </div>
                   )}
-                </div>
-                <div className="md:col-span-2">
-                  <InputField label="About" name="about" />
                 </div>
               </div>
 
