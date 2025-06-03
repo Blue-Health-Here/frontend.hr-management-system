@@ -1062,9 +1062,6 @@ export const employeeAttendanceColumns = [
         ),
     },
     { header: 'Check Out', accessor: 'checkOut' },
-    { header: 'Break', accessor: 'break' },
-    { header: 'Late', accessor: 'late' },
-    { header: 'Overtime', accessor: 'overtime' },
     {
         header: 'Production Hours',
         accessor: 'hours',
@@ -1504,3 +1501,69 @@ export const rotateShiftData = [
     nextShift: "Morning"
   }
 ]
+
+
+
+export const employeesCardData = [
+    {
+        title: "Total Working Days",
+        value: "20",
+        icon: <RiTeamLine className=" text-green-500" size={24} />,
+        percent: "95",
+        percentColor: "bg-green-100",
+        textColor: "text-green-500",
+        iconBgColor: "bg-green-50"
+    },
+    {
+        title: "Days Present",
+        value: "18",
+        icon: <Briefcase className="text-orange-400" size={24} />,
+        percent: "24",
+        percentColor: "bg-orange-200",
+        textColor: "text-orange-400",
+        iconBgColor: "bg-orange-50",
+    },
+    {
+        title: "Days Absent",
+        value: "2",
+        icon: <RiPresentationFill className="text-blue-600" size={24} />,
+        percent: "48",
+        percentColor: "bg-blue-100",
+        textColor: "text-blue-500",
+        iconBgColor: "bg-blue-50"
+    },
+    {
+        title: "Clock In",
+        value: "9:05 AM",
+        icon: <CheckSquare className="text-purple-500" size={24} />,
+        percent: "1.27",
+        percentColor: "bg-pink-100",
+        textColor: "text-pink-500",
+        iconBgColor: "bg-pink-50"
+
+    }
+
+];
+
+export const employeesAttendanceData = [
+    {
+        title: "Total Monthly Hours",
+        value: "160",
+        icon: <RiTeamLine className=" text-green-500" size={24} />,
+        percent: "95",
+        percentColor: "bg-green-100",
+        textColor: "text-green-500",
+        iconBgColor: "bg-green-50"
+    },
+    {
+        title: "Weekly Hours",
+        value: "40",
+        icon: <Briefcase className="text-orange-400" size={24} />,
+        percent: "24",
+        percentColor: "bg-orange-200",
+        textColor: "text-orange-400",
+        iconBgColor: "bg-orange-50",
+    }
+    
+
+];
