@@ -1,22 +1,16 @@
 "use client";
 import React, { useState } from "react";
 import Image from "next/image";
-import {
-  Users,
-  CheckCircle,
-  XCircle,
-  UserPlus,
-  File,
-  ChevronDown,
-  Plus,
-} from "lucide-react";
-import { employeeData, employeeStats, metrics } from "@/utils/constants";
+import { Plus } from "lucide-react";
+import { employeeData, employeeStats, sorting } from "@/utils/constants";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import ExportButton from "../../common/ExportButton";
-import DateRangeDropdown from "../../common/form/DateRangeDropdown";
 import Button from "../../common/Button";
 import MetricCard from "../../common/MetricCard";
+import Dropdown from "@/components/common/form/DropDown";
+import DatePickerField from "@/components/common/form/DatePickerField";
+import { Field, Form, Formik } from "formik";
 
 const EmployeesView = () => {
   const router = useRouter();
@@ -24,8 +18,6 @@ const EmployeesView = () => {
   const [designationFilter, setDesignationFilter] = useState("");
   const [statusFilter, setStatusFilter] = useState("All");
   const [sortOption, setSortOption] = useState("");
-  const [exportOpen, setExportOpen] = useState(false);
-  const [dateRange, setDateRange] = useState("04/26/2025 - 05/02/2025");
 
   // Calculate summary numbers
   const totalEmployees = employees.length;
@@ -82,6 +74,13 @@ const EmployeesView = () => {
 
     return filteredEmployees;
   };
+  
+  const initialValues = {
+    date: '',
+    designation: '',
+    status: '',
+    sort: '',
+  };
 
   const filteredEmployees = handleFilterChange();
 
@@ -107,7 +106,7 @@ const EmployeesView = () => {
             icon={stats.icon}
             iconBgColor={stats.iconBgColor}
             percentage={stats.percentage}
-             percentageColor={stats.percentColor}
+            percentageColor={stats.percentColor}
             textColor={stats.textColor}
             isShowCradFooter={false}
           />
@@ -115,55 +114,65 @@ const EmployeesView = () => {
       </div>
       <div className="overflow-x-auto bg-white rounded-2xl">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 bg-white p-4">
-          <h2 className="text-lg font-semibold">Plan List</h2>
-          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2">
-            <DateRangeDropdown value={dateRange} onChange={setDateRange} />
-            <div className="w-36">
-              <select
-                id="designation-filter"
-                value={designationFilter}
-                onChange={(e) => setDesignationFilter(e.target.value)}
-                className="block w-full pl-3 py-1.5 sm:py-2 border border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 text-sm rounded-md appearance-none bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLWNoZXZyb24tZG93biI+PHBhdGggZD0ibTYgOSA2IDYgNi02Ii8+PC9zdmc+')] bg-no-repeat bg-[position:right_0.5rem_center] bg-[size:1rem]"
-              >
-                <option value="">Designations</option>
-                <option value="Developer">Developer</option>
-                <option value="Executive">Executive</option>
-                <option value="Software Engineer">Software Engineer</option>
-                <option value="Product Manager">Product Manager</option>
-                <option value="UX Designer">UX Designer</option>
-                <option value="Marketing Specialist">
-                  Marketing Specialist
-                </option>
-                <option value="HR Manager">HR Manager</option>
-                <option value="Financial Analyst">Financial Analyst</option>
-                <option value="Operations Manager">Operations Manager</option>
-                <option value="Sales Executive">Sales Executive</option>
-              </select>
-            </div>
-            <div className="w-32">
-              <select
-                id="status-filter"
-                value={statusFilter}
-                onChange={(e) => setStatusFilter(e.target.value)}
-                className="block w-full pl-3 pr-8 py-1.5 sm:py-2 border border-gray-300 focus:outline-none text-sm rounded-md appearance-none bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLWNoZXZyb24tZG93biI+PHBhdGggZD0ibTYgOSA2IDYgNi02Ii8+PC9zdmc+')] bg-no-repeat bg-[position:right_0.5rem_center] bg-[size:1rem]"
-              >
-                <option value="All">Select Status</option>
-                <option value="Active">Active</option>
-                <option value="Inactive">Inactive</option>
-              </select>
-            </div>
-            <div className="w-42">
-              <select
-                id="sort"
-                value={sortOption}
-                onChange={(e) => setSortOption(e.target.value)}
-                className="block w-full pl-3 pr-8 py-1.5 sm:py-2 border border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 text-sm rounded-md appearance-none bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLWNoZXZyb24tZG93biI+PHBhdGggZD0ibTYgOSA2IDYgNi02Ii8+PC9zdmc+')] bg-no-repeat bg-[position:right_0.5rem_center] bg-[size:1rem]"
-              >
-                <option value="">Sort By: Last 7 days</option>
-                <option value="ascending">Ascending</option>
-              </select>
-            </div>
-          </div>
+          <h2 className="text-lg font-semibold">Employees List</h2>
+          <Formik
+            initialValues={initialValues}
+            onSubmit={(values) => {
+              console.log('Form Values:', values);
+            }}
+          >
+            {({ setFieldValue, values }) => (
+              <Form>
+                <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2">
+
+                  <DatePickerField name="date" className="w-44" />
+                  <div className="w-36">
+                    <Field
+                      as="select"
+                      name="designation"
+                      className="block w-full pl-3 pr-8 py-1.5 sm:py-2 border border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 text-sm rounded-md appearance-none bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLWNoZXZyb24tZG93biI+PHBhdGggZD0ibTYgOSA2IDYgNi02Ii8+PC9zdmc+')] bg-no-repeat bg-[position:right_0.5rem_center] bg-[size:1rem]"
+                    >
+                      <option value="ascending">Designation</option>
+                      <option value="Developer">Developer</option>
+                      <option value="Executive">Executive</option>
+                      <option value="Software Engineer">Software Engineer</option>
+                      <option value="Product Manager">Product Manager</option>
+                      <option value="UX Designer">UX Designer</option>
+                      <option value="Marketing Specialist">Marketing Specialist</option>
+                      <option value="HR Manager">HR Manager</option>
+                      <option value="Financial Analyst">Financial Analyst</option>
+                      <option value="Operations Manager">Operations Manager</option>
+                      <option value="Sales Executive">Sales Executive</option>
+                    </Field>
+                  </div>
+
+                  <div className="w-36">
+                    <Field
+                      as="select"
+                      name="status"
+                      className="block w-full pl-3 pr-8 py-1.5 sm:py-2 border border-gray-300 focus:outline-none text-sm rounded-md appearance-none bg-[url('data:image/svg+xml;base64,...')] bg-no-repeat bg-[position:right_0.5rem_center] bg-[size:1rem]"
+                    >
+                      <option value="">Select Status</option>
+                      <option value="Active">Active</option>
+                      <option value="Inactive">Inactive</option>
+                    </Field>
+                  </div>
+
+                  <Dropdown
+                    name="sort"
+                    id="sort"
+                    placeholder="Sort By: Last 7 Days"
+                    options={sorting.map((d) => ({ value: d, label: d }))}
+                    value={values.sort}
+                  // onChange={(option) => setFieldValue("sort", option.value)}
+                  />
+                  <div className="w-28">
+                    <Button label="Submit" type="submit" />
+                  </div>
+                </div>
+              </Form>
+            )}
+          </Formik>
         </div>
 
         <div className="overflow-x-auto">
@@ -228,32 +237,7 @@ const EmployeesView = () => {
                     {employee.phone}
                   </td>
                   <td className="py-4 px-6 whitespace-nowrap text-sm text-gray-500">
-                    <select
-                      value={employee.designation}
-                      onChange={(e) =>
-                        handleDesignationChange(employee.id, e.target.value)
-                      }
-                      className="block w-auto pl-3 pr-8 py-2 border border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 text-sm rounded-md appearance-none bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLWNoZXZyb24tZG93biI+PHBhdGggZD0ibTYgOSA2IDYgNi02Ii8+PC9zdmc+')] bg-no-repeat bg-[position:right_0.5rem_center] bg-[size:1rem]"
-                    >
-                      <option value="Developer">Developer</option>
-                      <option value="Executive">Executive</option>
-                      <option value="Software Engineer">
-                        Software Engineer
-                      </option>
-                      <option value="Product Manager">Product Manager</option>
-                      <option value="UX Designer">UX Designer</option>
-                      <option value="Marketing Specialist">
-                        Marketing Specialist
-                      </option>
-                      <option value="HR Manager">HR Manager</option>
-                      <option value="Financial Analyst">
-                        Financial Analyst
-                      </option>
-                      <option value="Operations Manager">
-                        Operations Manager
-                      </option>
-                      <option value="Sales Executive">Sales Executive</option>
-                    </select>
+                    {employee.designation}
                   </td>
                   <td className="py-4 px-6 whitespace-nowrap text-sm text-gray-500">
                     {employee.joiningDate}
