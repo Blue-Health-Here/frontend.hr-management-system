@@ -164,7 +164,7 @@ const EmployeesView = () => {
                     placeholder="Sort By: Last 7 Days"
                     options={sorting.map((d) => ({ value: d, label: d }))}
                     value={values.sort}
-                  // onChange={(option) => setFieldValue("sort", option.value)}
+                    onChange={(option: any) => setFieldValue("sort", option)}
                   />
                   <div className="w-28">
                     <Button label="Submit" type="submit" />
