@@ -104,15 +104,13 @@ const DatePickerField: React.FC<DatePickerFieldProps> = ({
         </div>
         {openCalendar && (
           <div
-            className="absolute left-0 top-full mt-2 z-50 bg-white shadow-lg border rounded-md"
+            className="absolute left-0 top-full z-50 bg-white shadow-lg rounded-md"
             style={{
               padding: 0,
-              margin: 0,
               lineHeight: 0,
               display: "inline-block",
               overflow: "hidden",
               boxSizing: "border-box",
-              width: "max-content",
             }}
           >
             <DatePicker

@@ -84,7 +84,7 @@ const AttendanceReportView = () => {
             {() => (
               <Form>
                 <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-auto">
-                  <DatePickerField name="date" className="w-44" />
+                  <DatePickerField name="date" className="w-60" />
 
                   <div className="w-auto sm:w-32 md:w-36">
                     <div className="relative">

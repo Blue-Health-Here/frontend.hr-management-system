@@ -125,7 +125,7 @@ const EmployeesView = () => {
               <Form>
                 <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2">
 
-                  <DatePickerField name="date" className="w-44" />
+                  <DatePickerField name="date" className="w-60" />
                   <div className="w-36">
                     <Field
                       as="select"
