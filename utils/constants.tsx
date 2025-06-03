@@ -9,12 +9,14 @@ import {
     UserPlus, Users, XCircle, Calendar, Clock,
     Grid3x3, Volume2
 } from "lucide-react";
-import { RiPlayCircleLine, RiPresentationFill, RiTeamLine } from "react-icons/ri";
+import { RiDashboardHorizontalFill, RiPlayCircleLine, RiPresentationFill, RiTeamLine } from "react-icons/ri";
 import { AiOutlineSchedule } from "react-icons/ai";
 import { MdAppRegistration } from "react-icons/md";
 import { FiEdit } from "react-icons/fi";
 import { IoTrashOutline } from "react-icons/io5";
 import Dropdown from "@/components/common/form/DropDown";
+import { ImPaypal} from "react-icons/im";
+import { FaPeopleGroup } from "react-icons/fa6";
 
 export const employeeData = [
     {
@@ -284,15 +286,15 @@ export const sidebarNav = [
 
 export const adminSidebarItems = [
     {
-        icon: LuLayoutDashboard,
+        icon: RiDashboardHorizontalFill,
         label: "Dashboard",
         href: "/admin/dashboard",
         hasDropdown: false
     },
     {
-        icon: FaUsers,
+        icon: FaPeopleGroup,
         label: "Employees",
-        href: "/admin/employees", 
+        href: "/admin/employees",
         hasDropdown: true,
         subItems: [
             { label: "Employees List", href: "" }, // /admin/employees (empty href = parent route)
@@ -317,8 +319,30 @@ export const adminSidebarItems = [
         href: "/admin/performance-indicator",
         hasDropdown: true,
         subItems: [
-            { label: "Performance Indicators", href: "" }, 
-            { label: "Add Indicator", href: "/add" }, 
+            { label: "Performance Indicators", href: "" },
+            { label: "Add Indicator", href: "/add" },
+        ]
+    },
+    {
+        icon: ImPaypal,
+        label: "Payroll",
+        href: "/admin/payroll",
+        hasDropdown: true,
+        subItems: [
+            { label: "Payroll Items", href: "" },
+            { label: "Employee Salary", href: "/employee-salary" },
+            { label: "Payslip", href: "/payslip" },
+        ]
+    },
+    {
+        icon: FaUsers,
+        label: "Users",
+        href: "/admin/users",
+        hasDropdown: true,
+        subItems: [
+            { label: "All Users", href: "" },
+            { label: "Add New User", href: "/add" },
+            { label: "Roles", href: "/roles" },
         ]
     },
     {
@@ -333,24 +357,13 @@ export const adminSidebarItems = [
     },
     {
         icon: FaUserCog,
-        label: "Payroll",
-        href: "/admin/payroll",
+        label: "Shift Management",
+        href: "/admin/shift-management",
         hasDropdown: true,
         subItems: [
-            { label: "Payroll Items", href: "" }, 
-            { label: "Employee Salary", href: "/employee-salary" }, 
-            { label: "Payslip", href: "/payslip" }, 
-        ]
-    },
-    {
-        icon: FaUserCog,
-        label: "Users",
-        href: "/admin/users",
-        hasDropdown: true,
-        subItems: [
-            { label: "All Users", href: "" }, 
-            { label: "Add New User", href: "/add" }, 
-            { label: "Roles", href: "/roles" }, 
+            { label: "Define Shift Timings", href: "" },
+            { label: "Assign Shifts", href: "/assign-shifts" },
+            // { label: "Rotate Shifts", href: "/rotate-shifts" },
         ]
     },
     {
@@ -359,10 +372,10 @@ export const adminSidebarItems = [
         href: "/admin/settings",
         hasDropdown: true,
         subItems: [
-            { label: "General", href: "" }, 
-            { label: "Company Settings", href: "/company" }, 
-            { label: "Localization", href: "/localization" }, 
-            { label: "Theme Settings", href: "/theme" } 
+            { label: "General", href: "" },
+            { label: "Company Settings", href: "/company" },
+            { label: "Localization", href: "/localization" },
+            { label: "Theme Settings", href: "/theme" }
         ]
     }
 ];
@@ -591,6 +604,7 @@ export const invoices = [
 ];
 
 export const departmentOptions = [
+    'IT',
     'Development',
     'Design',
     'Marketing',
@@ -599,7 +613,15 @@ export const departmentOptions = [
     'Operations',
     'Sales'
 ];
-
+export const employees = [
+    'Mohsin Ikram',
+    'Ali Hamza',
+    'Haseeb',
+    'Iqra',
+    'Abdullah',
+    'Zaid',
+    'Faiq'
+];
 export const designationOptions = [
     'Developer',
     'Executive',
@@ -1369,3 +1391,116 @@ export const payslipDeductionsData = [
         salary: "$700"
     },
 ];
+
+
+export const assignShiftsColumns = [
+    {
+        header: 'Employee',
+        accessor: 'employee'
+    },
+       {
+        header: 'Designation',
+        accessor: 'designation'
+    },
+    {
+        header: 'Shift',
+        accessor: 'shift'
+    },
+]
+
+export const assignShiftsData = [
+  {
+    employee: 'Mohsin Ikram',
+    designation: 'Software Engineer',
+    shift: 'Night'
+  },
+  {
+    employee: 'Ali Hamza',
+    designation: 'Frontend Developer',
+    shift: 'General'
+  },
+  {
+    employee: 'Haseeb',
+    designation: 'Backend Developer',
+    shift: 'Morning'
+  },
+  {
+    employee: 'Iqra',
+    designation: 'QA Engineer',
+    shift: 'General'
+  },
+  {
+    employee: 'Abdullah',
+    designation: 'UI/UX Designer',
+    shift: 'Night'
+  },
+  {
+    employee: 'Zaid',
+    designation: 'DevOps Engineer',
+    shift: 'Night'
+  },
+  {
+    employee: 'Faiq',
+    designation: 'Support Engineer',
+    shift: 'Morning'
+  },
+]
+
+export const shiftTimeColumns = [
+    {
+        header: 'Shift Name',
+        accessor: 'shiftName'
+    },
+    {
+        header: 'Start Time',
+        accessor: 'start'
+    },
+    {
+        header: 'End Time',
+        accessor: 'end'
+    },
+]
+
+export const shiftTimeData = [
+    {
+        shiftName: 'Morning',
+        start: "09:00 AM",
+        end: "10:00 PM"
+    },
+    {
+        shiftName: 'Night',
+        start: "10:00 PM",
+        end: "05:00 AM"
+    },
+        {
+        shiftName: 'General',
+        start: "09:00 AM",
+        end: "05:00 pM"
+    },
+]
+
+export const rotateShiftColumns = [
+  {
+    header: 'Employee',
+    accessor: 'employee'
+  },
+  {
+    header: 'Next Shift',
+    accessor: 'nextShift'
+  }
+]
+
+export const rotateShiftData = [
+  {
+    employee: 'Mohsin Ikram',
+    nextShift: "Night"
+  },
+  {
+    employee: 'Ali Hamza',
+    nextShift: "General"
+  },
+  {
+    employee: 'Haseeb',
+    nextShift: "Morning"
+  }
+]
