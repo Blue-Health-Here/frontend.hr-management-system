@@ -42,7 +42,7 @@ function EmployeeByDepartment() {
         <h2 className="text-base lg:text-lg font-semibold text-gray-800 mb-4">
           Team Overview
         </h2>
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-4">
           {metrics.map((metric, index) => (
             <MetricCard
               key={`metric-${index}`}

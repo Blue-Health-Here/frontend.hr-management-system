@@ -73,16 +73,16 @@ export default function Sidebar({ isEmployee }: SidebarProps) {
   };
 
   return (
-    <div className="hidden w-64 lg:flex flex-col p-6 bg-white z-10 fixed left-0 top-0 bottom-0">
+    <div className="w-64 flex flex-col z-10 fixed left-0 top-0 bottom-0">
       {/* Logo at the top */}
-      <div className="flex justify-center pb-5">
+      <div className="flex justify-center pb-5 bg-white p-6">
         <h1 className="text-green-600 text-2xl font-bold">
           SmartHR 
         </h1>
       </div>
 
       {/* Sidebar navigation */}
-      <nav className="flex flex-col gap-2 flex-1 py-8">
+      <nav className="hidden lg:flex flex-col bg-white gap-2 flex-1 py-8 px-6">
         {sidebarItems.map((item, index) => {
           const isItemActive = item.href && !item.hasDropdown && isActive(item.href);
           const isSubItemActive = isAnySubItemActive(item);

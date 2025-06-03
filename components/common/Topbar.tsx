@@ -6,8 +6,8 @@ import { IoNotificationsOutline } from "react-icons/io5";
 const Topbar = () => {
     
     return (
-        <div className="flex justify-between items-center p-4 sm:pl-8 sm:p-3 bg-white fixed top-0 sm:left-0 lg:left-64 right-0 z-10">
-            <div className="relative w-[390px] sm:max-w-md hidden sm:block">
+        <div className="flex justify-between items-center p-4 sm:pl-8 sm:p-3 bg-white fixed top-0 sm:left-auto lg:left-64 right-0 z-10">
+            <div className="relative w-[390px] sm:max-w-md hidden lg:block">
                 <input type="text" placeholder="Search..." className="w-full md:w-80 bg-gray-50 pl-9 p-2 placeholder:text-gray-400 rounded-lg focus:outline-none neo-down border-none" />
                 <span className="absolute left-3 top-2.5 text-gray-400 cursor-pointer">
                     <IoSearch className="w-4 h-4 md:w-5 md:h-5" />
