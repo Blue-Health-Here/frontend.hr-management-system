@@ -104,26 +104,6 @@ const AttendanceReportView = () => {
                     </div>
                   </div>
 
-                  {/* Department Filter */}
-                  <div className="w-auto sm:w-32 md:w-36">
-                    <div className="relative">
-                      <Field
-                        as="select"
-                        name="department"
-                        className="block appearance-none w-full pl-3 pr-8 py-2 text-xs sm:text-sm border border-gray-300 focus:outline-none rounded-md"
-                      >
-                        <option value="All">All Department</option>
-                        <option value="Admin">Admin</option>
-                        <option value="HR">HR</option>
-                        <option value="Manager">Manager</option>
-                        <option value="Team-Lead">Team Lead</option>
-                      </Field>
-                      <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-                        <ChevronDown className="h-3 w-3 sm:h-4 sm:w-4" />
-                      </div>
-                    </div>
-                  </div>
-
                   <div className="w-full sm:w-36 md:w-40">
                     <div className="relative">
                       <Field
