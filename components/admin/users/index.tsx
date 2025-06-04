@@ -59,7 +59,7 @@ const UsersPage = () => {
       </div>
 
       {/* Users Table */}
-      <div className="overflow-x-auto bg-white rounded-2xl p-4 flex flex-col gap-4">
+      <div className="overflow-x-auto bg-white rounded-2xl p-4 flex flex-col gap-4 theme-shadow">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
           <h2 className="text-lg font-semibold">User List</h2>
           <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full md:w-auto">

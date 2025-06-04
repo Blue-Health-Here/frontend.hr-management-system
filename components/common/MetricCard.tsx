@@ -48,7 +48,7 @@ const MetricCard = ({
   const isUp = showFooterArrow && numericValue >= numericTarget;
 
   return (
-    <div className="bg-white rounded-2xl w-full border border-gray-100 overflow-hidden">
+    <div className="bg-white rounded-2xl w-full border border-gray-100 overflow-hidden theme-shadow">
       <div className={`${isCompact ? 'p-4' : isShowCradFooter ? 'p-4 md:px-5 md:py-6' : 'p-6'}`}>
         {/* Header */}
         <div className="flex items-center gap-3 mb-3">

@@ -38,7 +38,7 @@ const departmentData = {
 function EmployeeByDepartment() {
   return (
     <div className="flex flex-col lg:flex-row gap-6">
-      <div className="lg:w-2/3 bg-white p-4 lg:p-6 rounded-2xl">
+      <div className="lg:w-2/3 bg-white p-4 lg:p-6 rounded-2xl theme-shadow">
         <h2 className="text-base lg:text-lg font-semibold text-gray-800 mb-4">
           Team Overview
         </h2>
@@ -58,7 +58,7 @@ function EmployeeByDepartment() {
         </div>
       </div>
 
-      <div className="lg:w-1/3 bg-white p-4 lg:p-6 rounded-2xl">
+      <div className="lg:w-1/3 bg-white p-4 lg:p-6 rounded-2xl theme-shadow">
         <h2 className="text-base lg:text-lg font-semibold text-gray-800 mb-4">
           Employees By Department
         </h2>

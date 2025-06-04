@@ -1,6 +1,6 @@
 const AttendanceSummary = () => {
     return (
-        <div className="bg-white p-4 lg:p-6 rounded-2xl w-1/2">
+        <div className="bg-white p-4 lg:p-6 rounded-2xl w-1/2 theme-shadow">
             <h2 className="text-base lg:text-lg font-semibold text-gray-800 mb-3 lg:mb-4">
                 Attendance Summary
             </h2>

@@ -11,6 +11,8 @@ import MetricCard from "../../common/MetricCard";
 import Dropdown from "@/components/common/form/DropDown";
 import DatePickerField from "@/components/common/form/DatePickerField";
 import { Field, Form, Formik } from "formik";
+import { FiEdit } from "react-icons/fi";
+import { IoTrashOutline } from "react-icons/io5";
 
 const EmployeesView = () => {
   const router = useRouter();
@@ -74,7 +76,7 @@ const EmployeesView = () => {
 
     return filteredEmployees;
   };
-  
+
   const initialValues = {
     date: '',
     designation: '',
@@ -112,7 +114,7 @@ const EmployeesView = () => {
           />
         ))}
       </div>
-      <div className="overflow-x-auto bg-white rounded-2xl">
+      <div className="overflow-x-auto bg-white rounded-2xl theme-shadow">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 bg-white p-4">
           <h2 className="text-lg font-semibold">Employees List</h2>
           <Formik
@@ -200,6 +202,9 @@ const EmployeesView = () => {
                 <th className="py-3 px-6 text-left text-sm font-bold text-gray-900 tracking-wider border-b border-gray-300">
                   Status
                 </th>
+                <th className="py-3 px-6 text-left text-sm font-bold text-gray-900 tracking-wider border-b border-gray-300">
+                  Actions
+                </th>
               </tr>
             </thead>
             <tbody className="divide-y divide-gray-200">
@@ -251,6 +256,16 @@ const EmployeesView = () => {
                     >
                       {employee.status}
                     </span>
+                  </td>
+                  <td className="py-4 px-6 whitespace-nowrap">
+                    <div className="flex gap-4">
+                      <Link href={`/admin/employees/${employee.id}/edit`}>
+                        <FiEdit size={16} />
+                      </Link>
+                      <button className="cursor-pointer">
+                        <IoTrashOutline size={16} />
+                      </button>
+                    </div>
                   </td>
                 </tr>
               ))}
