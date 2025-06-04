@@ -52,6 +52,17 @@ export default function Sidebar({ isEmployee }: SidebarProps) {
     });
   }, [pathname, sidebarItems]);
 
+  useEffect(() => {
+    if (isSidebarOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isSidebarOpen]);
 
   const isActive = (path: string) => path === pathname;
   // check is subItem is active
@@ -80,9 +91,9 @@ export default function Sidebar({ isEmployee }: SidebarProps) {
 
   return (
     <div className={`w-64 flex-col z-[99] fixed left-0 top-0 bg-white bottom-0 transition-transform duration-300 lg:translate-x-0 lg:flex ${isSidebarOpen ? 'flex shadow-2xl' : 'hidden lg:flex'}`}>
-      {isSidebarOpen && <span onClick={() => dispatch(setIsSidebarOpen(false))} className='absolute top-4 right-4 cursor-pointer'><RxCross2 size={20} /></span>}
+      {isSidebarOpen && <span onClick={() => dispatch(setIsSidebarOpen(false))} className='absolute top-4 right-4 text-green-600 cursor-pointer'><RxCross2 size={20} /></span>}
       <div className="flex justify-center pb-5 p-6">
-        <h1 className="text-green-600 text-2xl font-bold">
+        <h1 className="text-green-600 text-lg md:text-xl lgtext-2xl font-bold">
           SmartHR
         </h1>
       </div>
@@ -97,8 +108,8 @@ export default function Sidebar({ isEmployee }: SidebarProps) {
             <div key={index}>
               <div
                 className={`flex items-center justify-between px-3 py-2 cursor-pointer rounded-md transition-all duration-200 ${shouldHighlight
-                    ? "bg-green-600 text-white"
-                    : "hover:bg-green-50 text-gray-700"
+                  ? "bg-green-600 text-white"
+                  : "hover:bg-green-50 text-gray-700"
                   }`}
                 onClick={() => handleMenuItemClick(item)}
               >
@@ -106,7 +117,7 @@ export default function Sidebar({ isEmployee }: SidebarProps) {
                   <span className={shouldHighlight ? "text-white" : "text-gray-600"}>
                     {item.icon && <item.icon size={18} />}
                   </span>
-                  <span className={`text-sm md:text-base font-medium ${shouldHighlight ? "text-white" : "text-gray-700"
+                  <span className={`text-xs sm:text-sm xl:text-base font-medium ${shouldHighlight ? "text-white" : "text-gray-700"
                     }`}>
                     {item.label}
                   </span>
@@ -130,9 +141,9 @@ export default function Sidebar({ isEmployee }: SidebarProps) {
                       <Link
                         key={subIndex}
                         href={fullSubItemHref || "#"}
-                        className={`flex items-center py-2 pl-2 text-sm rounded-md relative transition-colors duration-150 ${isSubItemCurrentlyActive
-                            ? "text-green-600 font-medium"
-                            : "text-gray-600 hover:text-green-600"
+                        className={`flex items-center py-2 pl-2 text-xs md:text-sm rounded-md relative transition-colors duration-150 ${isSubItemCurrentlyActive
+                          ? "text-green-600 font-medium"
+                          : "text-gray-600 hover:text-green-600"
                           }`}
                       >
                         <span>{subItem.label}</span>
