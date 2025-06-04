@@ -855,33 +855,6 @@ export const adminAttendanceStats = [
         iconBgColor: "bg-black"
     },
     {
-        title: "Late Login",
-        value: 19,
-        percentage: "-1",
-        icon: <Users className="h-4 w-4 text-white" />,
-        iconBgColor: "bg-green-500",
-        percentColor: "bg-green-100",
-        textColor: "text-green-500",
-    },
-    {
-        title: "Un-informed",
-        value: 10,
-        percentage: "-12",
-        icon: <XCircle className="h-4 w-4 text-white" />,
-        iconBgColor: "bg-red-500",
-        percentColor: "bg-red-100",
-        textColor: "text-red-700",
-    },
-    {
-        title: "Permission",
-        value: 3,
-        percentage: "1",
-        icon: <UserPlus className="h-4 w-4 text-white" />,
-        iconBgColor: "bg-blue-400",
-        percentColor: "bg-blue-100",
-        textColor: "text-blue-500",
-    },
-    {
         title: "Absent",
         value: 10,
         percentage: "-19",
@@ -1066,9 +1039,6 @@ export const employeeAttendanceColumns = [
         ),
     },
     { header: 'Check Out', accessor: 'checkOut' },
-    { header: 'Break', accessor: 'break' },
-    { header: 'Late', accessor: 'late' },
-    { header: 'Overtime', accessor: 'overtime' },
     {
         header: 'Production Hours',
         accessor: 'hours',
@@ -1507,9 +1477,77 @@ export const rotateShiftData = [
     employee: 'Haseeb',
     nextShift: "Morning"
   }
-]
+];
+
 export const profileMenu = [
   { name: "Dashboard", icon: RxDashboard, path: "/admin/dashboard" },
   { name: "Profile", icon: FiUser, path: "/sign-in" },
   { name: "Settings", icon: IoSettingsOutline, path: "/admin/settings" },
+];
+
+export const employeesCardData = [
+    {
+        title: "Total Working Days",
+        value: "20",
+        icon: <RiTeamLine className=" text-green-500" size={24} />,
+        percent: "95",
+        percentColor: "bg-green-100",
+        textColor: "text-green-500",
+        iconBgColor: "bg-green-50"
+    },
+    {
+        title: "Days Present",
+        value: "18",
+        icon: <Briefcase className="text-orange-400" size={24} />,
+        percent: "24",
+        percentColor: "bg-orange-200",
+        textColor: "text-orange-400",
+        iconBgColor: "bg-orange-50",
+    },
+    {
+        title: "Days Absent",
+        value: "2",
+        icon: <RiPresentationFill className="text-blue-600" size={24} />,
+        percent: "48",
+        percentColor: "bg-blue-100",
+        textColor: "text-blue-500",
+        iconBgColor: "bg-blue-50"
+    },
+    {
+        title: "Clock In",
+        value: "9:05 AM",
+        icon: <CheckSquare className="text-purple-500" size={24} />,
+        percent: "1.27",
+        percentColor: "bg-pink-100",
+        textColor: "text-pink-500",
+        iconBgColor: "bg-pink-50"
+
+    }
+
+];
+
+export const employeesAttendanceData = [
+    {
+        title: "Total Monthly Hours",
+        value: "160",
+        icon: <RiTeamLine className=" text-green-500" size={24} />,
+        percent: "95",
+        percentColor: "bg-green-100",
+        textColor: "text-green-500",
+        iconBgColor: "bg-green-50"
+    },
+    {
+        title: "Weekly Hours",
+        value: "40",
+        icon: <Briefcase className="text-orange-400" size={24} />,
+        percent: "24",
+        percentColor: "bg-orange-200",
+        textColor: "text-orange-400",
+        iconBgColor: "bg-orange-50",
+    }   
+];
+
+export const sorting = [
+    'Ascending',
+    'Desending',
 ];

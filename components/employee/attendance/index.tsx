@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from 'react'
-import { employeeAttendanceColumns, employeeAttendanceData, statusOptions, timeTrackingData } from '@/utils/constants'
+import { employeeAttendanceColumns, employeeAttendanceData, statusOptions,employeesAttendanceData } from '@/utils/constants'
 import EmployeeTimeCard from './EmployeeTimeCard'
 // import WorkingHoursTimeline from './WorkingHoursTimeline'
 import DataTable from '../../common/DataTable'
@@ -17,13 +17,13 @@ const EmployeeAttendance = () => {
         <EmployeeTimeCard />
         <div className="flex-1 space-y-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {timeTrackingData.map((item, index) => (
+            {employeesAttendanceData.map((item, index) => (
               <MetricCard
                 key={index}
                 icon={item.icon}
+                title={item.title}
                 value={item.value}
-                target={item.target}
-                iconBgColor={item.iconColor} />
+                 />
             ))}
           </div>
           {/* <WorkingHoursTimeline /> */}
