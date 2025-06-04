@@ -1,4 +1,5 @@
-import React from "react";
+"use client"
+import React, { useEffect, useState } from "react";
 import { Bar } from "react-chartjs-2";
 import {
   Chart as ChartJS,
@@ -36,13 +37,35 @@ const departmentData = {
 };
 
 function EmployeeByDepartment() {
+
+  const [barThickness, setBarThickness] = useState(25);
+
+  useEffect(() => {
+    const handleResize = () => {
+      const width = window.innerWidth;
+      if (width < 640) {
+        setBarThickness(10);
+      } else if (width < 768) {
+        setBarThickness(16);
+      } else if (width < 1024) {
+        setBarThickness(20);
+      } else {
+        setBarThickness(25);
+      }
+    };
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   return (
-    <div className="flex flex-col lg:flex-row gap-6">
-      <div className="lg:w-2/3 bg-white p-4 lg:p-6 rounded-2xl theme-shadow">
+    <div className="flex flex-col gap-6 xl:flex-row">
+      <div className="w-full xl:w-2/3 bg-white p-4 sm:p-6 rounded-2xl theme-shadow">
         <h2 className="text-base lg:text-lg font-semibold text-gray-800 mb-4">
           Team Overview
         </h2>
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4">
           {metrics.map((metric, index) => (
             <MetricCard
               key={`metric-${index}`}
@@ -58,11 +81,11 @@ function EmployeeByDepartment() {
         </div>
       </div>
 
-      <div className="lg:w-1/3 bg-white p-4 lg:p-6 rounded-2xl theme-shadow">
+      <div className="w-full xl:w-1/3 bg-white p-4 sm:p-6 rounded-2xl theme-shadow">
         <h2 className="text-base lg:text-lg font-semibold text-gray-800 mb-4">
           Employees By Department
         </h2>
-        <div className="h-64 lg:h-[350px] -mx-2 lg:mx-0">
+        <div className="h-52 md:h-64 lg:h-[300px]">
           <Bar
             data={departmentData}
             options={{
@@ -74,7 +97,7 @@ function EmployeeByDepartment() {
                   beginAtZero: true,
                   title: {
                     display: true,
-                    text: 'Number of Employees',
+                    text: "Number of Employees",
                     font: {
                       weight: "bold",
                     },
@@ -92,9 +115,9 @@ function EmployeeByDepartment() {
                   },
                   ticks: {
                     font: {
-                      size: 12
-                    }
-                  }
+                      size: 12,
+                    },
+                  },
                 },
               },
               plugins: {
@@ -111,8 +134,8 @@ function EmployeeByDepartment() {
               },
               datasets: {
                 bar: {
-                  barThickness: 30,
-                  maxBarThickness: 25,
+                  barThickness: barThickness,
+                  maxBarThickness: barThickness,
                   categoryPercentage: 0.9,
                   barPercentage: 0.9,
                 },
@@ -120,9 +143,9 @@ function EmployeeByDepartment() {
               layout: {
                 padding: {
                   left: 10,
-                  right: 20
-                }
-              }
+                  right: 20,
+                },
+              },
             }}
           />
         </div>

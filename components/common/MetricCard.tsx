@@ -73,7 +73,7 @@ const MetricCard = ({
         {/* Main content */}
         {!isCompact && (
           <div className="flex items-center justify-between mt-5">
-            <h2 className="text-3xl font-bold text-gray-800">
+            <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-gray-800">
               {value}{target !== undefined ? ` / ${target}` : ''}
             </h2>
             {percentage !== undefined && (

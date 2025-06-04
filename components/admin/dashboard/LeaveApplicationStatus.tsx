@@ -196,22 +196,22 @@ const LeaveApplicationCard = () => {
     const filteredRecent = getFilteredData(recentActions);
 
     return (
-        <div className="bg-white rounded-2xl p-6 w-full theme-shadow">
+        <div className="bg-white rounded-2xl p-4 sm:p-6 w-full space-y-4 theme-shadow">
             {/* Header */}
-            <div className="flex items-center justify-between pb-6">
+            <div className="flex items-center justify-between flex-wrap gap-4">
                 <h2 className="text-base lg:text-lg font-semibold text-gray-800">
                     Leave Application Status
                 </h2>
 
                 {/* Filter Buttons */}
-                <div className="flex items-center gap-2">
+                <div className="flex items-center flex-wrap gap-2">
                     {['Today', 'This Week', 'All'].map((filter) => (
                         <button
                             key={filter}
                             onClick={() => setActiveFilter(filter)}
-                            className={`px-4 py-2 rounded-2xl text-sm font-medium cursor-pointer transition-colors ${activeFilter === filter
-                                    ? 'bg-blue-100 text-blue-700'
-                                    : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                            className={`px-4 py-2 rounded-2xl text-xs sm:text-sm  font-medium cursor-pointer transition-colors ${activeFilter === filter
+                                ? 'bg-blue-100 text-blue-700'
+                                : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
                                 }`}
                         >
                             {filter}
@@ -221,13 +221,13 @@ const LeaveApplicationCard = () => {
             </div>
 
             {/* Tab Navigation */}
-            <div className="flex space-x-2 mb-6 bg-gray-100 rounded-xl p-2">
+            <div className="flex items-center justify-between flex-wrap gap-4 bg-gray-100 rounded-xl p-2">
                 <button
                     onClick={() => setActiveTab('pending')}
                     type='button'
-                    className={`flex-1 py-2 px-4 rounded-xl text-sm font-medium cursor-pointer transition-colors ${activeTab === 'pending'
-                            ? 'bg-white text-blue-600 shadow-sm'
-                            : 'text-gray-600 hover:text-gray-900'
+                    className={`flex-1 py-2 px-4 rounded-xl text-xs sm:text-sm font-medium cursor-pointer transition-colors ${activeTab === 'pending'
+                        ? 'bg-white text-blue-600 shadow-sm'
+                        : 'text-gray-600 hover:text-gray-900'
                         }`}
                 >
                     Pending Requests ({filteredPending.length})
@@ -235,9 +235,9 @@ const LeaveApplicationCard = () => {
                 <button
                     onClick={() => setActiveTab('recent')}
                     type='button'
-                    className={`flex-1 py-2 px-4 rounded-xl text-sm font-medium cursor-pointer transition-colors ${activeTab === 'recent'
-                            ? 'bg-white text-blue-600 shadow-sm'
-                            : 'text-gray-600 hover:text-gray-900'
+                    className={`flex-1 py-2 px-4 rounded-xl text-xs sm:text-sm font-medium cursor-pointer transition-colors ${activeTab === 'recent'
+                        ? 'bg-white text-blue-600 shadow-sm'
+                        : 'text-gray-600 hover:text-gray-900'
                         }`}
                 >
                     Recent Actions ({filteredRecent.length})
@@ -250,8 +250,8 @@ const LeaveApplicationCard = () => {
                     filteredPending.length > 0 ? (
                         filteredPending.map((request: any) => (
                             <div key={request.id} className="border border-gray-200 rounded-2xl p-4 hover:shadow-md transition-shadow cursor-pointer">
-                                <div className="flex items-start justify-between">
-                                    <div className="flex items-start gap-3 flex-1">
+                                <div className="flex items-start justify-between flex-wrap gap-4">
+                                    <div className="flex flex-col md:flex-row items-start gap-4 flex-1">
                                         <div className="w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center text-white font-medium text-sm">
                                             {request.avatar}
                                         </div>
@@ -262,7 +262,7 @@ const LeaveApplicationCard = () => {
                                                     {request.department}
                                                 </span>
                                             </div>
-                                            <div className="grid grid-cols-2 gap-4 text-sm text-gray-600 mb-2">
+                                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-gray-600 mb-2">
                                                 <div>
                                                     <span className="font-medium">Leave Type:</span> {request.leaveType}
                                                 </div>
@@ -285,7 +285,7 @@ const LeaveApplicationCard = () => {
                                             </div>
                                         </div>
                                     </div>
-                                    <div className="flex gap-2 ml-4">
+                                    <div className="flex gap-2 flex-wrap">
                                         <button
                                             onClick={() => handleReject(request.id)}
                                             className="px-4 py-2 bg-red-50 text-red-600 rounded-lg hover:bg-red-100 transition-colors flex items-center gap-1 text-sm font-medium"
@@ -328,8 +328,8 @@ const LeaveApplicationCard = () => {
                                                 </span>
                                             </div>
                                             <div className={`flex items-center gap-1 px-2 py-1 rounded-full text-xs font-medium ${action.status === 'approved'
-                                                    ? 'bg-green-100 text-green-700'
-                                                    : 'bg-red-100 text-red-700'
+                                                ? 'bg-green-100 text-green-700'
+                                                : 'bg-red-100 text-red-700'
                                                 }`}>
                                                 {action.status === 'approved' ? (
                                                     <BsCheckCircle className="w-3 h-3" />
