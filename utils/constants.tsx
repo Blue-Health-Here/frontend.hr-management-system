@@ -301,8 +301,8 @@ export const adminSidebarItems = [
         href: "/admin/employees",
         hasDropdown: true,
         subItems: [
-            { label: "Employees List", href: "" }, // /admin/employees (empty href = parent route)
-            { label: "Add Employees", href: "/add" },
+            { label: "All Employees", href: "" }, // /admin/employees (empty href = parent route)
+            { label: "Add New Employee", href: "/add" },
         ]
     },
     {
@@ -324,7 +324,17 @@ export const adminSidebarItems = [
         hasDropdown: true,
         subItems: [
             { label: "Performance Indicators", href: "" },
-            { label: "Add Indicator", href: "/add" },
+            { label: "Add New Indicator", href: "/add" },
+        ]
+    },
+    {
+        icon: FaUmbrellaBeach,
+        label: "Holidays",
+        href: "/admin/holidays",
+        hasDropdown: true,
+        subItems: [
+            { label: "All Holidays", href: "" },
+            { label: "Add New Holiday", href: "/add" },
         ]
     },
     {
@@ -347,16 +357,6 @@ export const adminSidebarItems = [
             { label: "All Users", href: "" },
             { label: "Add New User", href: "/add" },
             { label: "Roles", href: "/roles" },
-        ]
-    },
-    {
-        icon: FaUmbrellaBeach,
-        label: "Holidays",
-        href: "/admin/holidays",
-        hasDropdown: true,
-        subItems: [
-            { label: "All Holidays", href: "" },
-            { label: "Add Holiday", href: "/add" },
         ]
     },
     {
@@ -1092,7 +1092,7 @@ export const payrollItemsColumns = [
     { header: 'Category', accessor: 'category' },
     { header: 'Default / Unit Amount', accessor: 'amount' },
     {
-        header: '',
+        header: 'Actions',
         accessor: 'actions',
         render: (_: any, row: any) => (
             <div className="flex gap-4">
@@ -1170,7 +1170,7 @@ export const employeSalaryColumns = [
         )
     },
     {
-        header: '',
+        header: 'Actions',
         accessor: 'actions',
         render: (_: any, row: any) => (
             <div className="flex gap-4">

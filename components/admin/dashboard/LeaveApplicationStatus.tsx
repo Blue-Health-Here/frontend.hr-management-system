@@ -196,7 +196,7 @@ const LeaveApplicationCard = () => {
     const filteredRecent = getFilteredData(recentActions);
 
     return (
-        <div className="bg-white rounded-2xl p-4 sm:p-6 w-full space-y-4">
+        <div className="bg-white rounded-2xl p-4 sm:p-6 w-full space-y-4 theme-shadow">
             {/* Header */}
             <div className="flex items-center justify-between flex-wrap gap-4">
                 <h2 className="text-base lg:text-lg font-semibold text-gray-800">

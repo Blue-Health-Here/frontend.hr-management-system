@@ -56,17 +56,17 @@ const LeavesView = () => {
     <div>
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4 gap-4">
         <h1 className="text-2xl font-bold">Leaves</h1>
-        <div className="flex flex-row items-stretch gap-3 w-full sm:w-auto">
+        {/* <div className="flex flex-row items-stretch gap-3 w-full sm:w-auto">
           <ExportButton />
 
-          <Link href="/leaves/add">
+          <Link href="/admin/leaves/add">
             <Button
               label="Add Leave"
               icon={Plus}
             >
             </Button>
           </Link>
-        </div>
+        </div> */}
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
@@ -104,7 +104,7 @@ const LeavesView = () => {
       </div>
 
       {/* Leave Table */}
-      <div className="overflow-x-auto bg-white rounded-2xl">
+      <div className="overflow-x-auto bg-white rounded-2xl theme-shadow">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 bg-white p-4">
           <h2 className="text-lg font-semibold">Leave List</h2>
           <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-auto">

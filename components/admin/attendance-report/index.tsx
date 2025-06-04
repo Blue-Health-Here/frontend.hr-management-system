@@ -72,7 +72,7 @@ const AttendanceReportView = () => {
           />
         ))}
       </div>
-      <div className="bg-white rounded-2xl overflow-hidden p-4 flex flex-col gap-4">
+      <div className="bg-white rounded-2xl overflow-hidden p-4 flex flex-col gap-4 theme-shadow">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-3 sm:gap-4">
           <h2 className="text-base sm:text-lg font-semibold">
             Attendance List
