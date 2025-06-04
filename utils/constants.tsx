@@ -1,5 +1,9 @@
 import { Holiday } from "./types";
 import { LuLayoutDashboard } from "react-icons/lu";
+import { RxDashboard } from "react-icons/rx";
+
+import { FiUser } from 'react-icons/fi';
+import { IoSettingsOutline } from "react-icons/io5";
 import {
     FaUsers, FaCalendarAlt, FaUserCheck, FaChartLine,
     FaUmbrellaBeach, FaUserCog, FaCog
@@ -1504,3 +1508,8 @@ export const rotateShiftData = [
     nextShift: "Morning"
   }
 ]
+export const profileMenu = [
+  { name: "Dashboard", icon: RxDashboard, path: "/admin/dashboard" },
+  { name: "Profile", icon: FiUser, path: "/sign-in" },
+  { name: "Settings", icon: IoSettingsOutline, path: "/admin/settings" },
+];
