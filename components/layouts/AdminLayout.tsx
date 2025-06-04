@@ -2,11 +2,11 @@ import React, { ReactNode } from "react";
 import Sidebar from "../common/Sidebar";
 import Topbar from "../common/Topbar";
 
-interface MainLayoutProps {
+interface AdminLayoutProps {
   children: ReactNode;
 }
 
-function MainLayout({ children }: MainLayoutProps) {
+function AdminLayout({ children }: AdminLayoutProps) {
   return (
     <div className="flex min-h-screen overflow-x-hidden">
       <Sidebar isEmployee={false} />
@@ -18,4 +18,4 @@ function MainLayout({ children }: MainLayoutProps) {
   );
 }
 
-export default MainLayout;
+export default AdminLayout;

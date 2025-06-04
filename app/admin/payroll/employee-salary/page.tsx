@@ -1,10 +1,10 @@
 import EmployeeSalary from "@/components/admin/payroll/employe-salary";
-import MainLayout from "@/components/layouts/MainLayout";
+import AdminLayout from "@/components/layouts/AdminLayout";
 
 export default function EmployeSalary() {
   return (
-    <MainLayout>
+    <AdminLayout>
         <EmployeeSalary />
-    </MainLayout>
+    </AdminLayout>
   );
 }

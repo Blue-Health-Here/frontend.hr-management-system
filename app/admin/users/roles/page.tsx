@@ -1,12 +1,12 @@
 import React from "react";
-import MainLayout from "@/components/layouts/MainLayout";
 import RolesPage from "@/components/admin/users/roles";
+import AdminLayout from "@/components/layouts/AdminLayout";
 
 function Page() {
   return (
-    <MainLayout>
+    <AdminLayout>
       <RolesPage />
-    </MainLayout>
+    </AdminLayout>
   );
 }
 

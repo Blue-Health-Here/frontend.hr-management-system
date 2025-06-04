@@ -1,12 +1,12 @@
 import AssignShifts from '@/components/admin/shift-management/assign-shifts'
-import MainLayout from '@/components/layouts/MainLayout'
+import AdminLayout from '@/components/layouts/AdminLayout'
 import React from 'react'
 
 const page = () => {
   return (
-    <MainLayout>
+    <AdminLayout>
       <AssignShifts />
-    </MainLayout>
+    </AdminLayout>
   )
 }
 

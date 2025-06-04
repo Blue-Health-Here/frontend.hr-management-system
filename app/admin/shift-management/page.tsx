@@ -1,12 +1,12 @@
 import React from "react";
-import MainLayout from "@/components/layouts/MainLayout";
 import ShiftTimings from "@/components/admin/shift-management/shift-timings";
+import AdminLayout from "@/components/layouts/AdminLayout";
 
 function Page() {
   return (
-    <MainLayout>
+    <AdminLayout>
         <ShiftTimings/>
-    </MainLayout>
+    </AdminLayout>
   );
 }
 

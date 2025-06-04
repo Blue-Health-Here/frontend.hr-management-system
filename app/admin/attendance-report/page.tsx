@@ -1,12 +1,12 @@
 import React from "react";
-import MainLayout from "@/components/layouts/MainLayout";
 import AttendanceReportView from "@/components/admin/attendance-report";
+import AdminLayout from "@/components/layouts/AdminLayout";
 
 function Page() {
   return (
-    <MainLayout>
+    <AdminLayout>
       <AttendanceReportView />
-    </MainLayout>
+    </AdminLayout>
   );
 }
 

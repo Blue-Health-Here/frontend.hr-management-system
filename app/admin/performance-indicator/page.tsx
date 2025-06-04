@@ -1,12 +1,12 @@
 import React from "react";
-import MainLayout from "@/components/layouts/MainLayout";
 import PerformanceIndicatorPage from "@/components/admin/performance-indicator";
+import AdminLayout from "@/components/layouts/AdminLayout";
 
 function Page() {
   return (
-    <MainLayout>
+    <AdminLayout>
       <PerformanceIndicatorPage />
-    </MainLayout>
+    </AdminLayout>
   );
 }
 
