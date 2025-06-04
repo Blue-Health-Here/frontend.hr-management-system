@@ -1,12 +1,12 @@
 import React from "react";
-import MainLayout from "@/components/layouts/MainLayout";
 import PermissionsPage from "@/components/admin/users/permissions";
+import AdminLayout from "@/components/layouts/AdminLayout";
 
 function Page() {
     return (
-        <MainLayout>
+        <AdminLayout>
             <PermissionsPage />
-        </MainLayout>
+        </AdminLayout>
     );
 }
 

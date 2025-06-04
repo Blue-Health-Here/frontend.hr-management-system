@@ -1,10 +1,10 @@
 import EmployeePayrollItems from "@/components/admin/payroll/paroll-items";
-import MainLayout from "@/components/layouts/MainLayout";
+import AdminLayout from "@/components/layouts/AdminLayout";
 
 export default function PayrollItems() {
   return (
-    <MainLayout>
+    <AdminLayout>
         <EmployeePayrollItems/>
-    </MainLayout>
+    </AdminLayout>
   );
 }

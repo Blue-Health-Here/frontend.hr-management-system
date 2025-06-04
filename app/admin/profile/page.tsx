@@ -1,11 +1,11 @@
 
 import AddProfile from "@/components/admin/profile";
-import MainLayout from "@/components/layouts/MainLayout";
+import AdminLayout from "@/components/layouts/AdminLayout";
 
 export default function HRDashboard() {
   return (
-    <MainLayout>
+    <AdminLayout>
       <AddProfile />
-    </MainLayout>
+    </AdminLayout>
   );
 }

@@ -1,12 +1,12 @@
 import React from "react";
-import MainLayout from "@/components/layouts/MainLayout";
 import AddLeave from "@/components/admin/leaves/add";
+import AdminLayout from "@/components/layouts/AdminLayout";
 
 function Page() {
   return (
-    <MainLayout>
+    <AdminLayout>
       <AddLeave />
-    </MainLayout>
+    </AdminLayout>
   );
 }
 

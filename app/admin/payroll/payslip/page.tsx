@@ -1,10 +1,10 @@
 import EmployeePayslip from "@/components/admin/payroll/payslip";
-import MainLayout from "@/components/layouts/MainLayout";
+import AdminLayout from "@/components/layouts/AdminLayout";
 
 export default function PaySlip() {
   return (
-    <MainLayout>
+    <AdminLayout>
         <EmployeePayslip/>
-    </MainLayout>
+    </AdminLayout>
   );
 }
