@@ -6,7 +6,8 @@ import { FiUser } from 'react-icons/fi';
 import { IoSettingsOutline } from "react-icons/io5";
 import {
     FaUsers, FaCalendarAlt, FaUserCheck, FaChartLine,
-    FaUmbrellaBeach, FaUserCog, FaCog
+    FaUmbrellaBeach, FaUserCog, FaCog,
+    FaCross
 } from "react-icons/fa";
 import {
     Briefcase, CheckCircle, CheckSquare,
@@ -19,7 +20,7 @@ import { MdAppRegistration } from "react-icons/md";
 import { FiEdit } from "react-icons/fi";
 import { IoTrashOutline } from "react-icons/io5";
 import Dropdown from "@/components/common/form/DropDown";
-import { ImPaypal} from "react-icons/im";
+import { ImPaypal } from "react-icons/im";
 import { FaPeopleGroup } from "react-icons/fa6";
 
 export const employeeData = [
@@ -1435,7 +1436,7 @@ export const assignShiftsColumns = [
         header: 'Employee',
         accessor: 'employee'
     },
-       {
+    {
         header: 'Designation',
         accessor: 'designation'
     },
@@ -1446,41 +1447,41 @@ export const assignShiftsColumns = [
 ]
 
 export const assignShiftsData = [
-  {
-    employee: 'Mohsin Ikram',
-    designation: 'Software Engineer',
-    shift: 'Night'
-  },
-  {
-    employee: 'Ali Hamza',
-    designation: 'Frontend Developer',
-    shift: 'General'
-  },
-  {
-    employee: 'Haseeb',
-    designation: 'Backend Developer',
-    shift: 'Morning'
-  },
-  {
-    employee: 'Iqra',
-    designation: 'QA Engineer',
-    shift: 'General'
-  },
-  {
-    employee: 'Abdullah',
-    designation: 'UI/UX Designer',
-    shift: 'Night'
-  },
-  {
-    employee: 'Zaid',
-    designation: 'DevOps Engineer',
-    shift: 'Night'
-  },
-  {
-    employee: 'Faiq',
-    designation: 'Support Engineer',
-    shift: 'Morning'
-  },
+    {
+        employee: 'Mohsin Ikram',
+        designation: 'Software Engineer',
+        shift: 'Night'
+    },
+    {
+        employee: 'Ali Hamza',
+        designation: 'Frontend Developer',
+        shift: 'General'
+    },
+    {
+        employee: 'Haseeb',
+        designation: 'Backend Developer',
+        shift: 'Morning'
+    },
+    {
+        employee: 'Iqra',
+        designation: 'QA Engineer',
+        shift: 'General'
+    },
+    {
+        employee: 'Abdullah',
+        designation: 'UI/UX Designer',
+        shift: 'Night'
+    },
+    {
+        employee: 'Zaid',
+        designation: 'DevOps Engineer',
+        shift: 'Night'
+    },
+    {
+        employee: 'Faiq',
+        designation: 'Support Engineer',
+        shift: 'Morning'
+    },
 ]
 
 export const shiftTimeColumns = [
@@ -1509,7 +1510,7 @@ export const shiftTimeData = [
         start: "10:00 PM",
         end: "05:00 AM"
     },
-        {
+    {
         shiftName: 'General',
         start: "09:00 AM",
         end: "05:00 pM"
@@ -1517,35 +1518,35 @@ export const shiftTimeData = [
 ]
 
 export const rotateShiftColumns = [
-  {
-    header: 'Employee',
-    accessor: 'employee'
-  },
-  {
-    header: 'Next Shift',
-    accessor: 'nextShift'
-  }
+    {
+        header: 'Employee',
+        accessor: 'employee'
+    },
+    {
+        header: 'Next Shift',
+        accessor: 'nextShift'
+    }
 ]
 
 export const rotateShiftData = [
-  {
-    employee: 'Mohsin Ikram',
-    nextShift: "Night"
-  },
-  {
-    employee: 'Ali Hamza',
-    nextShift: "General"
-  },
-  {
-    employee: 'Haseeb',
-    nextShift: "Morning"
-  }
+    {
+        employee: 'Mohsin Ikram',
+        nextShift: "Night"
+    },
+    {
+        employee: 'Ali Hamza',
+        nextShift: "General"
+    },
+    {
+        employee: 'Haseeb',
+        nextShift: "Morning"
+    }
 ];
 
 export const profileMenu = [
-  { name: "Dashboard", icon: RxDashboard, path: "/admin/dashboard" },
-  { name: "Profile", icon: FiUser, path: "/sign-in" },
-  { name: "Settings", icon: IoSettingsOutline, path: "/admin/settings" },
+    { name: "Dashboard", icon: RxDashboard, path: "/admin/dashboard" },
+    { name: "Profile", icon: FiUser, path: "/sign-in" },
+    { name: "Settings", icon: IoSettingsOutline, path: "/admin/settings" },
 ];
 
 export const employeesCardData = [
@@ -1607,10 +1608,56 @@ export const employeesAttendanceData = [
         percentColor: "bg-orange-200",
         textColor: "text-orange-400",
         iconBgColor: "bg-orange-50",
-    }   
+    }
 ];
 
 export const sorting = [
     'Ascending',
     'Desending',
+];
+
+export const statsCards = [
+    {
+        title: 'Total Leaves',
+        value: '15',
+        change: '+17.02%',
+        changeType: 'positive',
+        lastMonth: 'Last Month',
+        icon: <Users className=" text-green-500" size={24} />,
+        iconColor: 'text-orange-500',
+        iconBgColor: "bg-green-50"
+    },
+    {
+        title: 'Approved Leaves',
+        value: '15',
+        change: '+17.02%',
+        changeType: 'positive',
+        lastMonth: 'Last Month',
+        icon: <Calendar className="text-orange-400" size={24} />,
+        iconColor: 'text-green-500',
+        iconBgColor: "bg-orange-50",
+
+    },
+    {
+        title: 'Pending Requests',
+        value: '5',
+        change: '+17.02%',
+        changeType: 'positive',
+        lastMonth: 'Last Month',
+        icon: <Clock className="text-blue-600" size={24} />,
+        iconColor: 'text-blue-500',
+        iconBgColor: "bg-blue-50"
+
+    },
+    {
+        title: 'Rejected Leaves',
+        value: '5',
+        change: '+17.02%',
+        changeType: 'positive',
+        lastMonth: 'Last Month',
+        icon: <FaCross className="text-purple-500" size={24} />,
+        iconColor: 'text-red-500',
+        iconBgColor: "bg-pink-50"
+
+    }
 ];
