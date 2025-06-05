@@ -50,7 +50,8 @@ const NavbarProfileDropdown: React.FC<NavbarProfileDropdownProps> = ({
 
       <button
         onClick={onClose}
-        className="group flex items-center gap-3 w-full p-2 rounded-md text-sm text-gray-700 hover:bg-green-50"
+        type="button"
+        className="group flex items-center cursor-pointer gap-3 w-full p-2 rounded-md text-sm text-gray-700 hover:bg-green-50"
       >
         <TbLogout2 className="w-5 h-5 text-gray-500 hover:bg-green-50" />
         <span className="text-sm">Logout</span>
