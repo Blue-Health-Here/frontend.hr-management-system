@@ -21,6 +21,7 @@ import { IoTrashOutline } from "react-icons/io5";
 import Dropdown from "@/components/common/form/DropDown";
 import { ImPaypal} from "react-icons/im";
 import { FaPeopleGroup } from "react-icons/fa6";
+import DeleteConfirmation from "@/components/common/DeleteConfirmation";
 
 export const employeeData = [
     {
@@ -1121,68 +1122,72 @@ export const designation = [
 ];
 
 export const employeSalaryColumns = [
-    {
-        header: 'Emp ID',
-        accessor: 'id'
-    },
-    {
-        header: 'Name',
-        accessor: 'name'
-    },
-    {
-        header: 'Email',
-        accessor: 'email'
-    },
-    {
-        header: 'Phone',
-        accessor: 'phone'
-    },
-    {
-        header: 'Designation',
-        accessor: 'designation',
-        render: (_: any, row: any) => (
-            <Dropdown
-                name="sort"
-                id="sort"
-                placeholder='Designation'
-                options={designation.map((d) => ({
-                    value: d,
-                    label: d,
-                }))}
-            />
-        ),
-    },
-    {
-        header: 'Joining Date',
-        accessor: 'joiningDate'
-    },
-    {
-        header: 'Salary',
-        accessor: 'salary'
-    },
-    {
-        header: 'Payslip',
-        accessor: 'payslip',
-        render: () => (
-            <span className={`px-3 py-2 text-xs font-semibold text-white bg-black rounded-full`}>
-                Generate Slip
-            </span>
-        )
-    },
-    {
-        header: 'Actions',
-        accessor: 'actions',
-        render: (_: any, row: any) => (
-            <div className="flex gap-4">
-                <button className="cursor-pointer">
-                    <FiEdit size={16} />
-                </button>
-                <button className="cursor-pointer">
-                    <IoTrashOutline size={16} />
-                </button>
-            </div>
-        ),
-    }
+  {
+    header: 'Emp ID',
+    accessor: 'id'
+  },
+  {
+    header: 'Name',
+    accessor: 'name'
+  },
+  {
+    header: 'Email',
+    accessor: 'email'
+  },
+  {
+    header: 'Phone',
+    accessor: 'phone'
+  },
+  {
+  header: 'Designation',
+  accessor: 'designation',
+  render: (_: any, row: any) => (
+    <Dropdown
+      name="designation"
+      id="designation"
+      placeholder='Select Designation'
+      options={designation.map((d) => ({
+        value: d,
+        label: d,
+      }))}
+    />
+  ),
+},
+  {
+    header: 'Joining Date',
+    accessor: 'joiningDate'
+  },
+  {
+    header: 'Salary',
+    accessor: 'salary'
+  },
+  {
+    header: 'Payslip',
+    accessor: 'payslip',
+    render: () => (
+      <span className={`px-3 py-2 text-xs font-semibold text-white bg-black rounded-full cursor-pointer`}>
+        Generate Slip
+      </span>
+    )
+  },
+  {
+    header: 'Actions',
+    accessor: 'actions',
+    render: (_: any, row: any) => (
+      <div className="flex gap-4">
+        <button className="cursor-pointer text-blue-500 hover:text-blue-700">
+          <FiEdit size={16} />
+        </button>
+        <DeleteConfirmation 
+          onConfirm={() => {
+            // This will be handled in the parent component
+            console.log('Delete initiated for:', row.id);
+          }} 
+          itemType="employee record"
+        />
+      </div>
+    ),
+  }
 ];
 
 
