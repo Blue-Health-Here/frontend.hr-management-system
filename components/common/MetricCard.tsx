@@ -48,7 +48,7 @@ const MetricCard = ({
   const isUp = showFooterArrow && numericValue >= numericTarget;
 
   return (
-    <div className="bg-white rounded-2xl w-full border border-gray-100 overflow-hidden">
+    <div className="bg-white rounded-2xl w-full border border-gray-100 overflow-hidden theme-shadow">
       <div className={`${isCompact ? 'p-4' : isShowCradFooter ? 'p-4 md:px-5 md:py-6' : 'p-6'}`}>
         {/* Header */}
         <div className="flex items-center gap-3 mb-3">
@@ -73,7 +73,7 @@ const MetricCard = ({
         {/* Main content */}
         {!isCompact && (
           <div className="flex items-center justify-between mt-5">
-            <h2 className="text-3xl font-bold text-gray-800">
+            <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-gray-800">
               {value}{target !== undefined ? ` / ${target}` : ''}
             </h2>
             {percentage !== undefined && (

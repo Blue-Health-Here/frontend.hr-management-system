@@ -1,6 +1,6 @@
-// app/admin/holidays/add/page.tsx
+import React from "react";
 import AddHoliday from "@/components/admin/holidays/add";
-import MainLayout from "@/components/layouts/MainLayout";
+import AdminLayout from "@/components/layouts/AdminLayout";
 
 export const generateMetadata = () => ({
   title: "Add Holiday | SmartHR",
@@ -16,8 +16,8 @@ export const generateMetadata = () => ({
 
 export default function AddHolidayPage() {
   return (
-    <MainLayout>
+    <AdminLayout>
       <AddHoliday />
-    </MainLayout>
+    </AdminLayout>
   );
 }

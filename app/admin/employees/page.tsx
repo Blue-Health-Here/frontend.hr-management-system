@@ -1,6 +1,6 @@
-// app/admin/employees/page.tsx
+import React from "react";
 import EmployeesView from "@/components/admin/employees";
-import MainLayout from "@/components/layouts/MainLayout";
+import AdminLayout from "@/components/layouts/AdminLayout";
 
 export const generateMetadata = () => ({
   title: "Employees | SmartHR",
@@ -17,8 +17,8 @@ export const generateMetadata = () => ({
 
 export default function EmployeesPage() {
   return (
-    <MainLayout>
+    <AdminLayout>
       <EmployeesView />
-    </MainLayout>
+    </AdminLayout>
   );
 }

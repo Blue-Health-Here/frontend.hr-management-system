@@ -1,6 +1,6 @@
-// app/admin/leaves/add/page.tsx
+import React from "react";
 import AddLeave from "@/components/admin/leaves/add";
-import MainLayout from "@/components/layouts/MainLayout";
+import AdminLayout from "@/components/layouts/AdminLayout";
 
 export const generateMetadata = () => ({
   title: "Add Leave Request | SmartHR",
@@ -16,8 +16,8 @@ export const generateMetadata = () => ({
 
 export default function AddLeavePage() {
   return (
-    <MainLayout>
+    <AdminLayout>
       <AddLeave />
-    </MainLayout>
+    </AdminLayout>
   );
 }

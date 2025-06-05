@@ -20,7 +20,7 @@ const EmployeeSalary = () => {
           <Button label='Add Salary' icon={FiPlusCircle} />
         </div>
       </div>
-      <div className="bg-white rounded-2xl">
+      <div className="bg-white rounded-2xl theme-shadow">
         <div className="border-b border-gray-200">
           <div className="flex justify-between items-center p-4">
             <h2 className="text-lg font-semibold">Employee Salary List</h2>

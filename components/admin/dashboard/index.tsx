@@ -13,7 +13,6 @@ import EmployeeByDepartment from "./EmployeeByDepartment";
 import AttendanceSummary from "./AttendanceSummary";
 import LeaveApplicationCard from "./LeaveApplicationStatus";
 
-// Register ChartJS components
 ChartJS.register(
   CategoryScale,
   LinearScale,
@@ -28,7 +27,7 @@ export default function DashboardView() {
   return (
     <div className="space-y-6">
       <EmployeeByDepartment />
-      <div className="flex flex-col lg:flex-row gap-6">
+      <div className="flex flex-col xl:flex-row gap-6">
         <AttendanceSummary />
         <LeaveApplicationCard />
       </div>

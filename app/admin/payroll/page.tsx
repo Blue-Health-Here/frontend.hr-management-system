@@ -1,6 +1,6 @@
 // app/admin/payroll/paroll-items/page.tsx
 import EmployeePayrollItems from "@/components/admin/payroll/paroll-items";
-import MainLayout from "@/components/layouts/MainLayout";
+import AdminLayout from "@/components/layouts/AdminLayout";
 
 export const generateMetadata = () => ({
   title: "Payroll Items | SmartHR",
@@ -8,7 +8,7 @@ export const generateMetadata = () => ({
   keywords: [
     "payroll items",
     "salary additions",
-    "payroll deductions", 
+    "payroll deductions",
     "overtime management",
     "compensation components"
   ]
@@ -16,8 +16,8 @@ export const generateMetadata = () => ({
 
 export default function PayrollItemsPage() {
   return (
-    <MainLayout>
+    <AdminLayout>
       <EmployeePayrollItems />
-    </MainLayout>
+    </AdminLayout>
   );
 }

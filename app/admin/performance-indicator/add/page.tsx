@@ -1,6 +1,6 @@
-// app/admin/performance-indicator/add/page.tsx
+import React from "react";
 import AddPerformanceIndicator from "@/components/admin/performance-indicator/add";
-import MainLayout from "@/components/layouts/MainLayout";
+import AdminLayout from "@/components/layouts/AdminLayout";
 
 export const generateMetadata = () => ({
   title: "Add Indicator | SmartHR",
@@ -16,8 +16,8 @@ export const generateMetadata = () => ({
 
 export default function AddPerformanceIndicatorPage() {
   return (
-    <MainLayout>
+    <AdminLayout>
       <AddPerformanceIndicator />
-    </MainLayout>
+    </AdminLayout>
   );
 }

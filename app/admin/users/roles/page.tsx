@@ -1,6 +1,6 @@
-// app/admin/users/roles/page.tsx
+import React from "react";
 import RolesPage from "@/components/admin/users/roles";
-import MainLayout from "@/components/layouts/MainLayout";
+import AdminLayout from "@/components/layouts/AdminLayout";
 
 export const generateMetadata = () => ({
   title: "User Roles | SmartHR",
@@ -16,8 +16,8 @@ export const generateMetadata = () => ({
 
 export default function UserRolesPage() {
   return (
-    <MainLayout>
+    <AdminLayout>
       <RolesPage />
-    </MainLayout>
+    </AdminLayout>
   );
 }

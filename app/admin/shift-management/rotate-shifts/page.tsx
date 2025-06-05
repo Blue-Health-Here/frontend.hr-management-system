@@ -1,12 +1,12 @@
 import React from 'react'
 import RotateShifts from '@/components/admin/shift-management/rotate-shifts'
-import MainLayout from '@/components/layouts/MainLayout'
+import AdminLayout from '@/components/layouts/AdminLayout'
 
 const page = () => {
   return (
-    <MainLayout>
+    <AdminLayout>
       <RotateShifts />
-    </MainLayout>
+    </AdminLayout>
   )
 }
 

@@ -1,5 +1,6 @@
-// app/layout.tsx
-import { Roboto } from "next/font/google";
+import type { Metadata } from "next";
+import { Roboto } from "next/font/google"; 
+import ThemeProvider from "./ThemeProvider";
 import "./globals.css";
 
 const roboto = Roboto({
@@ -16,8 +17,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={roboto.className}>
-        {children}
+      <body className={roboto.className}> 
+        <ThemeProvider>{children}</ThemeProvider>
       </body>
     </html>
   );

@@ -1,13 +1,13 @@
 // app/admin/payroll/employee-salary/page.tsx
 import EmployeeSalary from "@/components/admin/payroll/employe-salary";
-import MainLayout from "@/components/layouts/MainLayout";
+import AdminLayout from "@/components/layouts/AdminLayout";
 
 export const generateMetadata = () => ({
   title: "Employee Salary | SmartHR",
   description: "View and manage employee salary records with date range filtering, designation sorting, and export capabilities.",
   keywords: [
     "employee salary",
-    "salary management", 
+    "salary management",
     "payroll records",
     "salary processing",
     "compensation data"
@@ -16,8 +16,8 @@ export const generateMetadata = () => ({
 
 export default function EmployeeSalaryPage() {
   return (
-    <MainLayout>
+    <AdminLayout>
       <EmployeeSalary />
-    </MainLayout>
+    </AdminLayout>
   );
 }

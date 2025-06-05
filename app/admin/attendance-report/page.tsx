@@ -1,6 +1,6 @@
-// app/admin/attendance-report/page.tsx
+import React from "react";
 import AttendanceReportView from "@/components/admin/attendance-report";
-import MainLayout from "@/components/layouts/MainLayout";
+import AdminLayout from "@/components/layouts/AdminLayout";
 
 export const generateMetadata = () => ({
   title: "Attendance | SmartHR",
@@ -17,8 +17,8 @@ export const generateMetadata = () => ({
 
 export default function AttendanceReportPage() {
   return (
-    <MainLayout>
+    <AdminLayout>
       <AttendanceReportView />
-    </MainLayout>
+    </AdminLayout>
   );
 }

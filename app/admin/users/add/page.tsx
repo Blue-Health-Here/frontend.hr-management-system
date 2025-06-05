@@ -1,6 +1,6 @@
-// app/admin/users/add/page.tsx
+import React from "react";
 import AddUser from "@/components/admin/users/add";
-import MainLayout from "@/components/layouts/MainLayout";
+import AdminLayout from "@/components/layouts/AdminLayout";
 
 export const generateMetadata = () => ({
   title: "Add New User | SmartHR",
@@ -16,8 +16,8 @@ export const generateMetadata = () => ({
 
 export default function AddUserPage() {
   return (
-    <MainLayout>
+    <AdminLayout>
       <AddUser />
-    </MainLayout>
+    </AdminLayout>
   );
 }

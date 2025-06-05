@@ -1,13 +1,13 @@
-// app/admin/shift-management/shift-timings/page.tsx
+import React from "react";
 import ShiftTimings from "@/components/admin/shift-management/shift-timings";
-import MainLayout from "@/components/layouts/MainLayout";
+import AdminLayout from "@/components/layouts/AdminLayout";
 
 export const generateMetadata = () => ({
   title: "Shift Timings | SmartHR",
   description: "Define and manage shift schedules including timing parameters, rotation patterns, and shift categories.",
   keywords: [
     "shift timings",
-    "work schedule configuration", 
+    "work schedule configuration",
     "shift rotation",
     "workforce scheduling",
     "shift patterns"
@@ -16,8 +16,8 @@ export const generateMetadata = () => ({
 
 export default function ShiftTimingsPage() {
   return (
-    <MainLayout>
+    <AdminLayout>
       <ShiftTimings />
-    </MainLayout>
+    </AdminLayout>
   );
 }

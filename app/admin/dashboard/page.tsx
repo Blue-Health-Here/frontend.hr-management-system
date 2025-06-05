@@ -1,6 +1,5 @@
-// app/admin/dashboard/page.tsx
 import DashboardView from "@/components/admin/dashboard";
-import MainLayout from "@/components/layouts/MainLayout";
+import AdminLayout from "@/components/layouts/AdminLayout";
 
 export const generateMetadata = () => ({
   title: "Dashboard | SmartHR",
@@ -13,8 +12,8 @@ export const generateMetadata = () => ({
 
 export default function HRDashboardPage() {
   return (
-    <MainLayout>
+    <AdminLayout>
       <DashboardView />
-    </MainLayout>
+    </AdminLayout>
   );
 }

@@ -15,7 +15,7 @@ const EmployeePayslip = () => {
           <Button label='Download' icon={Download} />
         </div>
       </div>
-      <div className="bg-white p-6 rounded-2xl space-y-4">
+      <div className="bg-white p-6 rounded-2xl space-y-4 theme-shadow">
         <div className="flex justify-between items-start pb-4 border-b border-gray-200">
           <div className="space-y-1">
             <h1 className="text-green-600 text-3xl font-bold">SmartHR</h1>

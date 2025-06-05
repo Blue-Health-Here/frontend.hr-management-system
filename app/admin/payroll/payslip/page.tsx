@@ -1,6 +1,6 @@
 // app/admin/payroll/payslip/page.tsx
 import EmployeePayslip from "@/components/admin/payroll/payslip";
-import MainLayout from "@/components/layouts/MainLayout";
+import AdminLayout from "@/components/layouts/AdminLayout";
 
 export const generateMetadata = () => ({
   title: "Employee Payslip | SmartHR",
@@ -8,7 +8,7 @@ export const generateMetadata = () => ({
   keywords: [
     "employee payslip",
     "salary statement",
-    "earnings and deductions", 
+    "earnings and deductions",
     "payroll document",
     "salary breakdown"
   ]
@@ -16,8 +16,8 @@ export const generateMetadata = () => ({
 
 export default function PayslipPage() {
   return (
-    <MainLayout>
+    <AdminLayout>
       <EmployeePayslip />
-    </MainLayout>
+    </AdminLayout>
   );
 }

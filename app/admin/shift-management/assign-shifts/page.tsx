@@ -1,6 +1,7 @@
 // app/admin/shift-management/assign-shifts/page.tsx
 import AssignShifts from '@/components/admin/shift-management/assign-shifts'
-import MainLayout from '@/components/layouts/MainLayout'
+import AdminLayout from '@/components/layouts/AdminLayout'
+import React from 'react'
 
 export const generateMetadata = () => ({
   title: "Assign Shifts | SmartHR",
@@ -16,8 +17,8 @@ export const generateMetadata = () => ({
 
 export default function AssignShiftsPage() {
   return (
-    <MainLayout>
+    <AdminLayout>
       <AssignShifts />
-    </MainLayout>
+    </AdminLayout>
   )
 }

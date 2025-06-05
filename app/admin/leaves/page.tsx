@@ -1,6 +1,6 @@
-// app/admin/leaves/page.tsx
+import React from "react";
 import LeavesView from "@/components/admin/leaves";
-import MainLayout from "@/components/layouts/MainLayout";
+import AdminLayout from "@/components/layouts/AdminLayout";
 
 export const generateMetadata = () => ({
   title: "Leaves | SmartHR",
@@ -16,8 +16,8 @@ export const generateMetadata = () => ({
 
 export default function LeavesPage() {
   return (
-    <MainLayout>
+    <AdminLayout>
       <LeavesView />
-    </MainLayout>
+    </AdminLayout>
   );
 }
