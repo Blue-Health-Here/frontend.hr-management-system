@@ -107,7 +107,7 @@ export default function Sidebar({ isEmployee }: SidebarProps) {
           return (
             <div key={index}>
               <div
-                className={`flex items-center justify-between px-3 py-2 cursor-pointer rounded-md transition-all duration-200 ${shouldHighlight
+                className={`flex items-center justify-between gap-2 px-3 py-2 cursor-pointer rounded-md transition-all duration-200 ${shouldHighlight
                   ? "bg-green-600 text-white"
                   : "hover:bg-green-50 text-gray-700"
                   }`}
