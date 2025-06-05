@@ -301,7 +301,7 @@ export const adminSidebarItems = [
         href: "/admin/employees",
         hasDropdown: true,
         subItems: [
-            { label: "All Employees", href: "" }, // /admin/employees (empty href = parent route)
+            { label: "All Employees", href: "" },
             { label: "Add New Employee", href: "/add" },
         ]
     },
@@ -367,7 +367,18 @@ export const adminSidebarItems = [
         subItems: [
             { label: "Shift Timings", href: "" },
             { label: "Assign Shifts", href: "/assign-shifts" },
-            // { label: "Rotate Shifts", href: "/rotate-shifts" },
+        ]
+    },
+    {
+        icon: FaUserCog,
+        label: "Alerts",
+        href: "/admin/alerts",
+        hasDropdown: true,
+        subItems: [
+            { label: "Leave Updates", href: "/leave-updates" },
+            { label: "Check-In/Out Reminders", href: "/check-in-out-reminders" },
+            { label: "Payslip Notifications", href: "/payslip-notifications" },
+            { label: "Announcements", href: "/announcements" }
         ]
     },
     {
@@ -379,7 +390,7 @@ export const adminSidebarItems = [
             { label: "General", href: "" },
             { label: "Company Settings", href: "/company" },
             { label: "Localization", href: "/localization" },
-            { label: "Theme Settings", href: "/theme" }
+            // { label: "Theme Settings", href: "/theme" }
         ]
     }
 ];
