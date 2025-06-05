@@ -12,7 +12,7 @@ import Dropdown from "@/components/common/form/DropDown";
 import DatePickerField from "@/components/common/form/DatePickerField";
 import { Field, Form, Formik } from "formik";
 import { FiEdit } from "react-icons/fi";
-import { IoTrashOutline } from "react-icons/io5";
+import DeleteConfirmation from "@/components/common/DeleteConfirmation";
 
 const EmployeesView = () => {
   const router = useRouter();
@@ -48,7 +48,7 @@ const EmployeesView = () => {
   };
 
   const handleFilterChange = () => {
-    let filteredEmployees = [...employees];
+    let filteredEmployees = [...employeeData];
 
     if (designationFilter) {
       filteredEmployees = filteredEmployees.filter(
@@ -77,6 +77,10 @@ const EmployeesView = () => {
     return filteredEmployees;
   };
 
+  const handleDeleteEmployee = (id: string) => {
+    setEmployees(employees.filter((employee) => employee.id !== id));
+  };
+
   const initialValues = {
     date: '',
     designation: '',
@@ -92,9 +96,7 @@ const EmployeesView = () => {
         <h1 className="text-2xl font-bold">Employee</h1>
         <div className="flex flex-col sm:flex-row items-stretch gap-3 w-auto">
           <ExportButton />
-          <Link
-            href="/admin/employees/add"
-          >
+          <Link href="/admin/employees/add">
             <Button label="Add Employee" icon={Plus}></Button>
           </Link>
         </div>
@@ -121,12 +123,14 @@ const EmployeesView = () => {
             initialValues={initialValues}
             onSubmit={(values) => {
               console.log('Form Values:', values);
+              setDesignationFilter(values.designation);
+              setStatusFilter(values.status);
+              setSortOption(values.sort);
             }}
           >
             {({ setFieldValue, values }) => (
               <Form>
                 <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2">
-
                   <DatePickerField name="date" className="w-60" />
                   <div className="w-36">
                     <Field
@@ -134,7 +138,7 @@ const EmployeesView = () => {
                       name="designation"
                       className="block w-full pl-3 pr-8 py-1.5 sm:py-2 border border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 text-sm rounded-md appearance-none bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLWNoZXZyb24tZG93biI+PHBhdGggZD0ibTYgOSA2IDYgNi02Ii8+PC9zdmc+')] bg-no-repeat bg-[position:right_0.5rem_center] bg-[size:1rem]"
                     >
-                      <option value="ascending">Designation</option>
+                      <option value="">Designation</option>
                       <option value="Developer">Developer</option>
                       <option value="Executive">Executive</option>
                       <option value="Software Engineer">Software Engineer</option>
@@ -154,7 +158,7 @@ const EmployeesView = () => {
                       name="status"
                       className="block w-full pl-3 pr-8 py-1.5 sm:py-2 border border-gray-300 focus:outline-none text-sm rounded-md appearance-none bg-[url('data:image/svg+xml;base64,...')] bg-no-repeat bg-[position:right_0.5rem_center] bg-[size:1rem]"
                     >
-                      <option value="">Select Status</option>
+                      <option value="All">All Status</option>
                       <option value="Active">Active</option>
                       <option value="Inactive">Inactive</option>
                     </Field>
@@ -163,13 +167,13 @@ const EmployeesView = () => {
                   <Dropdown
                     name="sort"
                     id="sort"
-                    placeholder="Sort By: Last 7 Days"
+                    placeholder="Sort By"
                     options={sorting.map((d) => ({ value: d, label: d }))}
                     value={values.sort}
                     onChange={(option: any) => setFieldValue("sort", option)}
                   />
                   <div className="w-28">
-                    <Button label="Submit" type="submit" />
+                    <Button label="Filter" type="submit" />
                   </div>
                 </div>
               </Form>
@@ -259,12 +263,16 @@ const EmployeesView = () => {
                   </td>
                   <td className="py-4 px-6 whitespace-nowrap">
                     <div className="flex gap-4">
-                      <Link href={`/admin/employees/${employee.id}/edit`}>
-                        <FiEdit size={16} />
+                      <Link 
+                        href={`/admin/employees/${employee.id}/edit`}
+                        className="text-black-500 t"
+                      >
+                        <FiEdit size={16} className="cursor-pointer" />
                       </Link>
-                      <button className="cursor-pointer">
-                        <IoTrashOutline size={16} />
-                      </button>
+                      <DeleteConfirmation 
+                        onConfirm={() => handleDeleteEmployee(employee.id)}
+                        itemType="employee"
+                      />
                     </div>
                   </td>
                 </tr>
