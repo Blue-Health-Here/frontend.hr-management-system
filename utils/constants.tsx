@@ -382,6 +382,18 @@ export const adminSidebarItems = [
         ]
     },
     {
+        icon: FaUserCog,
+        label: "Reports",
+        href: "/admin/reports",
+        hasDropdown: true,
+        subItems: [
+            { label: "Attendance Reports", href: "/attendance" },
+            { label: "Leave Reports", href: "/leave" },
+            { label: "Employee Reports", href: "/employee" },
+            { label: "Payroll Reports", href: "/payroll" }
+        ]
+    },
+    {
         icon: FaCog,
         label: "Settings",
         href: "/admin/settings",
