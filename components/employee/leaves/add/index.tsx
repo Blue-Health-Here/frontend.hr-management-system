@@ -2,30 +2,44 @@
 import React from "react";
 import { Formik, Form } from "formik";
 import InputField from "@/components/common/form/InputField";
-import {
-  leaveTypes,
-} from "@/utils/constants";
 import TextAreaField from "@/components/common/form/TextArea";
 import Button from "@/components/common/Button";
 import SelectField from "@/components/common/form/SelectField";
+import { leaveTypes } from "@/utils/constants";
 
-const AddLeave: React.FC = () => {
+type AddLeaveProps = {
+  isEdit?: boolean;
+  initialValues?: {
+    leaveType: string;
+    fromDate: string;
+    toDate: string;
+    reason: string;
+  };
+};
+
+const AddLeave: React.FC<AddLeaveProps> = ({
+  isEdit = false,
+  initialValues = {
+    leaveType: "",
+    fromDate: "",
+    toDate: "",
+    reason: "",
+  },
+}) => {
   return (
     <div className="rounded-2xl p-6 bg-white theme-shadow space-y-6">
       <div>
-        <h1 className="text-2xl  font-semibold text-gray-800">Add Leave</h1>
+        <h1 className="text-2xl font-semibold text-gray-800">
+          {isEdit ? "Edit Leave" : "Add Leave"}
+        </h1>
         <div className="border-b border-gray-200 w-full my-3"></div>
       </div>
 
       <Formik
-        initialValues={{
-          leaveType: "",
-          fromDate: "",
-          toDate: "",
-          reason: "",
-        }}
+        initialValues={initialValues}
+        enableReinitialize
         onSubmit={(values) => {
-          console.log(values);
+          console.log(isEdit ? "Updating leave:" : "Creating leave:", values);
         }}
       >
         {() => (
@@ -50,11 +64,9 @@ const AddLeave: React.FC = () => {
                 className="flex-1 flex justify-between flex-col gap-1"
               />
             </div>
-            <TextAreaField
-              name="reason"
-              label="Reason"
-              rows={3}
-            />
+
+            <TextAreaField name="reason" label="Reason" rows={3} />
+
             <div className="flex flex-col gap-4 justify-center md:flex-row md:justify-end">
               <button
                 type="button"
@@ -64,9 +76,8 @@ const AddLeave: React.FC = () => {
               </button>
               <Button
                 className="md:max-w-36"
-                label="Add Leave"
-              >
-              </Button>
+                label={isEdit ? "Update Leave" : "Add Leave"}
+              />
             </div>
           </Form>
         )}

@@ -2,14 +2,16 @@
 import React, { useEffect, useState } from "react";
 import { Users, UserPlus, ChevronDown, Plus } from "lucide-react";
 import { employeeData } from "@/utils/constants";
-import DateRangeDropdown from "../../common/form/DateRangeDropdown";
 import { Employees, Leave } from "@/utils/types";
 import { handleFilterChange } from "@/utils/helper";
 import Link from "next/link";
 import ExportButton from "../../common/ExportButton";
 import Button from "../../common/Button";
-import DataTableListing from "@/components/common/leaves/DataTableListing";
 import LeavesCard from "@/components/common/leaves/LeavesCard";
+import { Field, Form, Formik } from "formik";
+import DatePickerField from "@/components/common/form/DatePickerField";
+import DataTable from "@/components/common/DataTable";
+import { useRouter } from "next/navigation";
 
 const LeavesView = () => {
     const [employees] = useState<Employees[]>(employeeData);
@@ -18,7 +20,7 @@ const LeavesView = () => {
     const [dateRangeFilter, setDateRangeFilter] = useState<string>("04/26/2025 - 05/02/2025");
     const [leaveTypeFilter, setLeaveTypeFilter] = useState<string>("All");
     const [sortOption, setSortOption] = useState<string>("");
-
+    const router = useRouter();
     useEffect(() => {
 
         const leaveData = employees.map((employee) => ({
@@ -38,11 +40,47 @@ const LeavesView = () => {
             department: employee.department,
             isPlanned: Math.random() > 0.5,
             isPending: Math.random() > 0.7,
+            status: "Approved",
         }));
 
         setLeavesData(leaveData);
     }, []);
+
     const filteredLeaves = handleFilterChange({ leaveData: leavesData, dateRangeFilter, leaveTypeFilter, sortOption });
+
+    const initialValues = {
+        date: "",
+        status: "All",
+        department: "All",
+        sort: "",
+    };
+    const applicationData = [
+        { id: 1, title: 'Application 1', applicant: 'Ali Raza', status: 'approved' },
+        { id: 2, title: 'Application 2', applicant: 'Sara Ahmed', status: 'declined' },
+        { id: 3, title: 'Application 3', applicant: 'Usman Shah', status: 'approved' },
+    ];
+
+
+    const applicationColumns = [
+        { header: 'ID', accessor: 'id' },
+        { header: 'Title', accessor: 'title' },
+        { header: 'Applicant', accessor: 'applicant' },
+    ];
+
+    const handleEdit = (row: any) => {
+        console.log("Editing row:", row);
+
+        if (row && row.id) {
+            router.push(`/employee/leaves/${row.id}/edit`);
+        } else {
+            console.warn('Row is undefined or missing id');
+        }
+    };
+
+
+    const handleDelete = (row: any) => {
+        console.log('Delete row:', row);
+    };
 
     return (
         <div>
@@ -99,44 +137,88 @@ const LeavesView = () => {
             <div className="overflow-x-auto bg-white rounded-2xl theme-shadow">
                 <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 bg-white p-4">
                     <h2 className="text-lg font-semibold">Leave List</h2>
-                    <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-auto">
-                        <DateRangeDropdown
-                            value={dateRangeFilter}
-                            onChange={setDateRangeFilter}
-                        />
+                    <Formik
+                        initialValues={initialValues}
+                        onSubmit={() => { }}
+                    >
+                        {() => (
+                            <Form>
+                                <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-auto">
+                                    <DatePickerField name="date" className="w-60" />
 
-                        <div className="relative w-full sm:w-40">
-                            <select
-                                id="leave-type-filter"
-                                value={leaveTypeFilter}
-                                onChange={(e) => setLeaveTypeFilter(e.target.value)}
-                                className="block w-full pl-3 pr-6 py-2 border border-gray-300 focus:outline-none text-sm rounded-md appearance-none bg-white "
-                            >
-                                <option value="All">Leave Type</option>
-                                <option value="Medical Leave">Medical Leave</option>
-                                <option value="Casual Leave">Casual Leave</option>
-                                <option value="Annual Leave">Annual Leave</option>
-                            </select>
-                            <ChevronDown className="absolute right-2 top-2.5 h-4 w-4 text-gray-400 pointer-events-none" />
-                        </div>
+                                    <div className="w-auto sm:w-32 md:w-36">
+                                        <div className="relative">
+                                            <Field
+                                                as="select"
+                                                name="leave"
+                                                className="block appearance-none w-full pl-3 pr-8 py-2 text-xs sm:text-sm border border-gray-300 focus:outline-none rounded-md"
+                                            >
+                                                <option value="All">Leave Type</option>
+                                                <option value="Medical Leave">Medical Leave</option>
+                                                <option value="Casual Leave">Casual Leave</option>
+                                                <option value="Annual Leave">Annual Leave</option>
+                                            </Field>
+                                            <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                                                <ChevronDown className="h-3 w-3 sm:h-4 sm:w-4" />
+                                            </div>
+                                        </div>
+                                    </div>
 
-                        <div className="relative w-full sm:w-36">
-                            <select
-                                id="sort"
-                                value={sortOption}
-                                onChange={(e) => setSortOption(e.target.value)}
-                                className="block w-full pl-3 pr-8 py-2 border border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 text-sm rounded-md appearance-none bg-white"
-                            >
-                                <option value="">Sort By : Last 7 Days</option>
-                                <option value="ascending">Employee Name (A-Z)</option>
-                            </select>
-                            <ChevronDown className="absolute right-2 top-2.5 h-4 w-4 text-gray-400 pointer-events-none" />
-                        </div>
-                    </div>
+                                    <div className="w-full sm:w-36 md:w-40">
+                                        <div className="relative">
+                                            <Field
+                                                as="select"
+                                                name="sort"
+                                                className="block appearance-none w-full pl-3 pr-8 py-2 text-xs sm:text-sm border border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 rounded-md"
+                                            >
+                                                <option value="">Sort By Name</option>
+                                                <option value="ascending">Ascending</option>
+                                                <option value="descending">Descending</option>
+                                            </Field>
+                                            <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                                                <ChevronDown className="h-3 w-3 sm:h-4 sm:w-4" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="w-full sm:w-36 md:w-40">
+                                        <div className="relative">
+                                            <Field
+                                                as="select"
+                                                name="status"
+                                                className="block appearance-none w-full pl-3 pr-8 py-2 text-xs sm:text-sm border border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 rounded-md"
+                                            >
+                                                <option value="">Select Status</option>
+                                                <option value="ascending">Approved</option>
+                                                <option value="descending">Declined</option>
+                                            </Field>
+                                            <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                                                <ChevronDown className="h-3 w-3 sm:h-4 sm:w-4" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="w-28">
+                                        <Button label="Submit" type="submit" />
+                                    </div>
+                                </div>
+                            </Form>
+                        )}
+                    </Formik>
                 </div>
-
-                {/* Table */}
-                <DataTableListing filteredLeaves={filteredLeaves} />
+                <DataTable
+                    columns={applicationColumns}
+                    data={applicationData}
+                    showStatus={true}
+                    showActions={true}
+                    actionsConfig={{
+                        onEdit: handleEdit,
+                        onDelete: handleDelete
+                    }}
+                    statusConfig={{
+                        type: 'approved-declined',
+                        activeClass: 'bg-green-100 text-green-800',
+                        inactiveClass: 'bg-red-100 text-red-800'
+                    }}
+                />
             </div>
         </div>
     );
