@@ -7,14 +7,13 @@ import { IoSettingsOutline } from "react-icons/io5";
 import {
     FaUsers, FaCalendarAlt, FaUserCheck, FaChartLine,
     FaUmbrellaBeach, FaUserCog, FaCog,
-    FaCross
 } from "react-icons/fa";
 import {
     Briefcase, CheckCircle, CheckSquare,
     UserPlus, Users, XCircle, Calendar, Clock,
     Grid3x3, Volume2
 } from "lucide-react";
-import { RiDashboardHorizontalFill, RiPlayCircleLine, RiPresentationFill, RiTeamLine } from "react-icons/ri";
+import { RiCalendarScheduleLine, RiDashboardHorizontalFill, RiPlayCircleLine, RiPresentationFill, RiTeamLine } from "react-icons/ri";
 import { AiOutlineSchedule } from "react-icons/ai";
 import { MdAppRegistration } from "react-icons/md";
 import { FiEdit } from "react-icons/fi";
@@ -22,6 +21,7 @@ import { IoTrashOutline } from "react-icons/io5";
 import Dropdown from "@/components/common/form/DropDown";
 import { ImPaypal } from "react-icons/im";
 import { FaPeopleGroup } from "react-icons/fa6";
+import { LiaCommentDollarSolid } from "react-icons/lia";
 
 export const employeeData = [
     {
@@ -1623,7 +1623,7 @@ export const statsCards = [
         change: '+17.02%',
         changeType: 'positive',
         lastMonth: 'Last Month',
-        icon: <Users className=" text-green-500" size={24} />,
+        icon: <RiCalendarScheduleLine className=" text-green-500" size={24} />,
         iconColor: 'text-orange-500',
         iconBgColor: "bg-green-50"
     },
@@ -1633,7 +1633,7 @@ export const statsCards = [
         change: '+17.02%',
         changeType: 'positive',
         lastMonth: 'Last Month',
-        icon: <Calendar className="text-orange-400" size={24} />,
+        icon: <RiCalendarScheduleLine className="text-orange-400" size={24} />,
         iconColor: 'text-green-500',
         iconBgColor: "bg-orange-50",
 
@@ -1644,7 +1644,7 @@ export const statsCards = [
         change: '+17.02%',
         changeType: 'positive',
         lastMonth: 'Last Month',
-        icon: <Clock className="text-blue-600" size={24} />,
+        icon: <RiCalendarScheduleLine className="text-blue-600" size={24} />,
         iconColor: 'text-blue-500',
         iconBgColor: "bg-blue-50"
 
@@ -1655,9 +1655,94 @@ export const statsCards = [
         change: '+17.02%',
         changeType: 'positive',
         lastMonth: 'Last Month',
-        icon: <FaCross className="text-purple-500" size={24} />,
+        icon: <RiCalendarScheduleLine className="text-purple-500" size={24} />,
         iconColor: 'text-red-500',
         iconBgColor: "bg-pink-50"
 
     }
 ];
+
+export const employeeMetrics = [
+    {
+        title: 'Total Employee',
+        value: '600',
+        icon: <RiCalendarScheduleLine className=" text-green-500" size={24} />,
+        iconColor: 'text-orange-500',
+        iconBgColor: "bg-green-50"
+    },
+    {
+        title: 'Active Employee',
+        value: '600',
+        icon: <RiCalendarScheduleLine className="text-orange-400" size={24} />,
+        iconColor: 'text-green-500',
+        iconBgColor: "bg-orange-50",
+
+    },
+    {
+        title: 'New Employee',
+        value: '600',
+        icon: <RiCalendarScheduleLine className="text-blue-600" size={24} />,
+        iconColor: 'text-blue-500',
+        iconBgColor: "bg-blue-50"
+
+    },
+    {
+        title: 'Inactive Employee',
+        value: '600',
+        icon: <RiCalendarScheduleLine className="text-purple-500" size={24} />,
+        iconColor: 'text-red-500',
+        iconBgColor: "bg-pink-50"
+
+    }
+];
+export const payrollMetrics = [
+    {
+        title: 'Total Payroll',
+        value: '$250,000',
+        icon: <LiaCommentDollarSolid className=" text-green-500" size={24} />,
+        iconColor: 'text-orange-500',
+        iconBgColor: "bg-green-50"
+    },
+    {
+        title: 'Deductions',
+        value: '$50,000',
+        icon: <LiaCommentDollarSolid className="text-orange-400" size={24} />,
+        iconColor: 'text-green-500',
+        iconBgColor: "bg-orange-50",
+
+    },
+    {
+        title: 'Net Pay',
+        value: '$200,000',
+        icon: <LiaCommentDollarSolid className="text-blue-600" size={24} />,
+        iconColor: 'text-blue-500',
+        iconBgColor: "bg-blue-50"
+
+    },
+    {
+        title: 'Allowances',
+        value: '$30,000',
+        icon: <LiaCommentDollarSolid className="text-purple-500" size={24} />,
+        iconColor: 'text-red-500',
+        iconBgColor: "bg-pink-50"
+
+    }
+];
+
+export const labels = ['Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct'];
+
+export const barData = {
+  labels,
+  datasets: [
+    {
+      label: 'Sales',
+      data: [1500, 2300, 1800, 2000, 2400, 2100],
+      backgroundColor: '#ccccC',
+    },
+    {
+      label: 'Expenses',
+      data: [1200, 1700, 1100, 1400, 1600, 1300],
+      backgroundColor: '#008ECC',
+    }
+  ],
+};
