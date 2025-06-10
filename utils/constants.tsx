@@ -245,49 +245,6 @@ export const employeeData = [
     },
 ];
 
-export const sidebarNav = [
-    {
-        icon: LuLayoutDashboard,
-        label: "Dashboard",
-        href: "/dashboard"
-    },
-    {
-        icon: FaUsers,
-        label: "Employees",
-        href: "/employees"
-    },
-    {
-        icon: FaCalendarAlt,
-        label: "Leaves",
-        href: "/leaves"
-    },
-    {
-        icon: FaUserCheck,
-        label: "Attendance",
-        href: "/attendance-report"
-    },
-    {
-        icon: FaChartLine,
-        label: "Performance",
-        href: "/performance-indicator"
-    },
-    {
-        icon: FaUmbrellaBeach,
-        label: "Holidays",
-        href: "/holidays"
-    },
-    {
-        icon: FaUserCog,
-        label: "Users",
-        href: "/users"
-    },
-    {
-        icon: FaCog,
-        label: "Settings",
-        href: "/settings"
-    }
-];
-
 export const adminSidebarItems = [
     {
         icon: RiDashboardHorizontalFill,
@@ -408,7 +365,17 @@ export const employeeSidebarItems = [
         href: "/employee/attendance",
         hasDropdown: false,
     },
-]
+    {
+        icon: FaUsers,
+        label: "Leaves",
+        href: "/employee/leaves",
+        hasDropdown: true,
+        subItems: [
+            { label: "All Leaves", href: "" },
+            { label: "Add New Leave", href: "/add" },
+        ]
+    },
+];
 
 export const checkInOutData = [
     {
@@ -847,6 +814,45 @@ export const employeeStats = [
     {
         title: "New Joiners",
         value: 0,
+        percentage: "0",
+        icon: <UserPlus className="h-4 w-4 text-white" />,
+        iconBgColor: "bg-blue-400",
+        percentColor: "bg-blue-100",
+        textColor: "text-blue-500",
+    }
+];
+
+export const employeeLeaveStats = [
+    {
+        title: "Annual Leaves",
+        value: 5,
+        percentage: "0",
+        icon: <Users className="h-4 w-4 text-white" />,
+        percentColor: "bg-fuchsia-100",
+        textColor: "text-fuchsia-700",
+        iconBgColor: "bg-black"
+    },
+    {
+        title: "Medical Leaves",
+        value: 11,
+        percentage: "0",
+        icon: <CheckCircle className="h-4 w-4 text-white" />,
+        iconBgColor: "bg-green-500",
+        percentColor: "bg-green-100",
+        textColor: "text-green-500",
+    },
+    {
+        title: "Casual Leaves",
+        value: 2,
+        percentage: "0",
+        icon: <XCircle className="h-4 w-4 text-white" />,
+        iconBgColor: "bg-red-500",
+        percentColor: "bg-red-100",
+        textColor: "text-red-700",
+    },
+    {
+        title: "Other Leaves",
+        value: 7,
         percentage: "0",
         icon: <UserPlus className="h-4 w-4 text-white" />,
         iconBgColor: "bg-blue-400",

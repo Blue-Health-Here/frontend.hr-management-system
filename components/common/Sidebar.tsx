@@ -94,7 +94,9 @@ export default function Sidebar({ isEmployee }: SidebarProps) {
       {isSidebarOpen && <span onClick={() => dispatch(setIsSidebarOpen(false))} className='absolute top-4 right-4 text-green-600 cursor-pointer'><RxCross2 size={20} /></span>}
       <div className="flex justify-center pb-5 p-6">
         <h1 className="text-green-600 text-lg md:text-xl lgtext-2xl font-bold">
-          SmartHR
+          <Link href={'/admin/dashboard'}>
+            SmartHR
+          </Link>
         </h1>
       </div>
       <nav className="flex flex-col gap-2 flex-1 py-8 px-6">

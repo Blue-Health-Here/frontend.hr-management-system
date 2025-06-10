@@ -1,7 +1,7 @@
 import React from 'react';
 import { LeavesCardProps } from '@/utils/types';
 
-const Card: React.FC<LeavesCardProps> = ({ 
+const LeavesCard: React.FC<LeavesCardProps> = ({ 
   title, 
   value, 
   icon: Icon, 
@@ -33,4 +33,4 @@ const Card: React.FC<LeavesCardProps> = ({
   );
 };
 
-export default Card;
+export default LeavesCard;
