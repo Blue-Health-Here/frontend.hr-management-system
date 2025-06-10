@@ -1732,17 +1732,54 @@ export const payrollMetrics = [
 export const labels = ['Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct'];
 
 export const barData = {
-  labels,
-  datasets: [
-    {
-      label: 'Sales',
-      data: [1500, 2300, 1800, 2000, 2400, 2100],
-      backgroundColor: '#ccccC',
-    },
-    {
-      label: 'Expenses',
-      data: [1200, 1700, 1100, 1400, 1600, 1300],
-      backgroundColor: '#008ECC',
-    }
-  ],
+    labels,
+    datasets: [
+        {
+            label: 'Sales',
+            data: [1500, 2300, 1800, 2000, 2400, 2100],
+            backgroundColor: '#ccccC',
+        },
+        {
+            label: 'Expenses',
+            data: [1200, 1700, 1100, 1400, 1600, 1300],
+            backgroundColor: '#008ECC',
+        }
+    ],
+};
+
+export const attendanceChartData = {
+    labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep"],
+    datasets: [
+        {
+            label: "Present",
+            data: [30, 60, 70, 75, 80, 95, 100, 75, 70],
+            borderColor: "#28a745",
+            backgroundColor: "rgba(40, 167, 69, 0.1)",
+            tension: 0.4,
+            fill: false,
+        },
+        {
+            label: "Absent",
+            data: [30, 55, 60, 65, 55, 70, 80, 60, 68],
+            borderColor: "#e83e8c",
+            backgroundColor: "rgba(232, 62, 140, 0.1)",
+            tension: 0.4,
+            fill: false,
+        },
+    ],
+};
+export const payrollChartdata = {
+    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+    datasets: [
+        {
+            label: 'Payroll',
+            data: [22, 22, 30, 45, 55, 45, 20, 70, 70, 30, 10, 30],
+            fill: false,
+            borderColor: '#FF7043',
+            borderWidth: 4,
+            stepped: true,
+            tension: 0,
+            pointRadius: 0,
+        }
+    ]
 };

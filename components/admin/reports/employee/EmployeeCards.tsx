@@ -8,7 +8,7 @@ const EmployeeCards = () => {
     return (
         <>
             <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4 gap-4">
-                <h1 className="text-2xl font-bold">Leave Reports</h1>
+                <h1 className="text-2xl font-bold">Employee Report</h1>
                 <div className="w-auto">
                     <ExportButton />
                 </div>
@@ -30,7 +30,7 @@ const EmployeeCards = () => {
                     </div>
                 </div>
                 <div className="w-full xl:w-1/2 bg-white p-4 sm:p-6 rounded-2xl theme-shadow">
-                    <EmployeeChart />
+                <EmployeeChart />
                 </div>
             </div></>
     )

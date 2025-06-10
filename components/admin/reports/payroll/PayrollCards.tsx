@@ -1,15 +1,15 @@
 "use client"
 import MetricCard from '@/components/common/MetricCard'
-import { payrollMetrics, statsCards } from '@/utils/constants'
+import { payrollChartdata, payrollMetrics, statsCards } from '@/utils/constants'
 import React from 'react'
 import ExportButton from '@/components/common/ExportButton'
-import PayRollChart from './PayRollChart'
+import Linechart from '@/components/auth/Linechart'
 
 const PayrollCards = () => {
     return (
         <>
             <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4 gap-4">
-                <h1 className="text-2xl font-bold">Leave Reports</h1>
+                <h1 className="text-2xl font-bold">Payslip Report</h1>
                 <div className="w-auto">
                     <ExportButton />
                 </div>
@@ -31,7 +31,7 @@ const PayrollCards = () => {
                     </div>
                 </div>
                 <div className="w-full xl:w-1/2 bg-white p-4 sm:p-6 rounded-2xl theme-shadow">
-                <PayRollChart />
+                    <Linechart data={payrollChartdata}  />
                 </div>
             </div></>
     )

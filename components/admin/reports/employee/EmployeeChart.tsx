@@ -43,6 +43,7 @@ const EmployeeChart = () => {
 
     const options: ChartOptions<"bar"> = {
         responsive: true,
+        maintainAspectRatio: false,
         plugins: {
             title: {
                 display: true,
@@ -91,7 +92,9 @@ const EmployeeChart = () => {
     };
 
     return (
+        <div className="h-60 md:h-full">
             <Bar data={chartData} options={options} />
+        </div>
     )
 }
 

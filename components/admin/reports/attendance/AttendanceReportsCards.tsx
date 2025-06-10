@@ -1,12 +1,12 @@
 "use client"
 import React from "react";
-import { attendanceMetrics } from "@/utils/constants";
+import { attendanceChartData, attendanceMetrics } from "@/utils/constants";
 import MetricCard from "@/components/common/MetricCard";
-import AttendanceChart from "./AttendanceChart";
 import ExportButton from "@/components/common/ExportButton";
 import Link from "next/link";
 import Button from "@/components/common/Button";
 import { Plus } from "lucide-react";
+import Linechart from "@/components/auth/Linechart";
 
 function AttendanceReportsCards() {
     return (
@@ -37,7 +37,7 @@ function AttendanceReportsCards() {
                 </div>
 
                 <div className="w-full xl:w-1/2 bg-white p-4 sm:p-6 rounded-2xl theme-shadow">
-                    <AttendanceChart />
+                    <Linechart data={attendanceChartData}/>
                 </div>
             </div>
         </>

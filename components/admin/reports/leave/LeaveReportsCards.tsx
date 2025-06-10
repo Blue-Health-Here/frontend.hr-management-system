@@ -32,7 +32,9 @@ const LeaveReportsCards = () => {
                         ))}
                     </div>
                 </div>
+                <div className="w-full xl:w-1/2 bg-white p-4 sm:p-6 rounded-2xl theme-shadow">
                 <LeaveChart />
+                </div>
             </div></>
     )
 }
