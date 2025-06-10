@@ -29,25 +29,23 @@ const EmployeeAttendance = () => {
           {/* <WorkingHoursTimeline /> */}
         </div>
       </div>
-      <div className="bg-white rounded-2xl">
-        <div className="border-b border-gray-200">
-          <div className="flex justify-between items-center p-4">
-            <h2 className="text-lg font-semibold">Employee Attendance</h2>
-            <div className="flex gap-x-4">
-              <DateRangeDropdown
-                value={dateRangeFilter}
-                onChange={setDateRangeFilter}
-              />
-              <Dropdown
-                name="status"
-                id="status"
-                placeholder='Status'
-                options={statusOptions.map((d) => ({
-                  value: d,
-                  label: d,
-                }))}
-              />
-            </div>
+      <div className="bg-white theme-shadow rounded-2xl">
+        <div className="border-b border-gray-200 flex justify-between items-center p-4">
+          <h2 className="text-lg font-semibold">Employee Attendance</h2>
+          <div className="flex gap-x-4">
+            <DateRangeDropdown
+              value={dateRangeFilter}
+              onChange={setDateRangeFilter}
+            />
+            <Dropdown
+              name="status"
+              id="status"
+              placeholder='Status'
+              options={statusOptions.map((d) => ({
+                value: d,
+                label: d,
+              }))}
+            />
           </div>
         </div>
         <DataTable columns={employeeAttendanceColumns} data={employeeAttendanceData} />
