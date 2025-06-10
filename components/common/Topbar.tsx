@@ -55,7 +55,7 @@ const Topbar = () => {
   };
 
   return (
-    <div className={`p-4 sm:pl-8 sm:p-3 fixed top-0 bg-white right-0 z-50 w-full lg:w-[calc(100%-256px)] ${isScrolled ? 'shadow-xl' : ''}`}>
+    <div className={`p-4 sm:pl-8 sm:p-3 fixed top-0 bg-white right-0 z-50 w-full lg:w-[calc(100%-256px)] ${isScrolled ? 'theme-shadow' : ''}`}>
       <div className="flex justify-between items-center">
         <div className="lg:hidden block cursor-pointer" onClick={handleSidebarClick}>
           <FaBars size={22} className="text-green-600" />

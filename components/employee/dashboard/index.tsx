@@ -40,7 +40,7 @@ const EmployeeDashboard = () => {
     //     alerts={alertsData}
     //   />
     // </div>
-    <div className=" bg-white p-4 lg:p-6 rounded-2xl">
+    <div className="theme-shadow bg-white p-4 lg:p-6 rounded-2xl">
       <h2 className="text-base lg:text-lg font-semibold text-gray-800 mb-4">
         Attendance History
       </h2>
