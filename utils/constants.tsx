@@ -1490,10 +1490,16 @@ export const rotateShiftData = [
   }
 ];
 
-export const profileMenu = [
+export const adminProfileMenu = [
   { name: "Dashboard", icon: RxDashboard, path: "/admin/dashboard" },
   { name: "Profile", icon: FiUser, path: "/sign-in" },
   { name: "Settings", icon: IoSettingsOutline, path: "/admin/settings" },
+];
+
+export const employeeProfileMenu = [
+  { name: "Dashboard", icon: RxDashboard, path: "/employee/dashboard" },
+  { name: "Profile", icon: FiUser, path: "/sign-in" },
+  { name: "Settings", icon: IoSettingsOutline, path: "/employee/settings" },
 ];
 
 export const employeesCardData = [
