@@ -45,7 +45,7 @@ const EmployeeTimeCard: React.FC = () => {
     };
 
     return (
-        <div className="bg-white p-4 lg:p-6 rounded-2xl  w-md flex flex-col justify-center items-center">
+        <div className="bg-white p-4 lg:p-6 rounded-2xl theme-shadow w-md flex flex-col justify-center items-center">
             <div className="text-center mb-6">
                 <h2 className="text-gray-400 text-sm font-medium mb-1">Good Morning, Merry</h2>
                 <p className=" text-gray-700 text-lg font-medium">{new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}, {new Date().toLocaleDateString()}</p>

@@ -6,21 +6,22 @@ import { FiUser } from 'react-icons/fi';
 import { IoSettingsOutline } from "react-icons/io5";
 import {
     FaUsers, FaCalendarAlt, FaUserCheck, FaChartLine,
-    FaUmbrellaBeach, FaUserCog, FaCog
+    FaUmbrellaBeach, FaUserCog, FaCog,
 } from "react-icons/fa";
 import {
     Briefcase, CheckCircle, CheckSquare,
     UserPlus, Users, XCircle, Calendar, Clock,
     Grid3x3, Volume2
 } from "lucide-react";
-import { RiDashboardHorizontalFill, RiPlayCircleLine, RiPresentationFill, RiTeamLine } from "react-icons/ri";
+import { RiCalendarScheduleLine, RiDashboardHorizontalFill, RiPlayCircleLine, RiPresentationFill, RiTeamLine } from "react-icons/ri";
 import { AiOutlineSchedule } from "react-icons/ai";
 import { MdAppRegistration } from "react-icons/md";
 import { FiEdit } from "react-icons/fi";
 import { IoTrashOutline } from "react-icons/io5";
 import Dropdown from "@/components/common/form/DropDown";
-import { ImPaypal} from "react-icons/im";
+import { ImPaypal } from "react-icons/im";
 import { FaPeopleGroup } from "react-icons/fa6";
+import { LiaCommentDollarSolid } from "react-icons/lia";
 
 export const employeeData = [
     {
@@ -379,6 +380,18 @@ export const adminSidebarItems = [
             { label: "Check-In/Out Reminders", href: "/check-in-out-reminders" },
             { label: "Payslip Notifications", href: "/payslip-notifications" },
             { label: "Announcements", href: "/announcements" }
+        ]
+    },
+    {
+        icon: FaUserCog,
+        label: "Reports",
+        href: "/admin/reports",
+        hasDropdown: true,
+        subItems: [
+            { label: "Attendance Reports", href: "/attendance" },
+            { label: "Leave Reports", href: "/leave" },
+            { label: "Employee Reports", href: "/employee" },
+            { label: "Payroll Reports", href: "/payroll" }
         ]
     },
     {
@@ -812,6 +825,46 @@ export const metrics = [
         textColor: "text-pink-500",
         iconBgColor: "bg-pink-50"
 
+    }
+
+];
+
+export const attendanceMetrics = [
+    {
+        title: "Total Working Days",
+        value: "120",
+        icon: <RiTeamLine className=" text-green-500" size={24} />,
+        percent: "95",
+        percentColor: "bg-green-100",
+        textColor: "text-green-500",
+        iconBgColor: "bg-green-50"
+    },
+    {
+        title: "Total Leave Taken",
+        value: "5",
+        icon: <Briefcase className="text-orange-400" size={24} />,
+        percent: "24",
+        percentColor: "bg-orange-200",
+        textColor: "text-orange-400",
+        iconBgColor: "bg-orange-50",
+    },
+    {
+        title: "Total Holidays",
+        value: "12",
+        icon: <RiPresentationFill className="text-blue-600" size={24} />,
+        percent: "48",
+        percentColor: "bg-blue-100",
+        textColor: "text-blue-500",
+        iconBgColor: "bg-blue-50"
+    },
+    {
+        title: "Total Half-days",
+        value: "3",
+        icon: <CheckSquare className="text-purple-500" size={24} />,
+        percent: "1.27",
+        percentColor: "bg-pink-100",
+        textColor: "text-pink-500",
+        iconBgColor: "bg-pink-50"
     }
 
 ];
@@ -1383,7 +1436,7 @@ export const assignShiftsColumns = [
         header: 'Employee',
         accessor: 'employee'
     },
-       {
+    {
         header: 'Designation',
         accessor: 'designation'
     },
@@ -1394,41 +1447,41 @@ export const assignShiftsColumns = [
 ]
 
 export const assignShiftsData = [
-  {
-    employee: 'Mohsin Ikram',
-    designation: 'Software Engineer',
-    shift: 'Night'
-  },
-  {
-    employee: 'Ali Hamza',
-    designation: 'Frontend Developer',
-    shift: 'General'
-  },
-  {
-    employee: 'Haseeb',
-    designation: 'Backend Developer',
-    shift: 'Morning'
-  },
-  {
-    employee: 'Iqra',
-    designation: 'QA Engineer',
-    shift: 'General'
-  },
-  {
-    employee: 'Abdullah',
-    designation: 'UI/UX Designer',
-    shift: 'Night'
-  },
-  {
-    employee: 'Zaid',
-    designation: 'DevOps Engineer',
-    shift: 'Night'
-  },
-  {
-    employee: 'Faiq',
-    designation: 'Support Engineer',
-    shift: 'Morning'
-  },
+    {
+        employee: 'Mohsin Ikram',
+        designation: 'Software Engineer',
+        shift: 'Night'
+    },
+    {
+        employee: 'Ali Hamza',
+        designation: 'Frontend Developer',
+        shift: 'General'
+    },
+    {
+        employee: 'Haseeb',
+        designation: 'Backend Developer',
+        shift: 'Morning'
+    },
+    {
+        employee: 'Iqra',
+        designation: 'QA Engineer',
+        shift: 'General'
+    },
+    {
+        employee: 'Abdullah',
+        designation: 'UI/UX Designer',
+        shift: 'Night'
+    },
+    {
+        employee: 'Zaid',
+        designation: 'DevOps Engineer',
+        shift: 'Night'
+    },
+    {
+        employee: 'Faiq',
+        designation: 'Support Engineer',
+        shift: 'Morning'
+    },
 ]
 
 export const shiftTimeColumns = [
@@ -1457,7 +1510,7 @@ export const shiftTimeData = [
         start: "10:00 PM",
         end: "05:00 AM"
     },
-        {
+    {
         shiftName: 'General',
         start: "09:00 AM",
         end: "05:00 pM"
@@ -1465,41 +1518,47 @@ export const shiftTimeData = [
 ]
 
 export const rotateShiftColumns = [
-  {
-    header: 'Employee',
-    accessor: 'employee'
-  },
-  {
-    header: 'Next Shift',
-    accessor: 'nextShift'
-  }
+    {
+        header: 'Employee',
+        accessor: 'employee'
+    },
+    {
+        header: 'Next Shift',
+        accessor: 'nextShift'
+    }
 ]
 
 export const rotateShiftData = [
-  {
-    employee: 'Mohsin Ikram',
-    nextShift: "Night"
-  },
-  {
-    employee: 'Ali Hamza',
-    nextShift: "General"
-  },
-  {
-    employee: 'Haseeb',
-    nextShift: "Morning"
-  }
+    {
+        employee: 'Mohsin Ikram',
+        nextShift: "Night"
+    },
+    {
+        employee: 'Ali Hamza',
+        nextShift: "General"
+    },
+    {
+        employee: 'Haseeb',
+        nextShift: "Morning"
+    }
 ];
 
 export const adminProfileMenu = [
-  { name: "Dashboard", icon: RxDashboard, path: "/admin/dashboard" },
-  { name: "Profile", icon: FiUser, path: "/sign-in" },
-  { name: "Settings", icon: IoSettingsOutline, path: "/admin/settings" },
+    { name: "Dashboard", icon: RxDashboard, path: "/admin/dashboard" },
+    { name: "Profile", icon: FiUser, path: "/sign-in" },
+    { name: "Settings", icon: IoSettingsOutline, path: "/admin/settings" },
+];
+
+export const profileMenu = [
+    { name: "Dashboard", icon: RxDashboard, path: "/admin/dashboard" },
+    { name: "Profile", icon: FiUser, path: "/sign-in" },
+    { name: "Settings", icon: IoSettingsOutline, path: "/admin/settings" },
 ];
 
 export const employeeProfileMenu = [
-  { name: "Dashboard", icon: RxDashboard, path: "/employee/dashboard" },
-  { name: "Profile", icon: FiUser, path: "/sign-in" },
-  { name: "Settings", icon: IoSettingsOutline, path: "/employee/settings" },
+    { name: "Dashboard", icon: RxDashboard, path: "/employee/dashboard" },
+    { name: "Profile", icon: FiUser, path: "/sign-in" },
+    { name: "Settings", icon: IoSettingsOutline, path: "/employee/settings" },
 ];
 
 export const employeesCardData = [
@@ -1561,10 +1620,178 @@ export const employeesAttendanceData = [
         percentColor: "bg-orange-200",
         textColor: "text-orange-400",
         iconBgColor: "bg-orange-50",
-    }   
+    }
 ];
 
 export const sorting = [
     'Ascending',
     'Desending',
 ];
+
+export const statsCards = [
+    {
+        title: 'Total Leaves',
+        value: '15',
+        change: '+17.02%',
+        changeType: 'positive',
+        lastMonth: 'Last Month',
+        icon: <RiCalendarScheduleLine className=" text-green-500" size={24} />,
+        iconColor: 'text-orange-500',
+        iconBgColor: "bg-green-50"
+    },
+    {
+        title: 'Approved Leaves',
+        value: '15',
+        change: '+17.02%',
+        changeType: 'positive',
+        lastMonth: 'Last Month',
+        icon: <RiCalendarScheduleLine className="text-orange-400" size={24} />,
+        iconColor: 'text-green-500',
+        iconBgColor: "bg-orange-50",
+
+    },
+    {
+        title: 'Pending Requests',
+        value: '5',
+        change: '+17.02%',
+        changeType: 'positive',
+        lastMonth: 'Last Month',
+        icon: <RiCalendarScheduleLine className="text-blue-600" size={24} />,
+        iconColor: 'text-blue-500',
+        iconBgColor: "bg-blue-50"
+
+    },
+    {
+        title: 'Rejected Leaves',
+        value: '5',
+        change: '+17.02%',
+        changeType: 'positive',
+        lastMonth: 'Last Month',
+        icon: <RiCalendarScheduleLine className="text-purple-500" size={24} />,
+        iconColor: 'text-red-500',
+        iconBgColor: "bg-pink-50"
+
+    }
+];
+
+export const employeeMetrics = [
+    {
+        title: 'Total Employee',
+        value: '600',
+        icon: <RiCalendarScheduleLine className=" text-green-500" size={24} />,
+        iconColor: 'text-orange-500',
+        iconBgColor: "bg-green-50"
+    },
+    {
+        title: 'Active Employee',
+        value: '600',
+        icon: <RiCalendarScheduleLine className="text-orange-400" size={24} />,
+        iconColor: 'text-green-500',
+        iconBgColor: "bg-orange-50",
+
+    },
+    {
+        title: 'New Employee',
+        value: '600',
+        icon: <RiCalendarScheduleLine className="text-blue-600" size={24} />,
+        iconColor: 'text-blue-500',
+        iconBgColor: "bg-blue-50"
+
+    },
+    {
+        title: 'Inactive Employee',
+        value: '600',
+        icon: <RiCalendarScheduleLine className="text-purple-500" size={24} />,
+        iconColor: 'text-red-500',
+        iconBgColor: "bg-pink-50"
+
+    }
+];
+export const payrollMetrics = [
+    {
+        title: 'Total Payroll',
+        value: '$250,000',
+        icon: <LiaCommentDollarSolid className=" text-green-500" size={24} />,
+        iconColor: 'text-orange-500',
+        iconBgColor: "bg-green-50"
+    },
+    {
+        title: 'Deductions',
+        value: '$50,000',
+        icon: <LiaCommentDollarSolid className="text-orange-400" size={24} />,
+        iconColor: 'text-green-500',
+        iconBgColor: "bg-orange-50",
+
+    },
+    {
+        title: 'Net Pay',
+        value: '$200,000',
+        icon: <LiaCommentDollarSolid className="text-blue-600" size={24} />,
+        iconColor: 'text-blue-500',
+        iconBgColor: "bg-blue-50"
+
+    },
+    {
+        title: 'Allowances',
+        value: '$30,000',
+        icon: <LiaCommentDollarSolid className="text-purple-500" size={24} />,
+        iconColor: 'text-red-500',
+        iconBgColor: "bg-pink-50"
+
+    }
+];
+
+export const labels = ['Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct'];
+
+export const barData = {
+    labels,
+    datasets: [
+        {
+            label: 'Sales',
+            data: [1500, 2300, 1800, 2000, 2400, 2100],
+            backgroundColor: '#ccccC',
+        },
+        {
+            label: 'Expenses',
+            data: [1200, 1700, 1100, 1400, 1600, 1300],
+            backgroundColor: '#008ECC',
+        }
+    ],
+};
+
+export const attendanceChartData = {
+    labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep"],
+    datasets: [
+        {
+            label: "Present",
+            data: [30, 60, 70, 75, 80, 95, 100, 75, 70],
+            borderColor: "#28a745",
+            backgroundColor: "rgba(40, 167, 69, 0.1)",
+            tension: 0.4,
+            fill: false,
+        },
+        {
+            label: "Absent",
+            data: [30, 55, 60, 65, 55, 70, 80, 60, 68],
+            borderColor: "#e83e8c",
+            backgroundColor: "rgba(232, 62, 140, 0.1)",
+            tension: 0.4,
+            fill: false,
+        },
+    ],
+};
+export const payrollChartdata = {
+    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+    datasets: [
+        {
+            label: 'Payroll',
+            data: [22, 22, 30, 45, 55, 45, 20, 70, 70, 30, 10, 30],
+            fill: false,
+            borderColor: '#FF7043',
+            borderWidth: 4,
+            stepped: true,
+            tension: 0,
+            pointRadius: 0,
+        }
+    ]
+};
