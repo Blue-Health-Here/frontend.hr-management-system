@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import { Plus } from "lucide-react";
-import DataTableListing from "../leaves/DataTableListing";
+import DataTableListing from "../../common/leaves/DataTableListing";
 import Link from "next/link";
 import { holidaysData } from "@/utils/constants";
 import Button from "../../common/Button";

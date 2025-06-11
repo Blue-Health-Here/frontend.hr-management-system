@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { Plus, ChevronDown } from "lucide-react";
 import { employeeData } from "@/utils/constants";
 import { Employees, PerformanceIndicator } from "@/utils/types";
-import DataTableListing from "../leaves/DataTableListing";
+import DataTableListing from "../../common/leaves/DataTableListing";
 import Link from "next/link";
 import Button from "../../common/Button";
 
