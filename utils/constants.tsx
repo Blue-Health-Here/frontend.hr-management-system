@@ -264,6 +264,16 @@ export const adminSidebarItems = [
         ]
     },
     {
+        icon: FaUsers,
+        label: "Departments",
+        href: "/admin/departments",
+        hasDropdown: true,
+        subItems: [
+            { label: "All Departments", href: "" },
+            { label: "Add New Department", href: "/add" },
+        ]
+    },
+    {
         icon: FaCalendarAlt,
         label: "Leaves",
         href: "/admin/leaves",
@@ -1705,6 +1715,7 @@ export const employeeMetrics = [
 
     }
 ];
+
 export const payrollMetrics = [
     {
         title: 'Total Payroll',
@@ -1778,6 +1789,7 @@ export const attendanceChartData = {
         },
     ],
 };
+
 export const payrollChartdata = {
     labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
     datasets: [

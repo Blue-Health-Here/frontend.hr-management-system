@@ -22,30 +22,30 @@ const EmployeesView = () => {
   const [sortOption, setSortOption] = useState("");
 
   // Calculate summary numbers
-  const totalEmployees = employees.length;
-  const activeEmployees = employees.filter(
-    (emp) => emp.status === "Active"
-  ).length;
-  const inactiveEmployees = employees.filter(
-    (emp) => emp.status === "Inactive"
-  ).length;
+  // const totalEmployees = employees.length;
+  // const activeEmployees = employees.filter(
+  //   (emp) => emp.status === "Active"
+  // ).length;
+  // const inactiveEmployees = employees.filter(
+  //   (emp) => emp.status === "Inactive"
+  // ).length;
 
-  const newJoiners = employees.filter((emp) => {
-    const joinDate = new Date(emp.joiningDate);
-    const sevenDaysAgo = new Date();
-    sevenDaysAgo.setDate(sevenDaysAgo.getDate() - 7);
-    return joinDate >= sevenDaysAgo;
-  }).length;
+  // const newJoiners = employees.filter((emp) => {
+  //   const joinDate = new Date(emp.joiningDate);
+  //   const sevenDaysAgo = new Date();
+  //   sevenDaysAgo.setDate(sevenDaysAgo.getDate() - 7);
+  //   return joinDate >= sevenDaysAgo;
+  // }).length;
 
-  const handleDesignationChange = (id: string, newDesignation: string) => {
-    setEmployees(
-      employees.map((employee) =>
-        employee.id === id
-          ? { ...employee, designation: newDesignation }
-          : employee
-      )
-    );
-  };
+  // const handleDesignationChange = (id: string, newDesignation: string) => {
+  //   setEmployees(
+  //     employees.map((employee) =>
+  //       employee.id === id
+  //         ? { ...employee, designation: newDesignation }
+  //         : employee
+  //     )
+  //   );
+  // };
 
   const handleFilterChange = () => {
     let filteredEmployees = [...employees];
