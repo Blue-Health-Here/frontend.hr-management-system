@@ -46,11 +46,11 @@ function EmployeeByDepartment() {
       if (width < 640) {
         setBarThickness(10);
       } else if (width < 768) {
-        setBarThickness(16);
+        setBarThickness(15);
       } else if (width < 1024) {
-        setBarThickness(20);
+        setBarThickness(18);
       } else {
-        setBarThickness(25);
+        setBarThickness(20);
       }
     };
 
@@ -85,7 +85,7 @@ function EmployeeByDepartment() {
         <h2 className="text-base lg:text-lg font-semibold text-gray-800 mb-4">
           Employees By Department
         </h2>
-        <div className="h-52 md:h-64 lg:h-[300px]">
+        <div className="h-52 md:h-64 lg:h-[400px] xl:h-[430px]">
           <Bar
             data={departmentData}
             options={{

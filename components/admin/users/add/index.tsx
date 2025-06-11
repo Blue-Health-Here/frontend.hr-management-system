@@ -60,7 +60,7 @@ function AddUser() {
             <div className="flex flex-col gap-4 justify-center md:flex-row md:justify-end mt-6">
               <button
                 type="button"
-                className="px-6 py-2 border border-gray-300 rounded-sm text-gray-700 hover:bg-gray-50"
+                className="text-xs md:text-sm px-6 py-2 border border-gray-300 rounded-sm text-gray-700 hover:bg-gray-50"
               >
                 Cancel
               </button>
