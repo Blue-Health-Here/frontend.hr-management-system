@@ -15,7 +15,7 @@ export const generateMetadata = () => ({
 });
 
   const leaveData = {
-    leaveType: "Sick Leave",
+    leaveType: "medical",
     fromDate: "2025-06-01",
     toDate: "2025-06-03",
     reason: "Fever and rest required",
