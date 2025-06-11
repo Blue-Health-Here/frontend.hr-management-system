@@ -13,6 +13,7 @@ import DatePickerField from "@/components/common/form/DatePickerField";
 import { Field, Form, Formik } from "formik";
 import { FiEdit } from "react-icons/fi";
 import { IoTrashOutline } from "react-icons/io5";
+import DateRangeField from "@/components/common/form/DateRangeField";
 
 const EmployeesView = () => {
   const router = useRouter();
@@ -127,6 +128,7 @@ const EmployeesView = () => {
               <Form>
                 <div className="flex flex-wrap items-stretch sm:items-center gap-3">
 
+                  {/* <DateRangeField name="dateRange" label="" /> */}
                   <DatePickerField name="date" className="w-full sm:w-52 md::w-60" />
                   <div className="w-full sm:w-36">
                     <Field
