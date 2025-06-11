@@ -12,6 +12,9 @@ import { Field, Form, Formik } from "formik";
 import DatePickerField from "@/components/common/form/DatePickerField";
 import DataTable from "@/components/common/DataTable";
 import { useRouter } from "next/navigation";
+import { MdCoPresent } from "react-icons/md";
+import { AiFillCalendar, AiFillCloseSquare } from "react-icons/ai";
+import { RiPassPendingFill } from "react-icons/ri";
 
 const LeavesView = () => {
     const [employees] = useState<Employees[]>(employeeData);
@@ -77,6 +80,39 @@ const LeavesView = () => {
         }
     };
 
+    const metrics = [
+        {
+            title: "Annual Leaves",
+            value: "20",
+            color: "blue" as const,
+            icon: Users,
+            iconColor: "blue" as const,
+
+        },
+        {
+            title: "Medical Leaves",
+            value: "5",
+            subtitle: "visitors",
+            color: "purple" as const,
+            icon: UserPlus,
+            iconColor: "purple" as const,
+        },
+        {
+            title: "Casual Leaves",
+            value: "3",
+            subtitle: "messages",
+            color: "green" as const,
+            icon: UserPlus,
+            iconColor: "green" as const,
+        },
+        {
+            title: "Other Leaves",
+            value: "10",
+            color: "pink" as const,
+            icon: UserPlus,
+            iconColor: "pink" as const,
+        }
+    ];
 
     const handleDelete = (row: any) => {
         console.log('Delete row:', row);
@@ -99,7 +135,19 @@ const LeavesView = () => {
                 </div>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4 mb-6 bg-white rounded-2xl theme-shadow p-4">
+                {metrics.map((metric, index) => (
+                    <LeavesCard
+                        key={index}
+                        title={metric.title}
+                        value={metric.value}
+                        color={metric.color}
+                        icon={metric.icon}
+                        iconColor={metric.iconColor}
+                    />
+                ))}
+            </div>
+            {/* <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
                 <LeavesCard
                     title="Annual Leaves"
                     value={20}
@@ -131,7 +179,7 @@ const LeavesView = () => {
                     iconColor="#ab47bc"
                     bgImage="https://smarthr.dreamstechnologies.com/react/template/static/media/bg-blue-01.260ff81ee2c2594c14d3.svg"
                 />
-            </div>
+            </div> */}
 
             {/* Leave Table */}
             <div className="overflow-x-auto bg-white rounded-2xl theme-shadow">

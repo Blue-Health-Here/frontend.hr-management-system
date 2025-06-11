@@ -55,7 +55,7 @@ const LeavesView = () => {
   const pendingRequests = leaveData.filter((leave) => leave.isPending).length;
 
   const filteredLeaves = handleFilterChange({ leaveData, dateRangeFilter, leaveTypeFilter, sortOption });
- const metrics = [
+  const metrics = [
     {
       title: "Total Present",
       value: "567",
@@ -69,7 +69,7 @@ const LeavesView = () => {
       value: "143",
       subtitle: "visitors",
       color: "purple" as const,
-      icon: AiFillCalendar ,
+      icon: AiFillCalendar,
       iconColor: "purple" as const,
 
 
@@ -111,16 +111,16 @@ const LeavesView = () => {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4 mb-6 bg-white rounded-2xl theme-shadow p-4">
-     {metrics.map((metric, index) => (
-            <LeavesCard
-              key={index}
-              title={metric.title}
-              value={metric.value}
-              color={metric.color}
-              icon={metric.icon}
-              iconColor={metric.iconColor}
-            />
-          ))}
+        {metrics.map((metric, index) => (
+          <LeavesCard
+            key={index}
+            title={metric.title}
+            value={metric.value}
+            color={metric.color}
+            icon={metric.icon}
+            iconColor={metric.iconColor}
+          />
+        ))}
       </div>
 
       {/* Leave Table */}
