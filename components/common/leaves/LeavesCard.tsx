@@ -8,13 +8,13 @@ interface MetricCardProps {
   icon?: React.ComponentType<any>;
 }
 
-export const LeavesCard: React.FC<MetricCardProps> = ({
+const LeavesCard: React.FC<MetricCardProps> = ({
   title,
   value,
   color,
   size = 'medium',
   icon: Icon,
-  iconColor,
+  iconColor
 }) => {
   const colorClasses = {
     blue: 'bg-blue-50',
@@ -44,12 +44,11 @@ export const LeavesCard: React.FC<MetricCardProps> = ({
       group
     `}>
       {Icon && (
-        <Icon className={`${iconColorClass[iconColor]} w-16 h-16 absolute top-6 right-[-1rem]`} />
-
+        <Icon className={`${iconColorClass[iconColor]} w-16 h-16 absolute top-6 right-0`} />
       )}
 
       <div className="relative z-10">
-        <h3 className="text-sm sm:text-base md:text-lg font-medium text-gray-700 mb-2">
+        <h3 className="text-sm sm:text-base font-medium text-gray-700 mb-2">
           {title}
         </h3>
 
@@ -60,3 +59,5 @@ export const LeavesCard: React.FC<MetricCardProps> = ({
     </div>
   );
 };
+
+export default LeavesCard;

@@ -6,7 +6,7 @@ import { employeeData } from "@/utils/constants";
 import DateRangeDropdown from "../../common/form/DateRangeDropdown";
 import { Employees, User } from "@/utils/types";
 import { handleFilterChange } from "@/utils/helper";
-import DataTableListing from "../leaves/DataTableListing";
+import DataTableListing from "../../common/leaves/DataTableListing";
 import Link from "next/link";
 import ExportButton from "../../common/ExportButton";
 import Button from "../../common/Button";

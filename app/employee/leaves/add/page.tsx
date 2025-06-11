@@ -1,6 +1,6 @@
 import React from "react";
-import AddLeave from "@/components/admin/leaves/add";
-import AdminLayout from "@/components/layouts/AdminLayout";
+import AddLeave from "@/components/employee/leaves/add";
+import EmployeeLayout from "@/components/layouts/EmployeeLayout";
 
 export const generateMetadata = () => ({
   title: "Add Leave Request | SmartHR",
@@ -16,8 +16,8 @@ export const generateMetadata = () => ({
 
 export default function AddLeavePage() {
   return (
-    <AdminLayout>
+    <EmployeeLayout>
       <AddLeave />
-    </AdminLayout>
+    </EmployeeLayout>
   );
 }
