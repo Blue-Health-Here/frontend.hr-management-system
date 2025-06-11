@@ -99,7 +99,7 @@ export default function Sidebar({ isEmployee }: SidebarProps) {
           </Link>
         </h1>
       </div>
-      <nav className="flex flex-col gap-2 flex-1 py-8 px-6">
+      <nav className="flex flex-col gap-2 flex-1 py-8 px-6 overflow-auto">
         {sidebarItems.map((item, index) => {
           const isItemActive = item.href && !item.hasDropdown && isActive(item.href);
           const isSubItemActive = isAnySubItemActive(item);
