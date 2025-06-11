@@ -1,11 +1,11 @@
 const AttendanceSummary = () => {
     return (
-        <div className="bg-white p-4 lg:p-6 rounded-2xl w-1/2 theme-shadow">
+        <div className="bg-white p-4 lg:p-6 rounded-2xl w-full xl:w-1/2 theme-shadow">
             <h2 className="text-base lg:text-lg font-semibold text-gray-800 mb-3 lg:mb-4">
                 Attendance Summary
             </h2>
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-3 lg:gap-4 mb-4 lg:mb-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3 lg:gap-4 mb-4 lg:mb-6">
                 <div className="bg-blue-50 p-3 lg:p-4 rounded-lg">
                     <p className="text-xs lg:text-sm text-gray-600">Present Today</p>
                     <p className="text-lg md:text-xl lg:text-2xl font-bold text-blue-600">100</p>

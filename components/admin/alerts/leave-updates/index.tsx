@@ -7,12 +7,11 @@ const LeaveUpdatesPage = () => {
     const [sortOption, setSortOption] = useState<string>("");
     return (
         <div className="overflow-x-auto bg-white rounded-2xl p-4 flex flex-col gap-4 theme-shadow">
-            <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+            <div className="flex flex-wrap gsp-4 justify-between items-start md:items-center gap-4">
                 <h2 className="text-lg font-semibold">
                     Leave Updates List
                 </h2>
-                <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full md:w-auto">
-                    <div className="relative w-[170px] sm:w-44">
+                    <div className="relative w-full sm:w-44">
                         <select
                             id="sort"
                             value={sortOption}
@@ -24,7 +23,6 @@ const LeaveUpdatesPage = () => {
                         </select>
                         <ChevronDown className="absolute right-2 top-2.5 h-4 w-4 text-gray-400 pointer-events-none" />
                     </div>
-                </div>
             </div>
 
             {/* Table */}

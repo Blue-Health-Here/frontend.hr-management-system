@@ -87,7 +87,7 @@ const EmployeesView = () => {
   const filteredEmployees = handleFilterChange();
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4 md:space-y-6">
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
         <h1 className="text-2xl font-bold">Employee</h1>
         <div className="flex flex-col sm:flex-row items-stretch gap-3 w-auto">
@@ -115,7 +115,7 @@ const EmployeesView = () => {
         ))}
       </div>
       <div className="overflow-x-auto bg-white rounded-2xl theme-shadow">
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 bg-white p-4">
+        <div className="flex flex-wrap justify-between items-start md:items-center gap-4 bg-white p-4">
           <h2 className="text-lg font-semibold">Employees List</h2>
           <Formik
             initialValues={initialValues}
@@ -125,10 +125,10 @@ const EmployeesView = () => {
           >
             {({ setFieldValue, values }) => (
               <Form>
-                <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2">
+                <div className="flex flex-wrap items-stretch sm:items-center gap-3">
 
-                  <DatePickerField name="date" className="w-60" />
-                  <div className="w-36">
+                  <DatePickerField name="date" className="w-full sm:w-52 md::w-60" />
+                  <div className="w-full sm:w-36">
                     <Field
                       as="select"
                       name="designation"
@@ -148,7 +148,7 @@ const EmployeesView = () => {
                     </Field>
                   </div>
 
-                  <div className="w-36">
+                  <div className="w-full sm:w-36">
                     <Field
                       as="select"
                       name="status"
@@ -164,6 +164,7 @@ const EmployeesView = () => {
                     name="sort"
                     id="sort"
                     placeholder="Sort By: Last 7 Days"
+                    className="w-full sm:w-44"
                     options={sorting.map((d) => ({ value: d, label: d }))}
                     value={values.sort}
                     onChange={(option: any) => setFieldValue("sort", option)}
