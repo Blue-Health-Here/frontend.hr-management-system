@@ -16,7 +16,8 @@ export default function ForgotPasswordForm() {
         <>
             <div className="flex justify-end pr-10 pt-10">
                 <Image src="/logo.png" alt="logo" width={150} height={60} />
-            </div>            <div className="flex flex-col items-center w-full max-w-md mx-auto flex-1 justify-center">
+            </div>
+            <div className="flex flex-col items-center w-full max-w-md mx-auto flex-1 justify-center">
                 <div className="space-y-14 w-full">
                     <Button isArrowButton={true} />
                     <div className="flex flex-col gap-4">

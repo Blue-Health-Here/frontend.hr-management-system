@@ -7,7 +7,7 @@ type LeftSideContentProps = {
 
 function AuthLayoutContent({ title, description }: LeftSideContentProps) {
   return (
-    <div className="relative hidden lg:flex w-full bg-primary-dark-gray flex flex-col items-center justify-center overflow-hidden rounded-4xl col-span-1 md:col-span-2 lg:col-span-2">
+    <div className="relative hidden lg:flex w-full bg-primary-dark-gray sm:flex flex-col items-center justify-center overflow-hidden rounded-4xl col-span-1 md:col-span-2 lg:col-span-2">
 
       {/* top left */}
       <div className="absolute top-36 left-16 flex items-center justify-center overflow-hidden animate-bounce">
