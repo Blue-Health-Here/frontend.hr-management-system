@@ -1,8 +1,11 @@
+"use client";
 import Button from '@/components/common/Button'
 import DataTable from '@/components/common/DataTable'
 import Dropdown from '@/components/common/form/DropDown'
 import { assignShiftsColumns, assignShiftsData, departmentOptions, employees } from '@/utils/constants'
 import React from 'react'
+import { FiEdit } from 'react-icons/fi'
+import DeleteConfirmation from '@/components/common/DeleteConfirmation'
 
 const AssignShifts = () => {
   return (

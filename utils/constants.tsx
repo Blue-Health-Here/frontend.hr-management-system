@@ -996,16 +996,16 @@ export const timeTrackingData = [
 ];
 
 export const employeeAttendanceData = [
-    { date: '14 Jan 2024', checkIn: '09:00 AM', status: 'Present', checkOut: '06:45 PM', break: '30 Min', late: '32 Min', overtime: '20 Min', hours: '8.55 Hrs', hoursType: 'success' },
-    { date: '21 Jan 2024', checkIn: '09:00 AM', status: 'Present', checkOut: '06:12 PM', break: '20 Min', late: '45 Min', overtime: '-', hours: '7.54 Hrs', hoursType: 'danger' },
-    { date: '20 Feb 2024', checkIn: '09:00 AM', status: 'Present', checkOut: '06:13 PM', break: '50 Min', late: '-', overtime: '33 Min', hours: '8.45 Hrs', hoursType: 'success' },
-    { date: '15 Mar 2024', checkIn: '09:00 AM', status: 'Absent', checkOut: '06:23 PM', break: '41 Min', late: '-', overtime: '50 Min', hours: '8.35 Hrs', hoursType: 'success' },
-    { date: '12 Apr 2024', checkIn: '09:00 AM', status: 'Present', checkOut: '06:43 PM', break: '23 Min', late: '-', overtime: '10 Min', hours: '8.22 Hrs', hoursType: 'success' },
-    { date: '20 May 2024', checkIn: '09:00 AM', status: 'Present', checkOut: '07:15 PM', break: '03 Min', late: '-', overtime: '-', hours: '8.32 Hrs', hoursType: 'success' },
-    { date: '06 Jul 2024', checkIn: '09:00 AM', status: 'Present', checkOut: '07:13 PM', break: '32 Min', late: '-', overtime: '-', hours: '9.15 Hrs', hoursType: 'info' },
-    { date: '02 Sep 2024', checkIn: '09:00 AM', status: 'Present', checkOut: '09:17 PM', break: '14 Min', late: '12 Min', overtime: '-', hours: '8.35 Hrs', hoursType: 'success' },
-    { date: '10 Dec 2024', checkIn: '09:00 AM', status: 'Present', checkOut: '09:23 PM', break: '10 Min', late: '-', overtime: '45 Min', hours: '9.25 Hrs', hoursType: 'info' },
-    { date: '15 Nov 2024', checkIn: '09:00 AM', status: 'Present', checkOut: '08:15 PM', break: '12 Min', late: '-', overtime: '-', hours: '8.35 Hrs', hoursType: 'success' }
+    { id: 1, date: '14 Jan 2024', checkIn: '09:00 AM', status: 'Present', checkOut: '06:45 PM', break: '30 Min', late: '32 Min', overtime: '20 Min', hours: '8.55 Hrs', hoursType: 'success' },
+    { id: 2, date: '21 Jan 2024', checkIn: '09:00 AM', status: 'Present', checkOut: '06:12 PM', break: '20 Min', late: '45 Min', overtime: '-', hours: '7.54 Hrs', hoursType: 'danger' },
+    { id: 3, date: '20 Feb 2024', checkIn: '09:00 AM', status: 'Present', checkOut: '06:13 PM', break: '50 Min', late: '-', overtime: '33 Min', hours: '8.45 Hrs', hoursType: 'success' },
+    { id: 4, date: '15 Mar 2024', checkIn: '09:00 AM', status: 'Absent', checkOut: '06:23 PM', break: '41 Min', late: '-', overtime: '50 Min', hours: '8.35 Hrs', hoursType: 'success' },
+    { id: 5, date: '12 Apr 2024', checkIn: '09:00 AM', status: 'Present', checkOut: '06:43 PM', break: '23 Min', late: '-', overtime: '10 Min', hours: '8.22 Hrs', hoursType: 'success' },
+    { id: 6, date: '20 May 2024', checkIn: '09:00 AM', status: 'Present', checkOut: '07:15 PM', break: '03 Min', late: '-', overtime: '-', hours: '8.32 Hrs', hoursType: 'success' },
+    { id: 7, date: '06 Jul 2024', checkIn: '09:00 AM', status: 'Present', checkOut: '07:13 PM', break: '32 Min', late: '-', overtime: '-', hours: '9.15 Hrs', hoursType: 'info' },
+    { id: 8, date: '02 Sep 2024', checkIn: '09:00 AM', status: 'Present', checkOut: '09:17 PM', break: '14 Min', late: '12 Min', overtime: '-', hours: '8.35 Hrs', hoursType: 'success' },
+    { id: 9, date: '10 Dec 2024', checkIn: '09:00 AM', status: 'Present', checkOut: '09:23 PM', break: '10 Min', late: '-', overtime: '45 Min', hours: '9.25 Hrs', hoursType: 'info' },
+    { id: 10, date: '15 Nov 2024', checkIn: '09:00 AM', status: 'Present', checkOut: '08:15 PM', break: '12 Min', late: '-', overtime: '-', hours: '8.35 Hrs', hoursType: 'success' }
 ];
 
 export const statusOptions = [
@@ -1053,6 +1053,23 @@ export const employeeAttendanceColumns = [
             </span>
         ),
     },
+    {
+        header: 'Actions',
+        accessor: 'actions',
+        render: (_: any, row: any) => (
+            <div className="flex gap-4">
+                <FiEdit 
+                    size={16} 
+                    className="cursor-pointer text-gray-600 hover:text-gray-900" 
+                    onClick={() => console.log('Edit', row.id)}
+                />
+                <DeleteConfirmation 
+                    onConfirm={() => console.log('Delete', row.id)}
+                    itemType="attendance record"
+                />
+            </div>
+        )
+    }
 ];
 
 export const payrollItemsData = [
@@ -1377,7 +1394,7 @@ export const assignShiftsColumns = [
         header: 'Employee',
         accessor: 'employee'
     },
-       {
+    {
         header: 'Designation',
         accessor: 'designation'
     },
@@ -1385,40 +1402,60 @@ export const assignShiftsColumns = [
         header: 'Shift',
         accessor: 'shift'
     },
+    {
+        header: 'Actions',
+        accessor: 'actions',
+        render: (row: any) => (
+            <div className="flex gap-4">
+                <FiEdit size={16} className="cursor-pointer text-gray-600 hover:text-gray-900" />
+                <DeleteConfirmation 
+                    onConfirm={() => console.log('Delete', row.id)}
+                    itemType="shift assignment"
+                />
+            </div>
+        )
+    }
 ]
 
 export const assignShiftsData = [
   {
+    id: 1,  // Add unique ID
     employee: 'Mohsin Ikram',
     designation: 'Software Engineer',
     shift: 'Night'
   },
   {
+    id: 2,
     employee: 'Ali Hamza',
     designation: 'Frontend Developer',
     shift: 'General'
   },
   {
+    id: 3,
     employee: 'Haseeb',
     designation: 'Backend Developer',
     shift: 'Morning'
   },
   {
+    id: 4,
     employee: 'Iqra',
     designation: 'QA Engineer',
     shift: 'General'
   },
   {
+    id: 5,
     employee: 'Abdullah',
     designation: 'UI/UX Designer',
     shift: 'Night'
   },
   {
+    id: 6,
     employee: 'Zaid',
     designation: 'DevOps Engineer',
     shift: 'Night'
   },
   {
+    id: 7,
     employee: 'Faiq',
     designation: 'Support Engineer',
     shift: 'Morning'
