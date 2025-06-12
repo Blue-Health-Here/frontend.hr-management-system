@@ -1,9 +1,14 @@
 import { Leave, PerformanceIndicator, Holiday } from "@/utils/types";
 import React from "react";
-import { User,DataTableProps } from "@/utils/types";
+import { User, DataTableProps } from "@/utils/types";
+import { BiEdit } from "react-icons/bi";
+import { MdDelete } from "react-icons/md";
+import { GoShieldLock } from "react-icons/go";
+import DeleteConfirmation from "@/components/common/DeleteConfirmation";
+import Link from "next/link";
 
-const DataTableListing: React.FC<DataTableProps> = ({ 
-  filteredLeaves, 
+const DataTableListing: React.FC<DataTableProps> = ({
+  filteredLeaves,
   indicators,
   holidays,
   filteredUsers
@@ -13,16 +18,20 @@ const DataTableListing: React.FC<DataTableProps> = ({
   const isHolidaysTable = !!holidays;
   const isUsersTable = !!filteredUsers;
 
+  const handleDelete = (id: number | string) => {
+    console.log('Deleting item with id:', id);
+  };
+
   if (!data || data.length === 0) {
     return (
       <div className="p-4 text-center text-gray-500">
-        {isLeavesTable ? "No leaves found" : 
-         isHolidaysTable ? "No holidays found" : 
-         isUsersTable ? "No users found" : "No performance indicators found"}
+        {isLeavesTable ? "No leaves found" :
+          isHolidaysTable ? "No holidays found" :
+            isUsersTable ? "No users found" : "No performance indicators found"}
       </div>
     );
   }
-  
+
 
   return (
     <div className="overflow-x-auto">
@@ -46,6 +55,9 @@ const DataTableListing: React.FC<DataTableProps> = ({
                 <th className="py-3 px-6 text-left text-sm font-bold text-gray-900 tracking-wider border-b border-gray-300">
                   Days
                 </th>
+                <th className="py-3 px-6 text-left text-sm font-bold text-gray-900 tracking-wider border-b border-gray-300">
+                  Actions
+                </th>
               </>
             ) : isHolidaysTable ? (
               <>
@@ -60,6 +72,9 @@ const DataTableListing: React.FC<DataTableProps> = ({
                 </th>
                 <th className="py-3 px-6 text-left text-sm font-bold text-gray-900 tracking-wider border-b border-gray-300">
                   Status
+                </th>
+                <th className="py-3 px-6 text-left text-sm font-bold text-gray-900 tracking-wider border-b border-gray-300">
+                  Actions
                 </th>
               </>
             ) : isUsersTable ? (
@@ -79,6 +94,9 @@ const DataTableListing: React.FC<DataTableProps> = ({
                 <th className="py-3 px-6 text-left text-sm font-bold text-gray-900 tracking-wider border-b border-gray-300">
                   Status
                 </th>
+                <th className="py-3 px-6 text-left text-sm font-bold text-gray-900 tracking-wider border-b border-gray-300">
+                  Actions
+                </th>
               </>
             ) : (
               <>
@@ -96,6 +114,9 @@ const DataTableListing: React.FC<DataTableProps> = ({
                 </th>
                 <th className="py-3 px-6 text-left text-sm font-bold text-gray-900 tracking-wider border-b border-gray-300">
                   Status
+                </th>
+                <th className="py-3 px-6 text-left text-sm font-bold text-gray-900 tracking-wider border-b border-gray-300">
+                  Actions
                 </th>
               </>
             )}
@@ -137,6 +158,17 @@ const DataTableListing: React.FC<DataTableProps> = ({
                   <td className="py-4 px-6 whitespace-nowrap text-sm text-gray-500">
                     {(item as Leave).days} Days
                   </td>
+                  <td className="py-4 px-6 whitespace-nowrap text-sm text-gray-500">
+                    <div className="flex items-center gap-2">
+                      <Link href={`/admin/leaves/edit/${item.id}`}>
+                        <BiEdit className="w-5 h-5 cursor-pointer" />
+                      </Link>
+                      <DeleteConfirmation
+                        onConfirm={() => handleDelete(item.id)}
+                        itemType="leave"
+                      />
+                    </div>
+                  </td>
                 </>
               ) : isHolidaysTable ? (
                 <>
@@ -151,11 +183,22 @@ const DataTableListing: React.FC<DataTableProps> = ({
                   </td>
                   <td className="py-4 px-6 whitespace-nowrap">
                     <span className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full 
-                      ${(item as Holiday).status === 'Active' 
-                        ? 'bg-green-100 text-green-800' 
+                      ${(item as Holiday).status === 'Active'
+                        ? 'bg-green-100 text-green-800'
                         : 'bg-red-100 text-red-800'}`}>
                       {(item as Holiday).status}
                     </span>
+                  </td>
+                  <td className="py-4 px-6 whitespace-nowrap text-sm text-gray-500">
+                    <div className="flex items-center gap-2">
+                      <Link href={`/admin/holidays/edit/${item.id}`}>
+                        <BiEdit className="w-5 h-5 cursor-pointer" />
+                      </Link>
+                      <DeleteConfirmation
+                        onConfirm={() => handleDelete(item.id)}
+                        itemType="holiday"
+                      />
+                    </div>
                   </td>
                 </>
               ) : isUsersTable ? (
@@ -187,11 +230,25 @@ const DataTableListing: React.FC<DataTableProps> = ({
                   </td>
                   <td className="py-4 px-6 whitespace-nowrap">
                     <span className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full 
-                      ${(item as User).status === 'Active' 
-                        ? 'bg-green-100 text-green-800' 
+                      ${(item as User).status === 'Active'
+                        ? 'bg-green-100 text-green-800'
                         : 'bg-red-100 text-red-800'}`}>
                       {(item as User).status}
                     </span>
+                  </td>
+                  <td className="py-4 px-6 whitespace-nowrap text-sm text-gray-500">
+                    <div className="flex items-center gap-2">
+                      <Link href={`/admin/users/permissions?user=${item.id}`}>
+                        <GoShieldLock className="w-5 h-5 cursor-pointer" />
+                      </Link>
+                      <Link href={`/admin/users/edit/${item.id}`}>
+                        <BiEdit className="w-5 h-5 cursor-pointer" />
+                      </Link>
+                      <DeleteConfirmation
+                        onConfirm={() => handleDelete(item.id)}
+                        itemType="user"
+                      />
+                    </div>
                   </td>
                 </>
               ) : (
@@ -210,11 +267,22 @@ const DataTableListing: React.FC<DataTableProps> = ({
                   </td>
                   <td className="py-4 px-6 whitespace-nowrap">
                     <span className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full 
-                      ${(item as PerformanceIndicator).status === 'Active' 
-                        ? 'bg-green-100 text-green-800' 
+                      ${(item as PerformanceIndicator).status === 'Active'
+                        ? 'bg-green-100 text-green-800'
                         : 'bg-red-100 text-red-800'}`}>
                       {(item as PerformanceIndicator).status}
                     </span>
+                  </td>
+                  <td className="py-4 px-6 whitespace-nowrap text-sm text-gray-500">
+                    <div className="flex items-center gap-2">
+                      <Link href={`/admin/performance/edit/${item.id}`}>
+                        <BiEdit className="w-5 h-5 cursor-pointer" />
+                      </Link>
+                      <DeleteConfirmation
+                        onConfirm={() => handleDelete(item.id)}
+                        itemType="performance indicator"
+                      />
+                    </div>
                   </td>
                 </>
               )}

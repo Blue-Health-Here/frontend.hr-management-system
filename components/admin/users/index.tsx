@@ -101,7 +101,7 @@ const UsersPage = () => {
                 onChange={(e) => setSortOption(e.target.value)}
                 className="block w-full pl-3 pr-10 py-2 border border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 text-sm rounded-md"
               >
-                <option value="">Sort By : Last 7 Days</option>
+                <option value="">Sort By</option>
                 <option value="ascending">Name (A-Z)</option>
               </select>
             </div>
