@@ -1,23 +1,222 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
+  --primary-bg-theme: #ffffff;
+  --secondary-bg-theme: #F2F7FA;
   --foreground: #171717;
-  --primary-green: #16a34a;
-  --secondary-green: #22c55e;
+  --primary-navy-blue: #597BE8;
+  --primary-dark-gray: #1C202F;
+  --secondary-dark-gray: #3C4566;
+  --tertiary-dark-gray:#414651;
+  --quaternary-dark-gray:#757575;
+
 }
 
 @theme inline {
-  --color-background: var(--background);
+  --color-primary-bg-theme: var(--primary-bg-theme);
+  --color-secondary-bg-theme: var(--secondary-bg-theme);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --color-primary-dark-gray: var(--primary-dark-gray);
+  --color-secondary-dark-gray: var(---secondary-dark-gray);
+   --color-primary-navy-blue: var(--primary-navy-blue);
+   --color-quaternary-dark-gray: var(--quaternary-dark-gray);
+   --color-quaternary-dark-gray: var(--tertiary-dark-gray);
+
 }
+
+/* CUSTOM ANIMATIONS (LOOPING FORMAT) */
+
+@layer utilities {
+  /* Fade In */
+  .animate-fadeIn {
+    animation: fadeIn 2s linear infinite;
+  }
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+
+  /* Fade Out (acts similar to fadeIn for looping) */
+  .animate-fadeOut {
+    animation: fadeOut 2s linear infinite;
+  }
+  @keyframes fadeOut {
+    0% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  /* Zoom In */
+  .animate-zoomIn {
+    animation: zoomIn 2s linear infinite;
+  }
+  @keyframes zoomIn {
+    0% {
+      transform: scale(0.9);
+    }
+    50% {
+      transform: scale(1.1);
+    }
+    100% {
+      transform: scale(0.9);
+    }
+  }
+
+  /* Zoom Out */
+  .animate-zoomOut {
+    animation: zoomOut 2s linear infinite;
+  }
+  @keyframes zoomOut {
+    0% {
+      transform: scale(1.1);
+    }
+    50% {
+      transform: scale(0.9);
+    }
+    100% {
+      transform: scale(1.1);
+    }
+  }
+
+  /* Scale Up */
+  .animate-scaleUp {
+    animation: scaleUp 2s linear infinite;
+  }
+  @keyframes scaleUp {
+    0% {
+      transform: scale(0.95);
+    }
+    50% {
+      transform: scale(1);
+    }
+    100% {
+      transform: scale(0.95);
+    }
+  }
+
+  /* Scale Down */
+  .animate-scaleDown {
+    animation: scaleDown 2s linear infinite;
+  }
+  @keyframes scaleDown {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(0.90);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+
+  /* Bounce */
+  .animate-bounce {
+    animation: bounce 2s linear infinite;
+  }
+
+  @keyframes bounce {
+    0% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-5px);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+
+  /* Slide In Left */
+  .animate-slideInLeft {
+    animation: slideInLeft 2s linear infinite;
+  }
+  @keyframes slideInLeft {
+    0% {
+      transform: translateX(-5%);
+    }
+    50% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-5%);
+    }
+  }
+
+  /* Slide In Right */
+  .animate-slideInRight {
+    animation: slideInRight 2s linear infinite;
+  }
+  @keyframes slideInRight {
+    0% {
+      transform: translateX(-10%);
+    }
+    50% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-10%);
+    }
+  }
+
+  /* Slide In Top */
+  .animate-slideInTop {
+    animation: slideInTop 2s linear infinite;
+  }
+  @keyframes slideInTop {
+    0% {
+      transform: translateY(-100%);
+      opacity: 0;
+    }
+    50% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(-100%);
+      opacity: 0;
+    }
+  }
+
+  /* Slide In Bottom */
+  .animate-slideInBottom {
+    animation: slideInBottom 2s linear infinite;
+  }
+  @keyframes slideInBottom {
+    0% {
+      transform: translateY(100%);
+      opacity: 0;
+    }
+    50% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(100%);
+      opacity: 0;
+    }
+  }
+}
+
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    background-color: var(--primary-bg-theme)
   }
 }
 

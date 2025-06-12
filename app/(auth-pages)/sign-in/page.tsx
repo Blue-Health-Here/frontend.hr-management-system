@@ -1,4 +1,5 @@
 // app/auth/signin/page.tsx
+import AuthLayoutContent from "@/components/auth/AuthLayoutContent";
 import SignInForm from "@/components/auth/SignInForm";
 import AuthLayout from "@/components/layouts/AuthLayout";
 
@@ -16,7 +17,11 @@ export const generateMetadata = () => ({
 
 export default function SignInPage() {
   return (
-    <AuthLayout>
+    <AuthLayout leftContent={
+      <AuthLayoutContent
+        title="Igniting Employee Potential"
+        description="Efficiently manage your workforce, streamline operations effectively." />}
+    >
       <SignInForm />
     </AuthLayout>
   );

@@ -18,15 +18,14 @@ const InputField: React.FC<InputFieldProps> = ({
     <div className={className}>
       <label
         htmlFor={name}
-        className="block font-medium text-gray-500 text-sm"
-        style={{ color: 'rgb(32, 44, 75)' }}
+        className="block font-medium text-tertiary-dark-gray text-sm"
       >
         {label}
       </label>
 
       <div className="relative mt-1">
         {icon && (
-          <div className="absolute inset-y-0 left-0 p-3 flex items-center pointer-events-none">
+          <div className="absolute inset-y-0 right-0 p-3 flex items-center pointer-events-none">
             {icon}
           </div>
         )}

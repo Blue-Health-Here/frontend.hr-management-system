@@ -4,10 +4,11 @@ import { SignInFormValues } from "@/utils/types";
 import { signInValidationSchema } from "@/utils/validationSchema";
 import { Form, Formik } from "formik";
 import InputField from "../common/form/InputField";
-import { Mail, Eye, EyeOff } from "lucide-react";
+import { Eye, EyeOff } from "lucide-react";
 import { useState } from "react";
 import Link from "next/link";
 import Button from "../common/Button";
+import Image from "next/image";
 
 export default function SignInForm() {
     const [showPassword, setShowPassword] = useState(false);
@@ -16,18 +17,13 @@ export default function SignInForm() {
     };
     return (
         <>
-            <h1 className="text-green-600 text-3xl font-bold">SmartHR</h1>
-
-            <div className="flex-grow flex flex-col justify-center items-center w-full max-w-md mx-auto">
-                <div className="mb-8 text-center flex flex-col items-center">
-                    <div className="relative w-32 h-32 flex items-center justify-center mb-4">
-                        <div className="absolute w-20 h-12 bg-green-700 transform -rotate-45 translate-x-2 translate-y-4 z-0" />
-                        <div className="absolute w-20 h-12 bg-green-500 transform -rotate-45 z-10" />
-                    </div>
-                    <h1 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-semibold text-primary-black mb-1">
+            <Image src="/logo.png" alt="logo" width={150} height={60} className="pt-2 md:pt-6 lg:pt-10" />
+            <div className="flex-grow flex flex-col justify-center items-center mx-auto w-full max-w-md space-y-8">
+                <div className="text-center flex flex-col gap-4 items-center">
+                    <h1 className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-semibold ">
                         Sign In
                     </h1>
-                    <p className="text-secondary-black text-sm md:text-base">
+                    <p className="text-secondary-dark-gray text-sm md:text-base">
                         Please enter your details to sign in
                     </p>
                 </div>
@@ -41,8 +37,8 @@ export default function SignInForm() {
                             <InputField
                                 name="email"
                                 type="email"
-                                label="Email Address"
-                                icon={<Mail className="h-4 w-4 text-black" />}
+                                label="Email"
+                                placeholder="olivia@untitledui.com"
                             />
 
                             <InputField
@@ -56,9 +52,9 @@ export default function SignInForm() {
                                         className="focus:outline-none"
                                     >
                                         {showPassword ? (
-                                            <EyeOff className="h-4 w-4 text-black" />
+                                            <EyeOff className="h-4 w-4 text-quaternary-dark-gray" />
                                         ) : (
-                                            <Eye className="h-4 w-4 text-black" />
+                                            <Eye className="h-4 w-4 text-quaternary-dark-gray" />
                                         )}
                                     </button>
                                 }
@@ -79,14 +75,14 @@ export default function SignInForm() {
                                     </div>
                                     <label
                                         htmlFor="rememberMe"
-                                        className="ms-2 text-sm text-gray-500"
+                                        className="ms-2 text-xs md:text-sm"
                                     >
                                         Remember Me
                                     </label>
                                 </div>
                                 <Link
                                     href="/forgot-password"
-                                    className="text-xs md:text-sm text-[#e70d0d] hover:underline"
+                                    className="text-xs md:text-sm text-primary-navy-blue hover:underline"
                                 >
                                     Forgot password?
                                 </Link>
@@ -95,11 +91,22 @@ export default function SignInForm() {
                         </Form>
                     )}
                 </Formik>
+                <p className="text-center text-xs md:text-sm lg:text-base xl:text-lg text-gray-500">
+                    New on our platform? <Link href="/sign-up" className="text-black font-semibold">Register Account</Link>
+                </p>
+                <div className="flex gap-2 md:gap-4 flex-wrap justify-center">
+                    <button className="flex items-center justify-center w-20 md:w-24 lg:w-28 xl:w-32 h-14 bg-white rounded-lg border-theme">
+                        <Image src="/google-icon.svg" alt="Google icon" width={24} height={24} />
+                    </button>
+                    <button className="flex items-center justify-center w-20 md:w-24 lg:w-28 xl:w-32 h-14 bg-white rounded-lg border-theme">
+                        <Image src="/facebook-icon.svg" alt="Facebook icon" width={24} height={24} />
+                    </button>
+                    <button className="flex items-center justify-center w-20 md:w-24 lg:w-28 xl:w-32 h-14 bg-white rounded-lg border-theme">
+                        <Image src="/apple-icon.svg" alt="Apple icon" width={24} height={24} />
+                    </button>
+                </div>
             </div>
 
-            <p className="text-center text-gray-500">
-                New on our platform? <Link href="/sign-up" className="text-black font-semibold">Register Account</Link>
-            </p>
         </>
     )
 }

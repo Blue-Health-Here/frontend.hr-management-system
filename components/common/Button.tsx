@@ -21,7 +21,7 @@ const Button = ({
     <button
       onClick={onClick}
       type={type}
-      className={`flex w-full cursor-pointer items-center justify-center gap-2 bg-green-600 hover:bg-green-500 text-white font-medium py-2 px-4 rounded-md text-xs md:text-sm transition-all duration-200 ${className}`}
+      className={`flex w-full cursor-pointer items-center justify-center gap-2 bg-primary-navy-blue text-white font-medium py-3 px-5 rounded-md text-xs md:text-sm lg:text-base transition-all duration-200 ${className}`}
     >
       {Icon && iconPosition === 'left' && <Icon className="w-4 h-4" />}
       <span>{label}</span>
