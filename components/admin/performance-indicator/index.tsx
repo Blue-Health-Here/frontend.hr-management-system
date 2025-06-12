@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { Plus, ChevronDown } from "lucide-react";
 import { employeeData } from "@/utils/constants";
 import { Employees, PerformanceIndicator } from "@/utils/types";
-import DataTableListing from "../leaves/DataTableListing";
+import DataTableListing from "../../common/leaves/DataTableListing";
 import Link from "next/link";
 import Button from "../../common/Button";
 
@@ -37,7 +37,7 @@ const PerformanceIndicatorPage = () => {
   return (
     <>
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4 gap-4">
-        <h1 className="text-2xl font-bold">Performance Indicator</h1>
+        <h1 className="text-xl md:text-2xl font-bold">Performance Indicator</h1>
         <div className="flex flex-col sm:flex-row items-stretch gap-3 w-auto">
           <Link
             className="cursor-pointer"
@@ -49,11 +49,11 @@ const PerformanceIndicatorPage = () => {
 
       <div className="overflow-x-auto bg-white rounded-2xl p-4 flex flex-col gap-4 theme-shadow">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
-          <h2 className="text-lg font-semibold">
+          <h2 className="text-base md:text-lg font-semibold">
             Performance Indicator List
           </h2>
           <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full md:w-auto">
-            <div className="relative w-[170px] sm:w-44">
+            <div className="relative w-full sm:w-44">
               <select
                 id="sort"
                 value={sortOption}

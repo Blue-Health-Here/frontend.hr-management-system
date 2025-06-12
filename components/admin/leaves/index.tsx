@@ -1,16 +1,20 @@
 "use client";
 import React, { useState } from "react";
 import Image from "next/image";
-import { Users, UserPlus, File, ChevronDown, Plus } from "lucide-react";
+import { Users, UserPlus, File, ChevronDown, Plus, DollarSign } from "lucide-react";
 import { employeeData } from "@/utils/constants";
-import LeavesCard from "./LeavesCard";
 import DateRangeDropdown from "../../common/form/DateRangeDropdown";
 import { Employees, Leave } from "@/utils/types";
 import { handleFilterChange } from "@/utils/helper";
-import DataTableListing from "./DataTableListing";
+import LeavesCard from "@/components/common/leaves/LeavesCard";
+import DataTableListing from "@/components/common/leaves/DataTableListing";
 import Link from "next/link";
 import ExportButton from "../../common/ExportButton";
 import Button from "../../common/Button";
+import { MdCoPresent } from "react-icons/md";
+import { FcLeave } from "react-icons/fc";
+import { RiPassPendingFill } from "react-icons/ri";
+import { AiFillCalendar, AiFillCloseSquare } from "react-icons/ai";
 
 const LeavesView = () => {
   const [employees] = useState<Employees[]>(employeeData);
@@ -51,11 +55,48 @@ const LeavesView = () => {
   const pendingRequests = leaveData.filter((leave) => leave.isPending).length;
 
   const filteredLeaves = handleFilterChange({ leaveData, dateRangeFilter, leaveTypeFilter, sortOption });
+  const metrics = [
+    {
+      title: "Total Present",
+      value: "567",
+      color: "blue" as const,
+      icon: MdCoPresent,
+      iconColor: "blue" as const,
+
+    },
+    {
+      title: "Planned Leaves",
+      value: "143",
+      subtitle: "visitors",
+      color: "purple" as const,
+      icon: AiFillCalendar,
+      iconColor: "purple" as const,
+
+
+    },
+    {
+      title: "Unplanned Leaves",
+      value: "103",
+      subtitle: "messages",
+      color: "green" as const,
+      icon: AiFillCloseSquare,
+      iconColor: "green" as const,
+
+
+    },
+    {
+      title: "Pending Requests",
+      value: "10%",
+      color: "pink" as const,
+      icon: RiPassPendingFill,
+      iconColor: "pink" as const,
+    }
+  ];
 
   return (
     <div>
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4 gap-4">
-        <h1 className="text-2xl font-bold">Leaves</h1>
+        <h1 className="text-xl lg:text-2xl font-bold">Leaves</h1>
         {/* <div className="flex flex-row items-stretch gap-3 w-full sm:w-auto">
           <ExportButton />
 
@@ -69,45 +110,24 @@ const LeavesView = () => {
         </div> */}
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
-        <LeavesCard
-          title="Total Present"
-          value={presentEmployees}
-          icon={Users}
-          iconColor="#03c95a"
-          bgImage="https://smarthr.dreamstechnologies.com/react/template/static/media/bg-green-01.86f2351c2a8fef550174.svg"
-        />
-
-        <LeavesCard
-          title="Planned Leaves"
-          value={plannedLeaves}
-          icon={UserPlus}
-          iconColor="#1b84ff"
-          bgImage="https://smarthr.dreamstechnologies.com/react/template/static/media/bg-pink-01.8553968349c8e67b3655.svg"
-        />
-
-        <LeavesCard
-          title="Unplanned Leaves"
-          value={unplannedLeaves}
-          icon={UserPlus}
-          iconColor="#f26522"
-          bgImage="https://smarthr.dreamstechnologies.com/react/template/static/media/bg-yellow-01.b8c835230fae6319f237.svg"
-        />
-
-        <LeavesCard
-          title="Pending Requests"
-          value={pendingRequests}
-          icon={UserPlus}
-          iconColor="#ab47bc"
-          bgImage="https://smarthr.dreamstechnologies.com/react/template/static/media/bg-blue-01.260ff81ee2c2594c14d3.svg"
-        />
+      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4 mb-6 bg-white rounded-2xl theme-shadow p-4">
+        {metrics.map((metric, index) => (
+          <LeavesCard
+            key={index}
+            title={metric.title}
+            value={metric.value}
+            color={metric.color}
+            icon={metric.icon}
+            iconColor={metric.iconColor}
+          />
+        ))}
       </div>
 
       {/* Leave Table */}
       <div className="overflow-x-auto bg-white rounded-2xl theme-shadow">
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 bg-white p-4">
+        <div className="flex flex-wrap justify-between gap-4 bg-white p-4">
           <h2 className="text-lg font-semibold">Leave List</h2>
-          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-auto">
+          <div className="flex flex-wrap items-stretch sm:items-center gap-3 w-auto">
             <DateRangeDropdown
               value={dateRangeFilter}
               onChange={setDateRangeFilter}

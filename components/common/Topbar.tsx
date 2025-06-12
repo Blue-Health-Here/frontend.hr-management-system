@@ -11,7 +11,11 @@ import { useRouter } from "next/navigation";
 import NavbarProfileDropdown from "./NavbarProfileDropdown";
 import { useDispatch } from "react-redux";
 
-const Topbar = () => {
+interface TopbarProps {
+  isEmployee: boolean;
+}
+
+const Topbar = ({ isEmployee }: TopbarProps) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState<boolean>(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
   const router = useRouter();
@@ -55,7 +59,7 @@ const Topbar = () => {
   };
 
   return (
-    <div className={`p-4 sm:pl-8 sm:p-3 fixed top-0 bg-white right-0 z-50 w-full lg:w-[calc(100%-256px)] ${isScrolled ? 'shadow-xl' : ''}`}>
+    <div className={`p-4 sm:pl-8 sm:p-3 fixed top-0 bg-white right-0 z-50 w-full lg:w-[calc(100%-256px)] ${isScrolled ? 'theme-shadow' : ''}`}>
       <div className="flex justify-between items-center">
         <div className="lg:hidden block cursor-pointer" onClick={handleSidebarClick}>
           <FaBars size={22} className="text-green-600" />
@@ -87,6 +91,7 @@ const Topbar = () => {
             <ChevronDown className="w-4 h-4 text-gray-400" />
             {isDropdownOpen && (
               <NavbarProfileDropdown
+                isEmployee = {isEmployee}
                 onClose={() => {
                   handleLogout();
                   setIsDropdownOpen(false);

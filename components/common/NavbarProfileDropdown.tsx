@@ -1,17 +1,20 @@
 import Link from "next/link";
 import { useRouter, usePathname } from "next/navigation";
 import { TbLogout2 } from "react-icons/tb";
-import { profileMenu } from "../../utils/constants";
+import { adminProfileMenu, employeeProfileMenu } from "../../utils/constants";
 
 interface NavbarProfileDropdownProps {
   onClose: () => void;
+  isEmployee: boolean;
 }
 
 const NavbarProfileDropdown: React.FC<NavbarProfileDropdownProps> = ({
   onClose,
+  isEmployee,
 }) => {
   const router = useRouter();
   const pathname = usePathname();
+ const profileMenu =  isEmployee ? employeeProfileMenu :  adminProfileMenu
 
   return (
     <div className="absolute right-4 top-full p-2 w-56 bg-white rounded-lg shadow-xl z-50 border border-gray-100 animate-in fade-in zoom-in-95">
@@ -50,7 +53,8 @@ const NavbarProfileDropdown: React.FC<NavbarProfileDropdownProps> = ({
 
       <button
         onClick={onClose}
-        className="group flex items-center gap-3 w-full p-2 rounded-md text-sm text-gray-700 hover:bg-green-50"
+        type="button"
+        className="group flex items-center cursor-pointer gap-3 w-full p-2 rounded-md text-sm text-gray-700 hover:bg-green-50"
       >
         <TbLogout2 className="w-5 h-5 text-gray-500 hover:bg-green-50" />
         <span className="text-sm">Logout</span>

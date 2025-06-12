@@ -6,22 +6,23 @@ import { FiUser } from 'react-icons/fi';
 import { IoSettingsOutline } from "react-icons/io5";
 import {
     FaUsers, FaCalendarAlt, FaUserCheck, FaChartLine,
-    FaUmbrellaBeach, FaUserCog, FaCog
+    FaUmbrellaBeach, FaUserCog, FaCog,
 } from "react-icons/fa";
 import {
     Briefcase, CheckCircle, CheckSquare,
     UserPlus, Users, XCircle, Calendar, Clock,
     Grid3x3, Volume2
 } from "lucide-react";
-import { RiDashboardHorizontalFill, RiPlayCircleLine, RiPresentationFill, RiTeamLine } from "react-icons/ri";
+import { RiCalendarScheduleLine, RiDashboardHorizontalFill, RiPlayCircleLine, RiPresentationFill, RiTeamLine } from "react-icons/ri";
 import { AiOutlineSchedule } from "react-icons/ai";
 import { MdAppRegistration } from "react-icons/md";
 import { FiEdit } from "react-icons/fi";
 import { IoTrashOutline } from "react-icons/io5";
 import Dropdown from "@/components/common/form/DropDown";
-import { ImPaypal} from "react-icons/im";
+import { ImPaypal } from "react-icons/im";
 import { FaPeopleGroup } from "react-icons/fa6";
 import DeleteConfirmation from "@/components/common/DeleteConfirmation";
+import { LiaCommentDollarSolid } from "react-icons/lia";
 
 export const employeeData = [
     {
@@ -246,49 +247,6 @@ export const employeeData = [
     },
 ];
 
-export const sidebarNav = [
-    {
-        icon: LuLayoutDashboard,
-        label: "Dashboard",
-        href: "/dashboard"
-    },
-    {
-        icon: FaUsers,
-        label: "Employees",
-        href: "/employees"
-    },
-    {
-        icon: FaCalendarAlt,
-        label: "Leaves",
-        href: "/leaves"
-    },
-    {
-        icon: FaUserCheck,
-        label: "Attendance",
-        href: "/attendance-report"
-    },
-    {
-        icon: FaChartLine,
-        label: "Performance",
-        href: "/performance-indicator"
-    },
-    {
-        icon: FaUmbrellaBeach,
-        label: "Holidays",
-        href: "/holidays"
-    },
-    {
-        icon: FaUserCog,
-        label: "Users",
-        href: "/users"
-    },
-    {
-        icon: FaCog,
-        label: "Settings",
-        href: "/settings"
-    }
-];
-
 export const adminSidebarItems = [
     {
         icon: RiDashboardHorizontalFill,
@@ -302,8 +260,18 @@ export const adminSidebarItems = [
         href: "/admin/employees",
         hasDropdown: true,
         subItems: [
-            { label: "All Employees", href: "" }, // /admin/employees (empty href = parent route)
+            { label: "All Employees", href: "" },
             { label: "Add New Employee", href: "/add" },
+        ]
+    },
+    {
+        icon: FaUsers,
+        label: "Departments",
+        href: "/admin/departments",
+        hasDropdown: true,
+        subItems: [
+            { label: "All Departments", href: "" },
+            { label: "Add New Department", href: "/add" },
         ]
     },
     {
@@ -368,7 +336,30 @@ export const adminSidebarItems = [
         subItems: [
             { label: "Shift Timings", href: "" },
             { label: "Assign Shifts", href: "/assign-shifts" },
-            // { label: "Rotate Shifts", href: "/rotate-shifts" },
+        ]
+    },
+    {
+        icon: FaUserCog,
+        label: "Alerts",
+        href: "/admin/alerts",
+        hasDropdown: true,
+        subItems: [
+            { label: "Leave Updates", href: "/leave-updates" },
+            { label: "Check-In/Out Reminders", href: "/check-in-out-reminders" },
+            { label: "Payslip Notifications", href: "/payslip-notifications" },
+            { label: "Announcements", href: "/announcements" }
+        ]
+    },
+    {
+        icon: FaUserCog,
+        label: "Reports",
+        href: "/admin/reports",
+        hasDropdown: true,
+        subItems: [
+            { label: "Attendance Reports", href: "/attendance" },
+            { label: "Leave Reports", href: "/leave" },
+            { label: "Employee Reports", href: "/employee" },
+            { label: "Payroll Reports", href: "/payroll" }
         ]
     },
     {
@@ -380,7 +371,7 @@ export const adminSidebarItems = [
             { label: "General", href: "" },
             { label: "Company Settings", href: "/company" },
             { label: "Localization", href: "/localization" },
-            { label: "Theme Settings", href: "/theme" }
+            // { label: "Theme Settings", href: "/theme" }
         ]
     }
 ];
@@ -398,7 +389,17 @@ export const employeeSidebarItems = [
         href: "/employee/attendance",
         hasDropdown: false,
     },
-]
+    {
+        icon: FaUsers,
+        label: "Leaves",
+        href: "/employee/leaves",
+        hasDropdown: true,
+        subItems: [
+            { label: "All Leaves", href: "" },
+            { label: "Add New Leave", href: "/add" },
+        ]
+    },
+];
 
 export const checkInOutData = [
     {
@@ -806,6 +807,46 @@ export const metrics = [
 
 ];
 
+export const attendanceMetrics = [
+    {
+        title: "Total Working Days",
+        value: "120",
+        icon: <RiTeamLine className=" text-green-500" size={24} />,
+        percent: "95",
+        percentColor: "bg-green-100",
+        textColor: "text-green-500",
+        iconBgColor: "bg-green-50"
+    },
+    {
+        title: "Total Leave Taken",
+        value: "5",
+        icon: <Briefcase className="text-orange-400" size={24} />,
+        percent: "24",
+        percentColor: "bg-orange-200",
+        textColor: "text-orange-400",
+        iconBgColor: "bg-orange-50",
+    },
+    {
+        title: "Total Holidays",
+        value: "12",
+        icon: <RiPresentationFill className="text-blue-600" size={24} />,
+        percent: "48",
+        percentColor: "bg-blue-100",
+        textColor: "text-blue-500",
+        iconBgColor: "bg-blue-50"
+    },
+    {
+        title: "Total Half-days",
+        value: "3",
+        icon: <CheckSquare className="text-purple-500" size={24} />,
+        percent: "1.27",
+        percentColor: "bg-pink-100",
+        textColor: "text-pink-500",
+        iconBgColor: "bg-pink-50"
+    }
+
+];
+
 export const employeeStats = [
     {
         title: "Total Employee",
@@ -837,6 +878,45 @@ export const employeeStats = [
     {
         title: "New Joiners",
         value: 0,
+        percentage: "0",
+        icon: <UserPlus className="h-4 w-4 text-white" />,
+        iconBgColor: "bg-blue-400",
+        percentColor: "bg-blue-100",
+        textColor: "text-blue-500",
+    }
+];
+
+export const employeeLeaveStats = [
+    {
+        title: "Annual Leaves",
+        value: 5,
+        percentage: "0",
+        icon: <Users className="h-4 w-4 text-white" />,
+        percentColor: "bg-fuchsia-100",
+        textColor: "text-fuchsia-700",
+        iconBgColor: "bg-black"
+    },
+    {
+        title: "Medical Leaves",
+        value: 11,
+        percentage: "0",
+        icon: <CheckCircle className="h-4 w-4 text-white" />,
+        iconBgColor: "bg-green-500",
+        percentColor: "bg-green-100",
+        textColor: "text-green-500",
+    },
+    {
+        title: "Casual Leaves",
+        value: 2,
+        percentage: "0",
+        icon: <XCircle className="h-4 w-4 text-white" />,
+        iconBgColor: "bg-red-500",
+        percentColor: "bg-red-100",
+        textColor: "text-red-700",
+    },
+    {
+        title: "Other Leaves",
+        value: 7,
         percentage: "0",
         icon: <UserPlus className="h-4 w-4 text-white" />,
         iconBgColor: "bg-blue-400",
@@ -1058,12 +1138,12 @@ export const employeeAttendanceColumns = [
         accessor: 'actions',
         render: (_: any, row: any) => (
             <div className="flex gap-4">
-                <FiEdit 
-                    size={16} 
-                    className="cursor-pointer text-gray-600 hover:text-gray-900" 
+                <FiEdit
+                    size={16}
+                    className="cursor-pointer text-gray-600 hover:text-gray-900"
                     onClick={() => console.log('Edit', row.id)}
                 />
-                <DeleteConfirmation 
+                <DeleteConfirmation
                     onConfirm={() => console.log('Delete', row.id)}
                     itemType="attendance record"
                 />
@@ -1139,72 +1219,72 @@ export const designation = [
 ];
 
 export const employeSalaryColumns = [
-  {
-    header: 'Emp ID',
-    accessor: 'id'
-  },
-  {
-    header: 'Name',
-    accessor: 'name'
-  },
-  {
-    header: 'Email',
-    accessor: 'email'
-  },
-  {
-    header: 'Phone',
-    accessor: 'phone'
-  },
-  {
-  header: 'Designation',
-  accessor: 'designation',
-  render: (_: any, row: any) => (
-    <Dropdown
-      name="designation"
-      id="designation"
-      placeholder='Select Designation'
-      options={designation.map((d) => ({
-        value: d,
-        label: d,
-      }))}
-    />
-  ),
-},
-  {
-    header: 'Joining Date',
-    accessor: 'joiningDate'
-  },
-  {
-    header: 'Salary',
-    accessor: 'salary'
-  },
-  {
-    header: 'Payslip',
-    accessor: 'payslip',
-    render: () => (
-      <span className={`px-3 py-2 text-xs font-semibold text-white bg-black rounded-full cursor-pointer`}>
-        Generate Slip
-      </span>
-    )
-  },
-  {
-    header: 'Actions',
-    accessor: 'actions',
-    render: (_: any, row: any) => (
-      <div className="flex gap-4">
-        <button className="cursor-pointer text-blue-500 hover:text-blue-700">
-          <FiEdit size={16} />
-        </button>
-        <DeleteConfirmation 
-          onConfirm={() => {
-            // This will be handled in the parent component
-            console.log('Delete initiated for:', row.id);
-          }} 
-          itemType="employee record"
-        />
-      </div>
-    ),
-  }
+    {
+        header: 'Emp ID',
+        accessor: 'id'
+    },
+    {
+        header: 'Name',
+        accessor: 'name'
+    },
+    {
+        header: 'Email',
+        accessor: 'email'
+    },
+    {
+        header: 'Phone',
+        accessor: 'phone'
+    },
+    {
+        header: 'Designation',
+        accessor: 'designation',
+        render: (_: any, row: any) => (
+            <Dropdown
+                name="designation"
+                id="designation"
+                placeholder='Select Designation'
+                options={designation.map((d) => ({
+                    value: d,
+                    label: d,
+                }))}
+            />
+        ),
+    },
+    {
+        header: 'Joining Date',
+        accessor: 'joiningDate'
+    },
+    {
+        header: 'Salary',
+        accessor: 'salary'
+    },
+    {
+        header: 'Payslip',
+        accessor: 'payslip',
+        render: () => (
+            <span className={`px-3 py-2 text-xs font-semibold text-white bg-black rounded-full cursor-pointer`}>
+                Generate Slip
+            </span>
+        )
+    },
+    {
+        header: 'Actions',
+        accessor: 'actions',
+        render: (_: any, row: any) => (
+            <div className="flex gap-4">
+                <button className="cursor-pointer text-blue-500 hover:text-blue-700">
+                    <FiEdit size={16} />
+                </button>
+                <DeleteConfirmation
+                    onConfirm={() => {
+                        // This will be handled in the parent component
+                        console.log('Delete initiated for:', row.id);
+                    }}
+                    itemType="employee record"
+                />
+            </div>
+        ),
+    }
 ];
 
 
@@ -1408,7 +1488,7 @@ export const assignShiftsColumns = [
         render: (row: any) => (
             <div className="flex gap-4">
                 <FiEdit size={16} className="cursor-pointer text-gray-600 hover:text-gray-900" />
-                <DeleteConfirmation 
+                <DeleteConfirmation
                     onConfirm={() => console.log('Delete', row.id)}
                     itemType="shift assignment"
                 />
@@ -1418,48 +1498,48 @@ export const assignShiftsColumns = [
 ]
 
 export const assignShiftsData = [
-  {
-    id: 1,  // Add unique ID
-    employee: 'Mohsin Ikram',
-    designation: 'Software Engineer',
-    shift: 'Night'
-  },
-  {
-    id: 2,
-    employee: 'Ali Hamza',
-    designation: 'Frontend Developer',
-    shift: 'General'
-  },
-  {
-    id: 3,
-    employee: 'Haseeb',
-    designation: 'Backend Developer',
-    shift: 'Morning'
-  },
-  {
-    id: 4,
-    employee: 'Iqra',
-    designation: 'QA Engineer',
-    shift: 'General'
-  },
-  {
-    id: 5,
-    employee: 'Abdullah',
-    designation: 'UI/UX Designer',
-    shift: 'Night'
-  },
-  {
-    id: 6,
-    employee: 'Zaid',
-    designation: 'DevOps Engineer',
-    shift: 'Night'
-  },
-  {
-    id: 7,
-    employee: 'Faiq',
-    designation: 'Support Engineer',
-    shift: 'Morning'
-  },
+    {
+        id: 1,  // Add unique ID
+        employee: 'Mohsin Ikram',
+        designation: 'Software Engineer',
+        shift: 'Night'
+    },
+    {
+        id: 2,
+        employee: 'Ali Hamza',
+        designation: 'Frontend Developer',
+        shift: 'General'
+    },
+    {
+        id: 3,
+        employee: 'Haseeb',
+        designation: 'Backend Developer',
+        shift: 'Morning'
+    },
+    {
+        id: 4,
+        employee: 'Iqra',
+        designation: 'QA Engineer',
+        shift: 'General'
+    },
+    {
+        id: 5,
+        employee: 'Abdullah',
+        designation: 'UI/UX Designer',
+        shift: 'Night'
+    },
+    {
+        id: 6,
+        employee: 'Zaid',
+        designation: 'DevOps Engineer',
+        shift: 'Night'
+    },
+    {
+        id: 7,
+        employee: 'Faiq',
+        designation: 'Support Engineer',
+        shift: 'Morning'
+    },
 ]
 
 export const shiftTimeColumns = [
@@ -1488,7 +1568,7 @@ export const shiftTimeData = [
         start: "10:00 PM",
         end: "05:00 AM"
     },
-        {
+    {
         shiftName: 'General',
         start: "09:00 AM",
         end: "05:00 pM"
@@ -1496,35 +1576,39 @@ export const shiftTimeData = [
 ]
 
 export const rotateShiftColumns = [
-  {
-    header: 'Employee',
-    accessor: 'employee'
-  },
-  {
-    header: 'Next Shift',
-    accessor: 'nextShift'
-  }
+    {
+        header: 'Employee',
+        accessor: 'employee'
+    },
+    {
+        header: 'Next Shift',
+        accessor: 'nextShift'
+    }
 ]
 
 export const rotateShiftData = [
-  {
-    employee: 'Mohsin Ikram',
-    nextShift: "Night"
-  },
-  {
-    employee: 'Ali Hamza',
-    nextShift: "General"
-  },
-  {
-    employee: 'Haseeb',
-    nextShift: "Morning"
-  }
+    {
+        employee: 'Mohsin Ikram',
+        nextShift: "Night"
+    },
+    {
+        employee: 'Ali Hamza',
+        nextShift: "General"
+    },
+    {
+        employee: 'Haseeb',
+        nextShift: "Morning"
+    }
 ];
 
-export const profileMenu = [
-  { name: "Dashboard", icon: RxDashboard, path: "/admin/dashboard" },
-  { name: "Profile", icon: FiUser, path: "/sign-in" },
-  { name: "Settings", icon: IoSettingsOutline, path: "/admin/settings" },
+export const adminProfileMenu = [
+    { name: "Dashboard", icon: RxDashboard, path: "/admin/dashboard" },
+    { name: "Profile", icon: FiUser, path: "/admin/profile" },
+];
+
+export const employeeProfileMenu = [
+    { name: "Dashboard", icon: RxDashboard, path: "/employee/dashboard" },
+    { name: "Profile", icon: FiUser, path: "/employee/profile" },
 ];
 
 export const employeesCardData = [
@@ -1586,10 +1670,180 @@ export const employeesAttendanceData = [
         percentColor: "bg-orange-200",
         textColor: "text-orange-400",
         iconBgColor: "bg-orange-50",
-    }   
+    }
 ];
 
 export const sorting = [
     'Ascending',
     'Desending',
 ];
+
+export const statsCards = [
+    {
+        title: 'Total Leaves',
+        value: '15',
+        change: '+17.02%',
+        changeType: 'positive',
+        lastMonth: 'Last Month',
+        icon: <RiCalendarScheduleLine className=" text-green-500" size={24} />,
+        iconColor: 'text-orange-500',
+        iconBgColor: "bg-green-50"
+    },
+    {
+        title: 'Approved Leaves',
+        value: '15',
+        change: '+17.02%',
+        changeType: 'positive',
+        lastMonth: 'Last Month',
+        icon: <RiCalendarScheduleLine className="text-orange-400" size={24} />,
+        iconColor: 'text-green-500',
+        iconBgColor: "bg-orange-50",
+
+    },
+    {
+        title: 'Pending Requests',
+        value: '5',
+        change: '+17.02%',
+        changeType: 'positive',
+        lastMonth: 'Last Month',
+        icon: <RiCalendarScheduleLine className="text-blue-600" size={24} />,
+        iconColor: 'text-blue-500',
+        iconBgColor: "bg-blue-50"
+
+    },
+    {
+        title: 'Rejected Leaves',
+        value: '5',
+        change: '+17.02%',
+        changeType: 'positive',
+        lastMonth: 'Last Month',
+        icon: <RiCalendarScheduleLine className="text-purple-500" size={24} />,
+        iconColor: 'text-red-500',
+        iconBgColor: "bg-pink-50"
+
+    }
+];
+
+export const employeeMetrics = [
+    {
+        title: 'Total Employee',
+        value: '600',
+        icon: <RiCalendarScheduleLine className=" text-green-500" size={24} />,
+        iconColor: 'text-orange-500',
+        iconBgColor: "bg-green-50"
+    },
+    {
+        title: 'Active Employee',
+        value: '600',
+        icon: <RiCalendarScheduleLine className="text-orange-400" size={24} />,
+        iconColor: 'text-green-500',
+        iconBgColor: "bg-orange-50",
+
+    },
+    {
+        title: 'New Employee',
+        value: '600',
+        icon: <RiCalendarScheduleLine className="text-blue-600" size={24} />,
+        iconColor: 'text-blue-500',
+        iconBgColor: "bg-blue-50"
+
+    },
+    {
+        title: 'Inactive Employee',
+        value: '600',
+        icon: <RiCalendarScheduleLine className="text-purple-500" size={24} />,
+        iconColor: 'text-red-500',
+        iconBgColor: "bg-pink-50"
+
+    }
+];
+
+export const payrollMetrics = [
+    {
+        title: 'Total Payroll',
+        value: '$250,000',
+        icon: <LiaCommentDollarSolid className=" text-green-500" size={24} />,
+        iconColor: 'text-orange-500',
+        iconBgColor: "bg-green-50"
+    },
+    {
+        title: 'Deductions',
+        value: '$50,000',
+        icon: <LiaCommentDollarSolid className="text-orange-400" size={24} />,
+        iconColor: 'text-green-500',
+        iconBgColor: "bg-orange-50",
+
+    },
+    {
+        title: 'Net Pay',
+        value: '$200,000',
+        icon: <LiaCommentDollarSolid className="text-blue-600" size={24} />,
+        iconColor: 'text-blue-500',
+        iconBgColor: "bg-blue-50"
+
+    },
+    {
+        title: 'Allowances',
+        value: '$30,000',
+        icon: <LiaCommentDollarSolid className="text-purple-500" size={24} />,
+        iconColor: 'text-red-500',
+        iconBgColor: "bg-pink-50"
+
+    }
+];
+
+export const labels = ['Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct'];
+
+export const barData = {
+    labels,
+    datasets: [
+        {
+            label: 'Sales',
+            data: [1500, 2300, 1800, 2000, 2400, 2100],
+            backgroundColor: '#ccccC',
+        },
+        {
+            label: 'Expenses',
+            data: [1200, 1700, 1100, 1400, 1600, 1300],
+            backgroundColor: '#008ECC',
+        }
+    ],
+};
+
+export const attendanceChartData = {
+    labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep"],
+    datasets: [
+        {
+            label: "Present",
+            data: [30, 60, 70, 75, 80, 95, 100, 75, 70],
+            borderColor: "#28a745",
+            backgroundColor: "rgba(40, 167, 69, 0.1)",
+            tension: 0.4,
+            fill: false,
+        },
+        {
+            label: "Absent",
+            data: [30, 55, 60, 65, 55, 70, 80, 60, 68],
+            borderColor: "#e83e8c",
+            backgroundColor: "rgba(232, 62, 140, 0.1)",
+            tension: 0.4,
+            fill: false,
+        },
+    ],
+};
+
+export const payrollChartdata = {
+    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+    datasets: [
+        {
+            label: 'Payroll',
+            data: [22, 22, 30, 45, 55, 45, 20, 70, 70, 30, 10, 30],
+            fill: false,
+            borderColor: '#FF7043',
+            borderWidth: 4,
+            stepped: true,
+            tension: 0,
+            pointRadius: 0,
+        }
+    ]
+};

@@ -45,10 +45,10 @@ const EmployeeTimeCard: React.FC = () => {
     };
 
     return (
-        <div className="bg-white p-4 lg:p-6 rounded-2xl  w-md flex flex-col justify-center items-center">
+        <div className="bg-white p-4 lg:p-6 rounded-2xl theme-shadow w-full lg:w-md flex flex-col justify-center items-center">
             <div className="text-center mb-6">
-                <h2 className="text-gray-400 text-sm font-medium mb-1">Good Morning, Merry</h2>
-                <p className=" text-gray-700 text-lg font-medium">{new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}, {new Date().toLocaleDateString()}</p>
+                <h2 className="text-gray-400 text-xs md:text-sm font-medium mb-1">Good Morning, Merry</h2>
+                <p className=" text-gray-700 text-sm md:text-base lg:text-lg font-medium">{new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}, {new Date().toLocaleDateString()}</p>
             </div>
 
             <div className="flex justify-center mb-6">
@@ -67,11 +67,11 @@ const EmployeeTimeCard: React.FC = () => {
 
             <div className="flex items-center justify-center mb-4 text-gray-600">
                 <div className={`w-2 h-2 rounded-full mr-2 ${isPunchedIn ? 'bg-red-500' : 'bg-green-500'}`}></div>
-                <span className="text-sm">{isPunchedIn
+                <span className="text-xs md:text-sm">{isPunchedIn
                         ? `Punched In at ${punchInTime ? formatTime(punchInTime) : ''}`
                         : `Punched Out at ${punchOutTime ? formatTime(punchOutTime) : ''}`}</span>
             </div>
-            <Button label={isPunchedIn ? 'Punch Out' : 'Punch In'} className={`${isPunchedIn ? 'bg-red-500' : 'bg-green-500'}`} onClick={handleClick} />
+            <Button label={isPunchedIn ? 'Punch Out' : 'Punch In'} className={` ${isPunchedIn ? 'bg-red-500' : 'bg-green-500'}`} onClick={handleClick} />
         </div>
     );
 };

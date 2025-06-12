@@ -31,6 +31,7 @@ const DataTableListing: React.FC<DataTableProps> = ({
       </div>
     );
   }
+  
 
   return (
     <div className="overflow-x-auto">

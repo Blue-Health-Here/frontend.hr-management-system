@@ -10,7 +10,7 @@ import DeleteConfirmation from '@/components/common/DeleteConfirmation'
 const AssignShifts = () => {
   return (
     <div className="bg-white rounded-2xl theme-shadow">
-      <div className="flex items-center justify-between p-4">
+      <div className="flex flex-wrap gap-4 items-center justify-between p-4">
         <h1 className="text-2xl font-semibold text-gray-900">Assign Shifts</h1>
         <div className="flex items-center gap-3">
           <Dropdown
