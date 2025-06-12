@@ -2,12 +2,10 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import { ChevronDown } from "lucide-react";
-import { adminAttendanceStats, employeeData, employeeStats, sorting } from "@/utils/constants";
-import DateRangeDropdown from "../../common/form/DateRangeDropdown";
+import { adminAttendanceStats, employeeData } from "@/utils/constants";
 import MetricCard from "@/components/common/MetricCard";
 import { Field, Form, Formik } from "formik";
 import DatePickerField from "@/components/common/form/DatePickerField";
-import Dropdown from "@/components/common/form/DropDown";
 import Button from "@/components/common/Button";
 
 const AttendanceReportView = () => {
@@ -51,7 +49,6 @@ const AttendanceReportView = () => {
   };
 
   const filteredEmployees = handleFilterChange();
-
   return (
     <div>
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4 gap-2">
@@ -84,8 +81,7 @@ const AttendanceReportView = () => {
             {() => (
               <Form>
                 <div className="flex flex-wrap items-stretch sm:items-center gap-3">
-                  <DatePickerField name="date" className="w-full sm:w-52 md::w-60" />
-
+                  <DatePickerField />
                   <div className="w-full sm:w-36">
                     <div className="relative">
                       <Field

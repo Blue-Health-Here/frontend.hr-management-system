@@ -12,6 +12,7 @@ import DateRangeDropdown from "@/components/common/form/DateRangeDropdown";
 import { BiEdit } from "react-icons/bi";
 import { MdDelete } from "react-icons/md";
 import { GoShieldLock } from "react-icons/go";
+import DeleteConfirmation from "@/components/common/DeleteConfirmation";
 
 const RolesPage = () => {
     const [employees] = useState<Employees[]>(employeeData);
@@ -19,6 +20,7 @@ const RolesPage = () => {
     const [roleFilter, setRoleFilter] = useState<string>("All");
     const [statusFilter, setStatusFilter] = useState<string>("All");
     const [sortOption, setSortOption] = useState<string>("");
+    const [deletingId, setDeletingId] = useState<number | null>(null);
 
     const userData: User[] = employees.map((employee) => ({
         id: employee.id,
@@ -47,13 +49,18 @@ const RolesPage = () => {
         sortOption
     });
 
+    const handleDelete = (id: number) => {
+        // Here you would typically make an API call to delete the role
+        console.log('Deleting role with id:', id);
+        setDeletingId(null); // Reset after deletion
+    };
+
     return (
         <>
             <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4 gap-4">
                 <h1 className="text-2xl font-bold">Roles</h1>
                 <div className="flex flex-row items-stretch gap-3 w-auto">
-                    <ExportButton /> {/* Use the new component here */}
-
+                    <ExportButton />
                     <Link href="/admin/users/roles/add" className="cursor-pointer">
                         <Button label="Add New Role" icon={Plus}></Button>
                     </Link>
@@ -101,7 +108,7 @@ const RolesPage = () => {
                         </tr>
                     </thead>
                     <tbody className="divide-y divide-gray-200">
-                        {rolesData.map((item: any, index: number) => (
+                        {rolesData.map((item: any) => (
                             <tr key={item.id} className="hover:bg-gray-50">
                                 <td className="py-4 px-6 whitespace-nowrap text-sm text-gray-500">
                                     {item.name}
@@ -115,15 +122,18 @@ const RolesPage = () => {
                                     </span>
                                 </td>
                                 <td className="py-4 px-6 whitespace-nowrap text-sm text-gray-500">
-                                    <p className="flex items-center gap-2">
+                                    <div className="flex items-center gap-2">
                                         <Link href={`/admin/users/permissions?role=${item.name.toLowerCase()}`}>
                                             <GoShieldLock className="w-5 h-5" />
                                         </Link>
                                         <Link href="/admin/users/roles/add">
                                             <BiEdit className="w-5 h-5" />
                                         </Link>
-                                        <MdDelete className="w-5 h-5 cursor-pointer" />
-                                    </p>
+                                        <DeleteConfirmation 
+                                            onConfirm={() => handleDelete(item.id)}
+                                            itemType="role"
+                                        />
+                                    </div>
                                 </td>
                             </tr>
                         ))}
