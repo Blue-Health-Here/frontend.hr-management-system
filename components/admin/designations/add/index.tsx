@@ -35,12 +35,22 @@ const AddDesignation: React.FC = () => {
                 className="flex-1"
               />
 
-              <InputField
+              {/* <InputField
                 name="departmentName"
                 label="Department Name"
                 type="text"
                 placeholder="Enter Department"
                 className="flex-1"
+              /> */}
+              <Dropdown
+                name="departmentName"
+                id="departmentName"
+                label="Department Name"
+                className="flex-1 flex gap-1 flex-col"
+                options={[
+                  { value: 'it', label: 'IT' },
+                  { value: 'clinical', label: 'Clinical' },
+                ]}
               />
 
               <Dropdown
