@@ -104,7 +104,7 @@ export default function SignUpForm() {
                                                 setFieldValue("agreeTerms", e.target.checked)
                                             }
                                             className="w-4 h-4 border border-gray-300 rounded bg-gray-50"
-                                            required
+                                            // required
                                         />
                                     </div>
                                     <label
