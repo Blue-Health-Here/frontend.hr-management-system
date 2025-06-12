@@ -1482,19 +1482,19 @@ export const assignShiftsColumns = [
         header: 'Shift',
         accessor: 'shift'
     },
-    {
-        header: 'Actions',
-        accessor: 'actions',
-        render: (row: any) => (
-            <div className="flex gap-4">
-                <FiEdit size={16} className="cursor-pointer text-gray-600 hover:text-gray-900" />
-                <DeleteConfirmation
-                    onConfirm={() => console.log('Delete', row.id)}
-                    itemType="shift assignment"
-                />
-            </div>
-        )
-    }
+    // {
+        // header: 'Actions',
+        // accessor: 'actions',
+        // render: (row: any) => (
+        //     <div className="flex gap-4">
+        //         <FiEdit size={16} className="cursor-pointer text-gray-600 hover:text-gray-900" />
+        //         <DeleteConfirmation
+        //             onConfirm={() => console.log('Delete', row.id)}
+        //             itemType="shift assignment"
+        //         />
+        //     </div>
+        // )
+    // }
 ]
 
 export const assignShiftsData = [
