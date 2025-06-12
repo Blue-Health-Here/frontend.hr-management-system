@@ -6,7 +6,7 @@ import { FiUser } from 'react-icons/fi';
 import { IoSettingsOutline } from "react-icons/io5";
 import {
     FaUsers, FaCalendarAlt, FaUserCheck, FaChartLine,
-    FaUmbrellaBeach, FaUserCog, FaCog,
+    FaUmbrellaBeach, FaUserCog, FaCog,FaUserTie 
 } from "react-icons/fa";
 import {
     Briefcase, CheckCircle, CheckSquare,
@@ -272,6 +272,17 @@ export const adminSidebarItems = [
             { label: "All Departments", href: "" },
             { label: "Add New Department", href: "/add" },
         ]
+    },
+    {
+        icon: FaUserTie,
+        label: "Designations",
+        href: "/admin/designations",
+        hasDropdown: true,
+        subItems: [
+            { label: "All Designations", href: "" },
+            { label: "Add New Designation", href: "/add" },
+        ]
+       
     },
     {
         icon: FaCalendarAlt,
