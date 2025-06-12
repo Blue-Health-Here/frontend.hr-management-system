@@ -17,8 +17,7 @@ export default function SignInForm() {
     };
     return (
         <>
-
-            <Image src="/logo.png" alt="logo" width={150} height={60} className="pt-10"/>
+            <Image src="/logo.png" alt="logo" width={150} height={60} className="pt-2 md:pt-6 lg:pt-10" />
             <div className="flex-grow flex flex-col justify-center items-center mx-auto w-full max-w-md space-y-8">
                 <div className="text-center flex flex-col gap-4 items-center">
                     <h1 className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-semibold ">
@@ -92,20 +91,20 @@ export default function SignInForm() {
                         </Form>
                     )}
                 </Formik>
-                <p className="text-center text-gray-500">
+                <p className="text-center text-xs md:text-sm lg:text-base xl:text-lg text-gray-500">
                     New on our platform? <Link href="/sign-up" className="text-black font-semibold">Register Account</Link>
                 </p>
-                    <div className="flex gap-4">
-                        <button className="flex items-center justify-center w-32 h-14 bg-white rounded-lg border-theme">
-                            <Image src="/google-icon.svg" alt="Google icon" width={24} height={24}/>
-                        </button>
-                        <button className="flex items-center justify-center w-32 h-14 bg-white rounded-lg border-theme">
-                            <Image src="/facebook-icon.svg" alt="Facebook icon" width={24} height={24}/>
-                        </button>
-                        <button className="flex items-center justify-center w-32 h-14 bg-white rounded-lg border-theme">
-                            <Image src="/apple-icon.svg" alt="Apple icon" width={24} height={24}/>
-                        </button>
-                    </div>
+                <div className="flex gap-2 md:gap-4 flex-wrap justify-center">
+                    <button className="flex items-center justify-center w-20 md:w-24 lg:w-28 xl:w-32 h-14 bg-white rounded-lg border-theme">
+                        <Image src="/google-icon.svg" alt="Google icon" width={24} height={24} />
+                    </button>
+                    <button className="flex items-center justify-center w-20 md:w-24 lg:w-28 xl:w-32 h-14 bg-white rounded-lg border-theme">
+                        <Image src="/facebook-icon.svg" alt="Facebook icon" width={24} height={24} />
+                    </button>
+                    <button className="flex items-center justify-center w-20 md:w-24 lg:w-28 xl:w-32 h-14 bg-white rounded-lg border-theme">
+                        <Image src="/apple-icon.svg" alt="Apple icon" width={24} height={24} />
+                    </button>
+                </div>
             </div>
 
         </>

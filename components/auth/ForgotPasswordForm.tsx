@@ -7,6 +7,7 @@ import InputField from "../common/form/InputField";
 import { Mail } from "lucide-react";
 import Button from "../common/Button";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function ForgotPasswordForm() {
     const handleSubmit = (values: ForgotPasswordFormValues) => {
@@ -15,16 +16,9 @@ export default function ForgotPasswordForm() {
 
     return (
         <>
-            <div className="self-start mb-4">
-                <h1 className="text-green-600 text-3xl font-bold">SmartHR</h1>
-            </div>
-
+            <Image src="/logo.png" alt="logo" width={150} height={60} className="pt-10"/>
             <div className="flex flex-col items-center w-full max-w-md mx-auto flex-1 justify-center">
                 <div className="mb-6 text-center flex flex-col items-center">
-                    <div className="relative w-24 h-24 flex items-center justify-center mb-3">
-                        <div className="absolute w-16 h-10 bg-green-700 transform -rotate-45 translate-x-2 translate-y-4 z-0" />
-                        <div className="absolute w-16 h-10 bg-green-500 transform -rotate-45 z-10" />
-                    </div>
                     <h1 className="text-xl md:text-2xl font-semibold text-primary-black mb-1">
                         Forgot Password?
                     </h1>
