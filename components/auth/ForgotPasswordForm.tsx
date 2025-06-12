@@ -4,9 +4,7 @@ import { ForgotPasswordFormValues } from "@/utils/types";
 import { ForgotPasswordValidationSchema } from "@/utils/validationSchema";
 import { Form, Formik } from "formik";
 import InputField from "../common/form/InputField";
-import { Mail } from "lucide-react";
 import Button from "../common/Button";
-import Link from "next/link";
 import Image from "next/image";
 
 export default function ForgotPasswordForm() {
@@ -40,7 +38,7 @@ export default function ForgotPasswordForm() {
                                 placeholder="olivia@untitledui.com"
                             />
 
-                            <Button type="submit" label="Submit" className="mt-2" />
+                            <Button type="submit" label="Reset Password" className="mt-2" />
                         </Form>
                     </Formik>
                 </div>

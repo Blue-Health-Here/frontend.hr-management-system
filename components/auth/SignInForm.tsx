@@ -92,7 +92,7 @@ export default function SignInForm() {
                     )}
                 </Formik>
                 <p className="text-center text-xs md:text-sm text-primary-light-gray">
-                    Don't have an account? <Link href="/sign-up" className="text-xs md:text-sm text-primary-navy-blue">Create Account</Link>
+                    Don't have an account?{"  "} <Link href="/sign-up" className="text-xs md:text-sm text-primary-navy-blue">Create Account</Link>
                 </p>
                 <div className="flex gap-2 md:gap-4 flex-wrap justify-center">
                     <button className="flex items-center justify-center w-20 md:w-24 lg:w-28 xl:w-32 h-14 bg-white rounded-lg border-theme">
