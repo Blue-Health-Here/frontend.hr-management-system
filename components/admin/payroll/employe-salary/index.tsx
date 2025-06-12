@@ -6,10 +6,36 @@ import Dropdown from '@/components/common/form/DropDown'
 import ExportButton from '@/components/common/ExportButton'
 import Button from '@/components/common/Button'
 import DateRangeDropdown from '@/components/common/form/DateRangeDropdown'
-import { FiPlusCircle } from 'react-icons/fi'
+import { FiPlusCircle, FiEdit } from 'react-icons/fi'
+import DeleteConfirmation from '@/components/common/DeleteConfirmation'
 
 const EmployeeSalary = () => {
   const [dateRangeFilter, setDateRangeFilter] = useState<string>("04/26/2025 - 05/02/2025");
+  const [data, setData] = useState(employeSalaryData);
+
+  const handleDelete = (id:string) => {
+    setData(prevData => prevData.filter(item => item.id !== id));
+  };
+
+  const columns = employeSalaryColumns.map(col => {
+    if (col.accessor === 'actions') {
+      return {
+        ...col,
+        render: (_: any, row: any) => (
+          <div className="flex gap-4">
+            <button className="cursor-pointer">
+              <FiEdit size={16} />
+            </button>
+            <DeleteConfirmation 
+              onConfirm={() => handleDelete(row.id)} 
+              itemType="employee salary"
+            />
+          </div>
+        ),
+      };
+    }
+    return col;
+  });
 
   return (
     <div>
@@ -52,7 +78,7 @@ const EmployeeSalary = () => {
             </div>
           </div>
         </div>
-        <DataTable columns={employeSalaryColumns} data={employeSalaryData} />
+        <DataTable columns={columns} data={data} />
       </div>
     </div>
   )
