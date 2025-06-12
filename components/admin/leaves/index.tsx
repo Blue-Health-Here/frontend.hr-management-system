@@ -96,7 +96,7 @@ const LeavesView = () => {
   return (
     <div>
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4 gap-4">
-        <h1 className="text-2xl font-bold">Leaves</h1>
+        <h1 className="text-xl lg:text-2xl font-bold">Leaves</h1>
         {/* <div className="flex flex-row items-stretch gap-3 w-full sm:w-auto">
           <ExportButton />
 
@@ -125,9 +125,9 @@ const LeavesView = () => {
 
       {/* Leave Table */}
       <div className="overflow-x-auto bg-white rounded-2xl theme-shadow">
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 bg-white p-4">
+        <div className="flex flex-wrap justify-between gap-4 bg-white p-4">
           <h2 className="text-lg font-semibold">Leave List</h2>
-          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-auto">
+          <div className="flex flex-wrap items-stretch sm:items-center gap-3 w-auto">
             <DateRangeDropdown
               value={dateRangeFilter}
               onChange={setDateRangeFilter}

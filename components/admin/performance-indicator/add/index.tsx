@@ -7,7 +7,7 @@ const AddPerformanceIndicator: React.FC = () => {
   return (
     <div className="rounded-2xl p-6 bg-white space-y-6 theme-shadow">
       <div>
-        <h1 className="text-2xl  font-semibold text-gray-800">Add New Indicator</h1>
+        <h1 className="text-xl md:text-2xl font-semibold text-gray-800">Add New Indicator</h1>
         <div className="border-b border-gray-200 w-full my-3"></div>
       </div>
 
@@ -20,7 +20,7 @@ const AddPerformanceIndicator: React.FC = () => {
 
       <div>
         <div>
-          <h2 className="text-xl font-semibold text-gray-800 mb-4">Technical</h2>
+          <h2 className="text-lg md:text-xl font-semibold text-gray-800 mb-4">Technical</h2>
           <div className="border-b border-gray-200 w-full my-3"></div>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
@@ -61,7 +61,7 @@ const AddPerformanceIndicator: React.FC = () => {
       </div>
 
       <div>
-        <h2 className="text-xl font-semibold text-gray-800 mb-4">
+        <h2 className="text-lg md:text-xl font-semibold text-gray-800 mb-4">
           Organizational
         </h2>
         <div className="border-b border-gray-200 w-full my-3"></div>

@@ -44,7 +44,7 @@ const EmployeeDashboard = () => {
       <h2 className="text-base lg:text-lg font-semibold text-gray-800 mb-4">
         Attendance History
       </h2>
-      <div className="grid grid-cols-1 sm:grid-cols-4 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4">
         {employeesCardData.map((metric, index) => (
           <MetricCard
             key={`metric-${index}`}
