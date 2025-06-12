@@ -34,8 +34,7 @@ const InputField: React.FC<InputFieldProps> = ({
           id={name}
           name={name}
           type={type}
-          className={`block w-full px-4 py-2 border border-gray-300 rounded-sm focus:ring focus:ring-blue-200 focus:outline-none ${icon ? "pl-10" : ""
-            }`}
+          className={`block w-full px-4 py-2 border border-gray-300 rounded-sm focus:ring focus:ring-blue-200 focus:outline-none`}
           placeholder={placeholder}
         />
       </div>
