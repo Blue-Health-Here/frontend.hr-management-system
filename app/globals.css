@@ -9,6 +9,9 @@
   --secondary-dark-gray: #3C4566;
   --tertiary-dark-gray:#414651;
   --quaternary-dark-gray:#757575;
+  --primary-light-gray:#4B5563;
+  --secondary-light-gray:#CDCDCD;
+
 
 }
 
@@ -23,6 +26,10 @@
    --color-primary-navy-blue: var(--primary-navy-blue);
    --color-quaternary-dark-gray: var(--quaternary-dark-gray);
    --color-quaternary-dark-gray: var(--tertiary-dark-gray);
+   --color-primary-light-gray: var(--primary-light-gray);
+   --color-secondary-light-gray: var(--secondary-light-gray);
+
+
 
 }
 
