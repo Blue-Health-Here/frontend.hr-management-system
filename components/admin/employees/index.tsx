@@ -133,7 +133,7 @@ const EmployeesView = () => {
             {({ setFieldValue, values }) => (
               <Form>
                 <div className="flex flex-wrap items-stretch sm:items-center gap-3">
-                  <DatePickerField name="date" className="w-full sm:w-52 md:w-60" />
+                  <DatePickerField />
                   <div className="w-full sm:w-36">
                     <Field
                       as="select"

@@ -2,12 +2,10 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import { ChevronDown } from "lucide-react";
-import { adminAttendanceStats, employeeData, employeeStats, sorting } from "@/utils/constants";
-import DateRangeDropdown from "../../common/form/DateRangeDropdown";
+import { adminAttendanceStats, employeeData } from "@/utils/constants";
 import MetricCard from "@/components/common/MetricCard";
 import { Field, Form, Formik } from "formik";
 import DatePickerField from "@/components/common/form/DatePickerField";
-import Dropdown from "@/components/common/form/DropDown";
 import Button from "@/components/common/Button";
 
 const AttendanceReportView = () => {
