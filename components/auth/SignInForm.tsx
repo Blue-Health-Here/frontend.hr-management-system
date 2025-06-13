@@ -8,12 +8,25 @@ import { Mail, Eye, EyeOff } from "lucide-react";
 import { useState } from "react";
 import Link from "next/link";
 import Button from "../common/Button";
+import { useDispatch } from "react-redux";
+import { useRouter } from "next/navigation";
+import { handleSignIn } from "@/services/authServices";
 
 export default function SignInForm() {
     const [showPassword, setShowPassword] = useState(false);
-    const handleSubmit = (values: SignInFormValues) => {
-        console.log("Form submitted:", values);
+    const dispatch = useDispatch();
+    const router = useRouter();
+
+    const handleSubmit = async (values: SignInFormValues) => {
+        const payload = { ...values };
+
+        const response = await handleSignIn(dispatch, payload);
+        if (response && response?.success) {
+            if (response.result.role.code === "companyAdmin") router.push("/admin/dashboard");
+            else if (response.result.role.code === "employee") router.push("/employee/dashboard");
+        }
     };
+    
     return (
         <>
             <h1 className="text-green-600 text-3xl font-bold">SmartHR</h1>
