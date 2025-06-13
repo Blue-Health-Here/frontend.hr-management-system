@@ -1,4 +1,4 @@
-import { ForgotPasswordFormValues, SignInFormValues, SignUpFormValues } from "./types";
+import { ForgotPasswordFormValues, ResetFormValues, SignInFormValues, SignUpFormValues } from "./types";
 
 export const signInInitialVals: SignInFormValues = {
     userName: "",

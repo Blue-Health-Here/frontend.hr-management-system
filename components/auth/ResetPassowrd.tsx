@@ -1,19 +1,39 @@
 "use client";
-import { forgotPasswordInitialVals } from "@/utils/initialVals";
 import { ForgotPasswordValidationSchema } from "@/utils/validationSchema";
 import { Form, Formik } from "formik";
 import InputField from "../common/form/InputField";
 import Button from "../common/Button";
 import { Eye, EyeOff } from "lucide-react";
 import { useState } from "react";
+import { ResetFormValues } from "@/utils/types";
+import { handleResetPassword } from "@/services/authServices";
+import { useDispatch, useSelector } from "react-redux";
+import { useRouter } from "next/navigation";
+import { RootState } from "@/store/store";
 
 
 export default function ResetPassowrd() {
     const [showPassword, setShowPassword] = useState(false);
+    const { user } = useSelector((state: RootState) => state.auth);
+    const router = useRouter();
+    const dispatch = useDispatch();
+    console.log("User in Reset Password:", user);
 
-    const handleSubmit = (values: any) => {
-        console.log("Form submitted:", values);
+    const handleSubmit = async (values: ResetFormValues) => {
+        const code = localStorage.getItem("verifiedCode") || "";
+        const payload = {
+            userId: user.id,
+            code: code,
+            newPassword: values.newPassword,
+        };
+        console.log("Reset Password Payload:", payload);
+        const response = await handleResetPassword(dispatch, payload);
+        if (response && response?.success) {
+            router.push("/sign-in");
+        }
     };
+
+
 
     return (
         <>
@@ -35,8 +55,11 @@ export default function ResetPassowrd() {
                         </p>
                     </div>
                     <Formik
-                        initialValues={forgotPasswordInitialVals}
-                        validationSchema={ForgotPasswordValidationSchema}
+                        initialValues={{
+                            newPassword: "",
+                            code: localStorage.getItem("verifiedCode") || "",
+                            userId: user?.id || "",
+                        }} validationSchema={ForgotPasswordValidationSchema}
                         onSubmit={handleSubmit}
                     >
                         <Form className="space-y-4 w-full">

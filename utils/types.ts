@@ -1,4 +1,4 @@
-import { LucideIcon } from 'lucide-react'; 
+import { LucideIcon } from 'lucide-react';
 
 export interface Employee {
   id?: number;
@@ -51,7 +51,7 @@ export interface StatsOverviewProps {
 }
 
 export interface InputFieldProps {
-  label?: string; 
+  label?: string;
   name: string;
   type?: string;
   placeholder?: string;
@@ -62,7 +62,7 @@ export interface InputFieldProps {
 export interface LeavesCardProps {
   title: string;
   value: number | string;
-  icon: LucideIcon; 
+  icon: LucideIcon;
   iconColor: string;
   bgImage: string;
 }
@@ -77,7 +77,7 @@ export interface Employees {
   name: string;
   image: string;
   department: string;
-  designation?: string; 
+  designation?: string;
 }
 
 export interface Leave {
@@ -114,7 +114,7 @@ export interface PerformanceIndicator {
   department: string;
   approvedBy: string;
   createdDate: string;
-  status: "Active" | "Inactive"; 
+  status: "Active" | "Inactive";
 }
 
 
@@ -196,5 +196,9 @@ export interface EmployeeDashboardCardProps {
   type: 'attendance' | 'payslip' | 'alerts';
   attendanceData?: Attendance;
   alerts?: AlertItem[];
+}
+
+export interface ResetFormValues {
+  newPassword: string;
 }
 

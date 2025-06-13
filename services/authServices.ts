@@ -4,7 +4,7 @@ import { AppDispatch } from "@/store/store";
 import api from "@/lib/api";
 import { setIsLoading } from "@/store/features/global/globalSlice";
 import { setUser } from "@/store/features/auth/authSlice";
-import { SignUpFormValues, VerifyCodeAfterSignUpProps } from "@/utils/types";
+import { ResetFormValues, SignUpFormValues, VerifyCodeAfterSignUpProps } from "@/utils/types";
 
 // Types
 type ApiMethod = 'get' | 'post' | 'put' | 'delete';
@@ -184,3 +184,18 @@ export const handleForgotPassword = async (dispatch: AppDispatch, email: string)
         }
     });
 };
+
+export const handleResetPassword = async (dispatch: AppDispatch, values?: ResetFormValues) => {
+    return apiHandler(dispatch, 'post', '/auth/reset-password', {
+        data: values,
+        successMessage: "Reset Password successfully!",
+        onSuccess: (data) => {
+            dispatch(setUser(data));
+            localStorage.removeItem("resetEmail");
+            localStorage.removeItem("verifiedCode");
+        },
+        onError: () => dispatch(setUser(null))
+    });
+};
+
+
