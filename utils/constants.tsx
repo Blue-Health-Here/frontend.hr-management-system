@@ -250,7 +250,7 @@ export const employeeData = [
 export const adminSidebarItems = [
     {
         icon: RiDashboardHorizontalFill,
-        label: "Dashboard",
+        label: "Overview",
         href: "/admin/dashboard",
         hasDropdown: false
     },
