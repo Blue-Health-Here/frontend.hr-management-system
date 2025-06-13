@@ -1,11 +1,10 @@
 import AuthLayout from "@/components/layouts/AuthLayout";
-import ForgotPasswordForm from "@/components/auth/ForgotPasswordForm";
 import ResetPassowrd from "@/components/auth/ResetPassowrd";
 
 export const generateMetadata = () => ({
-  title: "Forgot Password | SmartHR",
+  title: "Reset Password | SmartHR",
   description:
-    "Reset your SmartHR account password. Enter your email address to receive password reset instructions",
+    "Reset your SmartHR account password. Enter your email address to receive password reset instructions.",
   keywords: [
     "forgot password",
     "password reset",
@@ -15,7 +14,7 @@ export const generateMetadata = () => ({
   ],
 });
 
-export default function ForgotPasswordPage() {
+export default function ResetPasswordPage() {
   return (
     <AuthLayout>
       <ResetPassowrd />
