@@ -91,7 +91,7 @@ export default function VerificationCode() {
                                 ))}
                             </div>
                             {errors.otp && touched.otp && (
-                                <div className="text-red-500 text-sm text-center">{errors.otp}</div>
+                                <div className="text-red-500 text-xs text-center">{errors.otp}</div>
                             )}
                             <Button
                                 type="submit"
