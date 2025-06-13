@@ -4,7 +4,7 @@ import { AppDispatch } from "@/store/store";
 import api from "@/lib/api";
 import { setIsLoading } from "@/store/features/global/globalSlice";
 import { setUser } from "@/store/features/auth/authSlice";
-import { SignUpFormValues } from "@/utils/types";
+import { SignUpFormValues, VerifyCodeAfterSignUpProps } from "@/utils/types";
 
 // Types
 type ApiMethod = 'get' | 'post' | 'put' | 'delete';
@@ -83,9 +83,8 @@ const apiHandler = async <T = any>(
         console.log(response, "response api handler");
         // Handle success
         if (response?.status === 200 || response?.data?.success || response?.status === 201) {
-            if (successMessage) {
-                toast.success(successMessage);
-            }
+            // @ts-ignore
+            toast.success(response?.data?.message || successMessage);
 
             if (onSuccess && response.data) {
                 onSuccess(response.data);
@@ -98,16 +97,16 @@ const apiHandler = async <T = any>(
     } catch (error: any) {
         // Handle 404 differently in some cases
         if (error?.status === 404) {
-            if (error?.response?.data?.detail) {
-                toast.success(error.response.data.detail);
+            if (error?.response?.data?.message) {
+                toast.error(error.response.data.message);
             }
 
             if (onError) {
                 onError(error);
             }
         } if (error?.status === 409) {
-            if (error?.response?.data?.detail) {
-                toast.success(error.response.data.detail);
+            if (error?.response?.data?.message) {
+                toast.error(error.response.data.message);
             }
 
             if (onError) {
@@ -134,7 +133,18 @@ export const handleSignUp = async (dispatch: AppDispatch, values?: SignUpFormVal
         data: values,
         successMessage: "User has signed up successfully!",
         onSuccess: (data) => {
-            localStorage.setItem("user", JSON.stringify(data));
+            // localStorage.setItem("user", JSON.stringify(data));
+            dispatch(setUser(data));
+        },
+        onError: () => dispatch(setUser(null))
+    });
+};
+
+export const handleVerifyCode = async (dispatch: AppDispatch, values?: any) => {
+    return apiHandler(dispatch, 'get', '/auth/verify', {
+        params: values,
+        onSuccess: (data) => {
+            // localStorage.setItem("user", JSON.stringify(data));
             dispatch(setUser(data));
         },
         onError: () => dispatch(setUser(null))
@@ -153,6 +163,12 @@ export const submitLogin = async (dispatch: AppDispatch, values?: FormikValues) 
     });
 };
 
-export const handleLogout = async () => {
-    localStorage.clear();
+export const handleLogout = async (dispatch: AppDispatch) => {
+    return apiHandler(dispatch, 'get', '/auth/logout', {
+        successMessage: "User has logged out successfully!",
+        onSuccess: () => {
+            dispatch(setUser(null))
+            localStorage.clear()
+        }
+    });
 }

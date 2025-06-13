@@ -10,12 +10,13 @@ import Link from "next/link";
 import Button from "../common/Button";
 import { handleSignUp } from "@/services/authServices";
 import { useDispatch } from "react-redux";
-import { redirect } from "next/navigation";
+import { redirect, useRouter } from "next/navigation";
 
 export default function SignUpForm() {
     const [showPassword, setShowPassword] = useState(false);
     const [showConfirmPassword, setShowConfirmPassword] = useState(false);
     const dispatch = useDispatch();
+    const router = useRouter();
 
     const handleSubmit = async (values: SignUpFormValues) => {
         const payload = { ...values };
@@ -24,7 +25,7 @@ export default function SignUpForm() {
 
         const response = await handleSignUp(dispatch, payload);
         if (response && response?.success) {
-            redirect("/verify-code");
+            router.push("/verify-code");
         }
     };
 
