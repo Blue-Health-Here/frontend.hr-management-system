@@ -52,14 +52,20 @@ export default function VerificationCode() {
     const handleSubmit = async (values: any) => {
         console.log("Form submitted:", values);
         console.log("OTP Values:", otpValues.join(""));
+        const isPasswordReset = localStorage.getItem("resetEmail");
         const paylod = {
             userId: user.id,
             code: otpValues.join(""),
-            whichPurpose: "accountVerify"
+            whichPurpose: isPasswordReset ? "forgotPassword" : "accountVerify"
         };
         const response = await handleVerifyCode(dispatch, paylod);
         if (response && response.success) {
-            router.push("/sign-in");
+            if (isPasswordReset) {
+                localStorage.setItem("verifiedCode", otpValues.join(""));
+                router.push("/reset-password");
+            } else {
+                router.push("/sign-in");
+            }
         }
     };
 

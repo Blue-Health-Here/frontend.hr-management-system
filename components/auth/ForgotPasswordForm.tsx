@@ -17,13 +17,8 @@ export default function ForgotPasswordForm() {
     const router = useRouter();
 
     const handleSubmit = async (values: ForgotPasswordFormValues) => {
-        console.log("values:", values);
-
         try {
             const response = await handleForgotPassword(dispatch, values.email);
-            console.log("Forgot password email:", values.email);
-            console.log("Forgot password response:", response);
-
             if (response && response?.success) {
                 router.push('/verify-code');
             }
@@ -58,16 +53,18 @@ export default function ForgotPasswordForm() {
                         validationSchema={ForgotPasswordValidationSchema}
                         onSubmit={handleSubmit}
                     >
-                        <Form className="space-y-3 w-full">
-                            <InputField
-                                name="email"
-                                type="email"
-                                label="Email Address"
-                                icon={<Mail className="h-4 w-4 text-black" />}
-                            />
+                        {() => (
+                            <Form className="space-y-3 w-full">
+                                <InputField
+                                    name="email"
+                                    type="email"
+                                    label="Email Address"
+                                    icon={<Mail className="h-4 w-4 text-black" />}
+                                />
 
-                            <Button type="submit" label="Submit" className="mt-2" />
-                        </Form>
+                                <Button type="submit" label="Submit" className="mt-2" />
+                            </Form>
+                        )}
                     </Formik>
                 </div>
             </div>
