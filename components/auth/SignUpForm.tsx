@@ -8,13 +8,24 @@ import InputField from "../common/form/InputField";
 import { Eye, EyeOff, Mail, User } from "lucide-react";
 import Link from "next/link";
 import Button from "../common/Button";
+import { handleSignUp } from "@/services/authServices";
+import { useDispatch } from "react-redux";
+import { redirect } from "next/navigation";
 
 export default function SignUpForm() {
     const [showPassword, setShowPassword] = useState(false);
     const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+    const dispatch = useDispatch();
 
-    const handleSubmit = (values: SignUpFormValues) => {
-        console.log("Form submitted:", values);
+    const handleSubmit = async (values: SignUpFormValues) => {
+        const payload = { ...values };
+        delete payload.confirmPassword;
+        delete payload.agreeTerms;
+
+        const response = await handleSignUp(dispatch, payload);
+        if (response && response?.success) {
+            redirect("/verify-code");
+        }
     };
 
     return (
@@ -23,7 +34,7 @@ export default function SignUpForm() {
                 <h1 className="text-green-600 text-3xl font-bold">SmartHR</h1>
             </div>
 
-            <div className="flex flex-col items-center w-full max-w-md mx-auto flex-1 justify-center">
+            <div className="flex flex-col items-center w-full max-w-[650px] mx-auto flex-1 justify-center">
                 <div className="mb-6 text-center flex flex-col items-center">
                     <div className="relative w-24 h-24 flex items-center justify-center mb-3">
                         <div className="absolute w-16 h-10 bg-green-700 transform -rotate-45 translate-x-2 translate-y-4 z-0" />
@@ -45,60 +56,81 @@ export default function SignUpForm() {
                     >
                         {({ values, setFieldValue }) => (
                             <Form className="space-y-3 w-full">
-                                <InputField
-                                    name="fullName"
-                                    label="Name"
-                                    icon={<User className="h-4 w-4 text-black" />}
-                                />
+                                <div className="flex gap-4 items-center flex-wrap">
+                                    <InputField
+                                        name="firstName"
+                                        label="First Name"
+                                        icon={<User className="h-4 w-4 text-black" />}
+                                        className="flex-1"
+                                    />
 
-                                <InputField
-                                    name="email"
-                                    type="email"
-                                    label="Email Address"
-                                    icon={<Mail className="h-4 w-4 text-black" />}
-                                />
+                                    <InputField
+                                        name="lastName"
+                                        label="Last Name"
+                                        icon={<User className="h-4 w-4 text-black" />}
+                                        className="flex-1"
+                                    />
+                                </div>
+                                <div className="flex gap-4 items-center flex-wrap">
+                                    <InputField
+                                        name="userName"
+                                        label="Username"
+                                        icon={<User className="h-4 w-4 text-black" />}
+                                        className="flex-1"
+                                    />
 
-                                <InputField
-                                    name="password"
-                                    type={showPassword ? "text" : "password"}
-                                    label="Password"
-                                    icon={
-                                        <button
-                                            type="button"
-                                            onClick={() => setShowPassword(!showPassword)}
-                                            className="focus:outline-none"
-                                        >
-                                            {showPassword ? (
-                                                <EyeOff className="h-4 w-4 text-black" />
-                                            ) : (
-                                                <Eye className="h-4 w-4 text-black" />
-                                            )}
-                                        </button>
-                                    }
-                                />
+                                    <InputField
+                                        name="email"
+                                        type="email"
+                                        label="Email Address"
+                                        icon={<Mail className="h-4 w-4 text-black" />}
+                                        className="flex-1"
+                                    />
+                                </div>
+                                <div className="flex gap-4 items-center flex-wrap">
+                                    <InputField
+                                        name="password"
+                                        type={showPassword ? "text" : "password"}
+                                        label="Password"
+                                        icon={
+                                            <button
+                                                type="button"
+                                                onClick={() => setShowPassword(!showPassword)}
+                                                className="focus:outline-none"
+                                            >
+                                                {showPassword ? (
+                                                    <EyeOff className="h-4 w-4 text-black" />
+                                                ) : (
+                                                    <Eye className="h-4 w-4 text-black" />
+                                                )}
+                                            </button>
+                                        }
+                                        className="flex-1"
+                                    />
 
-                                <InputField
-                                    name="confirmPassword"
-                                    type={showConfirmPassword ? "text" : "password"}
-                                    label="Confirm Password"
-                                    icon={
-                                        <button
-                                            type="button"
-                                            onClick={() =>
-                                                setShowConfirmPassword(!showConfirmPassword)
-                                            }
-                                            className="focus:outline-none"
-                                        >
-                                            {showConfirmPassword ? (
-                                                <EyeOff className="h-4 w-4 text-black" />
-                                            ) : (
-                                                <Eye className="h-4 w-4 text-black" />
-                                            )}
-                                        </button>
-                                    }
-                                />
-
-                                <div className="flex items-start mb-6">
+                                    <InputField
+                                        name="confirmPassword"
+                                        type={showConfirmPassword ? "text" : "password"}
+                                        label="Confirm Password"
+                                        icon={
+                                            <button
+                                                type="button"
+                                                onClick={() =>
+                                                    setShowConfirmPassword(!showConfirmPassword)
+                                                }
+                                                className="focus:outline-none"
+                                            >
+                                                {showConfirmPassword ? (
+                                                    <EyeOff className="h-4 w-4 text-black" />
+                                                ) : (
+                                                    <Eye className="h-4 w-4 text-black" />
+                                                )}
+                                            </button>
+                                        }
+                                        className="flex-1"
+                                    />
+                                </div>
+                                {/* <div className="flex items-start mb-6">
                                     <div className="flex items-center h-5">
                                         <input
                                             id="agreeTerms"
@@ -131,10 +163,9 @@ export default function SignUpForm() {
                                             Privacy
                                         </Link>
                                     </label>
-                                </div>
+                                </div> */}
 
-                                <Button type="submit" label="Sign Up" className="mt-2" />
-
+                                <Button type="submit" label="Sign Up" className="mt-4" />
                             </Form>
                         )}
                     </Formik>

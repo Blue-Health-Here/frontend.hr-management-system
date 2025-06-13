@@ -1,9 +1,10 @@
 import toast from "react-hot-toast";
-import { setIsLoading } from "../store/features/global/globalSlice";
 import { FormikValues } from "formik";
-import { setUser } from "../store/features/auth/authSlice";
 import { AppDispatch } from "@/store/store";
 import api from "@/lib/api";
+import { setIsLoading } from "@/store/features/global/globalSlice";
+import { setUser } from "@/store/features/auth/authSlice";
+import { SignUpFormValues } from "@/utils/types";
 
 // Types
 type ApiMethod = 'get' | 'post' | 'put' | 'delete';
@@ -79,7 +80,7 @@ const apiHandler = async <T = any>(
                 response = await api.delete(url, config);
                 break;
         }
-        // console.log(response, "response api handler");
+        console.log(response, "response api handler");
         // Handle success
         if (response?.status === 200 || response?.data?.success || response?.status === 201) {
             if (successMessage) {
@@ -127,6 +128,18 @@ const apiHandler = async <T = any>(
 };
 
 // ============= Auth Screens & Logout =============
+
+export const handleSignUp = async (dispatch: AppDispatch, values?: SignUpFormValues) => {
+    return apiHandler(dispatch, 'post', '/auth/signup', {
+        data: values,
+        successMessage: "User has signed up successfully!",
+        onSuccess: (data) => {
+            localStorage.setItem("user", JSON.stringify(data));
+            dispatch(setUser(data));
+        },
+        onError: () => dispatch(setUser(null))
+    });
+};
 
 export const submitLogin = async (dispatch: AppDispatch, values?: FormikValues) => {
     return apiHandler(dispatch, 'post', '/auth/login', {

@@ -1,13 +1,15 @@
 import { ForgotPasswordFormValues, SignInFormValues, SignUpFormValues } from "./types";
 
 export const signInInitialVals: SignInFormValues = {
-    email: "",
+    userName: "",
     password: "",
     rememberMe: false,
 };
 
 export const signUpInitialVals: SignUpFormValues = {
-    fullName: "",
+    firstName: "",
+    lastName: "",
+    userName: "",
     email: "",
     password: "",
     confirmPassword: "",
