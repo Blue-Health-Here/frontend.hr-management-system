@@ -76,8 +76,8 @@ export default function SignInForm() {
                                     </button>
                                 }
                             />
-                            {/* <div className="flex items-start justify-between mb-6">
-                                <div className="flex items-center">
+                            <div className="flex items-start justify-between mb-6">
+                                {/* <div className="flex items-center">
                                     <div className="flex items-center h-5">
                                         <input
                                             id="rememberMe"
@@ -96,14 +96,14 @@ export default function SignInForm() {
                                     >
                                         Remember Me
                                     </label>
-                                </div>
+                                </div> */}
                                 <Link
                                     href="/forgot-password"
                                     className="text-xs md:text-sm text-[#e70d0d] hover:underline"
                                 >
                                     Forgot password?
                                 </Link>
-                            </div> */}
+                            </div>
                             <Button type="submit" label=" Sign In"></Button>
                         </Form>
                     )}
