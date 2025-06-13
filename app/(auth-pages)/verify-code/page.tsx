@@ -1,29 +1,31 @@
-// app/auth/signin/page.tsx
+// app/auth/success/page.tsx (or wherever your success page is)
 import AuthLayoutContent from "@/components/auth/AuthLayoutContent";
-import SignInForm from "@/components/auth/SignInForm";
-import VerificationCode from "@/components/auth/VerificationCode";
+import PasswordSuccess from "@/components/auth/PasswordSuccess";
 import AuthLayout from "@/components/layouts/AuthLayout";
 
 export const generateMetadata = () => ({
-  title: "Sign In | SmartHR",
-  description: "Access your SmartHR account securely with email and password authentication.",
+  title: "Success | SmartHR",
+  description: "Password successfully changed - SmartHR",
   keywords: [
-    "SmartHR login",
-    "employee portal",
-    "HR system sign in",
-    "workplace authentication",
-    "secure HR access"
+    "SmartHR success",
+    "password changed",
+    "HR system",
+    "authentication success"
   ]
 });
 
-export default function SignInPage() {
+export default function SuccessPage() {
   return (
-    <AuthLayout leftContent={
-      <AuthLayoutContent
-        title="Igniting Employee Potential"
-        description="Efficiently manage your workforce, streamline operations effectively." />}
+    <AuthLayout 
+      showBackgroundShapes={true}
+      leftContent={
+        <AuthLayoutContent
+          title="Igniting Employee Potential"
+          description="Efficiently manage your workforce, streamline operations effectively." 
+        />
+      }
     >
-      <VerificationCode />
+      <PasswordSuccess />
     </AuthLayout>
   );
 }
