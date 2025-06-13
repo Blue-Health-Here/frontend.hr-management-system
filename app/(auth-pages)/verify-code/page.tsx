@@ -2,7 +2,7 @@ import AuthLayout from "@/components/layouts/AuthLayout";
 import VerificationCode from "@/components/auth/VerificationCode";
 
 export const generateMetadata = () => ({
-  title: "Forgot Password | SmartHR",
+  title: "Verify Code | SmartHR",
   description:
     "Verfiy your SmartHR account code. Enter the 6-digit code sent to your email to reset your password.",
   keywords: [
@@ -13,7 +13,7 @@ export const generateMetadata = () => ({
   ],
 });
 
-export default function ForgotPasswordPage() {
+export default function VerifyCodePage() {
   return (
     <AuthLayout>
       <VerificationCode />
