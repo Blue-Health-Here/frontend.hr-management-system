@@ -12,6 +12,8 @@ import Dropdown from "@/components/common/form/DropDown";
 import DatePickerField from "@/components/common/form/DatePickerField";
 import { Field, Form, Formik } from "formik";
 import { FiEdit } from "react-icons/fi";
+import { IoTrashOutline } from "react-icons/io5";
+import DateRangeField from "@/components/common/form/DateRangeField";
 import DeleteConfirmation from "@/components/common/DeleteConfirmation";
 
 const EmployeesView = () => {
@@ -131,7 +133,7 @@ const EmployeesView = () => {
             {({ setFieldValue, values }) => (
               <Form>
                 <div className="flex flex-wrap items-stretch sm:items-center gap-3">
-                  <DatePickerField name="date" className="w-full sm:w-52 md:w-60" />
+                  <DatePickerField />
                   <div className="w-full sm:w-36">
                     <Field
                       as="select"

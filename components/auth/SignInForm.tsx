@@ -4,17 +4,30 @@ import { SignInFormValues } from "@/utils/types";
 import { signInValidationSchema } from "@/utils/validationSchema";
 import { Form, Formik } from "formik";
 import InputField from "../common/form/InputField";
-import { Eye, EyeOff } from "lucide-react";
+import { Eye, EyeOff, Mail } from "lucide-react";
 import { useState } from "react";
 import Link from "next/link";
 import Button from "../common/Button";
 import Image from "next/image";
+import { useDispatch } from "react-redux";
+import { useRouter } from "next/navigation";
+import { handleSignIn } from "@/services/authServices";
 
 export default function SignInForm() {
     const [showPassword, setShowPassword] = useState(false);
-    const handleSubmit = (values: SignInFormValues) => {
-        console.log("Form submitted:", values);
+    const dispatch = useDispatch();
+    const router = useRouter();
+
+    const handleSubmit = async (values: SignInFormValues) => {
+        const payload = { ...values };
+
+        const response = await handleSignIn(dispatch, payload);
+        if (response && response?.success) {
+            if (response.result.role.code === "companyAdmin") router.push("/admin/dashboard");
+            else if (response.result.role.code === "employee") router.push("/employee/dashboard");
+        }
     };
+    
     return (
         <>
             <Image src="/logo.png" alt="logo" width={150} height={60} className="pt-2 md:pt-6 lg:pt-10" />
@@ -35,10 +48,10 @@ export default function SignInForm() {
                     {({ values, setFieldValue }) => (
                         <Form className="space-y-4 w-full">
                             <InputField
-                                name="email"
-                                type="email"
-                                label="Email"
-                                placeholder="olivia@untitledui.com"
+                                name="userName"
+                                type="text"
+                                label="Username"
+                                icon={<Mail className="h-4 w-4 text-black" />}
                             />
 
                             <InputField
@@ -59,8 +72,8 @@ export default function SignInForm() {
                                     </button>
                                 }
                             />
-                            <div className="flex items-start justify-between mt-8 mb-6">
-                                <div className="flex items-center">
+                            <div className="flex items-start justify-between mb-6">
+                                {/* <div className="flex items-center">
                                     <div className="flex items-center h-5">
                                         <input
                                             id="rememberMe"
@@ -79,7 +92,7 @@ export default function SignInForm() {
                                     >
                                         Remember Me
                                     </label>
-                                </div>
+                                </div> */}
                                 <Link
                                     href="/forgot-password"
                                     className="text-xs md:text-sm text-primary-navy-blue hover:underline"

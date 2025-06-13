@@ -153,17 +153,25 @@ export interface DashboardHeaderProps {
 }
 
 export interface SignInFormValues {
-  email: string;
+  userName: string;
   password: string;
-  rememberMe: boolean;
+  // rememberMe: boolean;
 }
 
 export interface SignUpFormValues {
-  fullName: string;
+  firstName: string;
+  lastName: string;
+  userName: string;
   email: string;
   password: string;
-  confirmPassword: string;
-  agreeTerms: boolean;
+  confirmPassword?: string;
+  agreeTerms?: boolean;
+}
+
+export interface VerifyCodeAfterSignUpProps {
+  userId: string;
+  code: string;
+  whichPurpose: string
 }
 
 export interface ForgotPasswordFormValues {
