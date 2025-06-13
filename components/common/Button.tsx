@@ -9,6 +9,9 @@ type ButtonProps = {
   className?: string;
   type?: 'button' | 'submit' | 'reset';
   isArrowButton?: boolean;
+  bgColor?: string;
+  textColor?: string;
+  borderColor?: string;
 };
 
 const Button = ({
@@ -19,6 +22,9 @@ const Button = ({
   className = '',
   type = 'button',
   isArrowButton = false,
+  bgColor = 'bg-primary-navy-blue',
+  textColor = 'text-white',
+  borderColor = 'border-transparent',
 }: ButtonProps) => {
 
   if (isArrowButton) {
@@ -37,7 +43,7 @@ const Button = ({
     <button
       onClick={onClick}
       type={type}
-      className={`flex w-full cursor-pointer items-center justify-center gap-2 bg-primary-navy-blue text-white font-medium py-3 px-5 rounded-md text-xs md:text-sm lg:text-base transition-all duration-200 ${className}`}
+      className={`flex w-full cursor-pointer items-center justify-center gap-2 font-medium py-3 px-5 border rounded-md text-xs md:text-sm lg:text-base transition-all duration-200 ${borderColor} ${bgColor} ${textColor} ${className}`}
     >
       {Icon && iconPosition === 'left' && <Icon className="w-4 h-4" />}
       <span>{label}</span>
