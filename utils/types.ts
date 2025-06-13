@@ -155,7 +155,7 @@ export interface DashboardHeaderProps {
 export interface SignInFormValues {
   userName: string;
   password: string;
-  rememberMe: boolean;
+  // rememberMe: boolean;
 }
 
 export interface SignUpFormValues {

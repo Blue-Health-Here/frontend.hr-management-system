@@ -151,21 +151,19 @@ export const handleVerifyCode = async (dispatch: AppDispatch, values?: any) => {
     });
 };
 
-export const submitLogin = async (dispatch: AppDispatch, values?: FormikValues) => {
+export const handleSignIn = async (dispatch: AppDispatch, values?: FormikValues) => {
     return apiHandler(dispatch, 'post', '/auth/login', {
         data: values,
-        successMessage: "User has logged in successfully!",
         onSuccess: (data) => {
-            localStorage.setItem("user", JSON.stringify(data));
+            // localStorage.setItem("user", JSON.stringify(data));
             dispatch(setUser(data))
         },
         onError: () => dispatch(setUser(null))
     });
 };
 
-export const handleLogout = async (dispatch: AppDispatch) => {
+export const logoutAPI = async (dispatch: AppDispatch) => {
     return apiHandler(dispatch, 'get', '/auth/logout', {
-        successMessage: "User has logged out successfully!",
         onSuccess: () => {
             dispatch(setUser(null))
             localStorage.clear()

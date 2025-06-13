@@ -3,7 +3,7 @@ import { ForgotPasswordFormValues, SignInFormValues, SignUpFormValues } from "./
 export const signInInitialVals: SignInFormValues = {
     userName: "",
     password: "",
-    rememberMe: false,
+    // rememberMe: false,
 };
 
 export const signUpInitialVals: SignUpFormValues = {

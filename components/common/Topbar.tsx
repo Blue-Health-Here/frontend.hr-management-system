@@ -10,6 +10,7 @@ import { useState, useRef, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import NavbarProfileDropdown from "./NavbarProfileDropdown";
 import { useDispatch } from "react-redux";
+import { logoutAPI } from "@/services/authServices";
 
 interface TopbarProps {
   isEmployee: boolean;
@@ -51,7 +52,7 @@ const Topbar = ({ isEmployee }: TopbarProps) => {
   const handleLogout = async () => {
     try {
       // Example logout implementation - replace with your actual logic
-      // await logoutAPI();
+      await logoutAPI(dispatch);
       router.push("/sign-in");
     } catch (error) {
       console.error("Logout failed:", error);
