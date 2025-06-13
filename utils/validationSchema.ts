@@ -28,16 +28,19 @@ export const ForgotPasswordValidationSchema = Yup.object({
 
 
 export const signInValidationSchema = Yup.object({
-  email: Yup.string()
-    .email("Invalid email address")
-    .required("Email is required"),
+  // email: Yup.string()
+  //   .email("Invalid email address")
+  //   .required("Email is required"),
+  userName: Yup.string().required("Username is required"),
   password: Yup.string()
     .min(6, "Password must be at least 6 characters")
     .required("Password is required"),
 });
 
 export const signUpValidationSchema = Yup.object({
-  fullName: Yup.string().required("Full Name is required"),
+  firstName: Yup.string().required("First Name is required"),
+  lastName: Yup.string().required("Last Name is required"),
+  userName: Yup.string().required("Username is required"),
   email: Yup.string()
     .email("Invalid email address")
     .required("Email is required"),
@@ -47,9 +50,9 @@ export const signUpValidationSchema = Yup.object({
   confirmPassword: Yup.string()
     .oneOf([Yup.ref("password")], "Passwords must match")
     .required("Confirm Password is required"),
-  agreeTerms: Yup.boolean()
-    .oneOf([true], "You must accept the terms and conditions")
-    .required("You must accept the terms and conditions"),
+  // agreeTerms: Yup.boolean()
+  //   .oneOf([true], "You must accept the terms and conditions")
+  //   .required("You must accept the terms and conditions"),
 });
 
 export const profileValidationSchema = Yup.object().shape({
@@ -84,3 +87,8 @@ export const profileValidationSchema = Yup.object().shape({
   }),
 });
 
+export const OtpVerificationSchema = Yup.object({
+  otp: Yup.string()
+    .required("OTP is required")
+    .matches(/^\d{6}$/, "OTP must be exactly 6 digits"),
+})

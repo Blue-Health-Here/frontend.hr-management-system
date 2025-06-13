@@ -7,9 +7,12 @@
   --primary-navy-blue: #597BE8;
   --primary-dark-gray: #1C202F;
   --secondary-dark-gray: #3C4566;
-  --tertiary-dark-gray:#414651;
-  --quaternary-dark-gray:#757575;
+  --tertiary-dark-gray: #414651;
+  --quaternary-dark-gray: #757575;
 
+  --primary-green: #16a34a;
+  --secondary-green: #22c55e;
+  --light-stroke: #597be84d;
 }
 
 @theme inline {
@@ -20,26 +23,30 @@
   --font-mono: var(--font-geist-mono);
   --color-primary-dark-gray: var(--primary-dark-gray);
   --color-secondary-dark-gray: var(---secondary-dark-gray);
-   --color-primary-navy-blue: var(--primary-navy-blue);
-   --color-quaternary-dark-gray: var(--quaternary-dark-gray);
-   --color-quaternary-dark-gray: var(--tertiary-dark-gray);
-
+  --color-primary-navy-blue: var(--primary-navy-blue);
+  --color-quaternary-dark-gray: var(--quaternary-dark-gray);
+  --color-quaternary-dark-gray: var(--tertiary-dark-gray);
+  --color-light-stroke: var(--light-stroke);
 }
 
 /* CUSTOM ANIMATIONS (LOOPING FORMAT) */
 
 @layer utilities {
+
   /* Fade In */
   .animate-fadeIn {
     animation: fadeIn 2s linear infinite;
   }
+
   @keyframes fadeIn {
     0% {
       opacity: 0;
     }
+
     50% {
       opacity: 1;
     }
+
     100% {
       opacity: 0;
     }
@@ -49,13 +56,16 @@
   .animate-fadeOut {
     animation: fadeOut 2s linear infinite;
   }
+
   @keyframes fadeOut {
     0% {
       opacity: 1;
     }
+
     50% {
       opacity: 0;
     }
+
     100% {
       opacity: 1;
     }
@@ -65,13 +75,16 @@
   .animate-zoomIn {
     animation: zoomIn 2s linear infinite;
   }
+
   @keyframes zoomIn {
     0% {
       transform: scale(0.9);
     }
+
     50% {
       transform: scale(1.1);
     }
+
     100% {
       transform: scale(0.9);
     }
@@ -81,13 +94,16 @@
   .animate-zoomOut {
     animation: zoomOut 2s linear infinite;
   }
+
   @keyframes zoomOut {
     0% {
       transform: scale(1.1);
     }
+
     50% {
       transform: scale(0.9);
     }
+
     100% {
       transform: scale(1.1);
     }
@@ -97,13 +113,16 @@
   .animate-scaleUp {
     animation: scaleUp 2s linear infinite;
   }
+
   @keyframes scaleUp {
     0% {
       transform: scale(0.95);
     }
+
     50% {
       transform: scale(1);
     }
+
     100% {
       transform: scale(0.95);
     }
@@ -113,13 +132,16 @@
   .animate-scaleDown {
     animation: scaleDown 2s linear infinite;
   }
+
   @keyframes scaleDown {
     0% {
       transform: scale(1);
     }
+
     50% {
       transform: scale(0.90);
     }
+
     100% {
       transform: scale(1);
     }
@@ -134,9 +156,11 @@
     0% {
       transform: translateY(0);
     }
+
     50% {
       transform: translateY(-5px);
     }
+
     100% {
       transform: translateY(0);
     }
@@ -146,13 +170,16 @@
   .animate-slideInLeft {
     animation: slideInLeft 2s linear infinite;
   }
+
   @keyframes slideInLeft {
     0% {
       transform: translateX(-5%);
     }
+
     50% {
       transform: translateX(0);
     }
+
     100% {
       transform: translateX(-5%);
     }
@@ -162,13 +189,16 @@
   .animate-slideInRight {
     animation: slideInRight 2s linear infinite;
   }
+
   @keyframes slideInRight {
     0% {
       transform: translateX(-10%);
     }
+
     50% {
       transform: translateX(0);
     }
+
     100% {
       transform: translateX(-10%);
     }
@@ -178,15 +208,18 @@
   .animate-slideInTop {
     animation: slideInTop 2s linear infinite;
   }
+
   @keyframes slideInTop {
     0% {
       transform: translateY(-100%);
       opacity: 0;
     }
+
     50% {
       transform: translateY(0);
       opacity: 1;
     }
+
     100% {
       transform: translateY(-100%);
       opacity: 0;
@@ -197,15 +230,18 @@
   .animate-slideInBottom {
     animation: slideInBottom 2s linear infinite;
   }
+
   @keyframes slideInBottom {
     0% {
       transform: translateY(100%);
       opacity: 0;
     }
+
     50% {
       transform: translateY(0);
       opacity: 1;
     }
+
     100% {
       transform: translateY(100%);
       opacity: 0;
@@ -221,7 +257,7 @@
 }
 
 .neo-down {
-  @apply shadow-[inset_1px_1px_4px_#e5e5e5,inset_-3px_-3px_7px_#f9fafb];
+  @apply shadow-[inset_1px_1px_4px_#e5e5e5, inset_-3px_-3px_7px_#f9fafb];
 }
 
 .react-datepicker {
@@ -247,25 +283,30 @@
 .react-datepicker__day--in-selecting-range:not([aria-disabled="true"]):hover,
 .react-datepicker__day--in-range:not([aria-disabled="true"]):hover,
 .react-datepicker__month-text--selected:not([aria-disabled="true"]):hover,
-.react-datepicker__month-text--in-selecting-range:not(
-    [aria-disabled="true"]
-  ):hover,
+.react-datepicker__month-text--in-selecting-range:not([aria-disabled="true"]):hover,
 .react-datepicker__month-text--in-range:not([aria-disabled="true"]):hover,
 .react-datepicker__quarter-text--selected:not([aria-disabled="true"]):hover,
-.react-datepicker__quarter-text--in-selecting-range:not(
-    [aria-disabled="true"]
-  ):hover,
+.react-datepicker__quarter-text--in-selecting-range:not([aria-disabled="true"]):hover,
 .react-datepicker__quarter-text--in-range:not([aria-disabled="true"]):hover,
 .react-datepicker__year-text--selected:not([aria-disabled="true"]):hover,
-.react-datepicker__year-text--in-selecting-range:not(
-    [aria-disabled="true"]
-  ):hover,
+.react-datepicker__year-text--in-selecting-range:not([aria-disabled="true"]):hover,
 .react-datepicker__year-text--in-range:not([aria-disabled="true"]):hover {
   background-color: #16a34a !important;
 }
 
-.react-datepicker__day--selected, .react-datepicker__day--in-selecting-range, .react-datepicker__day--in-range, .react-datepicker__month-text--selected, .react-datepicker__month-text--in-selecting-range, .react-datepicker__month-text--in-range, .react-datepicker__quarter-text--selected, .react-datepicker__quarter-text--in-selecting-range, .react-datepicker__quarter-text--in-range, .react-datepicker__year-text--selected, .react-datepicker__year-text--in-selecting-range, .react-datepicker__year-text--in-range {
-    background-color: #22c55e !important;
+.react-datepicker__day--selected,
+.react-datepicker__day--in-selecting-range,
+.react-datepicker__day--in-range,
+.react-datepicker__month-text--selected,
+.react-datepicker__month-text--in-selecting-range,
+.react-datepicker__month-text--in-range,
+.react-datepicker__quarter-text--selected,
+.react-datepicker__quarter-text--in-selecting-range,
+.react-datepicker__quarter-text--in-range,
+.react-datepicker__year-text--selected,
+.react-datepicker__year-text--in-selecting-range,
+.react-datepicker__year-text--in-range {
+  background-color: #22c55e !important;
 }
 
 .react-datepicker__month-container {
@@ -273,5 +314,133 @@
 }
 
 .theme-shadow {
-  @apply shadow-[0px_0px_12px_0px_rgba(0,0,0,0.04)];
+  @apply shadow-[0px_0px_12px_0px_rgba(0, 0, 0, 0.04)];
+}
+
+:where(.css-dev-only-do-not-override-ut69n1).ant-picker {
+  padding: 7px 11px 6px;
+  border-color: #d1d5db;
+}
+
+:where(.css-dev-only-do-not-override-ut69n1).ant-picker-outlined:hover {
+  border-color: #d1d5db;
+  box-shadow: none;
+}
+
+.ant-picker .ant-picker-input input::placeholder {
+  color: black;
+}
+
+.ant-picker .ant-picker-suffix .anticon {
+  color: black;
+}
+
+.ant-picker .ant-picker-separator .anticon-swap-right {
+  color: black;
+}
+
+:where(.css-dev-only-do-not-override-ut69n1).ant-picker-dropdown .ant-picker-cell-in-view.ant-picker-cell-range-start:not(.ant-picker-cell-disabled) .ant-picker-cell-inner,
+:where(.css-dev-only-do-not-override-ut69n1).ant-picker-dropdown .ant-picker-cell-in-view.ant-picker-cell-range-end:not(.ant-picker-cell-disabled) .ant-picker-cell-inner {
+  background: #597be8;
+}
+
+:where(.css-dev-only-do-not-override-ut69n1).ant-picker-dropdown .ant-picker-cell .ant-picker-cell-inner {
+  border-radius: 9px;
+}
+
+:where(.css-dev-only-do-not-override-ut69n1).ant-picker-dropdown .ant-picker-cell .ant-picker-cell-inner {
+  border-radius: 9px;
+}
+
+:where(.css-dev-only-do-not-override-ut69n1).ant-picker-dropdown .ant-picker-header button {
+  color: black;
+}
+
+:where(.css-dev-only-do-not-override-ut69n1).ant-picker-dropdown .ant-picker-header-view>button:hover {
+  color: #597be8;
+}
+
+:where(.css-dev-only-do-not-override-ut69n1).ant-picker-dropdown .ant-picker-header-view {
+  background: #597be80d;
+  border-radius: 10px;
+}
+
+:where(.css-dev-only-do-not-override-ut69n1).ant-picker-dropdown .ant-picker-header {
+  padding: 8px;
+}
+
+:where(.css-dev-only-do-not-override-ut69n1).ant-picker-dropdown .ant-picker-panel-container .ant-picker-presets ul li:hover {
+  background: #597be81a;
+}
+
+:where(.css-dev-only-do-not-override-ut69n1).ant-picker-dropdown .ant-picker-panel-container .ant-picker-presets ul li {
+  padding: 6px;
+}
+
+:where(.css-dev-only-do-not-override-ut69n1).ant-picker-dropdown .ant-picker-panel-container .ant-picker-presets ul {
+  padding: 8px 5px;
+  color: #3c4566;
+}
+
+:where(.css-dev-only-do-not-override-ut69n1).ant-picker-dropdown .ant-picker-content th {
+  color: #7782ae;
+  font-weight: 600;
+}
+
+:where(.css-dev-only-do-not-override-ut69n1).ant-picker-dropdown .ant-picker-content td {
+  font-weight: 600;
+  color: #3c4566;
+}
+
+:where(.css-dev-only-do-not-override-ut69n1).ant-picker-dropdown .ant-picker-cell-in-view.ant-picker-cell .ant-picker-cell-inner {
+  color: #3c4566;
+}
+
+:where(.css-dev-only-do-not-override-ut69n1).ant-picker-dropdown .ant-picker-cell:not(.ant-picker-cell-in-view) .ant-picker-cell-inner {
+  color: #bdbdbd;
+}
+
+@media (max-width: 760px) {
+  :where(.css-dev-only-do-not-override-ut69n1).ant-picker-dropdown .ant-picker-panel-container .ant-picker-panels {
+    display: inline-block;
+    width: 289px;
+  }
+}
+
+@media (max-width: 450px) {
+  :where(.css-dev-only-do-not-override-ut69n1).ant-picker-dropdown .ant-picker-panel-container .ant-picker-panel-layout {
+    display: block;
+    flex-wrap: wrap;
+    align-items: stretch;
+  }
+
+  :where(.css-dev-only-do-not-override-ut69n1).ant-picker-dropdown .ant-picker-panel-container .ant-picker-presets {
+    display: flex;
+    flex-direction: column;
+    min-width: 100%;
+    max-width: 100%;
+    height: 100px;
+  }
+
+  :where(.css-dev-only-do-not-override-ut69n1).ant-picker-dropdown .ant-picker-panel-container .ant-picker-presets ul {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    overflow: hidden;
+    padding: 10px;
+    border-inline-end: 0;
+  }
+
+  :where(.css-dev-only-do-not-override-ut69n1).ant-picker-dropdown .ant-picker-panel-container .ant-picker-presets ul li+li {
+    margin-top: 0px;
+  }
+
+  :where(.css-dev-only-do-not-override-ut69n1).ant-picker-dropdown {
+    left: 50px !important;
+  }
+}
+
+@media (max-width: 350px) {
+  :where(.css-dev-only-do-not-override-ut69n1).ant-picker-dropdown {
+    left: 15px !important;
+  }
 }
