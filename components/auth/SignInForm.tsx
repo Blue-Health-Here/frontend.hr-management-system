@@ -39,9 +39,9 @@ export default function SignInForm() {
                     {({ values, setFieldValue }) => (
                         <Form className="space-y-4 w-full">
                             <InputField
-                                name="email"
-                                type="email"
-                                label="Email Address"
+                                name="userName"
+                                type="text"
+                                label="Username"
                                 icon={<Mail className="h-4 w-4 text-black" />}
                             />
 
@@ -63,7 +63,7 @@ export default function SignInForm() {
                                     </button>
                                 }
                             />
-                            <div className="flex items-start justify-between mb-6">
+                            {/* <div className="flex items-start justify-between mb-6">
                                 <div className="flex items-center">
                                     <div className="flex items-center h-5">
                                         <input
@@ -90,7 +90,7 @@ export default function SignInForm() {
                                 >
                                     Forgot password?
                                 </Link>
-                            </div>
+                            </div> */}
                             <Button type="submit" label=" Sign In"></Button>
                         </Form>
                     )}
