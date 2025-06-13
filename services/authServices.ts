@@ -170,3 +170,16 @@ export const logoutAPI = async (dispatch: AppDispatch) => {
         }
     });
 }
+
+export const handleForgotPassword = async (dispatch: AppDispatch, email: string) => {
+    return apiHandler(dispatch, 'get', '/auth/forgot-password', {
+        params: { email },
+        successMessage: "Verification code sent to your email.",
+        onSuccess: (data) => {
+            if (data?.code) {
+                localStorage.setItem("verifyCode", data.code);
+            }
+            localStorage.setItem("resetEmail", email);
+        }
+    });
+};
