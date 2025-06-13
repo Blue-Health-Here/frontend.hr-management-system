@@ -84,3 +84,8 @@ export const profileValidationSchema = Yup.object().shape({
   }),
 });
 
+export const OtpVerificationSchema = Yup.object({
+  otp: Yup.string()
+    .required("OTP is required")
+    .matches(/^\d{6}$/, "OTP must be exactly 6 digits"),
+})
