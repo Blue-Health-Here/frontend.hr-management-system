@@ -1,3 +1,4 @@
+// Updated ForgotPasswordForm component
 "use client";
 import { forgotPasswordInitialVals } from "@/utils/initialVals";
 import { ForgotPasswordFormValues } from "@/utils/types";
@@ -7,10 +8,28 @@ import InputField from "../common/form/InputField";
 import { Mail } from "lucide-react";
 import Button from "../common/Button";
 import Link from "next/link";
+import { useDispatch } from "react-redux";
+import { useRouter } from "next/navigation";
+import { handleForgotPassword } from "@/services/authServices";
 
 export default function ForgotPasswordForm() {
-    const handleSubmit = (values: ForgotPasswordFormValues) => {
-        console.log("Form submitted:", values);
+    const dispatch = useDispatch();
+    const router = useRouter();
+
+    const handleSubmit = async (values: ForgotPasswordFormValues) => {
+        console.log("values:", values);
+
+        try {
+            const response = await handleForgotPassword(dispatch, values.email);
+            console.log("Forgot password email:", values.email);
+            console.log("Forgot password response:", response);
+
+            if (response && response?.success) {
+                router.push('/verify-code');
+            }
+        } catch (error) {
+            console.error("Forgot password error:", error);
+        }
     };
 
     return (
