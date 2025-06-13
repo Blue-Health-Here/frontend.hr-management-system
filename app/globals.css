@@ -7,8 +7,11 @@
   --primary-navy-blue: #597BE8;
   --primary-dark-gray: #1C202F;
   --secondary-dark-gray: #3C4566;
-  --tertiary-dark-gray: #414651;
-  --quaternary-dark-gray: #757575;
+  --tertiary-dark-gray:#414651;
+  --quaternary-dark-gray:#757575;
+  --primary-light-gray:#4B5563;
+  --secondary-light-gray:#CDCDCD;
+
 
   --primary-green: #16a34a;
   --secondary-green: #22c55e;
@@ -23,9 +26,11 @@
   --font-mono: var(--font-geist-mono);
   --color-primary-dark-gray: var(--primary-dark-gray);
   --color-secondary-dark-gray: var(---secondary-dark-gray);
-  --color-primary-navy-blue: var(--primary-navy-blue);
-  --color-quaternary-dark-gray: var(--quaternary-dark-gray);
-  --color-quaternary-dark-gray: var(--tertiary-dark-gray);
+   --color-primary-navy-blue: var(--primary-navy-blue);
+   --color-quaternary-dark-gray: var(--quaternary-dark-gray);
+   --color-quaternary-dark-gray: var(--tertiary-dark-gray);
+   --color-primary-light-gray: var(--primary-light-gray);
+   --color-secondary-light-gray: var(--secondary-light-gray);
   --color-light-stroke: var(--light-stroke);
 }
 
@@ -256,9 +261,9 @@
   }
 }
 
-.neo-down {
+/* .neo-down {
   @apply shadow-[inset_1px_1px_4px_#e5e5e5, inset_-3px_-3px_7px_#f9fafb];
-}
+} */
 
 .react-datepicker {
   border: 0 !important;
@@ -313,9 +318,9 @@
   width: 100% !important;
 }
 
-.theme-shadow {
+/* .theme-shadow {
   @apply shadow-[0px_0px_12px_0px_rgba(0, 0, 0, 0.04)];
-}
+} */
 
 :where(.css-dev-only-do-not-override-ut69n1).ant-picker {
   padding: 7px 11px 6px;

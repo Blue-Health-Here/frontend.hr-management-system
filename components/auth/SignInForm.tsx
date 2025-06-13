@@ -88,7 +88,7 @@ export default function SignInForm() {
                                     </div>
                                     <label
                                         htmlFor="rememberMe"
-                                        className="ms-2 text-xs md:text-sm"
+                                        className="ms-2 text-xs md:text-sm font-normal"
                                     >
                                         Remember Me
                                     </label>
@@ -104,8 +104,8 @@ export default function SignInForm() {
                         </Form>
                     )}
                 </Formik>
-                <p className="text-center text-xs md:text-sm lg:text-base xl:text-lg text-gray-500">
-                    New on our platform? <Link href="/sign-up" className="text-black font-semibold">Register Account</Link>
+                <p className="text-center text-xs md:text-sm text-primary-light-gray">
+                    Don't have an account? <Link href="/sign-up" className="text-xs md:text-sm text-primary-navy-blue">Create Account</Link>
                 </p>
                 <div className="flex gap-2 md:gap-4 flex-wrap justify-center">
                     <button className="flex items-center justify-center w-20 md:w-24 lg:w-28 xl:w-32 h-14 bg-white rounded-lg border-theme">
