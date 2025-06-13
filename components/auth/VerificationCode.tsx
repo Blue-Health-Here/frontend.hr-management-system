@@ -4,11 +4,18 @@ import Button from "../common/Button";
 import { useRef, useState } from "react";
 import Link from "next/link";
 import { OtpVerificationSchema } from "@/utils/validationSchema";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "@/store/store";
+import { handleVerifyCode } from "@/services/authServices";
+import { useRouter } from "next/navigation";
 
 
 export default function VerificationCode() {
     const [otpValues, setOtpValues] = useState<string[]>(["", "", "", "", "", ""]);
     const [isOtpIncorrect, setIsOtpIncorrect] = useState(false);
+    const { user } = useSelector((state: RootState) => state.auth);
+    const dispatch = useDispatch();
+    const router = useRouter();
 
     const inputRefs = [
         useRef<HTMLInputElement>(null),
@@ -42,9 +49,18 @@ export default function VerificationCode() {
         }
     };
 
-    const handleSubmit = (values: any) => {
+    const handleSubmit = async (values: any) => {
         console.log("Form submitted:", values);
         console.log("OTP Values:", otpValues.join(""));
+        const paylod = {
+            userId: user.id,
+            code: otpValues.join(""),
+            whichPurpose: "accountVerify"
+        };
+        const response = await handleVerifyCode(dispatch, paylod);
+        if (response && response.success) {
+            router.push("/sign-in");
+        }
     };
 
     return (

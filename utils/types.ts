@@ -168,6 +168,12 @@ export interface SignUpFormValues {
   agreeTerms?: boolean;
 }
 
+export interface VerifyCodeAfterSignUpProps {
+  userId: string;
+  code: string;
+  whichPurpose: string
+}
+
 export interface ForgotPasswordFormValues {
   email: string;
 }
