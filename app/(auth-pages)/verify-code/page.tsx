@@ -1,5 +1,6 @@
 import AuthLayout from "@/components/layouts/AuthLayout";
 import VerificationCode from "@/components/auth/VerificationCode";
+import AuthLayoutContent from "@/components/auth/AuthLayoutContent";
 
 export const generateMetadata = () => ({
   title: "Forgot Password | SmartHR",
@@ -15,7 +16,11 @@ export const generateMetadata = () => ({
 
 export default function ForgotPasswordPage() {
   return (
-    <AuthLayout>
+    <AuthLayout leftContent={
+      <AuthLayoutContent
+        title="Igniting Employee Potential"
+        description="Efficiently manage your workforce, streamline operations effectively." />}
+    >
       <VerificationCode />
     </AuthLayout>
   );

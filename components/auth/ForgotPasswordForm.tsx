@@ -8,8 +8,10 @@ import { Mail } from "lucide-react";
 import Button from "../common/Button";
 import Link from "next/link";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 export default function ForgotPasswordForm() {
+    const router = useRouter();
     const handleSubmit = (values: ForgotPasswordFormValues) => {
         console.log("Form submitted:", values);
     };
@@ -20,7 +22,7 @@ export default function ForgotPasswordForm() {
                 <Image src="/logo.png" alt="logo" width={150} height={60} />
             </div>            <div className="flex flex-col items-center w-full max-w-md mx-auto flex-1 justify-center">
                 <div className="space-y-14 w-full">
-                    <Button isArrowButton={true} />
+                    <Button isArrowButton={true} onClick={() => router.push("/sign-in")} />
                     <div className="flex flex-col gap-4">
                         <h1 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-semibold ">
                             Forget Password</h1>

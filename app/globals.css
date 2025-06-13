@@ -261,9 +261,9 @@
   }
 }
 
-.neo-down {
+/* .neo-down {
   @apply shadow-[inset_1px_1px_4px_#e5e5e5, inset_-3px_-3px_7px_#f9fafb];
-}
+} */
 
 .react-datepicker {
   border: 0 !important;
@@ -318,9 +318,9 @@
   width: 100% !important;
 }
 
-.theme-shadow {
+/* .theme-shadow {
   @apply shadow-[0px_0px_12px_0px_rgba(0, 0, 0, 0.04)];
-}
+} */
 
 :where(.css-dev-only-do-not-override-ut69n1).ant-picker {
   padding: 7px 11px 6px;
